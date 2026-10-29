@@ -11,6 +11,10 @@ jobs:
           python-version: '3.12'
       - name: Install PlatformIO
         run: pip install --upgrade platformio
+      - name: Prepare the platform's Python environment
+        run: |
+          python -m venv ~/.platformio/penv
+          ~/.platformio/penv/bin/pip install "pioarduino==6.2.0"
       - name: Build
         run: pio run -e wt32-sc01-plus
       - name: Collect the files
