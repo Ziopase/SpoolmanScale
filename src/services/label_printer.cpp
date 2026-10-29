@@ -6,9 +6,11 @@
 
 #include "hardware/sd_logger.h"
 #include "lang.h"
+#include "services/brother_ql.h"
 #include "services/niimbot.h"
 #include "services/phomemo_m_series.h"
 #include "services/prefs_store.h"
+#include "services/wifi_manager.h"
 
 // The NVS keys. 15 characters at most, and never renamed: they sit in the
 // NVS of every device that ever picked a printer.
@@ -88,9 +90,20 @@ static const LabelPrinterProfile PROFILE_NIIMBOT_M2 = {
   300, LP_PROTO_NIIMBOT
 };
 
+// Brother QL-700: 300 dpi, a 720 dot row of which 62 mm continuous tape
+// (DK-22205, cut to the label's length) prints 696. USB only, so it sits behind
+// a forwarder that turns a TCP socket into the USB device (services/brother_ql.h);
+// the network QLs (710W, 720NW, 810W, 820NWB) take the same bytes directly.
+// Direct thermal, like the Phomemos. The bytes are the ones brother_ql writes
+// (test/test_brother_ql.py); not yet printed on a real QL-700.
+static const LabelPrinterProfile PROFILE_BROTHER_QL700 = {
+  LP_MODEL_BROTHER_QL700, "Brother", "QL-700", 62, 30, 62, 62, 15, 150, 720, 720, true, true,
+  300, LP_PROTO_BROTHER_QL
+};
+
 const LabelPrinterModel LABEL_PRINTER_MODELS[] = {
   LP_MODEL_M220, LP_MODEL_NIIMBOT_M2, LP_MODEL_M110, LP_MODEL_M110S, LP_MODEL_M100,
-  LP_MODEL_NIIMBOT_B, LP_MODEL_M120, LP_MODEL_M200, LP_MODEL_M221,
+  LP_MODEL_NIIMBOT_B, LP_MODEL_M120, LP_MODEL_M200, LP_MODEL_M221, LP_MODEL_BROTHER_QL700,
 };
 const int LABEL_PRINTER_MODEL_COUNT = sizeof(LABEL_PRINTER_MODELS) / sizeof(LABEL_PRINTER_MODELS[0]);
 
@@ -98,7 +111,7 @@ const int LABEL_PRINTER_MODEL_COUNT = sizeof(LABEL_PRINTER_MODELS) / sizeof(LABE
 // 26.09.2026). 40 x 20 and 30 x 20 leave no room for the code; the larger
 // ones come back with the label presets.
 const LabelMediaSize LABEL_MEDIA_SIZES[] = {
-  {40, 30}, {50, 30},
+  {40, 30}, {50, 30}, {62, 30},   // 62: the Brother QL's tape, no other model's roll
 };
 const int LABEL_MEDIA_SIZE_COUNT = sizeof(LABEL_MEDIA_SIZES) / sizeof(LABEL_MEDIA_SIZES[0]);
 
@@ -122,7 +135,7 @@ static bool offsetKey(const char* address, char* key, size_t n) {
   if (!address || !address[0]) return false;
   size_t k = snprintf(key, n, "%s", LP_KEY_XOFF_PREFIX);
   for (const char* a = address; *a && k + 1 < n; a++)
-    if (*a != ':') key[k++] = (char)tolower((unsigned char)*a);
+    if (*a != ':' && *a != '.') key[k++] = (char)tolower((unsigned char)*a);
   key[k] = '\0';
   return true;
 }
@@ -148,11 +161,14 @@ const LabelPrinterProfile& labelPrinterProfile(LabelPrinterModel model) {
     case LP_MODEL_M221: return PROFILE_M221;
     case LP_MODEL_NIIMBOT_B:  return PROFILE_NIIMBOT_B;
     case LP_MODEL_NIIMBOT_M2: return PROFILE_NIIMBOT_M2;
+    case LP_MODEL_BROTHER_QL700: return PROFILE_BROTHER_QL700;
     default:            return PROFILE_NONE;
   }
 }
 
 static bool mediaFits(const LabelPrinterProfile& p, uint16_t w, uint16_t h) {
+  // The 62 mm tape is the Brother's alone; the other heads' ranges only happen to span it.
+  if (w == 62 && p.model != LP_MODEL_BROTHER_QL700) return false;
   return p.model != LP_MODEL_NONE &&
          w >= p.min_width_mm && w <= p.max_width_mm &&
          h >= p.min_length_mm && h <= p.max_length_mm;
@@ -172,6 +188,12 @@ static LabelPrinterConfig normalized(const LabelPrinterConfig& in) {
   c.model = use.model;
   c.name[sizeof(c.name) - 1] = '\0';
   c.address[sizeof(c.address) - 1] = '\0';
+  // A Bluetooth address has colons, an IPv4 address dots: one left over from
+  // the other kind of printer would only fail at the first print.
+  if (c.address[0] && (strchr(c.address, '.') != nullptr) != labelPrinterIsNetwork(c.model)) {
+    c.address[0] = '\0';
+    c.name[0] = '\0';
+  }
   if (c.x_offset > LP_OFFSET_RIGHT) c.x_offset = LP_OFFSET_RIGHT;
   if (c.x_offset < LP_OFFSET_LEFT)  c.x_offset = LP_OFFSET_LEFT;
   if (mediaFits(use, s_want_w, s_want_l)) {
@@ -328,6 +350,29 @@ static LabelPrintResult fromBle(BleWriteResult r) {
   }
 }
 
+bool labelPrinterIsNetwork(LabelPrinterModel model) {
+  return labelPrinterProfile(model).protocol == LP_PROTO_BROTHER_QL &&
+         model != LP_MODEL_NONE;
+}
+
+bool labelPrinterTransportOn(const LabelPrinterConfig& c) {
+  return labelPrinterIsNetwork(c.model) ? wifiManagerIsConnected() : bleEnabled();
+}
+
+// The QL takes the cut from the tape: continuous, so each label is cut off.
+static LabelPrintResult printBrotherQl(const LabelPrinterConfig& c, const LabelRaster& image,
+                                       BleProgressFn progress) {
+  const BrotherQlResult r = brotherQlPrint(c.address, BQL_PORT, image,
+                                           (uint8_t)c.media_width_mm, true, progress);
+  logSDf("Printer: Brother QL %s result=%d", c.address, (int)r);
+  switch (r) {
+    case BQL_OK:         return LP_OK;                 // sent; like the Phomemos, no answer to wait for
+    case BQL_BAD_RASTER: return LP_BAD_RASTER;
+    case BQL_WRITE:      return LP_NET_WRITE;
+    default:             return LP_NET_CONNECT;        // no WiFi, or nothing answered
+  }
+}
+
 static LabelPrintResult printNiimbot(const LabelPrinterProfile& p, const LabelPrinterConfig& c,
                                      const LabelRaster& image, BleProgressFn progress) {
   NiimbotJobInfo info{};
@@ -364,6 +409,7 @@ LabelPrintResult labelPrinterPrint(const LabelPrinterConfig& c, const LabelRaste
   if (!labelPrinterRasterFits(c.model, image, c.media_width_mm, c.media_length_mm))
     return LP_MEDIA_MISMATCH;
   if (p.protocol == LP_PROTO_NIIMBOT) return printNiimbot(p, c, image, progress);
+  if (p.protocol == LP_PROTO_BROTHER_QL) return printBrotherQl(c, image, progress);
   const PhomemoModel pm = p.protocol == LP_PROTO_PHOMEMO_M220 ? PHOMEMO_M220 : PHOMEMO_M110;
   return fromBle(phomemoMSeriesPrint(pm, c.address, image, progress));
 }
@@ -393,6 +439,10 @@ int labelPrintResultString(LabelPrintResult r) {
     case LP_MODEL_MISMATCH:     return STR_PRN_ERR_MODEL_MISMATCH;
     case LP_MODEL_UNKNOWN:      return STR_PRN_ERR_MODEL_UNKNOWN;
     case LP_SERVER_LABEL:       return STR_PRN_ERR_SERVER_LABEL;
+    // Existing texts: "the printer does not answer" and "the transfer was cut
+    // off" read the same over a socket as over Bluetooth.
+    case LP_NET_CONNECT:        return STR_PRN_ERR_CONNECT;
+    case LP_NET_WRITE:          return STR_PRN_ERR_WRITE;
     default:                    return STR_PRN_ERR_WRITE;
   }
 }

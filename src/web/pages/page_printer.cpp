@@ -248,6 +248,21 @@ static void deviceTile(String& h, const LabelPrinterConfig& c) {
          "<span class='msg' id='dv-s'></span>");
 }
 
+// A printer reached over the network (Brother QL): there is no scan to find
+// it, its address is typed. Taking it picks the model, so the cards follow.
+static void networkRow(String& h, const LabelPrinterConfig& c) {
+  h += F("<div class='sect'><h3>");
+  h += T(STR_W_P_NET_TITLE);
+  h += F("</h3><span class='hint'>");
+  h += T(STR_W_P_NET_HINT);
+  h += F("</span></div><div class='inrow'><input id='nip' type='text' inputmode='decimal' "
+         "maxlength='15' placeholder='192.168.1.50' value='");
+  if (labelPrinterIsNetwork(c.model) && labelPrinterConfigured(c)) h += c.address;
+  h += F("'><button id='nb'>");
+  h += T(STR_W_P_NET_USE);
+  h += F("</button></div><span class='msg' id='nip-s'></span>");
+}
+
 // Model and label stock as cards, what the model prints with, the limits of
 // the list, and the way to rolls that fit.
 static void pickers(String& h, const LabelPrinterConfig& c) {
@@ -558,6 +573,8 @@ static void scriptHandlers(String& h) {
          "postFlash('/api/printer/calib','','cb-s',4000).then(function(){setTimeout(load,12000);});});"
          "$('fb').addEventListener('click',function(){"
          "postFlash('/api/printer/forget','','pd-s',4000).then(load);});"
+         "$('nb').addEventListener('click',function(){"
+         "postFlash('/api/printer/network',$('nip').value.trim(),'nip-s',4000).then(load);});"
          // The restart route sits behind the maintenance gate; a shut one
          // answers 403 as text, which is shown as it is.
          "$('rb').addEventListener('click',function(){"
@@ -591,6 +608,7 @@ static String body() {
   h += T(STR_PRN_TITLE);
   h += F("</h2>");
   deviceTile(h, c);
+  networkRow(h, c);
   pickers(h, c);
   testRow(h);
   h += F("</div>");
@@ -600,7 +618,45 @@ static String body() {
   return h;
 }
 
+// The gate of the test print and the calibration page: a printer is picked,
+// its link is up and, over Bluetooth, the stack is not stuck. Answers 409 and
+// returns false when not.
+static bool printReady(WebServer &srv) {
+  const LabelPrinterConfig c = labelPrinterLoadConfig();
+  if (!labelPrinterConfigured(c)) { srv.send(409, "text/plain", T(STR_PRN_ERR_NO_PRINTER)); return false; }
+  if (!labelPrinterTransportOn(c)) {
+    srv.send(409, "text/plain", T(labelPrinterIsNetwork(c.model) ? STR_PRN_ERR_CONNECT : STR_PRN_ERR_BLE_OFF));
+    return false;
+  }
+  if (!labelPrinterIsNetwork(c.model) && bleStackStuck()) {
+    srv.send(409, "text/plain", T(STR_PRN_ERR_STUCK));
+    return false;
+  }
+  return true;
+}
+
 static void routes(WebServer &srv) {
+  // The address of a network printer becomes the printer, and the model its
+  // address belongs to with it. Only a dotted IPv4 address: no name is looked up.
+  srv.on("/api/printer/network", HTTP_POST, [&srv]() {
+    if (!webRequire(srv, GATE_CONFIG, T(STR_W_NAV_PRINTER))) return;
+    String v = srv.arg("plain");
+    v.trim();
+    IPAddress ip;
+    if (v.length() > 15 || !ip.fromString(v) || ip == IPAddress(0, 0, 0, 0)) {
+      srv.send(400, "text/plain", T(STR_W_P_NET_BAD));
+      return;
+    }
+    LabelPrinterConfig c = labelPrinterLoadConfig();
+    c.model = LP_MODEL_BROTHER_QL700;
+    snprintf(c.address, sizeof(c.address), "%s", ip.toString().c_str());
+    snprintf(c.name, sizeof(c.name), "%s %s", labelPrinterProfile(c.model).brand,
+             labelPrinterProfile(c.model).name);
+    const bool ok = labelPrinterSaveConfig(c);
+    logSDf("Web: network printer -> %s %s", c.address, ok ? "saved" : "NOT saved");
+    srv.send(ok ? 200 : 500, "application/json", ok ? "{\"ok\":true}" : "{\"ok\":false}");
+  });
+
   srv.on("/api/printer", HTTP_GET, [&srv]() {
     if (!webRequire(srv, GATE_CONFIG, T(STR_W_NAV_PRINTER))) return;
     srv.send(200, "application/json", stateJson());
@@ -687,9 +743,7 @@ static void routes(WebServer &srv) {
   // and shows the verdict on the device. The page fetches it afterwards.
   srv.on("/api/printer/test", HTTP_POST, [&srv]() {
     if (!webRequire(srv, GATE_CONFIG, T(STR_W_NAV_PRINTER))) return;
-    if (!labelPrinterConfigured(labelPrinterLoadConfig())) { srv.send(409, "text/plain", T(STR_PRN_ERR_NO_PRINTER)); return; }
-    if (!bleEnabled()) { srv.send(409, "text/plain", T(STR_PRN_ERR_BLE_OFF)); return; }
-    if (bleStackStuck()) { srv.send(409, "text/plain", T(STR_PRN_ERR_STUCK)); return; }
+    if (!printReady(srv)) return;
     printer_test_pending = true;
     logSD("Web: test print requested");
     srv.send(200, "text/plain", T(STR_W_P_QUEUED));
@@ -721,9 +775,7 @@ static void routes(WebServer &srv) {
   // Parks the calibration page, the same way as the test print.
   srv.on("/api/printer/calib", HTTP_POST, [&srv]() {
     if (!webRequire(srv, GATE_CONFIG, T(STR_W_NAV_PRINTER))) return;
-    if (!labelPrinterConfigured(labelPrinterLoadConfig())) { srv.send(409, "text/plain", T(STR_PRN_ERR_NO_PRINTER)); return; }
-    if (!bleEnabled()) { srv.send(409, "text/plain", T(STR_PRN_ERR_BLE_OFF)); return; }
-    if (bleStackStuck()) { srv.send(409, "text/plain", T(STR_PRN_ERR_STUCK)); return; }
+    if (!printReady(srv)) return;
     printer_calib_pending = true;
     logSD("Web: calibration page requested");
     srv.send(200, "text/plain", T(STR_W_P_QUEUED));

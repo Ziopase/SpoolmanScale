@@ -810,7 +810,8 @@ void buildMoreInfoScreen() {
   // backend knows, and Bluetooth on with a printer picked - or, without one,
   // FilaMan, which prints on the PC instead (ui/pc_print_popup.h). The print
   // itself runs from the loop; it starts the BLE stack and blocks for seconds.
-  const bool bt_print = bleEnabled() && labelPrinterConfigured(labelPrinterLoadConfig());
+  const LabelPrinterConfig print_cfg = labelPrinterLoadConfig();
+  const bool bt_print = labelPrinterConfigured(print_cfg) && labelPrinterTransportOn(print_cfg);
   const bool pc_print = !bt_print && backendIsFilaMan();
   if ((bt_print || pc_print) && sm_found && sm_id > 0) {
     lv_obj_t *btn_print = lv_btn_create(hdr);

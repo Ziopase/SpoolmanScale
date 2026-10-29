@@ -218,8 +218,8 @@ static String stateJson(LabelKind kind) {
   j += F("\",\"configured\":");
   j += labelPrinterConfigured(c) ? F("true") : F("false");
   j += F(",\"canPrint\":");
-  const bool can = labelPrinterConfigured(c) && bleEnabled() && bleStackAvailable() &&
-                   !bleStackStuck();
+  const bool can = labelPrinterConfigured(c) && labelPrinterTransportOn(c) &&
+                   (labelPrinterIsNetwork(c.model) || (bleStackAvailable() && !bleStackStuck()));
   j += can ? F("true") : F("false");
   j += F(",\"lastPrint\":");
   const int last = printerLastLabelResult();
@@ -748,9 +748,13 @@ static void routes(WebServer &srv) {
     if (!webRequire(srv, GATE_CONFIG, T(STR_W_NAV_LABEL))) return;
     SpoolLabelData s{};
     if (!labelSpoolLast(&s)) { srv.send(409, "text/plain", T(STR_PRN_ERR_NO_SPOOL)); return; }
-    if (!labelPrinterConfigured(labelPrinterLoadConfig())) { srv.send(409, "text/plain", T(STR_PRN_ERR_NO_PRINTER)); return; }
-    if (!bleEnabled()) { srv.send(409, "text/plain", T(STR_PRN_ERR_BLE_OFF)); return; }
-    if (bleStackStuck()) { srv.send(409, "text/plain", T(STR_PRN_ERR_STUCK)); return; }
+    const LabelPrinterConfig pc = labelPrinterLoadConfig();
+    if (!labelPrinterConfigured(pc)) { srv.send(409, "text/plain", T(STR_PRN_ERR_NO_PRINTER)); return; }
+    if (!labelPrinterTransportOn(pc)) {
+      srv.send(409, "text/plain", T(labelPrinterIsNetwork(pc.model) ? STR_PRN_ERR_CONNECT : STR_PRN_ERR_BLE_OFF));
+      return;
+    }
+    if (!labelPrinterIsNetwork(pc.model) && bleStackStuck()) { srv.send(409, "text/plain", T(STR_PRN_ERR_STUCK)); return; }
     const LabelKind kind = kindOf(srv);
     if (kind == LABEL_KIND_FILAMENT) print_last_filament_label_pending = true;
     else print_last_label_pending = true;

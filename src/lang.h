@@ -1801,6 +1801,10 @@ enum StringID {
   STR_IDPAD_NOT_FOUND,        // %d: the id that was typed
   STR_IDPAD_NOT_FOUND_HINT,   // under it
   STR_ID_SPOOL_STATUS,        // the status line while a spool is shown by its id
+  STR_W_P_NET_TITLE,          // the browser's network printer row: its name
+  STR_W_P_NET_HINT,           // and what to type in it
+  STR_W_P_NET_USE,            // the button
+  STR_W_P_NET_BAD,            // the answer to something that is not an IPv4 address
 
   STR_COUNT
 };

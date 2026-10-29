@@ -33,7 +33,7 @@ static void printFixedLabel(bool (*render)(const LabelPrinterConfig&, LabelRaste
   const LabelPrinterConfig c = labelPrinterLoadConfig();
   LabelPrintResult result = LP_NO_PRINTER;
   if (labelPrinterConfigured(c)) {
-    if (!bleEnabled()) result = LP_BLE_OFF;
+    if (!labelPrinterTransportOn(c)) result = labelPrinterIsNetwork(c.model) ? LP_NET_CONNECT : LP_BLE_OFF;
     else {
       printCardShow();
       LabelRaster raster{};
@@ -83,7 +83,7 @@ static void printSpoolLabel(SpoolLabelData spool, bool own_layout = false,
   const bool server = !own_layout && kind == LABEL_KIND_SPOOL && labelServerInUse();
   LabelPrintResult result = LP_NO_PRINTER;
   if (labelPrinterConfigured(c)) {
-    if (!bleEnabled()) result = LP_BLE_OFF;
+    if (!labelPrinterTransportOn(c)) result = labelPrinterIsNetwork(c.model) ? LP_NET_CONNECT : LP_BLE_OFF;
     else {
       printCardShow();
       LabelRaster raster{};

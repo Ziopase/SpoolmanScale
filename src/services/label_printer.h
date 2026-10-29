@@ -27,13 +27,15 @@ enum LabelPrinterModel : uint8_t {
   LP_MODEL_NIIMBOT_B = 4,     // the 50 mm NIIMBOT class: B1, B21, B203 ...
   LP_MODEL_NIIMBOT_M2 = 5,    // NIIMBOT M2, 300 dpi, thermal transfer
   LP_MODEL_M120 = 6, LP_MODEL_M200 = 7, LP_MODEL_M221 = 8,
-  LP_MODEL_M110S = 9          // the M110's bytes, a row as wide as the label
+  LP_MODEL_M110S = 9,         // the M110's bytes, a row as wide as the label
+  LP_MODEL_BROTHER_QL700 = 10 // Brother QL-700 and family, over the network
 };
 
 // Which bytes a model takes. Phomemo's two preambles share one write-only
 // transport; a NIIMBOT talks back and gets a driver of its own.
 enum LabelPrinterProtocol : uint8_t {
-  LP_PROTO_PHOMEMO_M220 = 0, LP_PROTO_PHOMEMO_M110 = 1, LP_PROTO_NIIMBOT = 2
+  LP_PROTO_PHOMEMO_M220 = 0, LP_PROTO_PHOMEMO_M110 = 1, LP_PROTO_NIIMBOT = 2,
+  LP_PROTO_BROTHER_QL = 3     // QL raster over TCP; the address is an IPv4 address
 };
 
 struct LabelPrinterProfile {
@@ -106,9 +108,18 @@ enum LabelPrintResult : uint8_t {
   LP_MODEL_MISMATCH,    // a known printer, but not of the picked class
   LP_MODEL_UNKNOWN,     // an id the table does not have; it is in the log
   LP_SERVER_LABEL,      // the server did not draw the chosen preset; why is in the log
+  LP_NET_CONNECT,       // a network printer: no WiFi, or nothing answered on its address
+  LP_NET_WRITE,         // a network printer: the socket stopped taking bytes
 };
 
 const LabelPrinterProfile& labelPrinterProfile(LabelPrinterModel model);
+
+// A model that is reached over the network, its address an IPv4 address
+// instead of a Bluetooth one.
+bool labelPrinterIsNetwork(LabelPrinterModel model);
+// Whether the printer's link is up: WiFi for a network model, the Bluetooth
+// switch for the others. What "Print label" checks before it starts.
+bool labelPrinterTransportOn(const LabelPrinterConfig& config);
 
 // Cached after the first read; every write goes through the save.
 LabelPrinterConfig labelPrinterLoadConfig();

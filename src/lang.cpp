@@ -3921,6 +3921,18 @@ const char* const STRINGS[][3] = {
   { "Per ID geladen - kein Tag",
     "Loaded by ID - no tag",
     "Chargée par ID - sans tag" },  // STR_ID_SPOOL_STATUS
+  { "Netzwerkdrucker (Brother QL)",
+    "Network printer (Brother QL)",
+    "Imprimante réseau (Brother QL)" },  // STR_W_P_NET_TITLE
+  { "IPv4-Adresse des Druckers oder des Rechners, an dem sein USB-Kabel steckt (Port 9100).",
+    "IPv4 address of the printer, or of the computer its USB cable is plugged into (port 9100).",
+    "Adresse IPv4 de l'imprimante, ou de l'ordinateur où son câble USB est branché (port 9100)." },  // STR_W_P_NET_HINT
+  { "Als Drucker verwenden",
+    "Use as printer",
+    "Utiliser comme imprimante" },  // STR_W_P_NET_USE
+  { "Keine gültige IPv4-Adresse.",
+    "Not a valid IPv4 address.",
+    "Adresse IPv4 invalide." },  // STR_W_P_NET_BAD
 };
 
 StringID tagWriteResultString(uint8_t code) {
