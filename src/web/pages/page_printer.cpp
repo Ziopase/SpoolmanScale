@@ -109,6 +109,8 @@ static String stateJson() {
   j += labelPrinterConfigured(c) ? F("true") : F("false");
   j += F(",\"model\":");
   j += String((int)c.model);
+  j += F(",\"net\":");
+  j += labelPrinterIsNetwork(c.model) ? F("true") : F("false");
   j += F(",\"thermal\":");
   j += labelPrinterProfile(c.model).direct_thermal ? F("true") : F("false");
   j += F(",\"rec\":");
@@ -496,7 +498,8 @@ static void scriptPaint(String& h) {
          "$('lt').textContent=d.lastTest||'';"
          "$('ltr').style.display=d.lastTest?'':'none';"
          "$('sc').disabled=!d.ble||!d.stack||d.stuck||d.scanning;"
-         "$('tb').disabled=!d.ble||!d.stack||d.stuck||!d.printer.configured;"
+         // A network printer needs no Bluetooth; the scale checks WiFi itself.
+         "$('tb').disabled=!d.printer.configured||(!d.printer.net&&(!d.ble||!d.stack||d.stuck));"
          "$('cb').disabled=$('tb').disabled;"
          "pos(d);"
          "rows(d);"
