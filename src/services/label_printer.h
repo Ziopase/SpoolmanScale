@@ -142,8 +142,13 @@ uint16_t labelPrinterRasterWidth(LabelPrinterModel model, uint16_t media_width_m
 // wider than the head prints the head's width of it.
 uint16_t labelPrinterContentWidth(LabelPrinterModel model, uint16_t media_width_mm);
 // The first dot of the label in the print row: the middle plus the offset,
-// clamped so the label stays in the row.
+// clamped so the label stays in the row. A Brother QL places its roll itself:
+// there it is the roll's printable area, and there is no offset to set.
 uint16_t labelPrinterContentX(const LabelPrinterConfig& config);
+// The label's dots along the feed: its length in dots, or on a die-cut QL
+// label the part of it the printer prints.
+uint16_t labelPrinterContentHeight(LabelPrinterModel model, uint16_t media_width_mm,
+                                   uint16_t media_length_mm);
 // The offsets the loaded stock allows: the label at the row's left edge and
 // at its right edge. Both 0 when the label fills the row.
 void labelPrinterOffsetRange(const LabelPrinterConfig& config, int16_t* min, int16_t* max);

@@ -81,6 +81,17 @@ LabelLayout labelLayoutSanitized(const LabelLayout& in);
 bool labelLayoutHas(const LabelLayout& layout, LabelField field);
 bool labelLayoutOption(const LabelLayout& layout, LabelOption option);
 
+// The template as a roll of this size can carry it. The large rolls take it
+// as it is. A narrow one (under 40 mm across) keeps the code, the maker, the
+// material and the colour; a small one (under 30 mm both ways, the 23 x 23
+// square) the code and the material, on the standard arrangement, flat. What
+// it drops is in the code's page anyway. Pure: the saved template is untouched.
+LabelLayout labelLayoutForMedia(const LabelLayout& layout, uint16_t width_mm,
+                                uint16_t length_mm);
+// Whether a roll of this size is one labelLayoutForMedia() narrows to the
+// code and the material: the test print leaves its sentence off there.
+bool labelMediaSmall(uint16_t width_mm, uint16_t length_mm);
+
 // Whether an arrangement draws a code at all; the QR field means nothing
 // where it does not.
 bool labelPresetHasQr(uint8_t preset);

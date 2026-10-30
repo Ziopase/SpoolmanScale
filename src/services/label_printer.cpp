@@ -97,7 +97,7 @@ static const LabelPrinterProfile PROFILE_NIIMBOT_M2 = {
 // Direct thermal, like the Phomemos. The bytes are the ones brother_ql writes
 // (test/test_brother_ql.py); not yet printed on a real QL-700.
 static const LabelPrinterProfile PROFILE_BROTHER_QL700 = {
-  LP_MODEL_BROTHER_QL700, "Brother", "QL-700", 62, 30, 62, 62, 15, 150, 720, 720, true, true,
+  LP_MODEL_BROTHER_QL700, "Brother", "QL-700", 62, 30, 23, 62, 23, 40, 720, 720, true, true,
   300, LP_PROTO_BROTHER_QL
 };
 
@@ -110,8 +110,10 @@ const int LABEL_PRINTER_MODEL_COUNT = sizeof(LABEL_PRINTER_MODELS) / sizeof(LABE
 // The two sizes printed and checked on the M220 for 0.8.0 (Nikolai,
 // 26.09.2026). 40 x 20 and 30 x 20 leave no room for the code; the larger
 // ones come back with the label presets.
+// 62 x 30, 38 x 40 and 23 x 23 are the Brother QL's rolls (services/brother_ql.h)
+// and no other model's.
 const LabelMediaSize LABEL_MEDIA_SIZES[] = {
-  {40, 30}, {50, 30}, {62, 30},   // 62: the Brother QL's tape, no other model's roll
+  {40, 30}, {50, 30}, {62, 30}, {38, 40}, {23, 23},
 };
 const int LABEL_MEDIA_SIZE_COUNT = sizeof(LABEL_MEDIA_SIZES) / sizeof(LABEL_MEDIA_SIZES[0]);
 
@@ -167,8 +169,12 @@ const LabelPrinterProfile& labelPrinterProfile(LabelPrinterModel model) {
 }
 
 static bool mediaFits(const LabelPrinterProfile& p, uint16_t w, uint16_t h) {
-  // The 62 mm tape is the Brother's alone; the other heads' ranges only happen to span it.
-  if (w == 62 && p.model != LP_MODEL_BROTHER_QL700) return false;
+  // A QL takes its own rolls and nothing else: it reads the roll's chip and
+  // refuses a job for another one. Those sizes are its alone; the other
+  // heads' ranges only happen to span them.
+  const bool ql_roll = brotherQlMedia((uint8_t)w, (uint8_t)h) != nullptr;
+  if (p.protocol == LP_PROTO_BROTHER_QL) return p.model != LP_MODEL_NONE && ql_roll;
+  if (ql_roll) return false;
   return p.model != LP_MODEL_NONE &&
          w >= p.min_width_mm && w <= p.max_width_mm &&
          h >= p.min_length_mm && h <= p.max_length_mm;
@@ -291,6 +297,13 @@ uint16_t labelPrinterRasterWidth(LabelPrinterModel model, uint16_t media_width_m
 // Every Phomemo head is at least as wide as its widest stock, so there this
 // is the plain conversion; a 50 mm roll on a 48 mm head prints 48 mm of it.
 uint16_t labelPrinterContentWidth(LabelPrinterModel model, uint16_t media_width_mm) {
+  // A QL prints the roll's printable width, never its whole width: the row
+  // and the roll are the printer's to line up. Every QL roll has one width,
+  // so the width alone names its printable area.
+  if (labelPrinterProfile(model).protocol == LP_PROTO_BROTHER_QL)
+    for (const LabelMediaSize& s : LABEL_MEDIA_SIZES)
+      if (s.width_mm == media_width_mm)
+        if (const BrotherQlMedia* m = brotherQlMedia(s.width_mm, s.length_mm)) return m->printable_w;
   const uint16_t dots = labelPrinterDotsForMm(model, media_width_mm);
   const uint16_t row = labelPrinterRasterWidth(model, media_width_mm);
   return dots > row ? row : dots;
@@ -301,6 +314,8 @@ uint16_t labelPrinterContentWidth(LabelPrinterModel model, uint16_t media_width_
 // the fixed wall of the roll holder (30.09.2026). Where the roll runs is how
 // it sits in the holder, not the model, so it is a setting of its own.
 void labelPrinterOffsetRange(const LabelPrinterConfig& c, int16_t* min, int16_t* max) {
+  // Nothing to move on a QL: the roll sits against its guide.
+  if (labelPrinterIsNetwork(c.model)) { if (min) *min = 0; if (max) *max = 0; return; }
   const uint16_t row = labelPrinterRasterWidth(c.model, c.media_width_mm);
   const uint16_t content = labelPrinterContentWidth(c.model, c.media_width_mm);
   const int16_t slack = content < row ? int16_t(row - content) : 0;
@@ -316,9 +331,22 @@ int16_t labelPrinterOffset(const LabelPrinterConfig& c) {
 }
 
 uint16_t labelPrinterContentX(const LabelPrinterConfig& c) {
+  if (labelPrinterIsNetwork(c.model)) {
+    const BrotherQlMedia* m = brotherQlMedia((uint8_t)c.media_width_mm, (uint8_t)c.media_length_mm);
+    return m ? brotherQlContentX(*m) : 0;
+  }
   int16_t lo;
   labelPrinterOffsetRange(c, &lo, nullptr);
   return uint16_t(labelPrinterOffset(c) - lo);
+}
+
+uint16_t labelPrinterContentHeight(LabelPrinterModel model, uint16_t media_width_mm,
+                                   uint16_t media_length_mm) {
+  if (labelPrinterProfile(model).protocol == LP_PROTO_BROTHER_QL) {
+    const BrotherQlMedia* m = brotherQlMedia((uint8_t)media_width_mm, (uint8_t)media_length_mm);
+    if (m && m->die_cut) return m->printable_h;
+  }
+  return labelPrinterDotsForMm(model, media_length_mm);
 }
 
 // The renderer works in whole dots from the same conversion, so the content
@@ -333,7 +361,7 @@ bool labelPrinterRasterFits(LabelPrinterModel model, const LabelRaster& image,
   return mediaFits(p, media_width_mm, media_length_mm) &&
          image.width == labelPrinterRasterWidth(model, media_width_mm) &&
          nearDots(image.content_width, labelPrinterContentWidth(model, media_width_mm)) &&
-         nearDots(image.height, labelPrinterDotsForMm(model, media_length_mm));
+         nearDots(image.height, labelPrinterContentHeight(model, media_width_mm, media_length_mm));
 }
 
 // What the transport says, in the printer's terms; both drivers share it.
@@ -362,8 +390,9 @@ bool labelPrinterTransportOn(const LabelPrinterConfig& c) {
 // The QL takes the cut from the tape: continuous, so each label is cut off.
 static LabelPrintResult printBrotherQl(const LabelPrinterConfig& c, const LabelRaster& image,
                                        BleProgressFn progress) {
-  const BrotherQlResult r = brotherQlPrint(c.address, BQL_PORT, image,
-                                           (uint8_t)c.media_width_mm, true, progress);
+  const BrotherQlMedia* m = brotherQlMedia((uint8_t)c.media_width_mm, (uint8_t)c.media_length_mm);
+  if (!m) return LP_MEDIA_MISMATCH;
+  const BrotherQlResult r = brotherQlPrint(c.address, BQL_PORT, image, *m, true, progress);
   logSDf("Printer: Brother QL %s result=%d", c.address, (int)r);
   switch (r) {
     case BQL_OK:         return LP_OK;                 // sent; like the Phomemos, no answer to wait for
@@ -457,8 +486,9 @@ void labelPrinterNextMedia(LabelPrinterConfig& c) {
         LABEL_MEDIA_SIZES[i].length_mm == c.media_length_mm) { at = i; break; }
   for (int step = 1; step <= LABEL_MEDIA_SIZE_COUNT; step++) {
     const LabelMediaSize& s = LABEL_MEDIA_SIZES[(at + step) % LABEL_MEDIA_SIZE_COUNT];
-    if (s.width_mm >= p.min_width_mm && s.width_mm <= p.max_width_mm &&
-        s.length_mm >= p.min_length_mm && s.length_mm <= p.max_length_mm) {
+    // mediaFits(), not the profile's ranges: a QL takes only its own rolls,
+    // and those sizes are no other model's.
+    if (mediaFits(p, s.width_mm, s.length_mm)) {
       c.media_width_mm = s.width_mm;
       c.media_length_mm = s.length_mm;
       return;

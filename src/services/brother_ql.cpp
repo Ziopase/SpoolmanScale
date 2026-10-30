@@ -11,7 +11,21 @@ static uint8_t reverseBits(uint8_t b) {
   return b;
 }
 
-bool brotherQlStream(const LabelRaster& image, uint8_t tape_mm, bool cut,
+// brother_ql's labels '62', '38' and '23x23'. Continuous tape keeps a 35 dot
+// feed margin, a die-cut label none (its gap is the margin).
+static const BrotherQlMedia MEDIA[] = {
+  { 62, 30, false, 696,   0, 12 },
+  { 38, 40, false, 413,   0, 12 },
+  { 23, 23, true,  202, 202, 42 },
+};
+
+const BrotherQlMedia* brotherQlMedia(uint8_t width_mm, uint8_t length_mm) {
+  for (const BrotherQlMedia& m : MEDIA)
+    if (m.width_mm == width_mm && m.length_mm == length_mm) return &m;
+  return nullptr;
+}
+
+bool brotherQlStream(const LabelRaster& image, const BrotherQlMedia& media, bool cut,
                      BrotherQlSink sink, void* ctx) {
   if (!sink || !image.pixels || image.width != BQL_ROW_DOTS ||
       image.row_bytes != BQL_ROW_BYTES || image.height == 0 ||
@@ -26,10 +40,13 @@ bool brotherQlStream(const LabelRaster& image, uint8_t tape_mm, bool cut,
   size_t n = 0;
   cmd[n++] = 0x1B; cmd[n++] = 0x40;                       // ESC @  initialise
   // ESC i z  media and quality: kind, width and length valid, high quality.
-  // 0x0A is continuous tape; its length is 0, the line count sets the label.
+  // 0x0A continuous tape, length 0: the line count sets the label. 0x0B a
+  // die-cut label of its own length.
   cmd[n++] = 0x1B; cmd[n++] = 0x69; cmd[n++] = 0x7A;
   cmd[n++] = 0xCE;
-  cmd[n++] = 0x0A; cmd[n++] = tape_mm; cmd[n++] = 0x00;
+  cmd[n++] = media.die_cut ? 0x0B : 0x0A;
+  cmd[n++] = media.width_mm;
+  cmd[n++] = media.die_cut ? media.length_mm : 0x00;
   const uint32_t lines = image.height;
   cmd[n++] = (uint8_t)(lines);       cmd[n++] = (uint8_t)(lines >> 8);
   cmd[n++] = (uint8_t)(lines >> 16); cmd[n++] = (uint8_t)(lines >> 24);
@@ -40,8 +57,8 @@ bool brotherQlStream(const LabelRaster& image, uint8_t tape_mm, bool cut,
   }
   cmd[n++] = 0x1B; cmd[n++] = 0x69; cmd[n++] = 0x4B;      // ESC i K  expanded mode
   cmd[n++] = cut ? 0x08 : 0x00;                           // cut at the end
-  cmd[n++] = 0x1B; cmd[n++] = 0x69; cmd[n++] = 0x64;      // ESC i d  feed margin, 35 dots
-  cmd[n++] = 0x23; cmd[n++] = 0x00;
+  cmd[n++] = 0x1B; cmd[n++] = 0x69; cmd[n++] = 0x64;      // ESC i d  feed margin
+  cmd[n++] = media.die_cut ? 0x00 : 0x23; cmd[n++] = 0x00;  // 35 dots, none on die-cut
   if (!sink(ctx, cmd, n)) return false;
 
   // The raster lines, a few to a write so a socket is not fed byte by byte.
@@ -99,7 +116,8 @@ bool netWrite(void* ctx, const uint8_t* data, size_t len) {
 }  // namespace
 
 BrotherQlResult brotherQlPrint(const char* host, uint16_t port, const LabelRaster& image,
-                               uint8_t tape_mm, bool cut, BrotherQlProgressFn progress) {
+                               const BrotherQlMedia& media, bool cut,
+                               BrotherQlProgressFn progress) {
   if (!image.pixels || image.width != BQL_ROW_DOTS) return BQL_BAD_RASTER;
   if (!wifiManagerIsConnected()) return BQL_NO_WIFI;
   IPAddress ip;
@@ -114,7 +132,7 @@ BrotherQlResult brotherQlPrint(const char* host, uint16_t port, const LabelRaste
   }
   client.setNoDelay(true);
   NetSink sink{&client, progress};
-  const bool ok = brotherQlStream(image, tape_mm, cut, netWrite, &sink);
+  const bool ok = brotherQlStream(image, media, cut, netWrite, &sink);
   if (ok) {
     // Let the last bytes leave before the socket closes: a close with data
     // still queued can drop the print command.

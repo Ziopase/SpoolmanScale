@@ -107,6 +107,23 @@ int labelFactCapacity(const LabelLayout& layout, uint16_t width_mm, uint16_t len
                                     : FACT_CAPACITY_NO_CODE[row][preset];
 }
 
+bool labelMediaSmall(uint16_t width_mm, uint16_t length_mm) {
+  return width_mm < 30 && length_mm < 30;
+}
+
+LabelLayout labelLayoutForMedia(const LabelLayout& layout, uint16_t width_mm,
+                                uint16_t length_mm) {
+  LabelLayout l = layout;
+  if (labelMediaSmall(width_mm, length_mm)) {
+    l.fields &= (1u << LF_MATERIAL) | (1u << LF_QR);
+    l.preset = LABEL_PRESET_STANDARD;
+    l.options &= ~(1u << LO_PORTRAIT);
+  } else if (width_mm < 40) {
+    l.fields &= (1u << LF_VENDOR) | (1u << LF_MATERIAL) | (1u << LF_COLOR) | (1u << LF_QR);
+  }
+  return l;
+}
+
 uint32_t labelFactFields(uint8_t preset) {
   uint32_t m = (1u << LF_SPOOL_ID) | (1u << LF_COLOR) | (1u << LF_DATE) | (1u << LF_BRAND) |
                (1u << LF_ARTICLE) | (1u << LF_SPOOL_WEIGHT) | (1u << LF_NET_WEIGHT) |

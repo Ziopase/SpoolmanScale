@@ -525,7 +525,8 @@ static bool renderLabel(const LabelPrinterConfig& printer, const LabelLayout& la
   if (!out || !c.d) return false;
   *out = LabelRaster{};
   const uint16_t content_w = labelPrinterContentWidth(printer.model, printer.media_width_mm);
-  const uint16_t h = labelPrinterDotsForMm(printer.model, printer.media_length_mm);
+  const uint16_t h = labelPrinterContentHeight(printer.model, printer.media_width_mm,
+                                               printer.media_length_mm);
   const uint16_t row_w = labelPrinterRasterWidth(printer.model, printer.media_width_mm);
   if (!row_w || !h || content_w > row_w) return false;
   setDpi(labelPrinterProfile(printer.model).dpi);
@@ -594,9 +595,13 @@ bool labelRenderTest(const LabelPrinterConfig& printer, LabelRaster* out) {
            dash ? dash + 1 : FW_VERSION);
   const char* lines[] = { T(STR_LBL_TEST_DONATE) };
   // Always the standard arrangement: the test print checks the printer, not
-  // the template.
-  const LabelContent c{ &d, lines, 1, true, "https://" DONATION_URL, "test" };
-  return renderLabel(printer, labelLayoutDefault(), c, out);
+  // the template. Narrowed to the roll like every label; a small one keeps
+  // only the band and the code.
+  const bool small = labelMediaSmall(printer.media_width_mm, printer.media_length_mm);
+  const LabelContent c{ &d, lines, small ? 0 : 1, true, "https://" DONATION_URL, "test" };
+  return renderLabel(printer,
+                     labelLayoutForMedia(labelLayoutDefault(), printer.media_width_mm,
+                                         printer.media_length_mm), c, out);
 }
 
 // The dot of millimetre v on the calibration ruler, counted from the label's
@@ -610,7 +615,8 @@ bool labelRenderCalibration(const LabelPrinterConfig& printer, LabelRaster* out)
   if (!out) return false;
   *out = LabelRaster{};
   const uint16_t content_w = labelPrinterContentWidth(printer.model, printer.media_width_mm);
-  const uint16_t h = labelPrinterDotsForMm(printer.model, printer.media_length_mm);
+  const uint16_t h = labelPrinterContentHeight(printer.model, printer.media_width_mm,
+                                               printer.media_length_mm);
   const uint16_t row_w = labelPrinterRasterWidth(printer.model, printer.media_width_mm);
   if (!row_w || !h || content_w > row_w) return false;
   setDpi(labelPrinterProfile(printer.model).dpi);
@@ -755,7 +761,7 @@ bool labelRenderFilament(const LabelPrinterConfig& printer, const LabelLayout& l
   char qr[LABEL_QR_LEN];
   labelQrForFilament(spool.filament_id, qr, sizeof(qr));
   // No page to open: the label is laid out as one without a code.
-  LabelLayout l = layout;
+  LabelLayout l = labelLayoutForMedia(layout, printer.media_width_mm, printer.media_length_mm);
   if (!qr[0]) l.fields &= ~(1u << LF_QR);
   const int capacity = labelFactCapacity(l, printer.media_width_mm, printer.media_length_mm);
   LabelFactList f;
@@ -765,8 +771,10 @@ bool labelRenderFilament(const LabelPrinterConfig& printer, const LabelLayout& l
   return renderLabel(printer, l, c, out);
 }
 
-bool labelRenderSpool(const LabelPrinterConfig& printer, const LabelLayout& layout,
+bool labelRenderSpool(const LabelPrinterConfig& printer, const LabelLayout& saved,
                       const SpoolLabelData& spool, LabelRaster* out) {
+  const LabelLayout layout = labelLayoutForMedia(saved, printer.media_width_mm,
+                                                 printer.media_length_mm);
   char qr[LABEL_QR_LEN];
   labelQrForSpool(spool.id, qr, sizeof(qr));
   const int capacity = labelFactCapacity(layout, printer.media_width_mm, printer.media_length_mm);
