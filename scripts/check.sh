@@ -150,6 +150,24 @@ else
   else ok "French widths: ${sum:-checked}"; fi
 fi
 
+# 10b. The Italian column (tools/lang_it.py): the same rules as the French,
+#     against the widest of German, English and French. Coverage needs no
+#     fonts; the full check needs LVGL's symbol header, like rule 10.
+if [ -f tools/lang_it.py ]; then
+  out=$(python3 tools/lang_it.py coverage 2>&1); rc=$?
+  sum=$(echo "$out" | grep -E '^[[:space:]]*[0-9]+ rows, ' | tail -1 | sed 's/^[[:space:]]*//')
+  if [ "$rc" -ne 0 ]; then bad "Italian coverage: ${sum:-failed} - add the Italian with tools/lang_it.py apply";
+  else ok "Italian coverage: ${sum:-checked}"; fi
+  if [ ! -f "$LVGL_SYMBOLS" ]; then
+    warnf "Italian checks skipped: $LVGL_SYMBOLS is missing, build the firmware once"
+  else
+    out=$(python3 tools/lang_it.py check 2>&1); rc=$?
+    sum=$(echo "$out" | grep -E '^[[:space:]]*[0-9]+ rows, ' | tail -1 | sed 's/^[[:space:]]*//')
+    if [ "$rc" -ne 0 ]; then bad "tools/lang_it.py check: ${sum:-failed}"; echo "$out" | grep -E '^[[:space:]]+E ' | sed 's/^/      /';
+    else ok "Italian column: ${sum:-checked}"; fi
+  fi
+fi
+
 # 11. The countable conventions, held against a committed baseline: what an
 #     LVGL handler does, colours written as numbers, captions past the string
 #     table, German comments. A number may stay or fall, never rise. A file

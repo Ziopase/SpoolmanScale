@@ -73,6 +73,9 @@ SRC = ROOT / "src"
 LANGS = ("de", "en", "fr")
 OPEN2 = "const char* const STRINGS[][2] = {"
 OPEN3 = "const char* const STRINGS[][3] = {"
+# Italian came in as a fourth column (tools/lang_it.py). This tool still owns
+# the French, and passes every column after it through untouched.
+OPEN4 = "const char* const STRINGS[][4] = {"
 
 # Columns for a single-line row. Past this the row is written one cell per line,
 # which is what the file already does for its long rows.
@@ -157,7 +160,7 @@ def parse_table(src):
     a row - group comments, blank lines, indentation - stays in a 'raw' item, so
     re-emitting from 'text' reproduces the file exactly.
     """
-    for opener in (OPEN3, OPEN2):
+    for opener in (OPEN4, OPEN3, OPEN2):
         if opener in src:
             break
     else:
@@ -990,6 +993,12 @@ def flush_run(slots, run):
     run.clear()
 
 
+def _after_fr(row):
+    """The cells past the French one (the Italian), as written, so an emit of
+    the French never drops them."""
+    return "".join(",\n    %s" % c.strip() for c in row["cells"][3:])
+
+
 def render_row(row, fr_literal, pad=(0, 0)):
     """One table row with three columns, WITHOUT its leading indentation.
 
@@ -1006,6 +1015,18 @@ def render_row(row, fr_literal, pad=(0, 0)):
     English TEXT is untouched; only the padding of a short row moves, and that
     line changes anyway.
     """
+    if len(row["cells"]) > 3:
+        if not is_multiline(row):
+            de, en = row["cells"][0].strip(), row["cells"][1].strip()
+            rest = ", ".join(c.strip() for c in row["cells"][3:])
+            one = "{ %s, %s, %s, %s },  // %s" % (de, en, fr_literal, rest, row["id"])
+            if len(one) + 2 <= LINE_MAX:
+                return one
+            return "{ %s, %s,\n    %s%s },  // %s" % (de, en, fr_literal,
+                                                     _after_fr(row), row["id"])
+        return "{%s,%s,\n    %s%s },  // %s" % (
+            row["cells"][0].rstrip(), row["cells"][1].rstrip(),
+            fr_literal, _after_fr(row), row["id"])
     if not is_multiline(row):
         de, en = row["cells"][0].strip(), row["cells"][1].strip()
         one = "{ %s,%s %s,%s %s },  // %s" % (

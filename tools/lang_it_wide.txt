@@ -1,0 +1,31 @@
+# Italian rows allowed past the German/English/French envelope, each checked
+# against the widget it is drawn in (lang_it.py check reads this file). The
+# hard budgets of tools/ui_budgets.tsv still apply to them.
+STR_DRY_MODE_MATERIAL         drying_reminder_screen.cpp:134 - 144 px mode button, centred
+STR_DRY_MODE_MANUAL           drying_reminder_screen.cpp:135 - 144 px mode button, centred
+STR_DRY_MAT_HDR_MAT           drying_reminder_screen.cpp:246 - 72 px column at f12, "Materiale" is 50 px there
+STR_REMOTE_LINK_ROW_MATERIAL  row captions in full-width popups (remote_link, ams_detail, tag compare)
+STR_BACKEND_ADDRESS           backend_screen.cpp:287 - list row title
+STR_TW_OPT_FMT                scale_menu.cpp:377 - list row title, tag_view.cpp:217 caption
+STR_BT_CARD_SIGNAL            ble_devices_screen.cpp:137 - one line across the popup, centred
+STR_BT_CARD_ADDRESS           ble_devices_screen.cpp:128 - one line across the popup, centred
+STR_PRN_MODEL                 budget 320 px holds it; the other sites are list rows
+STR_IP_BAR_NAME               wifi_info.cpp:65 - mode button text, 1 px over the envelope
+STR_DAYS_ABBR_FMT             drying_reminder_screen.cpp:276 - 120 px cell
+STR_WIFI_QUAL_GOOD            wifi_info.cpp:211 - value after the RSSI, room to the right edge
+STR_FACTORY_RESET_MSG         system_screen.cpp:63 - LV_LABEL_LONG_WRAP, 400 px
+STR_NFCRST_HINT_TEXT          nfc_reset_popup.cpp:111 - wrapping popup body, 1 px over at f10
+STR_DIAG_PN532_MISSING_TITLE  diagnostics popup title, full popup width
+STR_TARE_NOT_READY            status line across the main screen
+STR_BACKEND_INVENTORY         1 px over the envelope at f12
+STR_WEB_TITLE                 2 px over at f18, screen header
+STR_TF_NATIVE                 1 px over at f12, list row title
+STR_PRN_ERR_BLE_OFF           result popup body, wraps
+STR_SP_HTTPS_TITLE            3 px over at f20, popup title
+STR_WEB_MAINT                 web_screen.cpp:225 - gate row title, the full list width
+STR_GH_OTA_TITLE              ota_github.cpp:326 - sub header title, 18 bytes of the 31
+STR_NO_CONNECTION_TO          main_screen_helpers.cpp:100 - status bar f14, 292 px (262 narrow): "... a BamBuddy" is 257 px
+STR_TW_ERASED                 tag_write_popup.cpp:136 - info popup title
+STR_SP_CLEAR                  spoolman_screen.cpp:349 - 200 px button at f16, the text is 139 px
+STR_BACKEND_DEVICE_TOKEN      backend_screen.cpp:351 - second column from x=250 at f16, the text is 140 px
+STR_LBL_MATERIAL              main_screen.cpp:374 - f12 caption at x=112 with room to x=236, the text is 55 px

@@ -1,7 +1,7 @@
 // ============================================================
 //  SpoolmanScale – Localization (i18n)
 //  lang.h - String IDs, enum, T() macro
-//  Languages: DE (0) | EN (1) | FR (2)
+//  Languages: DE (0) | EN (1) | FR (2) | IT (3)
 // ============================================================
 #pragma once
 #include <stdint.h>
@@ -10,7 +10,7 @@
 
 // LANG_COUNT is the sentinel loadPrefs() clamps against: the NVS byte is not
 // trustworthy, and an out-of-range value would index a column that is not there.
-enum Lang { LANG_DE = 0, LANG_EN = 1, LANG_FR = 2, LANG_COUNT };
+enum Lang { LANG_DE = 0, LANG_EN = 1, LANG_FR = 2, LANG_IT = 3, LANG_COUNT };
 extern Lang g_lang;
 
 // Date format, the NVS byte "date_fmt". Unknown values read as DD.MM.YYYY.
@@ -1810,10 +1810,10 @@ enum StringID {
 };
 
 // Deliberately without a bound: it comes from the initializer in lang.cpp, so
-// the static_assert there can compare the two. Spelled [STR_COUNT][3] here,
+// the static_assert there can compare the two. Spelled [STR_COUNT][4] here,
 // the definition inherits that bound, a short initializer is padded with
 // nullptr, and nothing complains.
-extern const char* const STRINGS[][3];
+extern const char* const STRINGS[][4];
 
 // Which string explains a TagWriteResult. Lives here rather than in either
 // caller: the device popup and the tag page in the browser say the same thing

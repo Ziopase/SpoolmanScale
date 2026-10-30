@@ -30,6 +30,7 @@ static bool wel_tz_touched = false;
 static lv_obj_t *wel_btn_en = nullptr, *wel_lbl_en = nullptr;
 static lv_obj_t *wel_btn_de = nullptr, *wel_lbl_de = nullptr;
 static lv_obj_t *wel_btn_fr = nullptr, *wel_lbl_fr = nullptr;
+static lv_obj_t *wel_btn_it = nullptr, *wel_lbl_it = nullptr;
 static lv_obj_t *wel_lbl_tz = nullptr;
 
 static void welStyleLangBtn(lv_obj_t *btn, lv_obj_t *lbl, bool active) {
@@ -45,6 +46,7 @@ static void welRefresh() {
   welStyleLangBtn(wel_btn_en, wel_lbl_en, wel_lang_sel == 1);
   welStyleLangBtn(wel_btn_de, wel_lbl_de, wel_lang_sel == 0);
   welStyleLangBtn(wel_btn_fr, wel_lbl_fr, wel_lang_sel == 2);
+  welStyleLangBtn(wel_btn_it, wel_lbl_it, wel_lang_sel == 3);
   if (wel_lbl_tz && wel_tz_sel >= 0 && (size_t)wel_tz_sel < TZ_COUNT) {
     char buf[48];
     strncpy(buf, TZ_LIST[wel_tz_sel].name, sizeof(buf) - 1);
@@ -123,8 +125,10 @@ void buildWelcomeScreen() {
   // (480 - 16 - 20) / 3 = 148. Nothing else on this screen moves. The labels
   // drop their "EN " / "DE " prefix to make room - "Deutsch" is 76 px at this
   // font and "Français" 76, well inside 148.
-  const int LB_W = 148, LB_H = 52, LB_Y = 76;
-  const int LB_X_EN = 8, LB_X_DE = 166, LB_X_FR = 324;
+  // Four since Italian: 8 px margins, three 8 px gaps, (480 - 16 - 24) / 4 =
+  // 110. "Français" is 76 px at this font, still inside.
+  const int LB_W = 110, LB_H = 52, LB_Y = 76;
+  const int LB_X_EN = 8, LB_X_DE = 126, LB_X_FR = 244, LB_X_IT = 362;
 
   wel_btn_en = lv_btn_create(scr_welcome);
   lv_obj_set_size(wel_btn_en, LB_W, LB_H);
@@ -181,6 +185,23 @@ void buildWelcomeScreen() {
   lv_obj_add_event_cb(wel_btn_fr, [](lv_event_t *e){
     wel_lang_sel = 2;
     if (!wel_tz_touched) wel_tz_sel = timeZoneDefaultIndexForLang(2);
+    welRefresh();
+  }, LV_EVENT_CLICKED, NULL);
+
+  wel_btn_it = lv_btn_create(scr_welcome);
+  lv_obj_set_size(wel_btn_it, LB_W, LB_H);
+  lv_obj_set_pos(wel_btn_it, LB_X_IT, LB_Y);
+  lv_obj_set_style_bg_color(wel_btn_it, lv_color_hex(UI_COL_PRESS_FILL), LV_STATE_PRESSED);
+  lv_obj_set_style_radius(wel_btn_it, 10, 0);
+  lv_obj_set_style_shadow_width(wel_btn_it, 0, 0);
+  lv_obj_set_style_border_width(wel_btn_it, 2, 0);
+  wel_lbl_it = lv_label_create(wel_btn_it);
+  lv_label_set_text(wel_lbl_it, "Italiano");
+  lv_obj_set_style_text_font(wel_lbl_it, &lv_font_montserrat_ext_18, 0);
+  lv_obj_center(wel_lbl_it);
+  lv_obj_add_event_cb(wel_btn_it, [](lv_event_t *e){
+    wel_lang_sel = 3;
+    if (!wel_tz_touched) wel_tz_sel = timeZoneDefaultIndexForLang(3);
     welRefresh();
   }, LV_EVENT_CLICKED, NULL);
 
@@ -259,7 +280,7 @@ void buildWelcomeScreen() {
     // Clamped anyway, and sized by its initializer: a language added to the
     // enum without a tag here stops the build instead of handing logSDf a null
     // pointer.
-    static const char *const LANG_TAG[] = { "DE", "EN", "FR" };
+    static const char *const LANG_TAG[] = { "DE", "EN", "FR", "IT" };
     static_assert(sizeof(LANG_TAG) / sizeof(LANG_TAG[0]) == LANG_COUNT,
                   "LANG_TAG is out of step with enum Lang");
     const uint8_t lang = (wel_lang_sel >= 0 && wel_lang_sel < LANG_COUNT)

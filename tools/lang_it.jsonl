@@ -1,0 +1,1464 @@
+{"id": "STR_CANCEL", "it": "Annulla", "st": "ok"}
+{"id": "STR_BACK", "it": "Indietro", "st": "ok"}
+{"id": "STR_CONFIRM", "it": "Conferma", "st": "ok"}
+{"id": "STR_RETRY", "it": "Riprova", "st": "ok"}
+{"id": "STR_ENTER_NEW_ID", "it": "Reinserisci ID", "st": "ok"}
+{"id": "STR_LBL_SPOOLMAN", "it": "Spoolman", "st": "ok"}
+{"id": "STR_LBL_SCALE", "it": "Bilancia", "st": "ok"}
+{"id": "STR_LBL_LAST_USED", "it": "Ultimo uso", "st": "ok"}
+{"id": "STR_LBL_LAST_DRIED", "it": "Essiccata", "st": "ok"}
+{"id": "STR_LBL_TEMP", "it": "Temperatura", "st": "ok"}
+{"id": "STR_LBL_VENDOR", "it": "Marca", "st": "ok"}
+{"id": "STR_WAIT_SCAN", "it": "Avvicina la bobina...", "st": "ok"}
+{"id": "STR_TAG_FOUND", "it": "Tag NFC rilevato", "st": "ok"}
+{"id": "STR_NO_WIFI", "it": "No WiFi", "st": "ok"}
+{"id": "STR_WAIT", "it": "Attendere...", "st": "ok"}
+{"id": "STR_WAIT_SCAN_SM", "it": "In attesa scan...", "st": "ok"}
+{"id": "STR_UNKNOWN", "it": "ignoto", "st": "ok"}
+{"id": "STR_NOT_READABLE", "it": "illeggibile", "st": "ok"}
+{"id": "STR_TODAY", "it": "oggi", "st": "ok"}
+{"id": "STR_YESTERDAY", "it": "ieri", "st": "ok"}
+{"id": "STR_DAYS_AGO", "it": "%d giorni fa", "st": "ok"}
+{"id": "STR_ERR_SAVE", "it": "Errore di salvataggio", "st": "ok"}
+{"id": "STR_NOT_IN_SPOOLMAN", "it": "Non in Spoolman", "st": "ok"}
+{"id": "STR_ARCHIVED", "it": "Archivio", "st": "ok"}
+{"id": "STR_READING_TAG", "it": "Lettura tag...", "st": "ok"}
+{"id": "STR_SEARCHING_INVENTORY", "it": "Ricerca in inventario...", "st": "ok"}
+{"id": "STR_SEARCHING_INVENTORY_KB", "it": "Ricerca in inventario... %u KB", "st": "ok"}
+{"id": "STR_BTN_WEIGHT", "it": "Invia peso", "st": "ok"}
+{"id": "STR_BTN_DRIED", "it": "Essiccata oggi", "st": "ok"}
+{"id": "STR_BTN_LINK", "it": "Collega bobina", "st": "ok"}
+{"id": "STR_WIFI_TITLE", "it": "Configura WiFi", "st": "ok"}
+{"id": "STR_WIFI_SCAN", "it": "Ricerca reti...", "st": "ok"}
+{"id": "STR_WIFI_NO_NET", "it": "Nessuna rete trovata", "st": "ok"}
+{"id": "STR_WIFI_PASS_TITLE", "it": "Password WiFi", "st": "ok"}
+{"id": "STR_WIFI_PASS_HINT", "it": "Password per: %s", "st": "ok"}
+{"id": "STR_WIFI_PASS_PLACEHOLDER", "it": "Password...", "st": "ok"}
+{"id": "STR_WIFI_CONNECTING", "it": "Connetto a %s...", "st": "ok"}
+{"id": "STR_WIFI_SUCCESS", "it": "Connesso!", "st": "ok"}
+{"id": "STR_SPOOLMAN_TITLE", "it": "Server Spoolman", "st": "ok"}
+{"id": "STR_SETTINGS_TITLE", "it": "Impostazioni", "st": "ok"}
+{"id": "STR_TILE_CONNECTION", "it": "Rete", "st": "ok"}
+{"id": "STR_TILE_CONN_SUB", "it": "WiFi | Bluetooth | Spoolman", "st": "ok"}
+{"id": "STR_TILE_SCALE", "it": "Bobine e bilancia", "st": "ok"}
+{"id": "STR_TILE_SCALE_SUB", "it": "Tag | Essiccazione | Taratura", "st": "ok"}
+{"id": "STR_TILE_DISPLAY", "it": "Display", "st": "ok"}
+{"id": "STR_TILE_DISPLAY_SUB", "it": "Luminosità | Attenua | Riposo", "st": "ok"}
+{"id": "STR_TILE_SYSTEM", "it": "Sistema", "st": "ok"}
+{"id": "STR_TILE_SYSTEM_SUB", "it": "Web | Aggiorna | Lingua | Info", "st": "ok"}
+{"id": "STR_BTN_WIFI_SETTINGS", "it": "Impostazioni WiFi", "st": "ok"}
+{"id": "STR_BTN_WIFI_NONE", "it": "Non configurato", "st": "ok"}
+{"id": "STR_BTN_WIFI_STATUS", "it": "Stato WiFi", "st": "ok"}
+{"id": "STR_BTN_WIFI_STATUS_SUB", "it": "Non connesso", "st": "ok"}
+{"id": "STR_BTN_WEB_SUB", "it": "Server, OTA, log", "st": "ok"}
+{"id": "STR_WEB_SERVER", "it": "Server web", "st": "ok"}
+{"id": "STR_WEB_MAINT", "it": "Manutenzione", "st": "ok"}
+{"id": "STR_WEB_CONFIG", "it": "Impostazioni", "st": "ok"}
+{"id": "STR_WEB_SERVER_HINT", "it": "Spento: nulla risponde sulla porta 80.", "st": "ok"}
+{"id": "STR_WEB_SERVER_INFO", "it": "Accende e spegne l'interfaccia web sulla rete. Spenta, la porta 80 non risponde più - tranne se FilaMan ha un token del dispositivo: in quel caso resta raggiungibile solo la sua richiesta di lettura tag.", "st": "ok"}
+{"id": "STR_WEB_MAINT_HINT", "it": "Rende disponibili caricamento firmware, log, riavvio e scrittura tag. Spento di default: scrivono firmware e tag NFC, senza password.", "st": "ok"}
+{"id": "STR_WEB_MAINT_SUB", "it": "Firmware, log, tag, riavvio", "st": "ok"}
+{"id": "STR_WEB_CONFIG_HINT", "it": "Rende disponibili limiti elenco, essiccazione, display e credenziali del backend. Spento di default: cambia impostazioni senza password.", "st": "ok"}
+{"id": "STR_WEB_CONFIG_SUB", "it": "Limiti elenco, essiccazione, display", "st": "ok"}
+{"id": "STR_SCALE_TITLE", "it": "Bobine e bilancia", "st": "ok"}
+{"id": "STR_BTN_CALIBRATE", "it": "Taratura", "st": "ok"}
+{"id": "STR_BTN_BAGWEIGHT", "it": "Peso sacchetto", "st": "ok"}
+{"id": "STR_CAL_TITLE", "it": "Taratura", "st": "ok"}
+{"id": "STR_CAL_FACTOR", "it": "Fattore: --", "st": "ok"}
+{"id": "STR_CAL_OK", "it": "Fattore: %.4f", "st": "ok"}
+{"id": "STR_CAL_ZERO_ERR", "it": "Errore: peso = 0", "st": "ok"}
+{"id": "STR_BTN_CALCULATE", "it": "{LV_SYMBOL_OK}  Calcola", "st": "ok"}
+{"id": "STR_BAG_DESC", "it": "Sacchetto sottovuoto con silica gel in g, 0 = nessuno", "st": "ok"}
+{"id": "STR_BAG_SAVED", "it": "%.1fg salvati", "st": "ok"}
+{"id": "STR_BAG_INVALID", "it": "Valore errato", "st": "ok"}
+{"id": "STR_DISPLAY_TITLE", "it": "Display", "st": "ok"}
+{"id": "STR_BRIGHT_LABEL", "it": "{LV_SYMBOL_IMAGE}  Luminosità", "st": "ok"}
+{"id": "STR_DIM_LABEL", "it": "{LV_SYMBOL_EYE_OPEN}  Attenua dopo (min)", "st": "ok"}
+{"id": "STR_SLEEP_LABEL", "it": "{LV_SYMBOL_POWER}  Standby dopo (min)", "st": "ok"}
+{"id": "STR_SYSTEM_TITLE", "it": "Sistema", "st": "ok"}
+{"id": "STR_BTN_LANG_SUB", "it": "Deutsch / English / Français / Italiano", "st": "ok"}
+{"id": "STR_BTN_FW_UPDATE", "it": "Aggiorna firmware", "st": "ok"}
+{"id": "STR_BTN_FW_SUB", "it": "Browser o GitHub", "st": "ok"}
+{"id": "STR_BTN_INFO", "it": "Info e supporto", "st": "ok"}
+{"id": "STR_BTN_INFO_SUB", "it": "Manuale - Ko-fi - GitHub - Discord - MakerWorld", "st": "ok"}
+{"id": "STR_LANG_TITLE", "it": "Lingua / Language", "st": "ok"}
+{"id": "STR_LANG_HINT", "it": "Scegliere lingua o formato data riavvia il dispositivo.", "st": "ok"}
+{"id": "STR_DATE_FMT_LABEL", "it": "Formato data:", "st": "ok"}
+{"id": "STR_OTA_TITLE", "it": "Aggiorna firmware", "st": "ok"}
+{"id": "STR_OTA_BROWSER", "it": "Carica dal browser web", "st": "ok"}
+{"id": "STR_OTA_BROWSER_SUB", "it": "Da PC + log su SD", "st": "ok"}
+{"id": "STR_OTA_GITHUB", "it": "Aggiorna da GitHub", "st": "ok"}
+{"id": "STR_OTA_GITHUB_SUB", "it": "Diretto da GitHub Releases", "st": "ok"}
+{"id": "STR_OTA_BROWSER_TITLE", "it": "Aggiorna da browser", "st": "ok"}
+{"id": "STR_OTA_NO_WIFI", "it": "{LV_SYMBOL_WARNING}  No WiFi\\nConfigura prima il WiFi.", "st": "ok"}
+{"id": "STR_OTA_OPEN_BROWSER", "it": "Apri un browser e vai a:", "st": "ok"}
+{"id": "STR_OTA_FILE_HINT", "it": "Scegli il file: SpoolmanScale vX.Y.Z.bin", "st": "ok"}
+{"id": "STR_OTA_WAITING", "it": "{LV_SYMBOL_WIFI}  In attesa del file...", "st": "ok"}
+{"id": "STR_OTA_UPLOADING", "it": "{LV_SYMBOL_DOWNLOAD}  Caricamento...", "st": "ok"}
+{"id": "STR_OTA_SUCCESS", "it": "{LV_SYMBOL_OK}  Aggiornato! Riavvio...", "st": "ok"}
+{"id": "STR_OTA_FAIL", "it": "{LV_SYMBOL_WARNING}  Aggiornamento fallito", "st": "ok"}
+{"id": "STR_BTN_STOP_SERVER", "it": "{LV_SYMBOL_CLOSE}  Ferma server", "st": "ok"}
+{"id": "STR_OTA_CURRENT", "it": "Attuale: %s", "st": "ok"}
+{"id": "STR_INFO_VERSION", "it": "SpoolmanScale  %s", "st": "ok"}
+{"id": "STR_INFO_HINT", "it": "Tocca un pulsante per vedere il codice QR.", "st": "ok"}
+{"id": "STR_QR_KOFI_DESC", "it": "Sostieni questo progetto!", "st": "ok"}
+{"id": "STR_QR_GITHUB_DESC", "it": "Sorgenti, versioni e documentazione", "st": "ok"}
+{"id": "STR_QR_DISCORD_DESC", "it": "Community, domande e supporto", "st": "ok"}
+{"id": "STR_QR_MAKER_DESC", "it": "Modelli 3D e progetti su MakerWorld", "st": "ok"}
+{"id": "STR_POPUP_DRIED_Q", "it": "Salvare l'essiccazione\\ndi oggi?", "st": "ok"}
+{"id": "STR_POPUP_WEIGHT_Q", "it": "Aggiornare il peso\\nin Spoolman?", "st": "ok"}
+{"id": "STR_BTN_EMPTY_SPOOL", "it": "Peso bobina vuota\\npesa / inserisci", "st": "ok"}
+{"id": "STR_BTN_CONFIRMED", "it": "Sì, conferma", "st": "ok"}
+{"id": "STR_SPOOL_WEIGHT_TITLE", "it": "Salva peso bobina: %.0f g come...", "st": "ok"}
+{"id": "STR_BTN_THIS_SPOOL", "it": "Bobina\\n(spool_weight)", "st": "ok"}
+{"id": "STR_BTN_THIS_FILAMENT", "it": "Filamento\\n(spool_weight)", "st": "ok"}
+{"id": "STR_BTN_THIS_VENDOR", "it": "Marca\\n(empty_spool_weight)", "st": "ok"}
+{"id": "STR_LINK_BAMBU_TITLE", "it": "Collega bobina Bambu", "st": "ok"}
+{"id": "STR_LINK_NTAG_TITLE", "it": "Bobina ignota", "st": "ok"}
+{"id": "STR_BTN_ENTER_ID", "it": "Inserisci ID bobina", "st": "ok"}
+{"id": "STR_BTN_FROM_LIST", "it": "Scegli dall'elenco", "st": "ok"}
+{"id": "STR_LINK_ID_TITLE", "it": "ID bobina Spoolman", "st": "ok"}
+{"id": "STR_LINK_CHECKING", "it": "Verifica...", "st": "ok"}
+{"id": "STR_LINK_ID_NOT_FOUND", "it": "ID non trovato", "st": "ok"}
+{"id": "STR_LINK_HTTP_ERR", "it": "Errore HTTP %d", "st": "ok"}
+{"id": "STR_LINK_JSON_ERR", "it": "Errore JSON", "st": "ok"}
+{"id": "STR_LINK_NO_WIFI", "it": "No WiFi", "st": "ok"}
+{"id": "STR_WARN_A_TITLE", "it": "{LV_SYMBOL_WARNING}  Tag già assegnato!", "st": "ok"}
+{"id": "STR_BTN_OVERWRITE", "it": "{LV_SYMBOL_WARNING}  Collega comunque", "st": "ok"}
+{"id": "STR_WARN_B_TITLE", "it": "Materiale diverso", "st": "ok"}
+{"id": "STR_WARN_B_DETAILS", "it": "Tag:      %s\\nSpoolman: %s  (#%d)\\n\\nID sbagliato? Ricontrolla.", "st": "ok"}
+{"id": "STR_VENDOR_TITLE", "it": "Scegli produttore  (%d bobine)", "st": "ok"}
+{"id": "STR_MAT_TITLE", "it": "Scegli materiale", "st": "ok"}
+{"id": "STR_NO_VENDORS", "it": "Nessuna bobina\\nsenza tag in Spoolman.", "st": "ok"}
+{"id": "STR_NO_MATERIALS", "it": "Nessun materiale trovato.", "st": "ok"}
+{"id": "STR_NO_SPOOLS", "it": "Nessuna bobina adatta.\\nCollega tramite ID.", "st": "ok"}
+{"id": "STR_CONFIRM_LINK", "it": "Collegare?", "st": "ok"}
+{"id": "STR_LINK_OK", "it": "{LV_SYMBOL_OK}  Collega", "st": "ok"}
+{"id": "STR_TARE_OK", "it": "{LV_SYMBOL_OK}  Tara fatta!", "st": "ok"}
+{"id": "STR_TARE_NOT_READY", "it": "{LV_SYMBOL_WARNING}  Bilancia non pronta", "st": "ok"}
+{"id": "STR_API_ERROR", "it": "Errore API", "st": "ok"}
+{"id": "STR_REBOOT_TITLE", "it": "Riavvio necessario", "st": "ok"}
+{"id": "STR_REBOOT_MSG", "it": "L'impostazione vale\\ndopo il riavvio.", "st": "ok"}
+{"id": "STR_REBOOT_BTN", "it": "{LV_SYMBOL_REFRESH}  Riavvia ora", "st": "ok"}
+{"id": "STR_WIFI_CONN_FAILED", "it": "{LV_SYMBOL_WARNING}  Connessione fallita.\\nSSID: %s", "st": "ok"}
+{"id": "STR_WIFI_QUAL_EXCELLENT", "it": "Ottimo", "st": "ok"}
+{"id": "STR_WIFI_QUAL_GOOD", "it": "Buono", "st": "ok"}
+{"id": "STR_WIFI_QUAL_MEDIUM", "it": "Medio", "st": "ok"}
+{"id": "STR_WIFI_QUAL_WEAK", "it": "Debole", "st": "ok"}
+{"id": "STR_WIFI_STATUS_CONNECTED", "it": "Connesso", "st": "ok"}
+{"id": "STR_WIFI_STATUS_DISCONNECTED", "it": "Disconnesso", "st": "ok"}
+{"id": "STR_BTN_SAVE", "it": "{LV_SYMBOL_OK}  Salva", "st": "ok"}
+{"id": "STR_SPOOLS_ALL", "it": "Tutte", "st": "ok"}
+{"id": "STR_CAL_FACTOR_SHORT", "it": "Fattore: %.2f", "st": "ok"}
+{"id": "STR_ARCHIVE_CONFIRM", "it": "Archiviare davvero\\nquesta bobina?", "st": "ok"}
+{"id": "STR_BTN_ARCHIVE_EMPTY", "it": "{LV_SYMBOL_CLOSE} vuota / Archivia\\nremaining=0", "st": "ok"}
+{"id": "STR_WELCOME_LANG_TITLE", "it": "Lingua e fuso orario", "st": "ok"}
+{"id": "STR_WELCOME_LANG_HINT", "it": "Entrambi modificabili poi nelle Impostazioni.\\nAvanti riavvia il dispositivo una volta.", "st": "ok"}
+{"id": "STR_WIFI_NETWORKS_FOUND", "it": "%d reti trovate", "st": "ok"}
+{"id": "STR_BAG_CURRENT", "it": "Attuale: %.0f g", "st": "ok"}
+{"id": "STR_WARN_A_SPOOL_INFO", "it": "Bobina #%d  |  %s %s\\nTag att.: %s", "st": "ok"}
+{"id": "STR_WARN_A_SPOOL_SHORT", "it": "Bobina #%d\\nTag att.: %s", "st": "ok"}
+{"id": "STR_LINK_CTX_NOT_IN_SM", "it": "%s | non in Spoolman", "st": "ok"}
+{"id": "STR_BTN_NO_BAG_VAL", "it": "{LV_SYMBOL_OK} Senza sacc.\\n%.0fg", "st": "ok"}
+{"id": "STR_BTN_WITH_BAG_VAL", "it": "{LV_SYMBOL_OK} Con sacch.\\n%.0fg - %.0fg", "st": "ok"}
+{"id": "STR_BTN_NEW_SPOOL_VAL", "it": "{LV_SYMBOL_PLUS} Bobina nuova\\n%.0fg netti", "st": "ok"}
+{"id": "STR_FIRSTBOOT_TITLE", "it": "Benvenuto!", "st": "ok"}
+{"id": "STR_FIRSTBOOT_SUB", "it": "La tua SpoolmanScale è quasi pronta.", "st": "ok"}
+{"id": "STR_FIRSTBOOT_HINT", "it": "In pochi passi configuriamo\\nWiFi, server e bilancia.", "st": "ok"}
+{"id": "STR_FIRSTBOOT_BTN", "it": "{LV_SYMBOL_RIGHT}  Iniziamo", "st": "ok"}
+{"id": "STR_EXTRA_FIELDS_TITLE", "it": "Campi extra Spoolman", "st": "ok"}
+{"id": "STR_EXTRA_FIELDS_CHECKING", "it": "Verifica...", "st": "ok"}
+{"id": "STR_EXTRA_FIELDS_ALL_OK", "it": "{LV_SYMBOL_OK}  Presenti: %s", "st": "ok"}
+{"id": "STR_EXTRA_FIELDS_MISSING", "it": "{LV_SYMBOL_WARNING}  Campi mancanti: %s", "st": "ok"}
+{"id": "STR_EXTRA_FIELDS_CREATING", "it": "Creazione campi...", "st": "ok"}
+{"id": "STR_EXTRA_FIELDS_CREATE_FAIL", "it": "{LV_SYMBOL_WARNING}  Errore creando: %s", "st": "ok"}
+{"id": "STR_EXTRA_FIELDS_NO_WIFI", "it": "{LV_SYMBOL_WARNING}  No WiFi", "st": "ok"}
+{"id": "STR_EXTRA_FIELDS_NO_SPOOLMAN", "it": "{LV_SYMBOL_WARNING}  Spoolman non configurato", "st": "ok"}
+{"id": "STR_CAL_REMINDER_TITLE", "it": "Tara la bilancia", "st": "ok"}
+{"id": "STR_CAL_REMINDER_MSG", "it": "Per misure precise la bilancia\\nva tarata.\\n\\nPrepara un peso noto\\ne vai in Impostazioni > Bilancia\\n> Taratura.\\n\\nPuoi farlo anche più tardi.", "st": "ok"}
+{"id": "STR_CAL_REMINDER_LATER", "it": "Capito!", "st": "ok"}
+{"id": "STR_CAL_REMINDER_NOW", "it": "{LV_SYMBOL_EDIT}  Tara ora", "st": "ok"}
+{"id": "STR_CAL_TARE_HINT", "it": "Piatto vuoto: premi TARE, poi metti il peso e calcola.", "st": "ok"}
+{"id": "STR_SPOOLMAN_TESTING", "it": "Test connessione...", "st": "ok"}
+{"id": "STR_SPOOLMAN_FAIL", "it": "{LV_SYMBOL_WARNING}  Spoolman irraggiungibile", "st": "ok"}
+{"id": "STR_SPOOLMAN_RETRY", "it": "Riprova", "st": "ok"}
+{"id": "STR_SPOOLMAN_SKIP", "it": "Salta", "st": "ok"}
+{"id": "STR_BTN_MORE_INFO", "it": "Più info", "st": "ok"}
+{"id": "STR_GH_OTA_TITLE", "it": "Aggiorna da GitHub", "st": "ok"}
+{"id": "STR_GH_OTA_CHECK_BTN", "it": "Cerca aggiornamenti", "st": "ok"}
+{"id": "STR_GH_OTA_CHECKING", "it": "Ricerca...", "st": "ok"}
+{"id": "STR_GH_OTA_NO_WIFI", "it": "No WiFi - connettiti prima", "st": "ok"}
+{"id": "STR_GH_OTA_UP_TO_DATE", "it": "Già aggiornato", "st": "ok"}
+{"id": "STR_GH_OTA_UPDATE_AVAIL", "it": "Nuova versione: %s", "st": "ok"}
+{"id": "STR_GH_OTA_UPDATE_BTN", "it": "Installa ora", "st": "ok"}
+{"id": "STR_GH_OTA_FLASHING", "it": "Installazione... attendere", "st": "ok"}
+{"id": "STR_GH_OTA_FLASH_OK", "it": "Aggiornato - riavvio...", "st": "ok"}
+{"id": "STR_GH_OTA_FLASH_FAIL", "it": "Aggiornamento fallito", "st": "ok"}
+{"id": "STR_GH_OTA_INSTALLED", "it": "Installata: %s", "st": "ok"}
+{"id": "STR_GH_OTA_LATEST", "it": "Ultima: %s", "st": "ok"}
+{"id": "STR_GH_OTA_PRERELEASE", "it": "Pre-release", "st": "ok"}
+{"id": "STR_GH_OTA_AUTOCHECK", "it": "Controllo auto", "st": "ok"}
+{"id": "STR_GH_OTA_OLDER", "it": "Versione più vecchia disponibile: %s", "st": "ok"}
+{"id": "STR_GH_OTA_DOWNGRADE_BTN", "it": "Downgrade", "st": "ok"}
+{"id": "STR_GH_OTA_DOWNGRADE_ASK", "it": "Tornare a %s?\\nQuesta versione è più vecchia di quella installata.", "st": "ok"}
+{"id": "STR_BTN_LASTUSED_MODE", "it": "Modo Last Used", "st": "ok"}
+{"id": "STR_BTN_LASTUSED_MODE_SUB", "it": "OpenSpoolMan o SpoolmanScale", "st": "ok"}
+{"id": "STR_LASTUSED_TITLE", "it": "Modo Last Used", "st": "ok"}
+{"id": "STR_LASTUSED_OPT_OSM", "it": "OpenSpoolMan", "st": "ok"}
+{"id": "STR_LASTUSED_OPT_WEIGHED", "it": "Ultima pesata", "st": "ok"}
+{"id": "STR_LASTUSED_DESC_OSM", "it": "Se il consumo del filamento è registrato in Spoolman, ad es. in automatico da OpenSpoolMan con una stampante Bambu Lab, la schermata principale mostra la data dell'ultimo uso da Spoolman.", "st": "ok"}
+{"id": "STR_LASTUSED_DESC_WEIGHED", "it": "Se non usi il campo 'Last Used' di Spoolman, SpoolmanScale ci salva la data dell'ultimo aggiornamento del peso. La schermata principale mostra allora 'Ultima pesata' invece di 'Ultimo uso'.", "st": "ok"}
+{"id": "STR_LASTUSED_OPT_FILAMAN", "it": "FilaMan", "st": "ok"}
+{"id": "STR_LASTUSED_DESC_FILAMAN_USED", "it": "FilaMan gestisce da sé 'Last Used' e vi registra il consumo reale delle stampe, ad es. tramite la sua integrazione con la stampante. Finché non è registrata una stampa, la schermata principale mostra l'ultima pesata.", "st": "ok"}
+{"id": "STR_LASTUSED_DESC_FILAMAN_WEIGHED", "it": "FilaMan registra ogni pesata con data e ora, anche quelle di questa bilancia. La schermata principale mostra allora 'Ultima pesata', cioè quando hai preso in mano la bobina. Non si salva altro.", "st": "ok"}
+{"id": "STR_BTN_LASTUSED_MODE_SUB_FM", "it": "Consumo o pesata", "st": "ok"}
+{"id": "STR_LASTUSED_OPT_BAMBUDDY", "it": "BamBuddy", "st": "ok"}
+{"id": "STR_LASTUSED_DESC_BAMBUDDY_USED", "it": "BamBuddy compila da sé 'ultimo uso' quando una stampa consuma questa bobina. Finché non è registrata una stampa, la schermata principale mostra l'ultima pesata.", "st": "ok"}
+{"id": "STR_LASTUSED_DESC_BAMBUDDY_WEIGHED", "it": "BamBuddy registra ogni pesata, anche quelle di questa bilancia. La schermata principale mostra allora 'ultima pesata'. Solo l'inventario di BamBuddy conserva questo campo - con un server Spoolman dietro resta vuoto.", "st": "ok"}
+{"id": "STR_BTN_LASTUSED_MODE_SUB_BB", "it": "Consumo o pesata", "st": "ok"}
+{"id": "STR_BB_CAP_TITLE", "it": "Oltre l'etichetta", "st": "ok"}
+{"id": "STR_BB_CAP_BODY", "it": "Misurati: %.0f g. L'etichetta dice %.0f g. BamBuddy non salva più di quanto dice l'etichetta, quindi il residuo risulterebbe di nuovo pieno.", "st": "ok"}
+{"id": "STR_BB_CAP_RAISE", "it": "Porta l'etichetta a %.0f g", "st": "ok"}
+{"id": "STR_BB_CAP_KEEP", "it": "Tieni l'etichetta", "st": "ok"}
+{"id": "STR_BB_DRIED_TITLE", "it": "Data essiccazione", "st": "ok"}
+{"id": "STR_BB_DRIED_OFF", "it": "Non salvare", "st": "ok"}
+{"id": "STR_BB_DRIED_OFF_SUB", "it": "La data resta vuota", "st": "ok"}
+{"id": "STR_BB_DRIED_SPOOLMAN", "it": "Spoolman dietro BamBuddy", "st": "ok"}
+{"id": "STR_BB_DRIED_SPOOLMAN_SUB", "it": "In extra.last_dried sul server Spoolman", "st": "ok"}
+{"id": "STR_BB_DRIED_SPOOLMAN_NA", "it": "Solo se BamBuddy usa un server Spoolman", "st": "ok"}
+{"id": "STR_BB_DRIED_NOTE", "it": "Nel campo note", "st": "ok"}
+{"id": "STR_BB_DRIED_NOTE_SUB", "it": "[last_dried:AAAA-MM-GG] nelle note", "st": "ok"}
+{"id": "STR_BB_DRIED_INFO", "it": "Le versioni recenti di BamBuddy hanno un campo proprio per la data di essiccazione, e la bilancia scrive sempre lì. Quelle vecchie no: il campo note funziona sempre e mantiene il resto del testo, l'altra via scrive in last_dried sul server Spoolman dietro BamBuddy.", "st": "ok"}
+{"id": "STR_BB_INV_OWN", "it": "Inventario: BamBuddy", "st": "ok"}
+{"id": "STR_BB_INV_SPOOLMAN", "it": "Inventario: Spoolman", "st": "ok"}
+{"id": "STR_BACKEND_INVENTORY", "it": "Inventario", "st": "ok"}
+{"id": "STR_AMSV_TITLE", "it": "Stato AMS", "st": "ok"}
+{"id": "STR_AMSV_BTN", "it": "Mostra l'AMS", "st": "ok"}
+{"id": "STR_AMSV_BTN_SUB", "it": "Gli slot della stampante", "st": "ok"}
+{"id": "STR_AMSV_RELOAD", "it": "Ricarica", "st": "ok"}
+{"id": "STR_AMSV_LOADING", "it": "Lettura AMS...", "st": "ok"}
+{"id": "STR_AMSV_UNIT", "it": "AMS %d", "st": "ok"}
+{"id": "STR_AMSV_UNIT_HT", "it": "AMS HT %d", "st": "ok"}
+{"id": "STR_AMSV_UNIT_EXT", "it": "Esterno", "st": "ok"}
+{"id": "STR_AMSV_EMPTY", "it": "Vuoto", "st": "ok"}
+{"id": "STR_AMSV_HUM_PCT", "it": "%d%%", "st": "ok"}
+{"id": "STR_AMSV_HUM_LEVEL", "it": "Livello %d", "st": "ok"}
+{"id": "STR_AMSV_OFFLINE", "it": "offline, ultimo stato", "st": "ok"}
+{"id": "STR_AMSV_UNKNOWN", "it": "stato ignoto", "st": "ok"}
+{"id": "STR_AMSV_NO_AMS", "it": "Nessun AMS", "st": "ok"}
+{"id": "STR_AMSV_NO_PRINTER", "it": "Nessuna stampante trovata", "st": "ok"}
+{"id": "STR_AMSV_ERR_HTTP", "it": "Il server risponde %d", "st": "ok"}
+{"id": "STR_AMSV_ERR_NET", "it": "Nessuna rete", "st": "ok"}
+{"id": "STR_AMSV_ERR_FULL", "it": "Memoria insufficiente per tutti gli slot", "st": "ok"}
+{"id": "STR_AMSV_DRYING_TIME", "it": "Essicca %d °C, %d min", "st": "ok"}
+{"id": "STR_AMSV_DRYING_TEMP", "it": "Essicca %d °C", "st": "ok"}
+{"id": "STR_AMSV_JOB", "it": "stampa %d%%", "st": "ok"}
+{"id": "STR_AMSV_JOB_PAUSED", "it": "in pausa al %d%%", "st": "ok"}
+{"id": "STR_AMSV_STATE_FINISH", "it": "stampa finita", "st": "ok"}
+{"id": "STR_AMSV_STATE_FAILED", "it": "stampa fallita", "st": "ok"}
+{"id": "STR_AMSV_STATE_IDLE", "it": "libera", "st": "ok"}
+{"id": "STR_AMSV_STATE_PREPARE", "it": "preparazione", "st": "ok"}
+{"id": "STR_AMSV_PRN_OF", "it": "%d/%d", "st": "ok"}
+{"id": "STR_AMSV_PICK_HEAD", "it": "%s -> in quale slot?", "st": "ok"}
+{"id": "STR_AMSV_ASSIGNED", "it": "Bobina assegnata", "st": "ok"}
+{"id": "STR_AMSV_MOVED", "it": "La bobina è stata spostata", "st": "ok"}
+{"id": "STR_AMSV_ASSIGN_FAIL", "it": "Assegnazione fallita", "st": "ok"}
+{"id": "STR_BBAMS_ASK", "it": "In AMS dopo la pesata", "st": "ok"}
+{"id": "STR_BBAMS_ASK_SUB", "it": "Chiedi lo slot alla rimozione", "st": "ok"}
+{"id": "STR_BBAMS_ASK_INFO", "it": "Attivo: dopo aver pesato una bobina nota, alla rimozione la bilancia chiede in quale slot AMS va e lo registra in BamBuddy.\\n\\nBamBuddy configura anche lo slot sulla stampante via MQTT: materiale, colore e temperature. È voluto, ma agisce sulla stampante, non solo sul database.", "st": "ok"}
+{"id": "STR_BTN_FACTORY_RESET", "it": "Ripristino fabbrica", "st": "ok"}
+{"id": "STR_BTN_FACTORY_RESET_SUB", "it": "Cancella tutte le impost.", "st": "ok"}
+{"id": "STR_FACTORY_RESET_TITLE", "it": "Ripristinare?", "st": "ok"}
+{"id": "STR_FACTORY_RESET_MSG", "it": "Tutte le impostazioni saranno cancellate:\\nWiFi, indirizzo server, taratura,\\nlingua e tutti gli altri dati.\\nPoi il dispositivo si riavvia.", "st": "ok"}
+{"id": "STR_FACTORY_RESET_CONFIRM", "it": "Sì, cancella tutto", "st": "ok"}
+{"id": "STR_BTN_COPY_SPOOL", "it": "Nuova / Copia", "st": "ok"}
+{"id": "STR_COPY_TITLE", "it": "Copia bobina", "st": "ok"}
+{"id": "STR_COPY_ID_BTN", "it": "Inserisci ID Spoolman", "st": "ok"}
+{"id": "STR_COPY_ACTIVE_BTN", "it": "Bobine attive", "st": "ok"}
+{"id": "STR_COPY_ARCHIVED_BTN", "it": "Bobine archiviate", "st": "ok"}
+{"id": "STR_COPY_CONFIRM_TITLE", "it": "Creare la bobina?", "st": "ok"}
+{"id": "STR_COPY_OK", "it": "Bobina creata", "st": "ok"}
+{"id": "STR_COPY_FAIL", "it": "Creazione fallita", "st": "ok"}
+{"id": "STR_COPY_NO_SPOOLS", "it": "Nessuna bobina", "st": "ok"}
+{"id": "STR_BTN_SKIP_SETUP", "it": "Salta configur.", "st": "ok"}
+{"id": "STR_UNLINK_BTN", "it": "Scollega", "st": "ok"}
+{"id": "STR_UNLINK_TITLE", "it": "Scollegare bobina?", "st": "ok"}
+{"id": "STR_UNLINK_MSG", "it": "Svuota il campo tag in Spoolman.\\nLa bobina resta.", "st": "ok"}
+{"id": "STR_UNLINK_CONFIRM", "it": "Sì, scollega", "st": "ok"}
+{"id": "STR_WIFI_CONNECTING_BOOT", "it": "Connessione WiFi...", "st": "ok"}
+{"id": "STR_BOOTING", "it": "Avvio, attendere...", "st": "ok"}
+{"id": "STR_BTN_REBOOT", "it": "Riavvia", "st": "ok"}
+{"id": "STR_BTN_REBOOT_SUB", "it": "Riavvia il dispositivo", "st": "ok"}
+{"id": "STR_WHOLE_GRAM", "it": "Grammi interi", "st": "ok"}
+{"id": "STR_LIST_MORE_SPOOLS", "it": "Altre bobine trovate - manca? Usa l'ID bobina", "st": "ok"}
+{"id": "STR_LIST_MORE_VENDORS", "it": "Altri produttori trovati - manca? Usa l'ID bobina", "st": "ok"}
+{"id": "STR_LIST_MORE_MATS", "it": "Altri materiali trovati - manca? Usa l'ID bobina", "st": "ok"}
+{"id": "STR_AUTO_WEIGHT_TITLE", "it": "Invio peso auto", "st": "ok"}
+{"id": "STR_AUTO_WEIGHT_INFO", "it": "Quando una bobina è riconosciuta e il peso\\nè stabile per 3 secondi, viene salvato\\nin automatico (senza sacchetto).", "st": "ok"}
+{"id": "STR_AUTO_WEIGHT_ENABLE", "it": "{LV_SYMBOL_REFRESH} Attiva auto", "st": "ok"}
+{"id": "STR_AUTO_WEIGHT_DISABLE", "it": "{LV_SYMBOL_REFRESH} Disattiva auto", "st": "ok"}
+{"id": "STR_BTN_LOCATION", "it": "Posizione", "st": "ok"}
+{"id": "STR_LOCATION_TITLE", "it": "Scegli posizione", "st": "ok"}
+{"id": "STR_LOCATION_NONE", "it": "{LV_SYMBOL_CLOSE} Nessuna posizione", "st": "ok"}
+{"id": "STR_LOCATION_LOADING", "it": "Carico...", "st": "ok"}
+{"id": "STR_LOCATION_NO_WIFI", "it": "No WiFi", "st": "ok"}
+{"id": "STR_LOCATION_NO_LOCATIONS", "it": "Nessuna posizione Spoolman trovata", "st": "ok"}
+{"id": "STR_LOCATION_HINT_EMPTY", "it": "Le posizioni vuote non sono mostrate", "st": "ok"}
+{"id": "STR_LOCATION_LIMIT_HIT", "it": "Troppe posizioni - non tutte mostrate", "st": "ok"}
+{"id": "STR_BTN_AUTO_LOC_POPUP", "it": "Posizione alla rimozione", "st": "ok"}
+{"id": "STR_BTN_DRYING_REMINDER", "it": "Avviso essiccazione", "st": "ok"}
+{"id": "STR_DRYING_REMINDER_TITLE", "it": "Avviso essiccazione", "st": "ok"}
+{"id": "STR_DRY_MODE_OFF", "it": "Spento", "st": "ok"}
+{"id": "STR_DRY_MODE_MATERIAL", "it": "Materiale", "st": "ok"}
+{"id": "STR_DRY_MODE_MANUAL", "it": "Manuale", "st": "ok"}
+{"id": "STR_DRY_OFF_DESC", "it": "Nessun segnale colorato attivo.\\n\\nMateriale: soglie per tipo di filamento\\n(modificabili nel browser).\\n\\nManuale: limiti propri in giorni.", "st": "ok"}
+{"id": "STR_DRY_MAT_HINT", "it": "Soglie modificabili nel browser.", "st": "ok"}
+{"id": "STR_DRY_MAT_HDR_MAT", "it": "Materiale", "st": "ok"}
+{"id": "STR_DRY_MAT_HDR_YELLOW", "it": "Giallo (gg)", "st": "ok"}
+{"id": "STR_DRY_MAT_HDR_RED", "it": "Rosso (gg)", "st": "ok"}
+{"id": "STR_DRY_MAN_YELLOW_LBL", "it": "Giallo da", "st": "ok"}
+{"id": "STR_DRY_MAN_RED_LBL", "it": "Rosso da", "st": "ok"}
+{"id": "STR_DRY_MAN_EDIT_HINT", "it": "Tocca per modificare", "st": "ok"}
+{"id": "STR_DRY_MAN_INFO", "it": "I limiti valgono per tutti i materiali.", "st": "ok"}
+{"id": "STR_DRY_DAYS_UNIT", "it": "gg", "st": "ok"}
+{"id": "STR_DRY_NUMPAD_YELLOW_TITLE", "it": "Soglia gialla", "st": "ok"}
+{"id": "STR_DRY_NUMPAD_RED_TITLE", "it": "Soglia rossa", "st": "ok"}
+{"id": "STR_DRY_MAT_EFF_NOTE", "it": "Valori effettivi (moltiplicatore %.1fx incluso)", "st": "ok"}
+{"id": "STR_DRY_SEALED_HDR", "it": "Sottov.", "st": "ok"}
+{"id": "STR_BACKEND_TITLE", "it": "Gestione filamento", "st": "ok"}
+{"id": "STR_BACKEND_ADDRESS", "it": "Indirizzo", "st": "ok"}
+{"id": "STR_BACKEND_APIKEY", "it": "API key", "st": "ok"}
+{"id": "STR_BACKEND_DEVICE_TOKEN", "it": "Token dispositivo", "st": "ok"}
+{"id": "STR_BACKEND_SET", "it": "impostato", "st": "ok"}
+{"id": "STR_BACKEND_MISSING", "it": "manca", "st": "ok"}
+{"id": "STR_WEB_TITLE", "it": "Interfaccia web", "st": "ok"}
+{"id": "STR_WEB_SETUP_HINT", "it": "Apri questo indirizzo in un browser sul computer e inserisci lì la chiave API e il codice dispositivo. Lo stato qui sotto si aggiorna da solo.", "st": "ok"}
+{"id": "STR_WEB_SETUP_HINT_BB", "it": "Apri questo indirizzo in un browser sul computer e inserisci lì la chiave API. Lo stato qui sotto si aggiorna da solo.", "st": "ok"}
+{"id": "STR_BTN_WEB_SETUP", "it": "Imposta da browser", "st": "ok"}
+{"id": "STR_BTN_FINISH", "it": "Fine", "st": "ok"}
+{"id": "STR_BTN_NEXT", "it": "Avanti", "st": "ok"}
+{"id": "STR_SETUP_BACKEND_HINT", "it": "Quale gestore di filamento usi? Puoi cambiarlo dal menu in qualsiasi momento.", "st": "ok"}
+{"id": "STR_CONNECTED", "it": "connesso", "st": "ok"}
+{"id": "STR_ON", "it": "ON", "st": "ok"}
+{"id": "STR_OFF", "it": "OFF", "st": "ok"}
+{"id": "STR_BTN_OPEN_BROWSER", "it": "Apri nel browser", "st": "ok"}
+{"id": "STR_NOT_AFFILIATED", "it": "Non affiliato a Spoolman, FilaMan o BamBuddy", "st": "ok"}
+{"id": "STR_LINK_NO_TAG", "it": "Nessun tag rilevato, riappoggialo", "st": "ok"}
+{"id": "STR_LBL_SCALE_SPOOL_CAP", "it": "Bilancia - Bobina", "st": "ok"}
+{"id": "STR_LBL_TOTAL_CAP", "it": "Totale", "st": "ok"}
+{"id": "STR_LBL_WO_BAG_CAP", "it": "s. sacch.", "st": "ok"}
+{"id": "STR_LBL_HEX_COLOR", "it": "Colore", "st": "ok"}
+{"id": "STR_LBL_PRODUCTION_DATE", "it": "Data produzione", "st": "ok"}
+{"id": "STR_LBL_ARTICLE_NO_SHORT", "it": "Cod. art.", "st": "ok"}
+{"id": "STR_LBL_SPOOL_WEIGHT_EMPTY", "it": "Peso bobina vuota", "st": "ok"}
+{"id": "STR_BTN_IP_STATUSBAR", "it": "Mostra nella barra di stato", "st": "ok"}
+{"id": "STR_IP_BAR_DEVICE", "it": "Bilancia", "st": "ok"}
+{"id": "STR_REMOTE_LINK_TITLE", "it": "FilaMan: collegare bobina?", "st": "ok"}
+{"id": "STR_REMOTE_LINK_QUESTION", "it": "Collegare il tag sulla bilancia a questa bobina?", "st": "ok"}
+{"id": "STR_REMOTE_LINK_CONFIRM", "it": "Collega", "st": "ok"}
+{"id": "STR_REMOTE_LINK_NO_DETAILS", "it": "Dettagli assenti", "st": "ok"}
+{"id": "STR_REMOTE_LINK_TIMEOUT", "it": "Richiesta scaduta", "st": "ok"}
+{"id": "STR_REMOTE_LINK_COL_TAG", "it": "Tag", "st": "ok"}
+{"id": "STR_REMOTE_LINK_COL_SPOOL", "it": "Bobina", "st": "ok"}
+{"id": "STR_REMOTE_LINK_ROW_MATERIAL", "it": "Materiale", "st": "ok"}
+{"id": "STR_REMOTE_LINK_ROW_COLOR", "it": "Colore", "st": "ok"}
+{"id": "STR_BTN_MORE_OPTIONS", "it": "Altre opzioni", "st": "ok"}
+{"id": "STR_CU_WRITE", "it": "Collega più tag", "st": "ok"}
+{"id": "STR_CU_WRITE_SUB", "it": "Scrive nel campo card_uids di Spoolman", "st": "ok"}
+{"id": "STR_CU_WRITE_INFO", "it": "Attivo: un UID letto si aggiunge alla lista invece di sostituirla. Le bobine già collegate ricompaiono nella lista di collegamento, così si può aggiungere un secondo tag.\\n\\nSpento: card_uids contiene sempre un solo UID.\\n\\nSolo card_uids, perché è l'unico campo extra che accetta una lista. Spoolman NFC gestisce più tag da sé e non serve l'interruttore.", "st": "ok"}
+{"id": "STR_CU_NOT_WRITTEN", "it": "UID non aggiunto", "st": "ok"}
+{"id": "STR_TAG_ON_OTHER_SPOOL", "it": "Tag già sulla bobina #%d", "st": "ok"}
+{"id": "STR_WARN_A_ADD_TITLE", "it": "{LV_SYMBOL_WARNING}  La bobina ha già UID", "st": "ok"}
+{"id": "STR_WARN_A_ADD_INFO", "it": "Bobina #%d  |  %s %s\\nHa già %d UID", "st": "ok"}
+{"id": "STR_WARN_A_ADD_SHORT", "it": "Bobina #%d\\nHa già %d UID", "st": "ok"}
+{"id": "STR_BTN_ADD_UID", "it": "Aggiungi UID", "st": "ok"}
+{"id": "STR_UNLINK_MULTI_MSG", "it": "Questa bobina è collegata più volte.\\nScollegare solo il tag sul piatto\\no tutto il collegamento?", "st": "ok"}
+{"id": "STR_BTN_UNLINK_ONE", "it": "Solo questo tag", "st": "ok"}
+{"id": "STR_BTN_UNLINK_ALL", "it": "Scollega tutti", "st": "ok"}
+{"id": "STR_FLM_AUTOLINK", "it": "Collega senza chiedere", "st": "ok"}
+{"id": "STR_FLM_AUTOLINK_SUB", "it": "se la bobina è già sopra", "st": "ok"}
+{"id": "STR_TARE_FROM_FILAMENT", "it": " (filam.)", "st": "ok"}
+{"id": "STR_TARE_FROM_BRAND", "it": " (marca)", "st": "ok"}
+{"id": "STR_SPOOL_WEIGHT_BAG_HINT", "it": "Pesa senza sacchetto - altrimenti %.0f g in più", "st": "ok"}
+{"id": "STR_FLM_TAGLESS", "it": "Pesa senza tag", "st": "ok"}
+{"id": "STR_FLM_TAGLESS_SUB", "it": "se nessun tag è presente", "st": "ok"}
+{"id": "STR_REMOTE_LINK_WEIGH", "it": "Bobina scelta - pesala ora", "st": "ok"}
+{"id": "STR_SCREENOFF_LABEL", "it": "{LV_SYMBOL_EYE_CLOSE}  Schermo off dopo (min)", "st": "ok"}
+{"id": "STR_SCREENOFF_NEVER", "it": "Mai", "st": "ok"}
+{"id": "STR_FLM_AUTOLINK_INFO", "it": "Quando FilaMan avvia un collegamento e la bobina è già sulla bilancia, viene collegata senza chiedere. Se materiale o colore non corrispondono, la bilancia chiede comunque.", "st": "ok"}
+{"id": "STR_FLM_TAGLESS_INFO", "it": "Se entro 10 secondi da un collegamento avviato da FilaMan non viene presentato alcun tag, la bilancia carica comunque la bobina scelta lì e la mostra. La pesata funziona come per ogni altra bobina: da sola se la pesata automatica è attiva, altrimenti con il pulsante del peso. La finestra di FilaMan segnala un errore perché non è stato scritto alcun tag - la bobina è comunque caricata. Su un tag non viene mai scritto nulla, e la bobina è rilasciata appena tolta dal piatto.", "st": "ok"}
+{"id": "STR_BTN_THIS_SPOOL_FM", "it": "Bobina", "st": "ok"}
+{"id": "STR_BTN_THIS_FILAMENT_FM", "it": "Filamento", "st": "ok"}
+{"id": "STR_BTN_THIS_VENDOR_FM", "it": "Produttore", "st": "ok"}
+{"id": "STR_BTN_ARCHIVE_EMPTY_FM", "it": "{LV_SYMBOL_CLOSE} vuota / Archivia\\nresiduo a 0", "st": "ok"}
+{"id": "STR_AMS_TITLE", "it": "Assegna AMS auto", "st": "ok"}
+{"id": "STR_AMS_SUB", "it": "assegna all'inserimento", "st": "ok"}
+{"id": "STR_AMS_INFO", "it": "FilaMan riserva una bobina pesata per alcuni secondi. Chi carica uno slot AMS in quel tempo se la vede assegnata. Solo un peso apre la finestra, quindi assegnare registra il valore una seconda volta: la misura compare due volte nello storico, il valore resta uguale. Se la bobina va comunque nella stampante, basta appoggiarla sul piatto.", "st": "ok"}
+{"id": "STR_AMS_MODE_OFF", "it": "Spento", "st": "ok"}
+{"id": "STR_AMS_MODE_ASK", "it": "Chiedi", "st": "ok"}
+{"id": "STR_AMS_MODE_ALWAYS", "it": "Automatico", "st": "ok"}
+{"id": "STR_AMS_OFF_DESC", "it": "Niente viene riservato. Pesata e posizione funzionano come prima.", "st": "ok"}
+{"id": "STR_AMS_ASK_DESC", "it": "Quando sollevi la bobina ti chiede se va nella stampante. Un sì invia il peso e apre la finestra.", "st": "ok"}
+{"id": "STR_AMS_ALWAYS_DESC", "it": "Niente domanda, niente conto alla rovescia: ogni pesata riserva la bobina. Il prezzo: anche una pesata di controllo la riserva.", "st": "ok"}
+{"id": "STR_AMS_WINDOW_LBL", "it": "Finestra", "st": "ok"}
+{"id": "STR_AMS_WINDOW_HINT", "it": "quanto resta riservata la bobina", "st": "ok"}
+{"id": "STR_AMS_SEC_UNIT", "it": "s", "st": "ok"}
+{"id": "STR_AMS_TIMER_LBL", "it": "Allo scadere", "st": "ok"}
+{"id": "STR_AMS_TIMER_HINT", "it": "se nessuno risponde", "st": "ok"}
+{"id": "STR_AMS_TIMER_YES", "it": "Sì", "st": "ok"}
+{"id": "STR_AMS_TIMER_NO", "it": "No", "st": "ok"}
+{"id": "STR_AMS_POPUP_Q", "it": "Metti la bobina nell'AMS?", "st": "ok"}
+{"id": "STR_AMS_POPUP_STARTS_IN", "it": "Assegnazione tra %d s", "st": "ok"}
+{"id": "STR_AMS_POPUP_CLOSES_IN", "it": "Senza assegnare tra %d s", "st": "ok"}
+{"id": "STR_AMS_BTN_YES", "it": "Sì, assegna", "st": "ok"}
+{"id": "STR_AMS_ERR_FORBIDDEN", "it": "Questa ApiKey non può gestire dispositivi", "st": "ok"}
+{"id": "STR_AMS_ERR_HTTP", "it": "Il server non risponde (HTTP %d)", "st": "ok"}
+{"id": "STR_AMS_POPUP_SAVED", "it": "%.0f g salvati", "st": "ok"}
+{"id": "STR_AMS_WINDOW_RUNNING", "it": "Assegno %d s", "st": "ok"}
+{"id": "STR_AMS_SRV_ON", "it": "Server: assegnaz. attiva", "st": "ok"}
+{"id": "STR_AMS_SRV_OFF", "it": "Server: spento", "st": "ok"}
+{"id": "STR_AMS_POPUP_WILL_SAVE", "it": "Saranno salvati anche %.0f g", "st": "ok"}
+{"id": "STR_NEWTAG_BTN", "it": "Crea dal tag", "st": "ok"}
+{"id": "STR_NEWTAG_TITLE", "it": "Creare bobina dal tag?", "st": "ok"}
+{"id": "STR_NEWTAG_MSG", "it": "%s %s\\nColore: %s\\nPeso bilancia (netto): %.0f g", "st": "ok"}
+{"id": "STR_NEWTAG_LABEL_W", "it": "Peso nomin.", "st": "ok"}
+{"id": "STR_NEWTAG_OK", "it": "Bobina creata!", "st": "ok"}
+{"id": "STR_NEWTAG_FAIL", "it": "Creazione fallita", "st": "ok"}
+{"id": "STR_TAG_FIELD", "it": "Campo tag", "st": "ok"}
+{"id": "STR_TAG_FIELD_INFO", "it": "Ogni progetto mette l'UID del tag in un campo extra diverso, perché per molto tempo Spoolman non ne aveva uno. Dalla versione 0.27 Spoolman ha una gestione propria dei tag.\\n\\nQui scegli dove scrive la bilancia. Se il server ha la gestione nativa, la sceglie da sé alla prima lettura; una scelta fatta da te resta.\\n\\nTutte le fonti vengono sempre lette, quindi cambiando non si perde nulla. Al prossimo collegamento un UID trovato altrove passa nella fonte scelta.\\n\\nSe il campo extra scelto manca sul server, la bilancia lo crea alla prima scrittura. Spoolman NFC non ha bisogno di campi.", "st": "ok"}
+{"id": "STR_TF_NATIVE", "it": "Spoolman NFC (nativo)", "st": "ok"}
+{"id": "STR_TF_NATIVE_SUB", "it": "Supportato dal server", "st": "ok"}
+{"id": "STR_TF_NATIVE_NA", "it": "Da Spoolman v0.27", "st": "ok"}
+{"id": "STR_TF_NATIVE_INFO", "it": "Dalla versione 0.27 Spoolman ha una gestione propria dei tag, invece di un UID in un campo extra. Questa voce è selezionabile quando il server la offre.\\n\\nCosa fa meglio: una bobina può avere più tag senza una lista stipata in un campo di testo. Una lettura è una sola richiesta che restituisce anche la bobina, invece di una ricerca più una verifica. E un tag che appartiene già a un'altra bobina viene segnalato invece di essere sovrascritto in silenzio.\\n\\nI campi extra restano comunque selezionabili: SpoolLink, SpoolSense e FilaMan continuano a scrivere nei loro, e chi ne usa uno in parallelo ne ha ancora bisogno.", "st": "ok"}
+{"id": "STR_TF_TAG", "it": "extra.tag", "st": "ok"}
+{"id": "STR_TF_TAG_SUB", "it": "Bilancia, OpenSpoolman", "st": "ok"}
+{"id": "STR_TF_TAG_INFO", "it": "Il campo che questa bilancia usa da sempre, e in cui scrivono anche OpenSpoolman e spoolnymous.\\n\\nUn valore per bobina, niente liste. La bilancia salva l'UID come lo legge, in esadecimale senza separatori, e la tray_uuid per i tag Bambu. OpenSpoolman ci mette un proprio UUID: il campo coincide, il contenuto non per forza.\\n\\nLa scelta giusta, salvo motivi contrari.", "st": "ok"}
+{"id": "STR_TF_NFCID", "it": "extra.nfc_id", "st": "ok"}
+{"id": "STR_TF_NFCID_SUB", "it": "FilaMan, nfc2klipper, SpoolSense", "st": "ok"}
+{"id": "STR_TF_NFCID_INFO", "it": "Il campo su cui si sono accordati FilaMan, nfc2klipper e SpoolSense.\\n\\nUn valore per bobina, niente liste. Si aspetta esadecimale maiuscolo senza separatori, quindi la bilancia scrive 04A1B2C3D4E5F6 e non 04:A1:B2:C3:D4:E5:F6 - altrimenti gli altri programmi non trovano l'UID.\\n\\nUtile se uno di loro lavora sullo stesso database Spoolman.", "st": "ok"}
+{"id": "STR_TF_CARDUIDS", "it": "extra.card_uids", "st": "ok"}
+{"id": "STR_TF_CARDUIDS_SUB", "it": "SpoolLink, Snapmaker U1", "st": "ok"}
+{"id": "STR_TF_CARDUIDS_INFO", "it": "Il campo usato da SpoolLink nel firmware Snapmaker e da Spool Studio.\\n\\nL'unico campo extra che accetta una lista: più UID separati da virgole, in esadecimale maiuscolo. Sullo Snapmaker U1 è la regola, perché una bobina ha un tag per fianco e si monta da entrambi i lati della stampante.\\n\\nTra i campi extra solo questo permette \\\"Collega più tag\\\". Anche Spoolman NFC lo fa e non serve l'interruttore, perché lì più tag sono la norma e non un formato stipato in un campo di testo. Potendo, scegli Spoolman NFC - questo campo è giusto se SpoolLink deve funzionare in parallelo.", "st": "ok"}
+{"id": "STR_EF_LAST_DRIED", "it": "Data essiccazione", "st": "ok"}
+{"id": "STR_EF_LAST_DRIED_INFO", "it": "Quando la bobina è stata essiccata l'ultima volta. Spoolman non ha un campo apposito, quindi la bilancia la scrive in extra.last_dried.\\n\\nSe il campo manca, la bilancia lo crea al primo salvataggio di un'essiccazione.", "st": "ok"}
+{"id": "STR_EF_PRESENT", "it": "presente", "st": "ok"}
+{"id": "STR_EF_MISSING", "it": "manca sul server", "st": "ok"}
+{"id": "STR_EF_CREATE_ROW", "it": "Crea il campo sul server", "st": "ok"}
+{"id": "STR_LOADING_SPOOLS", "it": "Caricamento bobine ...", "st": "ok"}
+{"id": "STR_LOADING_FILTER", "it": "%d bobine, ordino ...", "st": "ok"}
+{"id": "STR_W_NAV_STATUS", "it": "Stato", "st": "ok"}
+{"id": "STR_W_NAV_BACKEND", "it": "Backend", "st": "ok"}
+{"id": "STR_W_NAV_DRYING", "it": "Essiccazione", "st": "ok"}
+{"id": "STR_W_NAV_TAGS", "it": "Tag", "st": "ok"}
+{"id": "STR_W_NAV_SETTINGS", "it": "Impostazioni", "st": "ok"}
+{"id": "STR_W_NAV_LOGS", "it": "Log", "st": "ok"}
+{"id": "STR_W_NAV_FIRMWARE", "it": "Firmware", "st": "ok"}
+{"id": "STR_W_DISCLAIMER", "it": "Non affiliato a Spoolman, FilaMan o BamBuddy - progetto open source", "st": "ok"}
+{"id": "STR_W_SAVE", "it": "Salva", "st": "ok"}
+{"id": "STR_W_SAVED", "it": "Salvato", "st": "ok"}
+{"id": "STR_W_ERROR", "it": "Errore", "st": "ok"}
+{"id": "STR_W_DEFAULTS", "it": "Ripristina predefiniti", "st": "ok"}
+{"id": "STR_W_OFF_TITLE", "it": "%s è disattivato", "st": "ok"}
+{"id": "STR_W_OFF_BODY", "it": "Questa sezione è disattivata sul dispositivo, quindi non viene servita.", "st": "ok"}
+{"id": "STR_W_OFF_WHERE", "it": "Attivala qui:", "st": "ok"}
+{"id": "STR_W_OFF_PATH", "it": "Impostazioni &rsaquo; Sistema &rsaquo; Interfaccia web", "st": "ok"}
+{"id": "STR_W_OFF_RELOAD", "it": "Poi ricarica questa pagina.", "st": "ok"}
+{"id": "STR_W_BACK_STATUS", "it": "Torna allo stato", "st": "ok"}
+{"id": "STR_W_C_NETWORK", "it": "Rete", "st": "ok"}
+{"id": "STR_W_C_HARDWARE", "it": "Hardware", "st": "ok"}
+{"id": "STR_W_C_INVENTORY", "it": "Inventario", "st": "ok"}
+{"id": "STR_W_C_ACCESS", "it": "Accesso", "st": "ok"}
+{"id": "STR_W_C_DEVICE", "it": "Dispositivo", "st": "ok"}
+{"id": "STR_W_R_WIFI", "it": "WiFi", "st": "ok"}
+{"id": "STR_W_R_ADDRESS", "it": "Indirizzo", "st": "ok"}
+{"id": "STR_W_R_NAME", "it": "Nome", "st": "ok"}
+{"id": "STR_W_R_GATEWAY", "it": "Gateway", "st": "ok"}
+{"id": "STR_W_R_SCALE", "it": "Bilancia", "st": "ok"}
+{"id": "STR_W_R_NFC", "it": "Lettore NFC", "st": "ok"}
+{"id": "STR_W_R_SD", "it": "Scheda SD", "st": "ok"}
+{"id": "STR_W_R_UPTIME", "it": "Attivo da", "st": "ok"}
+{"id": "STR_W_R_BACKEND", "it": "Backend", "st": "ok"}
+{"id": "STR_W_R_REACHABLE", "it": "Raggiungibile", "st": "ok"}
+{"id": "STR_W_R_SCANS", "it": "Tag letti", "st": "ok"}
+{"id": "STR_W_S_READY", "it": "pronto", "st": "ok"}
+{"id": "STR_W_S_MISSING", "it": "mancante", "st": "ok"}
+{"id": "STR_W_S_ON", "it": "acceso", "st": "ok"}
+{"id": "STR_W_S_OFF", "it": "spento", "st": "ok"}
+{"id": "STR_W_S_YES", "it": "sì", "st": "ok"}
+{"id": "STR_W_S_NO", "it": "no", "st": "ok"}
+{"id": "STR_W_S_NOWIFI", "it": "non connesso", "st": "ok"}
+{"id": "STR_W_ACCESS_NOTE", "it": "Una sezione spenta non viene servita affatto, e nemmeno gli endpoint dietro di essa. Si attiva sul dispositivo in", "st": "ok"}
+{"id": "STR_W_RESTART", "it": "Riavvia", "st": "ok"}
+{"id": "STR_W_RESTART_NOTE", "it": "Le impostazioni restano in NVS, quindi un riavvio non perde nulla.", "st": "ok"}
+{"id": "STR_W_RESTART_ASK", "it": "Riavviare il dispositivo ora?", "st": "ok"}
+{"id": "STR_W_RESTARTING", "it": "Riavvio", "st": "ok"}
+{"id": "STR_W_RESTART_WAIT", "it": "in attesa del dispositivo", "st": "ok"}
+{"id": "STR_W_RESTART_SD", "it": " (scheda SD inserita, l'avvio richiede circa 20 s in più)", "st": "ok"}
+{"id": "STR_W_RESTART_LONG", "it": "ancora in attesa", "st": "ok"}
+{"id": "STR_W_RESTART_GONE", "it": "Il dispositivo non ha risposto. Forse non è più in rete -", "st": "ok"}
+{"id": "STR_W_RELOAD", "it": "ricarica", "st": "ok"}
+{"id": "STR_W_C_BACKEND_ADDR", "it": "Indirizzo", "st": "ok"}
+{"id": "STR_W_HOST_LABEL", "it": "Indirizzo del backend", "st": "ok"}
+{"id": "STR_W_HOST_HINT", "it": "Nome host o IP, con la porta se serve. Un nome funziona anche dietro un reverse proxy, dove il solo IP non raggiunge la destinazione.", "st": "ok"}
+{"id": "STR_W_HOST_PORTHINT", "it": "Senza porta si usa la 80. Le solite sono Spoolman 7912, FilaMan 8083, BamBuddy 8000.", "st": "ok"}
+{"id": "STR_W_HOST_EMPTY", "it": "L'indirizzo non può essere vuoto.", "st": "ok"}
+{"id": "STR_W_HOST_HTTPS", "it": "https non è ancora supportato. La bilancia parla solo http.", "st": "ok"}
+{"id": "STR_W_HOST_TESTING", "it": "Connessione ...", "st": "ok"}
+{"id": "STR_W_HOST_OK", "it": "Raggiungibile", "st": "ok"}
+{"id": "STR_W_HOST_FAIL", "it": "Non raggiungibile", "st": "ok"}
+{"id": "STR_W_C_CREDS", "it": "Credenziali", "st": "ok"}
+{"id": "STR_W_APIKEY", "it": "Chiave API", "st": "ok"}
+{"id": "STR_W_DEVICE_CODE", "it": "Codice dispositivo", "st": "ok"}
+{"id": "STR_W_REGISTER", "it": "Registra", "st": "ok"}
+{"id": "STR_W_SET", "it": "impostato", "st": "ok"}
+{"id": "STR_W_UNSET", "it": "mancante", "st": "ok"}
+{"id": "STR_W_NO_CREDS", "it": "Spoolman non richiede credenziali.", "st": "ok"}
+{"id": "STR_W_C_DRYING", "it": "Soglie per materiale", "st": "ok"}
+{"id": "STR_W_DRY_MATERIAL", "it": "Materiale", "st": "ok"}
+{"id": "STR_W_DRY_YELLOW", "it": "Giallo dopo", "st": "ok"}
+{"id": "STR_W_DRY_RED", "it": "Rosso dopo", "st": "ok"}
+{"id": "STR_W_DRY_STORAGE", "it": "Conservazione", "st": "ok"}
+{"id": "STR_W_DRY_SEALED", "it": "sottovuoto", "st": "ok"}
+{"id": "STR_W_DRY_DAYS", "it": "giorni", "st": "ok"}
+{"id": "STR_W_DRY_MULT", "it": "Moltiplicatore per conservazione sottovuoto", "st": "ok"}
+{"id": "STR_W_DRY_MULT_HINT", "it": "Il filamento conservato ermeticamente dura di più. Per quei materiali le soglie qui sopra sono moltiplicate per questo fattore.", "st": "ok"}
+{"id": "STR_W_C_DEVNAME", "it": "Nome dispositivo", "st": "ok"}
+{"id": "STR_W_DEVNAME_HINT", "it": "Un nome, o un indirizzo completo come scale.home.arpa. La parte prima del primo punto è anche il nome mostrato dal router.", "st": "ok"}
+{"id": "STR_W_DEVNAME_BAD", "it": "Lettere, cifre e trattini, separati da punti. Niente trattino all'inizio o alla fine, niente spazi, nessuna parte vuota tra due punti.", "st": "ok"}
+{"id": "STR_W_DEVNAME_NOW", "it": "Raggiungibile ora su %s - il router lo mostra dopo la prossima connessione.", "st": "ok"}
+{"id": "STR_W_C_LIMITS", "it": "Limiti elenco", "st": "ok"}
+{"id": "STR_W_LIMIT_SPOOLS", "it": "Elenco bobine", "st": "ok"}
+{"id": "STR_W_LIMIT_LOCS", "it": "Elenco posizioni", "st": "ok"}
+{"id": "STR_W_LIMIT_HINT", "it": "Quante voci mostra la lista sul dispositivo.", "st": "ok"}
+{"id": "STR_W_LIMIT_WARN", "it": "Troppe voci bloccano il display - e non si riavvia da solo.", "st": "ok"}
+{"id": "STR_W_C_DISPLAY", "it": "Display", "st": "ok"}
+{"id": "STR_W_GAIN", "it": "Aumento luminosità", "st": "ok"}
+{"id": "STR_W_GAIN_HINT", "it": "100 è spento. La retroilluminazione è già al massimo a 255, quindi questa è l'unica leva rimasta per uno schermo poco luminoso.", "st": "ok"}
+{"id": "STR_W_C_WRITETAG", "it": "Scrivi un tag", "st": "ok"}
+{"id": "STR_W_TAG_SPOOL", "it": "Bobina", "st": "ok"}
+{"id": "STR_W_TAG_PICK", "it": "-- scegli una bobina --", "st": "ok"}
+{"id": "STR_W_TAG_ONTAG", "it": "Sul tag", "st": "ok"}
+{"id": "STR_W_TAG_WILLBE", "it": "Verrà scritto", "st": "ok"}
+{"id": "STR_W_TAG_NOTAG", "it": "Nessun tag sul lettore.", "st": "ok"}
+{"id": "STR_W_TAG_ONREADER", "it": "Tag sul lettore:", "st": "ok"}
+{"id": "STR_W_TAG_PICKFIRST", "it": "Scegli prima una bobina.", "st": "ok"}
+{"id": "STR_W_TAG_BLANK", "it": "Tag vuoto", "st": "ok"}
+{"id": "STR_W_TAG_UNKNOWN", "it": "Dati che questo firmware non sa leggere", "st": "ok"}
+{"id": "STR_W_TAG_WRITE", "it": "Scrivi tag", "st": "ok"}
+{"id": "STR_W_TAG_OVERWRITE", "it": "Sovrascrivi tag", "st": "ok"}
+{"id": "STR_W_TAG_MATCHES", "it": "Il tag corrisponde già", "st": "ok"}
+{"id": "STR_W_TAG_ERASE", "it": "Cancella tag", "st": "ok"}
+{"id": "STR_W_TAG_ERASE_ASK", "it": "Cancellare tutto su questo tag?", "st": "ok"}
+{"id": "STR_W_TAG_LINK", "it": "Collega la bobina a questo tag", "st": "ok"}
+{"id": "STR_W_TAG_RELINK", "it": "Questa bobina è collegata a %s, che diventa il suo tag precedente.", "st": "ok"}
+{"id": "STR_W_TAG_QUEUED", "it": "In coda.", "st": "ok"}
+{"id": "STR_W_TAG_NOLIST", "it": "Elenco bobine non disponibile", "st": "ok"}
+{"id": "STR_W_TAG_SKU", "it": "Codice", "st": "ok"}
+{"id": "STR_W_TAG_NOZZLE", "it": "Ugello", "st": "ok"}
+{"id": "STR_W_TAG_BED", "it": "Piatto", "st": "ok"}
+{"id": "STR_W_TAG_WEIGHT", "it": "Peso", "st": "ok"}
+{"id": "STR_W_TAG_DIA", "it": "Diametro", "st": "ok"}
+{"id": "STR_W_TAG_LENGTH", "it": "Lunghezza", "st": "ok"}
+{"id": "STR_W_TAG_COMPARE", "it": "A sinistra cosa contiene ora il tag, a destra cosa ci metterebbe la bobina scelta. Le righe diverse sono colorate.", "st": "ok"}
+{"id": "STR_W_C_LOGS", "it": "Scheda SD", "st": "ok"}
+{"id": "STR_W_LOG_VIEW", "it": "Vedi", "st": "ok"}
+{"id": "STR_W_LOG_DELETE", "it": "Elimina", "st": "ok"}
+{"id": "STR_W_LOG_DELETE_ASK", "it": "Eliminare questo file?", "st": "ok"}
+{"id": "STR_W_LOG_NOSD", "it": "Nessuna scheda SD rilevata", "st": "ok"}
+{"id": "STR_W_LOG_NOSD_HINT", "it": "Inserisci una scheda formattata FAT32 per attivare i log di diagnostica.", "st": "ok"}
+{"id": "STR_W_LOG_EMPTY", "it": "Ancora nessun log.", "st": "ok"}
+{"id": "STR_W_C_FIRMWARE", "it": "Firmware", "st": "ok"}
+{"id": "STR_W_FW_INSTALLED", "it": "Installato", "st": "ok"}
+{"id": "STR_W_FW_FILE", "it": "Carica un file", "st": "ok"}
+{"id": "STR_W_FW_FLASH", "it": "Installa", "st": "ok"}
+{"id": "STR_W_FW_HINT", "it": "Dopo la scrittura il dispositivo si riavvia da solo. Non togliere l'alimentazione.", "st": "ok"}
+{"id": "STR_W_FW_OK", "it": "Aggiornamento riuscito", "st": "ok"}
+{"id": "STR_W_FW_RESTARTING", "it": "Il dispositivo si sta riavviando ...", "st": "ok"}
+{"id": "STR_W_FW_FAIL", "it": "Aggiornamento fallito", "st": "ok"}
+{"id": "STR_W_FW_RETRY", "it": "Riprova.", "st": "ok"}
+{"id": "STR_W_C_FW_GITHUB", "it": "Aggiorna da GitHub", "st": "ok"}
+{"id": "STR_W_FW_CHANNEL", "it": "Canale", "st": "ok"}
+{"id": "STR_W_FW_CH_STABLE", "it": "Stabile", "st": "ok"}
+{"id": "STR_W_FW_CH_PRE", "it": "Pre-release", "st": "ok"}
+{"id": "STR_W_FW_LATEST", "it": "Ultima", "st": "ok"}
+{"id": "STR_W_FW_CHECK", "it": "Cerca aggiornamenti", "st": "ok"}
+{"id": "STR_W_FW_CHECKING", "it": "Ricerca ...", "st": "ok"}
+{"id": "STR_W_FW_UPTODATE", "it": "Già aggiornato", "st": "ok"}
+{"id": "STR_W_FW_AVAIL", "it": "Aggiornamento disponibile", "st": "ok"}
+{"id": "STR_W_FW_INSTALL", "it": "Installa", "st": "ok"}
+{"id": "STR_W_FW_INSTALLING", "it": "Installazione ...", "st": "ok"}
+{"id": "STR_W_FW_NOWIFI", "it": "Nessuna connessione WiFi", "st": "ok"}
+{"id": "STR_W_FW_BUSY", "it": "Il dispositivo sta già cercando o scrivendo", "st": "ok"}
+{"id": "STR_W_FW_CHECK_FAIL", "it": "Ricerca fallita", "st": "ok"}
+{"id": "STR_W_FW_GH_HINT", "it": "Il canale è la stessa impostazione del dispositivo. Il firmware lo scarica il dispositivo, non questo browser.", "st": "ok"}
+{"id": "STR_W_FW_RELEASED", "it": "Pubblicata", "st": "ok"}
+{"id": "STR_W_FW_SINCE", "it": "Installata il", "st": "ok"}
+{"id": "STR_W_FW_NOTES", "it": "Note di rilascio", "st": "ok"}
+{"id": "STR_W_FW_WHATSNEW", "it": "Novità", "st": "ok"}
+{"id": "STR_W_FW_UNPUBLISHED", "it": "Versione non pubblicata", "st": "ok"}
+{"id": "STR_W_FW_UNKNOWN", "it": "sconosciuta", "st": "ok"}
+{"id": "STR_W_FW_HIDE", "it": "Nascondi", "st": "ok"}
+{"id": "STR_W_FW_CONFIRM", "it": "Installare {v}?", "st": "ok"}
+{"id": "STR_W_FW_REBOOTS", "it": "Al termine del download il dispositivo si riavvia da solo e questa pagina si ricarica. Non togliere l'alimentazione.", "st": "ok"}
+{"id": "STR_W_FW_OLDER", "it": "Versione precedente", "st": "ok"}
+{"id": "STR_W_FW_DOWNGRADE", "it": "Tornare a {v}?", "st": "ok"}
+{"id": "STR_W_FW_DOWNWARN", "it": "{v} è più vecchia della versione installata {i}.", "st": "ok"}
+{"id": "STR_W_R_WEIGHT", "it": "Peso", "st": "ok"}
+{"id": "STR_W_LOAD_FAIL", "it": "Impossibile caricare.", "st": "ok"}
+{"id": "STR_W_LOG_NOTE", "it": "Ogni riga sulla scheda è una scrittura a sé. Quando tutto funziona, spegni il log qui sopra invece di togliere la scheda. Il log di sessione più in basso continua in ogni caso.", "st": "ok"}
+{"id": "STR_W_C_SESSION", "it": "Log di sessione", "st": "ok"}
+{"id": "STR_W_SESSION_NOTE", "it": "Le ultime righe dall'avvio, tenute in memoria e perse al riavvio. La scheda SD serve solo per conservare i log, non per averli.", "st": "ok"}
+{"id": "STR_W_SESSION_EMPTY", "it": "Ancora nessun log.", "st": "ok"}
+{"id": "STR_W_SESSION_REFRESH", "it": "Aggiorna", "st": "ok"}
+{"id": "STR_W_SESSION_BUSY", "it": "Caricamento...", "st": "ok"}
+{"id": "STR_W_SESSION_UPDATED", "it": "Letto alle", "st": "ok"}
+{"id": "STR_W_SESSION_LINES", "it": "righe", "st": "ok"}
+{"id": "STR_W_SESSION_PAUSED", "it": "In pausa, premi Aggiorna per seguire di nuovo", "st": "ok"}
+{"id": "STR_W_SESSION_NEW", "it": "nuove", "st": "ok"}
+{"id": "STR_W_SESSION_COPY", "it": "Copia testo", "st": "ok"}
+{"id": "STR_W_SESSION_COPIED", "it": "Copiato", "st": "ok"}
+{"id": "STR_W_SESSION_COPYFAIL", "it": "Impossibile copiare, seleziona il testo", "st": "ok"}
+{"id": "STR_W_TAG_NOTE", "it": "Metti un NTAG scrivibile sul lettore, scegli una bobina e scrivilo. Quello che c'è già sul tag viene sostituito. I tag di fabbrica di solito sono MIFARE Classic o bloccati, e si possono solo leggere.", "st": "ok"}
+{"id": "STR_W_TAG_SIZES", "it": "<b>Quale tag per quale formato.</b> OpenSpool richiede circa 180 byte, quindi serve un <b>NTAG215</b> (496 byte) o un <b>NTAG216</b> (872 byte). In un NTAG213 (144 byte) entra solo Anycubic ACE, che ne richiede 112. Un tag che non dichiara la dimensione viene trattato per sicurezza come i 144 byte di un NTAG213 - formatta una volta il tag come NDEF con un'app NFC e dichiarerà la sua dimensione reale.", "st": "ok"}
+{"id": "STR_W_FM_SETUP", "it": "FilaMan crea i due in posti diversi e mostra ciascuno una sola volta.<br><b>Chiave API:</b> fai clic sull'ingranaggio accanto al tuo nome utente, apri <b>API Keys</b> e crea una chiave. Inseriscila qui sopra e salva.<br><b>Codice dispositivo:</b> apri <b>Admin Panel &gt; Devices</b> e fai clic su <b>Create Device</b>. Inserisci il codice di sei caratteri qui sopra e registra.<br>Solo un amministratore può creare un dispositivo. Crea la chiave con lo stesso account, altrimenti FilaMan rifiuta l'assegnazione AMS.", "st": "ok"}
+{"id": "STR_W_BB_SETUP", "it": "La chiave si trova in BamBuddy nelle impostazioni. Lascia il campo vuoto se l'istanza funziona senza autenticazione.", "st": "ok"}
+{"id": "STR_OTA_KEEP_POWER", "it": "Non togliere l'alimentazione", "st": "ok"}
+{"id": "STR_W_KOFI", "it": "Offrimi un caffè", "st": "ok"}
+{"id": "STR_SP_LOCKED_TITLE", "it": "Indirizzo = nome", "st": "ok"}
+{"id": "STR_SP_LOCKED_INFO", "it": "Questo tastierino inserisce solo numeri. Cambia l'indirizzo dal browser:", "st": "ok"}
+{"id": "STR_SP_WEB_OFF", "it": "Web spento: Impostazioni > Sistema > Web", "st": "ok"}
+{"id": "STR_SP_CLEAR", "it": "Cancella indirizzo", "st": "ok"}
+{"id": "STR_SP_CLEAR_ASK", "it": "Eliminare l'indirizzo? Il backend non sarà più configurato, e sul dispositivo si può inserire solo un IP.", "st": "ok"}
+{"id": "STR_W_LOG_DELETE_ALL", "it": "Elimina tutti", "st": "ok"}
+{"id": "STR_W_LOG_DELETE_ALL_ASK", "it": "Eliminare {n} file? Il log di oggi ricomincia.", "st": "ok"}
+{"id": "STR_W_LOG_COUNT", "it": "{n} file", "st": "ok"}
+{"id": "STR_W_LOG_COUNT_ONE", "it": "1 file", "st": "ok"}
+{"id": "STR_W_LOG_DELETE_ALL_ASK_ONE", "it": "Eliminare un file? Il log di oggi ricomincia.", "st": "ok"}
+{"id": "STR_TZ_TITLE", "it": "Fuso orario", "st": "ok"}
+{"id": "STR_TZ_HINT", "it": "Vale per ogni data e ora scritta dal dispositivo e per il conteggio dei giorni di essiccazione. Nessun riavvio.", "st": "ok"}
+{"id": "STR_W_TZ_NOTE", "it": "Vale per ogni data e ora scritta dal dispositivo e per il conteggio dei giorni di essiccazione. Ha effetto subito, senza riavvio.", "st": "ok"}
+{"id": "STR_FLM_FIELDS", "it": "Campi", "st": "ok"}
+{"id": "STR_FLM_FIELDS_SUB", "it": "dove viene scritto il tag", "st": "ok"}
+{"id": "STR_FLM_FIELDS_INFO", "it": "FilaMan ha un campo proprio per i tag NFC e la bilancia lo usa. Accanto, il plugin Bambu Lab tiene due campi per i chip RFID di una bobina Bambu, e memorizza il tray uuid in external_id.\\n\\nTutti e quattro vengono letti, sempre e senza interruttore: una bobina che la stampante conosce deve essere riconosciuta anche dalla bilancia. Viene scritto solo ciò che è attivato qui.", "st": "ok"}
+{"id": "STR_FLM_TAGFIELD", "it": "Campo tag", "st": "ok"}
+{"id": "STR_FLM_TAGFIELD_INFO", "it": "A differenza di Spoolman qui non c'è nulla da scegliere, ed è un bene. rfid_uid è il campo di FilaMan proprio per questo, è l'unico coperto dalla ricerca lato server, e il plugin Bambu non lo tocca mai - lo dice la sua documentazione.\\n\\nScrivere altrove farebbe passare ogni lettura dalla via rapida al caricamento dell'intero inventario: meno di 1 kB contro 176 kB con 280 bobine.", "st": "ok"}
+{"id": "STR_FLM_BTAGS", "it": "Aggiorna i campi tag Bambu", "st": "ok"}
+{"id": "STR_FLM_BTAGS_SUB", "it": "UID del chip nel primo campo libero", "st": "ok"}
+{"id": "STR_FLM_BTAGS_INFO", "it": "Una bobina Bambu ha due chip RFID, uno per fianco. Il plugin riempie solo il primo dei due campi, con quanto riportato dalla stampante, e lascia il secondo libero per un altro lettore.\\n\\nAttivo: la bilancia scrive l'UID del chip del lato sul lettore nel primo dei due campi libero. Un campo già pieno non viene mai sovrascritto. Presenta entrambi i lati e si riempiono tutti e due.\\n\\nIl vantaggio: la bobina viene trovata anche quando il suo tag non si decifra e offre solo l'UID del chip.", "st": "ok"}
+{"id": "STR_FLM_EXTID", "it": "Scrivi anche external_id", "st": "ok"}
+{"id": "STR_FLM_EXTID_SUB", "it": "evita bobine doppie", "st": "ok"}
+{"id": "STR_FLM_EXTID_INFO", "it": "Prima di creare una bobina il plugin Bambu guarda solo external_id. Una bobina collegata da questa bilancia ha invece il tray uuid in rfid_uid ed è invisibile a quel controllo, quindi viene creata una seconda volta.\\n\\nAttivo: la bilancia scrive bambulab:<Tray-UUID> finché il campo è vuoto. Basta doppioni.\\n\\nIl prezzo: il plugin considera poi la bobina come sua e aggiorna il peso residuo dalla stima dell'AMS. Fino alla prossima pesata, al posto di un valore misurato c'è una stima.", "st": "ok"}
+{"id": "STR_TAG_FOUND_DUP", "it": "Tag trovato - più bobine", "st": "ok"}
+{"id": "STR_W_R_MDNS", "it": "mDNS", "st": "ok"}
+{"id": "STR_W_DEVNAME_ALSO", "it": "Raggiungibile anche su", "st": "ok"}
+{"id": "STR_W_DEVNAME_DNS_WAIT", "it": "verifica ...", "st": "ok"}
+{"id": "STR_W_DEVNAME_DNS_OK", "it": "Questo nome è risolto nella tua rete e punta a questa bilancia.", "st": "ok"}
+{"id": "STR_W_DEVNAME_DNS_OTHER", "it": "Questo nome punta a %s, non a questa bilancia.", "st": "ok"}
+{"id": "STR_W_DEVNAME_DNS_NONE", "it": "Il tuo server DNS non conosce questo nome.", "st": "ok"}
+{"id": "STR_W_MDNS", "it": "Rispondi a .local nella rete locale (mDNS)", "st": "ok"}
+{"id": "STR_W_MDNS_HINT", "it": "Trova la bilancia senza server DNS. Spegnilo se nella tua rete non deve circolare traffico .local.", "st": "ok"}
+{"id": "STR_STATUS_TITLE", "it": "Scegli stato", "st": "ok"}
+{"id": "STR_STATUS_NEW", "it": "Nuova", "st": "ok"}
+{"id": "STR_STATUS_OPENED", "it": "Aperta", "st": "ok"}
+{"id": "STR_STATUS_DRYING", "it": "Essicc.", "st": "ok"}
+{"id": "STR_STATUS_ACTIVE", "it": "Attiva", "st": "ok"}
+{"id": "STR_STATUS_EMPTY", "it": "Vuota", "st": "ok"}
+{"id": "STR_STATUS_UNKNOWN", "it": "Ignoto", "st": "ok"}
+{"id": "STR_REMOTE_LINK_WRITE", "it": "Scrivi + collega", "st": "ok"}
+{"id": "STR_REMOTE_LINK_Q_WRITE", "it": "Scrivere il tag come %s e collegarlo a questa bobina?", "st": "ok"}
+{"id": "STR_TW_ASK_TITLE", "it": "Scrivere il tag?", "st": "ok"}
+{"id": "STR_TW_ASK_HINT", "it": "Il tag viene scritto come %s. Il contenuto attuale va perso.", "st": "ok"}
+{"id": "STR_TW_BTN_WRITE", "it": "Scrivi", "st": "ok"}
+{"id": "STR_TW_BTN_SKIP", "it": "Non ora", "st": "ok"}
+{"id": "STR_TW_OK", "it": "Tag scritto", "st": "ok"}
+{"id": "STR_TW_ERR_NO_TAG", "it": "Nessun tag sul lettore", "st": "ok"}
+{"id": "STR_TW_ERR_NOT_NTAG", "it": "Tag di sola lettura", "st": "ok"}
+{"id": "STR_TW_ERR_BACKEND", "it": "Impossibile leggere la bobina", "st": "ok"}
+{"id": "STR_TW_ERR_SPACE", "it": "Questo tag è troppo piccolo per il formato. OpenSpool vuole un NTAG215 da 496 byte, un NTAG213 ne ha solo 144. La bobina è comunque collegata al tag, quindi viene riconosciuta - il tag solo non contiene dati.", "st": "ok"}
+{"id": "STR_TW_ERR_WRITE", "it": "Fallito - tieni fermo il tag", "st": "ok"}
+{"id": "STR_FLM_REMOTE_WRITE", "it": "Scrivi il tag su richiesta", "st": "ok"}
+{"id": "STR_FLM_REMOTE_WRITE_SUB", "it": "Solo se non si chiede", "st": "ok"}
+{"id": "STR_FLM_REMOTE_WRITE_INFO", "it": "Quando il gestore di filamento chiede una scrittura, la bilancia scrive il tag e lo collega in un solo passo. Con la domanda spenta (collega senza chiedere) avviene senza alcuna domanda. Spento, la richiesta collega soltanto, come prima. I tag Bambu sono di sola lettura e vengono sempre solo collegati.", "st": "ok"}
+{"id": "STR_W_TAG_TOOSMALL", "it": "%s non entra: servono %u byte, disponibili %u. Serve un NTAG215.", "st": "ok"}
+{"id": "STR_TW_FAILED", "it": "Tag non scritto", "st": "ok"}
+{"id": "STR_TW_OK_INFO", "it": "I dati della bobina ora sono sul tag, come OpenSpool.", "st": "ok"}
+{"id": "STR_TW_ERASE_ASK_TITLE", "it": "Cancellare il tag?", "st": "ok"}
+{"id": "STR_TW_ERASE_ASK_HINT", "it": "Il collegamento è rimosso. Il tag però contiene ancora i dati della bobina.", "st": "ok"}
+{"id": "STR_TW_BTN_ERASE", "it": "Svuota", "st": "ok"}
+{"id": "STR_TW_BTN_KEEP", "it": "Tieni", "st": "ok"}
+{"id": "STR_TW_ERASED", "it": "Tag cancellato", "st": "ok"}
+{"id": "STR_TW_ERASED_INFO", "it": "Il tag è vuoto e pronto per essere riscritto.", "st": "ok"}
+{"id": "STR_TW_ERASE_FAILED", "it": "Non cancellato", "st": "ok"}
+{"id": "STR_BTN_OK", "it": "OK", "st": "ok"}
+{"id": "STR_WEB_GATE_OPENED", "it": "Interfaccia web attivata per questo", "st": "ok"}
+{"id": "STR_W_FOOT_GATE_OFF", "it": "sono spente sul dispositivo e non vengono servite. Attivale in", "st": "ok"}
+{"id": "STR_W_FOOT_GATE_ALL", "it": "Quali sezioni vengono servite si decide sul dispositivo in", "st": "ok"}
+{"id": "STR_BTN_REACTIVATE", "it": "{LV_SYMBOL_REFRESH} Riattiva\\nresiduo a %.0f g", "st": "ok"}
+{"id": "STR_W_LOADING", "it": "Caricamento ...", "st": "ok"}
+{"id": "STR_W_ON_DEVICE", "it": "sul dispositivo", "st": "ok"}
+{"id": "STR_W_NO_OPTIONS", "it": "Questo backend non ha altre opzioni.", "st": "ok"}
+{"id": "STR_W_C_BACKEND", "it": "Gestione filamento", "st": "ok"}
+{"id": "STR_W_BACKEND_NOTE", "it": "Indirizzo, credenziali e opzioni appartengono a ciascun gestore e restano salvati quando cambi.", "st": "ok"}
+{"id": "STR_W_BACKEND_ASK", "it": "Passare a %s? La bilancia userà poi un altro inventario.", "st": "ok"}
+{"id": "STR_W_C_PANEL", "it": "Schermo", "st": "ok"}
+{"id": "STR_W_WAKE", "it": "Riattiva quando si appoggia una bobina", "st": "ok"}
+{"id": "STR_W_WAKE_HINT", "it": "Spegnilo per una bilancia su un banco dove qualcosa la urta.", "st": "ok"}
+{"id": "STR_CAL_RESET_CONFIRM", "it": "Azzerare taratura e tara?", "st": "ok"}
+{"id": "STR_CAL_RESET_DONE", "it": "{LV_SYMBOL_OK}  Taratura azzerata", "st": "ok"}
+{"id": "STR_CAL_RANGE_ERR", "it": "Rif.: 10 - 20000 g", "st": "ok"}
+{"id": "STR_CAL_IMPLAUSIBLE", "it": "{LV_SYMBOL_WARNING}  Lettura non plausibile, non salvata", "st": "ok"}
+{"id": "STR_W_R_I2C", "it": "Bus I2C", "st": "ok"}
+{"id": "STR_W_RESCAN", "it": "Ricontrolla bus", "st": "ok"}
+{"id": "STR_TW_OPT_ASK", "it": "Scrivi tag dopo il collegamento", "st": "ok"}
+{"id": "STR_TW_OPT_ASK_INFO", "it": "Cosa succede al tag quando una bobina è collegata. La scrittura sostituisce tutto il contenuto; quello che c'è ora va perso.\\n\\nSpento: solo l'UID viene legato alla bobina, il tag resta com'è. La scrittura resta disponibile nella pagina Tag dell'interfaccia web, dove si vede prima cosa verrà scritto.\\n\\nChiedi: la bilancia chiede ogni volta.\\n\\nScrivi sempre: nessuna domanda, viene mostrato solo il risultato.\\n\\nViene scritto solo un NTAG con spazio sufficiente. Un NTAG213 da 144 byte è troppo piccolo per OpenSpool e FilaMan, NTAG215 e NTAG216 no. I tag Bambu non si possono scrivere.", "st": "ok"}
+{"id": "STR_TW_OPT_FMT", "it": "Formato", "st": "ok"}
+{"id": "STR_TW_OPT_FMT_INFO", "it": "Il formato decide chi può leggere il tag.\\n\\nOpenSpool è un record NDEF con materiale, colore, marca, temperature e ID della bobina, che capiscono FilaMan e i lettori OpenSpool.\\n\\nFilaMan è lo stesso record col nome di protocollo che un'installazione FilaMan si aspetta.\\n\\nAnycubic ACE non scrive alcun record ma pagine grezze con codice, marca, materiale, colore, temperatura di ugello e piatto, diametro, lunghezza e peso. L'ACE le legge da sé.", "st": "ok"}
+{"id": "STR_TW_FMT_OPENSPOOL", "it": "OpenSpool", "st": "ok"}
+{"id": "STR_TW_FMT_FILAMAN", "it": "FilaMan", "st": "ok"}
+{"id": "STR_TW_FMT_ACE", "it": "Anycubic ACE", "st": "ok"}
+{"id": "STR_W_C_TAGOPTS", "it": "Automatico sulla bilancia", "st": "ok"}
+{"id": "STR_W_TAGOPT_ASK", "it": "Dopo il collegamento", "st": "ok"}
+{"id": "STR_W_TAGOPT_FMT", "it": "Formato", "st": "ok"}
+{"id": "STR_W_TAGOPT_NOTE", "it": "Vale per ciò che la bilancia fa da sola dopo un collegamento. La scrittura da questa pagina ha il proprio selettore di formato.", "st": "ok"}
+{"id": "STR_W_LOG_DOWNLOAD", "it": "Scarica", "st": "ok"}
+{"id": "STR_BTN_CAL_RESET_SHORT", "it": "Azzera tar.", "st": "ok"}
+{"id": "STR_LIST_MAT_IGNORED", "it": "Nessun materiale trovato - filtro rimosso", "st": "ok"}
+{"id": "STR_TW_OPT_MISM", "it": "Chiedi se non coincide", "st": "ok"}
+{"id": "STR_TW_OPT_MISM_SUB", "it": "Se il tag non coincide con la bobina", "st": "ok"}
+{"id": "STR_TW_OPT_MISM_INFO", "it": "Se il tag riporta un materiale, una marca o un colore chiaramente diversi dalla bobina a cui è legato, la bilancia propone di riscriverlo. Si confronta solo il contenuto, non il formato. Spento, il tag non viene toccato.", "st": "ok"}
+{"id": "STR_TW_MISM_TITLE", "it": "Il tag non coincide", "st": "ok"}
+{"id": "STR_TW_MISM_HINT", "it": "%s", "st": "ok"}
+{"id": "STR_TW_BTN_REWRITE", "it": "Riscrivi", "st": "ok"}
+{"id": "STR_TW_MISM_TAG", "it": "Tag", "st": "ok"}
+{"id": "STR_TW_MISM_SERVER", "it": "Server", "st": "ok"}
+{"id": "STR_W_TAGOPT_MISM", "it": "Chiedi sulla bilancia quando il tag non coincide con la bobina", "st": "ok"}
+{"id": "STR_W_TW_WRITING", "it": "Scrittura bobina %d...", "st": "ok"}
+{"id": "STR_W_TW_ERASING", "it": "Cancellazione del tag...", "st": "ok"}
+{"id": "STR_W_TW_WROTE", "it": "Scritta bobina %d (%s) come %s", "st": "ok"}
+{"id": "STR_W_TW_LINKED", "it": ", collegato alla bobina", "st": "ok"}
+{"id": "STR_W_TW_LINKED_NOTE", "it": ", collegato (%s)", "st": "ok"}
+{"id": "STR_W_TW_LINK_FAIL", "it": ", ma il collegamento è fallito (HTTP %d)", "st": "ok"}
+{"id": "STR_W_TW_ERASED", "it": "Tag cancellato", "st": "ok"}
+{"id": "STR_W_TW_ERASE_FAIL", "it": "Cancellazione fallita - tieni fermo il tag", "st": "ok"}
+{"id": "STR_W_TAG_KIND_MIFARE", "it": "MIFARE Classic, sola lettura", "st": "ok"}
+{"id": "STR_W_TAG_KIND_NTAG", "it": "NTAG, scrivibile", "st": "ok"}
+{"id": "STR_W_TAG_KIND_BYTES", "it": ", %u byte", "st": "ok"}
+{"id": "STR_UNLINK_SOURCES", "it": "Legata via: %s", "st": "ok"}
+{"id": "STR_TW_MODE_OFF", "it": "Spento", "st": "ok"}
+{"id": "STR_TW_MODE_ASK", "it": "Chiedi", "st": "ok"}
+{"id": "STR_TW_MODE_ALWAYS", "it": "Scrivi sempre", "st": "ok"}
+{"id": "STR_DIAG_TAP", "it": "  -  tocca qui", "st": "ok"}
+{"id": "STR_DIAG_BTN_LATER", "it": "Più tardi", "st": "ok"}
+{"id": "STR_DIAG_BTN_RECHECK", "it": "Ricontrolla", "st": "ok"}
+{"id": "STR_DIAG_BUS_EMPTY_BANNER", "it": "Niente sul bus I2C", "st": "ok"}
+{"id": "STR_DIAG_BUS_EMPTY_TITLE", "it": "Niente sul bus I2C", "st": "ok"}
+{"id": "STR_DIAG_BUS_EMPTY_TEXT", "it": "Né il lettore NFC né l'ADC della bilancia rispondono.\\n\\nIl cavo a 7 pin deve stare allineato a sinistra nella presa I/O a 8 pin. Spostato di un pin e nessuno dei due moduli è alimentato.\\n\\nControlla pin 1 (5V, rosso), pin 2 (GND, nero), pin 3 (SDA, giallo) e pin 4 (SCL, verde).", "st": "ok"}
+{"id": "STR_DIAG_NAU_MISSING_BANNER", "it": "ADC bilancia assente (NAU7802)", "st": "ok"}
+{"id": "STR_DIAG_NAU_MISSING_TITLE", "it": "ADC bilancia assente", "st": "ok"}
+{"id": "STR_DIAG_NAU_MISSING_TEXT", "it": "Il NAU7802 non risponde su 0x2A. Il lettore NFC sì, quindi SDA e SCL in linea di massima sono a posto.\\n\\nControlla VIN, GND, SDA e SCL sul NAU7802.\\n\\nNei cavi STEMMA QT di terze parti l'ordine dei pin spesso non corrisponde al cavo WT32.\\n\\nSe questo dispositivo è stato costruito apposta senza bilancia, disattivala in Impostazioni > Bilancia e questo avviso sparisce.", "st": "ok"}
+{"id": "STR_DIAG_PN532_MISSING_BANNER", "it": "Lettore NFC assente (PN532)", "st": "ok"}
+{"id": "STR_DIAG_PN532_MISSING_TITLE", "it": "Lettore NFC assente", "st": "ok"}
+{"id": "STR_DIAG_PN532_MISSING_TEXT", "it": "Il PN532 non risponde su 0x24. L'ADC della bilancia sì, quindi SDA e SCL in linea di massima sono a posto.\\n\\nControlla prima i due DIP switch sul modulo: per l'I2C servono SW1 = ON e SW2 = OFF. Impostato su HSU o SPI il chip non risponde affatto sul bus I2C - che è proprio ciò che succede qui.\\n\\nAltrimenti il PN532 ha bisogno dei 5V dal pin 1 del cavo I/O. Non collegarlo in cascata tramite il passante STEMMA QT del NAU7802 - porta solo 3,3V.", "st": "ok"}
+{"id": "STR_DIAG_PN532_MUTE_BANNER", "it": "Il lettore NFC non risponde", "st": "ok"}
+{"id": "STR_DIAG_PN532_MUTE_TITLE", "it": "Il lettore NFC resta muto", "st": "ok"}
+{"id": "STR_DIAG_PN532_MUTE_TEXT", "it": "Il PN532 si annuncia su 0x24 ma non risponde ai comandi. Quindi è impostato su I2C - altrimenti non risponderebbe affatto - e anche SDA e SCL sono giusti.\\n\\nControlla prima i due DIP switch: per l'I2C servono SW1 = ON e SW2 = OFF. Un interruttore rimasto a metà è la causa più comune.\\n\\nPoi controlla i 5V sul pin 1. Con poca alimentazione il chip si annuncia sul bus ma non riesce a lavorare.\\n\\nQui non c'è un reset da azionare: il filo arancione RST è collegato a un'uscita del modulo e non al suo ingresso di reset. Staccare e riattaccare è l'unico reset hardware possibile.", "st": "ok"}
+{"id": "STR_DIAG_UNCAL_BANNER", "it": "Bilancia non tarata", "st": "ok"}
+{"id": "STR_DIAG_UNCAL_TITLE", "it": "Bilancia non tarata", "st": "ok"}
+{"id": "STR_DIAG_UNCAL_TEXT", "it": "Il valore sullo schermo è la lettura grezza dell'ADC, non grammi. Per questo è un numero di sei cifre che salta di centinaia da solo.\\n\\nNon è un guasto né un errore di cablaggio. La bilancia semplicemente non sa ancora quante unità fanno un grammo.\\n\\nAppoggia un peso noto e fai la taratura.", "st": "ok"}
+{"id": "STR_DIAG_INVERTED_BANNER", "it": "Cella di carico invertita (A+/A-)", "st": "ok"}
+{"id": "STR_DIAG_INVERTED_TITLE", "it": "Cella di carico invertita", "st": "ok"}
+{"id": "STR_DIAG_INVERTED_TEXT", "it": "A piatto vuoto la bilancia legge molto sotto zero e dall'avvio non ha mai visto un peso positivo. Caricandola il numero scende invece di salire.\\n\\nScambia i due fili di segnale sul NAU7802: A+ (bianco) e A- (verde).\\n\\nPoi rifai tara e taratura.", "st": "ok"}
+{"id": "STR_DIAG_NOISY_BANNER", "it": "Cella di carico instabile", "st": "ok"}
+{"id": "STR_DIAG_NOISY_TITLE", "it": "Cella di carico instabile", "st": "ok"}
+{"id": "STR_DIAG_NOISY_TEXT", "it": "La lettura oscilla di continuo di oltre %d g anche se sul piatto non si muove nulla.\\n\\nÈ tipico di un filo allentato sul NAU7802. Controlla E+ (rosso), E- (nero), A+ (bianco) e A- (verde) per saldature fredde.\\n\\nControlla anche che nessun cavo prema contro il piatto di pesata.", "st": "ok"}
+{"id": "STR_CAL_HELP_TITLE", "it": "Come tarare", "st": "ok"}
+{"id": "STR_CAL_HELP_TEXT", "it": "1. Svuota il piatto e premi TARE. La lettura deve andare a 0.\\n\\n2. Appoggia un peso che conosci con precisione. Circa 1000 g è l'ideale - una bobina piena verificata su una bilancia da cucina basta e avanza.\\n\\n3. Inserisci quel peso in grammi e premi Calcola.\\n\\nPiù è preciso il peso di riferimento, più sarà precisa la bilancia.", "st": "ok"}
+{"id": "STR_W_R_DIAG", "it": "Diagnosi", "st": "ok"}
+{"id": "STR_W_S_DIAG_OK", "it": "nessun problema", "st": "ok"}
+{"id": "STR_NFCRST_HINT_TITLE", "it": "Modifica hardware possibile", "st": "ok"}
+{"id": "STR_NFCRST_HINT_TEXT", "it": "Il lettore NFC di questa bilancia ha dovuto essere riavviato almeno una volta.\\n\\nC'è una modifica facoltativa: il filo arancione RST va su RSTPDN. Così la bilancia può davvero resettare il lettore.\\n\\nGuida nella documentazione alla voce Wiring. Verifica poi in Sistema > Verifica reset NFC. Se la lasci com'è non si rompe nulla.", "st": "ok"}
+{"id": "STR_NFCRST_LATER", "it": "Più tardi", "st": "ok"}
+{"id": "STR_NFCRST_NEVER", "it": "Non mostrare più", "st": "ok"}
+{"id": "STR_NFCRST_ROW", "it": "Verifica reset NFC", "st": "ok"}
+{"id": "STR_NFCRST_ROW_SUB", "it": "Dopo il ricablaggio", "st": "ok"}
+{"id": "STR_NFCRST_ROW_DONE", "it": "Linea ok, in uso", "st": "ok"}
+{"id": "STR_NFCRST_OK_TITLE", "it": "Linea di reset presente", "st": "ok"}
+{"id": "STR_NFCRST_OK_TEXT", "it": "Il lettore ha risposto alla linea. Dal prossimo avvio la bilancia usa il reset hardware.", "st": "ok"}
+{"id": "STR_NFCRST_FAIL_TITLE", "it": "Nessun effetto", "st": "ok"}
+{"id": "STR_NFCRST_FAIL_TEXT", "it": "Il lettore non se n'è accorto. Il filo arancione è ancora sulla vecchia piazzola, o la saldatura non fa contatto.\\n\\nNon cambia nulla, la bilancia continua come prima.", "st": "ok"}
+{"id": "STR_HW_UID_WRITE", "it": "Scrivi anche l'UID del chip", "st": "ok"}
+{"id": "STR_HW_UID_WRITE_SUB", "it": "Anche in rfid_tag", "st": "ok"}
+{"id": "STR_HW_UID_WRITE_INFO", "it": "Attivo: l'UID hardware del chip sul lettore va anche nel campo extra rfid_tag, come lista separata da virgole. Il collegamento resta invariato nel campo scelto sopra.\\n\\nHappy Hare su una Voron legge solo rfid_tag, e i lettori ai suoi ingressi (gate) vedono solo l'UID hardware del chip, mai la tray_uuid di una bobina Bambu. Senza questo campo la stampante non trova la bobina che la bilancia riconosce benissimo.\\n\\nUna bobina Bambu ha due chip e quindi due UID. La lista cresce da sola: metti ogni lato sul lettore una volta e la bobina risponde a entrambi i gate.\\n\\nLa bilancia lo scrive in ogni bobina che riconosce, non solo quando si fa un collegamento. Quando l'UID c'è già, non parte più alcuna richiesta. Se il campo manca, la bilancia lo crea alla prima scrittura.", "st": "ok"}
+{"id": "STR_TF_NOREL_TITLE", "it": "Fonte tag non disponibile", "st": "ok"}
+{"id": "STR_TF_NOREL_TEXT", "it": "Questo Spoolman non ha ancora una gestione propria dei tag - arriva con la v0.27. La fonte scelta però è il tag nativo.\\n\\nIl tag è finito invece nel campo extra tag. La bobina viene trovata comunque, solo non per la via più rapida.\\n\\nMeglio per sempre: aggiorna Spoolman alla v0.27 o successiva. La bilancia sposta poi da sé il collegamento nella gestione nativa, al prossimo collegamento.", "st": "ok"}
+{"id": "STR_TAG2_ASK", "it": "Chiedi un secondo tag", "st": "ok"}
+{"id": "STR_TAG2_ASK_SUB", "it": "Dopo il collegamento", "st": "ok"}
+{"id": "STR_TAG2_ASK_INFO", "it": "Attivo: dopo ogni collegamento riuscito la bilancia chiede un secondo tag. Gira la bobina, metti il tag sul lettore, fatto - va alla stessa bobina del primo.\\n\\nLa richiesta originale era un secondo lettore, uno per lato del case. L'hardware ne ha uno, quindi qui un passaggio fa ciò che avrebbe fatto un componente.\\n\\nSu una bobina Bambu entrambi i chip hanno la stessa tray uuid, quindi l'UID del secondo chip arriverebbe comunque prima o poi. La domanda dice solo quando. Due NTAG non hanno nulla in comune, e senza di essa la bobina va cercata a mano una seconda volta.\\n\\nLa riga compare solo dove la fonte scelta può contenere più di un tag. Se scrivere anche il secondo tag lo decide sempre l'impostazione di scrittura del tag.", "st": "ok"}
+{"id": "STR_TAG2_TITLE", "it": "2° tag", "st": "ok"}
+{"id": "STR_TAG2_PROMPT", "it": "Gira la bobina e appoggia il secondo tag", "st": "ok"}
+{"id": "STR_TAG2_CLOSES_IN", "it": "Si chiude tra %d s", "st": "ok"}
+{"id": "STR_TAG2_BTN_DONE", "it": "Fine", "st": "ok"}
+{"id": "STR_TAG2_LINKED", "it": "2° tag collegato", "st": "ok"}
+{"id": "STR_NO_SCALE", "it": "Nessuna bilancia collegata", "st": "ok"}
+{"id": "STR_SCALE_FITTED", "it": "Bilancia presente", "st": "ok"}
+{"id": "STR_SCALE_FITTED_INFO", "it": "Attivo: il dispositivo ha una cella di carico e funziona esattamente come prima.\\n\\nSpento: tutta la parte di pesata sparisce. Il NAU7802 non viene nemmeno cercato all'avvio, la schermata principale mostra un avviso al posto dei pesi e nulla dove c'era TARE, il pulsante \\\"Invia peso\\\" diventa quello della posizione, e taratura e peso sacchetto escono da questo menu.\\n\\nPensato per un dispositivo fatto solo di display e lettore: avvicina un tag, vedi la bobina, assegnale una posizione e una stampante. Senza questo interruttore un tale dispositivo segnala per sempre un guasto che non ha.\\n\\nIl cambio richiede un riavvio.", "st": "ok"}
+{"id": "STR_TILE_SCALE_SUB_OFF", "it": "Tag | Essiccaz. | Altro", "st": "ok"}
+{"id": "STR_W_SCALE_FITTED", "it": "Bilancia presente", "st": "ok"}
+{"id": "STR_W_SCALE_FITTED_HINT", "it": "Spento se il dispositivo è solo display e lettore. Richiede un riavvio.", "st": "ok"}
+{"id": "STR_W_S_SCALE_OFF", "it": "spenta", "st": "ok"}
+{"id": "STR_WEB_PASS", "it": "Password", "st": "ok"}
+{"id": "STR_WEB_PASS_SET", "it": "Impostata - il browser la chiede", "st": "ok"}
+{"id": "STR_WEB_PASS_UNSET", "it": "Nessuna", "st": "ok"}
+{"id": "STR_WEB_PASS_INFO", "it": "Protegge le sezioni Impostazioni e Dispositivo nel browser: backend, impostazioni, tag, log e firmware. Senza password qualsiasi dispositivo in rete può usare queste sezioni una volta accese - caricamento firmware incluso.\\n\\nDa 4 a 8 cifre. La chiede il browser, il nome utente non conta. Salva vuota per rimuovere la password.", "st": "ok"}
+{"id": "STR_WEB_PASS_TITLE", "it": "Password web", "st": "ok"}
+{"id": "STR_WEB_PASS_HINT", "it": "Da 4 a 8 cifre. Salva vuota per rimuovere la password.", "st": "ok"}
+{"id": "STR_W_R_PASSWORD", "it": "Password", "st": "ok"}
+{"id": "STR_W_S_SET", "it": "impostata", "st": "ok"}
+{"id": "STR_W_S_NOTSET", "it": "non impostata", "st": "ok"}
+{"id": "STR_W_PASS_NOTE", "it": "Senza password qualsiasi dispositivo in rete può usare le sezioni accese, caricamento firmware incluso. Impostala sul dispositivo in", "st": "ok"}
+{"id": "STR_W_AUTH_NEEDED", "it": "Password richiesta: qualsiasi nome utente, la password web della bilancia.", "st": "ok"}
+{"id": "STR_W_BAD_HOST", "it": "Questo indirizzo non appartiene alla bilancia. Aprila tramite IP o col suo nome dispositivo.", "st": "ok"}
+{"id": "STR_W_BAD_ORIGIN", "it": "Richiesta da una pagina estranea rifiutata.", "st": "ok"}
+{"id": "STR_SPOOLS_COUNT", "it": "%d bobine", "st": "ok"}
+{"id": "STR_TAG2_LINKED_INFO", "it": "Ora entrambi i tag appartengono a questa bobina.", "st": "ok"}
+{"id": "STR_TAG2_FAILED", "it": "Secondo tag non collegato", "st": "ok"}
+{"id": "STR_TAGMOVE_HINT", "it": "La bobina #%d perde il tag.", "st": "ok"}
+{"id": "STR_TAGMOVE_BTN", "it": "Sposta", "st": "ok"}
+{"id": "STR_TAGMOVE_FAILED", "it": "Spostamento fallito", "st": "ok"}
+{"id": "STR_TAGMOVE_FROM", "it": "Sulla bobina:", "st": "ok"}
+{"id": "STR_TAGMOVE_TO", "it": "Sposta su:", "st": "ok"}
+{"id": "STR_MINUTES_FMT", "it": "%d min", "st": "ok"}
+{"id": "STR_DAYS_ABBR_FMT", "it": "%d gg", "st": "ok"}
+{"id": "STR_NEW_SPOOL_WEIGHT_FMT", "it": "%.0f g nuova", "st": "ok"}
+{"id": "STR_LBL_DIFF_CAP", "it": "Diff", "st": "ok"}
+{"id": "STR_W_FW_CHOOSE", "it": "Scegli file", "st": "ok"}
+{"id": "STR_W_FW_NOFILE", "it": "Nessun file scelto", "st": "ok"}
+{"id": "STR_W_R_MAINT_GATE", "it": "Manutenzione (firmware, log, tag)", "st": "ok"}
+{"id": "STR_AMS_BTN_VIEW", "it": "Vista AMS", "st": "ok"}
+{"id": "STR_AMSV_WINDOW_HEAD", "it": "%s -> aprire la finestra di assegnazione?", "st": "ok"}
+{"id": "STR_AMSV_BTN_WINDOW", "it": "Apri finestra", "st": "ok"}
+{"id": "STR_W_HOST_SAVED_ONLY", "it": "Salvato - test saltato, il dispositivo è occupato", "st": "ok"}
+{"id": "STR_WIFI_ALREADY_CONNECTED", "it": "Già connesso al WiFi.", "st": "ok"}
+{"id": "STR_BTN_WIFI_CHANGE", "it": "Cambia WiFi", "st": "ok"}
+{"id": "STR_BTN_WIFI_PORTAL", "it": "Configura da telefono", "st": "ok"}
+{"id": "STR_PORTAL_TITLE", "it": "Configura WiFi da telefono", "st": "ok"}
+{"id": "STR_PORTAL_STEP_JOIN", "it": "1. Collegati al WiFi della bilancia", "st": "ok"}
+{"id": "STR_PORTAL_STEP_OPEN", "it": "2. Apri la pagina", "st": "ok"}
+{"id": "STR_PORTAL_NET_FMT", "it": "WiFi: %s", "st": "ok"}
+{"id": "STR_PORTAL_PASS_FMT", "it": "Password: %s", "st": "ok"}
+{"id": "STR_PORTAL_OPENS_ITSELF", "it": "Di solito si apre da sola", "st": "ok"}
+{"id": "STR_PORTAL_ANDROID_HINT", "it": "Se il telefono segnala \\\"nessuna connessione Internet\\\", resta connesso.", "st": "ok"}
+{"id": "STR_PORTAL_WAITING", "it": "In attesa del telefono...", "st": "ok"}
+{"id": "STR_PORTAL_RECEIVED", "it": "Ricevuto, connessione tra un attimo...", "st": "ok"}
+{"id": "STR_PORTAL_START_FAILED", "it": "{LV_SYMBOL_WARNING}  Il WiFi della bilancia non è partito.", "st": "ok"}
+{"id": "STR_PORTAL_PAGE_INTRO", "it": "Scegli la rete WiFi a cui collegare la bilancia.", "st": "ok"}
+{"id": "STR_PORTAL_PAGE_NETWORK", "it": "Rete", "st": "ok"}
+{"id": "STR_PORTAL_PAGE_CHOOSE", "it": "Scegli", "st": "ok"}
+{"id": "STR_PORTAL_PAGE_OTHER", "it": "Oppure scrivi il nome (rete nascosta)", "st": "ok"}
+{"id": "STR_PORTAL_PAGE_PASS", "it": "Password", "st": "ok"}
+{"id": "STR_PORTAL_PAGE_SUBMIT", "it": "Connetti", "st": "ok"}
+{"id": "STR_PORTAL_PAGE_DONE", "it": "La bilancia si sta connettendo a %s. Il risultato compare sul suo display, e questa rete WiFi si spegne.", "st": "ok"}
+{"id": "STR_PORTAL_PAGE_ERR_SSID", "it": "Scegli una rete o scrivi il suo nome (al massimo 32 caratteri).", "st": "ok"}
+{"id": "STR_PORTAL_PAGE_ERR_PASS", "it": "La password ha da 8 a 64 caratteri, o resta vuota per una rete aperta.", "st": "ok"}
+{"id": "STR_BB_KEY_MISSING", "it": "Manca chiave API", "st": "ok"}
+{"id": "STR_BB_KEY_REJECTED", "it": "API key rifiutata", "st": "ok"}
+{"id": "STR_AMSV_INFO", "it": "Info", "st": "ok"}
+{"id": "STR_AMSV_INFO_HINT", "it": "Tocca uno slot per vederne la bobina", "st": "ok"}
+{"id": "STR_AMSV_EXT_NO_PICK", "it": "Il supporto esterno non si può assegnare", "st": "ok"}
+{"id": "STR_AMSD_BAY", "it": "%s - slot %d", "st": "ok"}
+{"id": "STR_AMSD_REMAINING", "it": "Residuo", "st": "ok"}
+{"id": "STR_AMSD_OF", "it": "%s di %s", "st": "ok"}
+{"id": "STR_AMSD_NO_WEIGHT", "it": "Nessun peso salvato nel backend", "st": "ok"}
+{"id": "STR_AMSD_NO_SPOOL", "it": "Nessuna bobina collegata", "st": "ok"}
+{"id": "STR_AMSD_LOADING", "it": "Caricamento dettagli ...", "st": "ok"}
+{"id": "STR_AMSD_FAIL", "it": "Dettagli assenti", "st": "ok"}
+{"id": "STR_AMSD_BACKUP", "it": "Riserva %s", "st": "ok"}
+{"id": "STR_AMSD_DRIED_Q", "it": "Registrare l'essiccazione di oggi\\nper questa bobina?", "st": "ok"}
+{"id": "STR_AMSD_SAVING", "it": "Salvataggio ...", "st": "ok"}
+{"id": "STR_AMSD_WRITE_FAIL", "it": "Salvataggio fallito", "st": "ok"}
+{"id": "STR_LBL_MATERIAL", "it": "Materiale", "st": "ok"}
+{"id": "STR_LBL_STATUS", "it": "Stato", "st": "ok"}
+{"id": "STR_WIFI_ROW_STATUS", "it": "Stato", "st": "ok"}
+{"id": "STR_WIFI_ROW_GATEWAY", "it": "Gateway", "st": "ok"}
+{"id": "STR_IP_BAR_NAME", "it": "Nome", "st": "ok"}
+{"id": "STR_SERVER_TITLE", "it": "Server %s", "st": "ok"}
+{"id": "STR_BACKEND_UUID", "it": "UUID %s", "st": "ok"}
+{"id": "STR_LANG_SCREEN_TITLE", "it": "Lingua / Language", "st": "ok"}
+{"id": "STR_KEY_DEL", "it": "CANC", "st": "ok"}
+{"id": "STR_AMSD_DRIED_Q_ALL", "it": "Salvare l'essiccazione?", "st": "ok"}
+{"id": "STR_AMSD_DRIED_ALL", "it": "%d bobine (%s)", "st": "ok"}
+{"id": "STR_AMSD_DRIED_ONE", "it": "Solo questa", "st": "ok"}
+{"id": "STR_AMSD_BATCH_RUNNING", "it": "Salvo %d bobine ...", "st": "ok"}
+{"id": "STR_AMSD_BATCH_DONE", "it": "%d di %d salvate", "st": "ok"}
+{"id": "STR_AMSV_DRYING_MIN", "it": "Essicca %d min", "st": "ok"}
+{"id": "STR_AMSV_DRYING", "it": "Essicca", "st": "ok"}
+{"id": "STR_AMSD_TYPE_CONFLICT", "it": "La stampante dice %s - verifica l'assegnazione", "st": "ok"}
+{"id": "STR_W_SNAPMAKER", "it": "Leggi i tag Snapmaker", "st": "ok"}
+{"id": "STR_W_SNAPMAKER_HINT", "it": "Prova le chiavi Snapmaker su un tag da 4 byte che non è un tag Bambu e legge materiale e colore dal tag. Costa a ogni altro tag da 4 byte circa mezzo secondo quando viene appoggiato. Lascialo spento se non ci sono bobine Snapmaker.", "st": "ok"}
+{"id": "STR_PART_HINT_TITLE", "it": "Aggiornamento USB, una volta", "st": "ok"}
+{"id": "STR_PART_HINT_TEXT", "it": "Per i futuri aggiornamenti con nuove funzioni va ingrandita l'area di memoria del firmware. Si fa una sola volta via cavo USB con il web flasher: circa 2 minuti, tutte le impostazioni restano. Dopo, gli aggiornamenti arrivano via rete come al solito.", "st": "ok"}
+{"id": "STR_W_R_LAYOUT", "it": "Partizioni", "st": "ok"}
+{"id": "STR_W_S_LAYOUT_NEW", "it": "attuali", "st": "ok"}
+{"id": "STR_W_S_LAYOUT_OLD", "it": "superate", "st": "ok"}
+{"id": "STR_W_S_LAYOUT_OLD_HINT", "it": "Un flash via USB con il web flasher porta le partizioni attuali. Le impostazioni restano.", "st": "ok"}
+{"id": "STR_W_R_FIRMWARE", "it": "Firmware", "st": "ok"}
+{"id": "STR_W_S_MB_OF", "it": "%s di %s MB", "st": "ok"}
+{"id": "STR_W_R_DATA_AREA", "it": "Area dati", "st": "ok"}
+{"id": "STR_W_S_DATA_UNUSED", "it": "%s MB, non ancora usata", "st": "ok"}
+{"id": "STR_W_S_NONE", "it": "assente", "st": "ok"}
+{"id": "STR_W_R_COREDUMP", "it": "Dump di crash", "st": "ok"}
+{"id": "STR_LINK_NO_CONNECTION", "it": "Non collegata: niente rete", "st": "ok"}
+{"id": "STR_UNLINK_NO_CONNECTION", "it": "Non scollegata: nessuna connessione", "st": "ok"}
+{"id": "STR_NO_CONNECTION", "it": "Niente rete", "st": "ok"}
+{"id": "STR_NO_CONNECTION_TO", "it": "Nessuna connessione a Spoolman", "st": "ok"}
+{"id": "STR_SERVER_DOWN_TITLE", "it": "Server non raggiungibile", "st": "ok"}
+{"id": "STR_SERVER_DOWN_TEXT", "it": "Il server non ha risposto. Controlla che sia attivo e che la bilancia sia sul WiFi, poi riprova.", "st": "ok"}
+{"id": "STR_W_R_LOGDEST", "it": "Scrivi il log", "st": "ok"}
+{"id": "STR_W_S_DEST_OFF", "it": "Spento", "st": "ok"}
+{"id": "STR_W_S_DEST_SD", "it": "Scheda SD", "st": "ok"}
+{"id": "STR_W_S_DEST_INT", "it": "Interna", "st": "ok"}
+{"id": "STR_W_R_LOGLVL", "it": "Livello", "st": "ok"}
+{"id": "STR_W_S_LVL_MIN", "it": "Minimo", "st": "ok"}
+{"id": "STR_W_S_LVL_NORM", "it": "Normale", "st": "ok"}
+{"id": "STR_W_S_LVL_VERB", "it": "Dettagliato", "st": "ok"}
+{"id": "STR_W_LOG_INTERNAL", "it": "Memoria interna", "st": "ok"}
+{"id": "STR_W_LOG_LINES_OF", "it": "{a} di {b} righe", "st": "ok"}
+{"id": "STR_W_LOG_SRC_ALL", "it": "Tutti", "st": "ok"}
+{"id": "STR_W_LOG_INT_NONE", "it": "Non disponibile", "st": "ok"}
+{"id": "STR_W_LOG_INT_NOTE", "it": "La memoria interna tiene 4.096 righe e sovrascrive le più vecchie. Sono circa due giorni a livello normale e alcune ore a livello dettagliato.", "st": "ok"}
+{"id": "STR_LIST_SPOOL_CHANGED", "it": "La bobina è cambiata, elenco ricaricato", "st": "ok"}
+{"id": "STR_LIST_AS_OF", "it": "Alle %02d:%02d (%s min fa)", "st": "ok"}
+{"id": "STR_LIST_RELOAD", "it": "Ricarica", "st": "ok"}
+{"id": "STR_TW_BUSY_WRITE", "it": "Scrittura del tag", "st": "ok"}
+{"id": "STR_TW_BUSY_ERASE", "it": "Cancellazione del tag", "st": "ok"}
+{"id": "STR_TW_BUSY_HINT", "it": "Lascia la bobina dov'è finché non è confermato.", "st": "ok"}
+{"id": "STR_W_TAG_NOREC", "it": "Sola lettura, e niente che questa bilancia conosca.", "st": "ok"}
+{"id": "STR_W_TAG_TRAY", "it": "Tray UUID", "st": "ok"}
+{"id": "STR_W_TAG_ONSCALE", "it": "Bobina sulla bilancia", "st": "ok"}
+{"id": "STR_W_TAG_NOSPOOL", "it": "Al momento la bilancia non mostra alcuna bobina.", "st": "ok"}
+{"id": "STR_TV_TITLE", "it": "Tag NFC", "st": "ok"}
+{"id": "STR_TV_UID", "it": "UID", "st": "ok"}
+{"id": "STR_TV_CHIP", "it": "Chip", "st": "ok"}
+{"id": "STR_TV_FMT_BLANK", "it": "vuoto", "st": "ok"}
+{"id": "STR_TV_FMT_UNKNOWN", "it": "sconosciuto", "st": "ok"}
+{"id": "STR_TV_FMT_NONE", "it": "nessuno", "st": "ok"}
+{"id": "STR_TV_BLANK_NOTE", "it": "Sul tag non c'è nulla. Si può scrivere.", "st": "ok"}
+{"id": "STR_TV_PLACE", "it": "Nessun tag sul lettore. Appoggiane uno e compare subito qui.", "st": "ok"}
+{"id": "STR_TV_READER_DOWN", "it": "Il lettore NFC al momento non risponde. I tag vengono riletti appena torna.", "st": "ok"}
+{"id": "STR_TV_WRITE", "it": "Scrivi bobina #%d", "st": "ok"}
+{"id": "STR_TV_NOSPOOL", "it": "Bobina ignota", "st": "ok"}
+{"id": "STR_TV_TOOSMALL", "it": "Tag troppo piccolo", "st": "ok"}
+{"id": "STR_TV_ERASE_TITLE", "it": "Cancellare il tag?", "st": "ok"}
+{"id": "STR_TV_ERASE_HINT", "it": "Il contenuto va perso. Il collegamento a una bobina resta.", "st": "ok"}
+{"id": "STR_W_TAG_LINKONLY", "it": "Solo collegamento", "st": "ok"}
+{"id": "STR_W_TAG_RO_LINK", "it": "Questo tag si può solo leggere. Si può comunque collegare.", "st": "ok"}
+{"id": "STR_W_TL_ASK_REPLACE", "it": "La bobina #%d è già collegata al tag %s. Collegare invece questo tag? Il vecchio perde il collegamento.", "st": "ok"}
+{"id": "STR_W_TL_ASK_ADD", "it": "La bobina #%d è già collegata al tag %s. Collegare anche questo tag? Poi entrambi portano alla bobina.", "st": "ok"}
+{"id": "STR_W_TL_REFUSED", "it": "Non accettato: un collegamento è già in corso, oppure manca la bobina o il tag.", "st": "ok"}
+{"id": "STR_W_TL_BUSY", "it": "Collegamento alla bobina #%d ...", "st": "ok"}
+{"id": "STR_W_TL_OK", "it": "Tag collegato alla bobina #%d.", "st": "ok"}
+{"id": "STR_W_TL_ALREADY", "it": "Il tag è già collegato alla bobina #%d.", "st": "ok"}
+{"id": "STR_W_TL_HELD", "it": "Il tag appartiene alla bobina #%d. Scollegalo prima da lì.", "st": "ok"}
+{"id": "STR_W_TL_CHANGED", "it": "Ora sul lettore c'è un altro tag. Non è stato collegato nulla.", "st": "ok"}
+{"id": "STR_W_TL_FAILED", "it": "Il server ha rifiutato il collegamento.", "st": "ok"}
+{"id": "STR_COPY_CARD_TEMPLATE", "it": "%s | modello #%d", "st": "ok"}
+{"id": "STR_COPY_CARD_WEIGHT", "it": "Bobina nuova: %.0f g netti | vuota %.0f g", "st": "ok"}
+{"id": "STR_COPY_CARD_CREATE", "it": "Crea", "st": "ok"}
+{"id": "STR_BT_TITLE", "it": "Bluetooth", "st": "ok"}
+{"id": "STR_BT_SWITCH", "it": "Usa Bluetooth", "st": "ok"}
+{"id": "STR_BT_SWITCH_SUB", "it": "Radio accesa solo se serve", "st": "ok"}
+{"id": "STR_BT_SCANNING", "it": "Ricerca dispositivi Bluetooth...", "st": "ok"}
+{"id": "STR_BT_NONE_FOUND", "it": "Nessun dispositivo", "st": "ok"}
+{"id": "STR_BT_UNNAMED", "it": "(senza nome)", "st": "ok"}
+{"id": "STR_BT_INIT_FAILED", "it": "Bluetooth non avviato. Memoria libera insufficiente, vedi il log.", "st": "ok"}
+{"id": "STR_BT_HELP", "it": "Spento: niente Bluetooth, nulla in background. Acceso: funzioni come la ricerca dispositivi accendono la radio quando serve e poi la rilasciano. La ricerca elenca ciò che è nel raggio. Ci si collega solo per stampare, alla stampante impostata. Dopo l'accensione la bilancia si riavvia una volta.", "st": "ok"}
+{"id": "STR_BT_DEVICES", "it": "Disposit.", "st": "ok"}
+{"id": "STR_BT_DEVICES_NONE_YET", "it": "Non ancora cercati", "st": "ok"}
+{"id": "STR_BT_DEVICES_FMT", "it": "%d nel raggio", "st": "ok"}
+{"id": "STR_BT_SIG_STRONG", "it": "forte", "st": "ok"}
+{"id": "STR_BT_SIG_MEDIUM", "it": "medio", "st": "ok"}
+{"id": "STR_BT_SIG_WEAK", "it": "debole", "st": "ok"}
+{"id": "STR_BT_CARD_ADDRESS", "it": "Indirizzo", "st": "ok"}
+{"id": "STR_BT_CARD_SIGNAL", "it": "Segnale", "st": "ok"}
+{"id": "STR_BT_CLOSE", "it": "Chiudi", "st": "ok"}
+{"id": "STR_BT_CARD_USE_PRINTER", "it": "Stampante", "st": "ok"}
+{"id": "STR_BT_CARD_IS_PRINTER", "it": "La stampante", "st": "ok"}
+{"id": "STR_BT_CARD_FORGET_PRINTER", "it": "Rimuovi", "st": "ok"}
+{"id": "STR_PRN_TITLE", "it": "Stampante", "st": "ok"}
+{"id": "STR_PRN_NONE", "it": "Nessuna stampante", "st": "ok"}
+{"id": "STR_PRN_DEVICE", "it": "Dispositivo", "st": "ok"}
+{"id": "STR_PRN_DEVICE_NONE", "it": "Nessuno, scegline uno dall'elenco", "st": "ok"}
+{"id": "STR_PRN_MODEL", "it": "Modello", "st": "ok"}
+{"id": "STR_PRN_EXPERIMENTAL", "it": "(sperimentale, non testato)", "st": "ok"}
+{"id": "STR_PRN_MEDIA", "it": "Etichette", "st": "ok"}
+{"id": "STR_PRN_MEDIA_FMT", "it": "%u x %u mm", "st": "ok"}
+{"id": "STR_PRN_TEST", "it": "Stampa di prova", "st": "ok"}
+{"id": "STR_PRN_TEST_SUB", "it": "Cornice, nome e QR sull'etichetta caricata", "st": "ok"}
+{"id": "STR_PRN_FORGET", "it": "Rimuovi stampante", "st": "ok"}
+{"id": "STR_PRN_OK", "it": "L'etichetta è stata inviata alla stampante.", "st": "ok"}
+{"id": "STR_PRN_ERR_NO_PRINTER", "it": "Nessuna stampante.", "st": "ok"}
+{"id": "STR_PRN_ERR_RASTER", "it": "Etichetta non generata.", "st": "ok"}
+{"id": "STR_PRN_ERR_TOO_WIDE", "it": "Etichetta più larga della testina.", "st": "ok"}
+{"id": "STR_PRN_ERR_MEDIA", "it": "Etichetta e formato caricato diversi.", "st": "ok"}
+{"id": "STR_PRN_ERR_BLE_OFF", "it": "Bluetooth spento.", "st": "ok"}
+{"id": "STR_PRN_ERR_CONNECT", "it": "La stampante non risponde. Accesa e raggiungibile?", "st": "ok"}
+{"id": "STR_PRN_ERR_NOT_PRINTER", "it": "Non è una stampante Phomemo.", "st": "ok"}
+{"id": "STR_PRN_ERR_STUCK", "it": "Connessione bloccata. Riavvia.", "st": "ok"}
+{"id": "STR_PRN_ERR_WRITE", "it": "Trasferimento interrotto.", "st": "ok"}
+{"id": "STR_PRN_HELP", "it": "La stampante si sceglie dall'elenco dispositivi. Modello ed etichetta adattano la stampa alla testina e al supporto caricato; la prova mostra se sono giusti. Durante la stampa la bilancia si ferma qualche secondo.", "st": "ok"}
+{"id": "STR_W_NAV_PRINTER", "it": "Stampante", "st": "ok"}
+{"id": "STR_W_P_BLE_HINT", "it": "Solo quando serve: la radio resta accesa finché un dispositivo la usa e poi viene rilasciata. Dopo l'accensione la bilancia ha bisogno di un riavvio.", "st": "ok"}
+{"id": "STR_W_P_SUPPORTED_HINT", "it": "Altri modelli arriveranno con i riscontri della community.", "st": "ok"}
+{"id": "STR_W_P_DEVICES", "it": "Dispositivi nel raggio", "st": "ok"}
+{"id": "STR_BT_SCAN_WEB", "it": "Cerca", "st": "ok"}
+{"id": "STR_W_P_SCAN_HINT", "it": "La ricerca avviene sulla bilancia e dura circa 5 secondi; nel frattempo la bilancia è in pausa.", "st": "ok"}
+{"id": "STR_W_P_MEDIA_HINT", "it": "Larghezza lungo la testina per lunghezza nel senso di avanzamento, come scritto sul rotolo.", "st": "ok"}
+{"id": "STR_W_P_TEST_HINT", "it": "Stampa una cornice, il nome e un codice QR sull'etichetta caricata. L'esito compare anche sulla bilancia.", "st": "ok"}
+{"id": "STR_W_P_LAST_TEST", "it": "Ultima prova", "st": "ok"}
+{"id": "STR_W_P_QUEUED", "it": "Passato alla bilancia", "st": "ok"}
+{"id": "STR_PRN_LABEL_PRINT", "it": "Stampa", "st": "ok"}
+{"id": "STR_PRN_ERR_NO_SPOOL", "it": "Nessuna bobina nota sul piatto.", "st": "ok"}
+{"id": "STR_LBL_L_COLOR", "it": "Colore", "st": "ok"}
+{"id": "STR_PRN_PH_RENDER", "it": "Preparo l'etichetta...", "st": "ok"}
+{"id": "STR_PRN_PH_FIND", "it": "Cerco la stampante...", "st": "ok"}
+{"id": "STR_PRN_PH_CONNECT", "it": "Connetto la stampante...", "st": "ok"}
+{"id": "STR_PRN_PH_SEND", "it": "Invio dell'etichetta", "st": "ok"}
+{"id": "STR_PRN_PH_AWAIT", "it": "Stampa in corso...", "st": "ok"}
+{"id": "STR_PRN_DONE_TITLE", "it": "Stampata", "st": "ok"}
+{"id": "STR_PRN_DONE_MSG", "it": "La stampante ha confermato.", "st": "ok"}
+{"id": "STR_PRN_UNCONF_TITLE", "it": "Inviata", "st": "ok"}
+{"id": "STR_PRN_UNCONF_MSG", "it": "La stampante non ha confermato. Controlla carta e coperchio.", "st": "ok"}
+{"id": "STR_PRN_FAIL_TITLE", "it": "Non stampata", "st": "ok"}
+{"id": "STR_BT_FILTER_NOTE", "it": "Solo dispositivi con un nome. Manca il tuo? Avvicinalo alla bilancia e cerca di nuovo.", "st": "ok"}
+{"id": "STR_BT_SHOW_ALL_FMT", "it": "Mostra tutti (+%d senza nome)", "st": "ok"}
+{"id": "STR_BT_SHOW_NAMED", "it": "Solo dispositivi con nome", "st": "ok"}
+{"id": "STR_QR_DOCS_TITLE", "it": "Manuale", "st": "ok"}
+{"id": "STR_QR_DOCS_DESC", "it": "Installazione, funzioni, FAQ", "st": "ok"}
+{"id": "STR_W_C_ONSCALE", "it": "Sulla bilancia", "st": "ok"}
+{"id": "STR_W_TAG_BADGE_TAG", "it": "Tag NFC", "st": "ok"}
+{"id": "STR_W_TAG_PREVIEW", "it": "Anteprima", "st": "ok"}
+{"id": "STR_W_TAG_NOTLINKED", "it": "Nessun record in %s per questo tag.", "st": "ok"}
+{"id": "STR_W_TAG_SPOOLID", "it": "ID bobina", "st": "ok"}
+{"id": "STR_W_TAG_PROTO", "it": "Protocollo", "st": "ok"}
+{"id": "STR_W_TAG_RAW", "it": "Dati grezzi", "st": "ok"}
+{"id": "STR_W_TAG_RAW_TITLE", "it": "Dati grezzi del tag", "st": "ok"}
+{"id": "STR_W_COPY", "it": "Copia", "st": "ok"}
+{"id": "STR_W_COPIED", "it": "Copiato", "st": "ok"}
+{"id": "STR_W_TW_BUSY_BTN", "it": "Scrittura...", "st": "ok"}
+{"id": "STR_W_TW_KEEP", "it": "Tieni il tag sul lettore", "st": "ok"}
+{"id": "STR_W_TW_RETRY", "it": "Appoggia il tag e riprova", "st": "ok"}
+{"id": "STR_W_T2_OFFER", "it": "Un secondo tag per questa bobina?", "st": "ok"}
+{"id": "STR_W_T2_OFFER_HINT", "it": "Per il supporto o la scatola, per esempio. Entrambi i tag trovano la stessa bobina.", "st": "ok"}
+{"id": "STR_W_T2_START", "it": "Scrivi un secondo tag", "st": "ok"}
+{"id": "STR_W_T2_DONE_BTN", "it": "Fine", "st": "ok"}
+{"id": "STR_W_T2_WAIT", "it": "Ora appoggia il secondo tag", "st": "ok"}
+{"id": "STR_W_T2_WAIT_HINT", "it": "Togli il primo tag e appoggia il secondo sul lettore. La bilancia chiede lo stesso.", "st": "ok"}
+{"id": "STR_W_T2_LEFT", "it": "Ancora %d s", "st": "ok"}
+{"id": "STR_W_T2_LINKING", "it": "Collegamento del secondo tag...", "st": "ok"}
+{"id": "STR_W_T2_OK", "it": "Secondo tag collegato", "st": "ok"}
+{"id": "STR_W_T2_OK_HINT", "it": "Ora la bobina #%d si trova con entrambi i tag.", "st": "ok"}
+{"id": "STR_W_T2_FAIL", "it": "Secondo tag non collegato", "st": "ok"}
+{"id": "STR_W_T2_EXPIRED", "it": "Non è stato appoggiato un secondo tag.", "st": "ok"}
+{"id": "STR_W_ASK_WRITE", "it": "Scrivere la bobina #%d su questo tag?", "st": "ok"}
+{"id": "STR_W_ASK_OVER_TITLE", "it": "Questo tag contiene già qualcosa", "st": "ok"}
+{"id": "STR_W_ASK_OVER", "it": "Sovrascriverlo con la bobina #%d?", "st": "ok"}
+{"id": "STR_W_ASK_YES_OVER", "it": "Sovrascrivi", "st": "ok"}
+{"id": "STR_W_ASK_YES_WRITE", "it": "Scrivi", "st": "ok"}
+{"id": "STR_W_TW_REFUSED", "it": "Non accettato: una scrittura è già in corso, oppure manca l'ID della bobina.", "st": "ok"}
+{"id": "STR_LBL_L_FIRST", "it": "Primo uso", "st": "ok"}
+{"id": "STR_LBL_L_ADDED", "it": "Inserita", "st": "ok"}
+{"id": "STR_LBL_TEST_BAND", "it": "PROVA", "st": "ok"}
+{"id": "STR_LBL_TEST_DONATE", "it": "Questa funzione ha richiesto molto tempo. Una donazione è gradita.", "st": "ok"}
+{"id": "STR_EF_HEAD_OK", "it": "Tutto pronto", "st": "ok"}
+{"id": "STR_EF_HEAD_MISSING", "it": "Campi mancanti", "st": "ok"}
+{"id": "STR_EF_BTN_CREATE", "it": "Crea", "st": "ok"}
+{"id": "STR_EF_NATIVE_SUB", "it": "Nessun campo", "st": "ok"}
+{"id": "STR_PART_HINT_BLOCKED", "it": "Per l'aggiornamento %s va ingrandita l'area di memoria del firmware. Si fa una sola volta via cavo USB con il web flasher: circa 2 minuti, tutte le impostazioni restano. Dopo, gli aggiornamenti arrivano via rete come al solito.", "st": "ok"}
+{"id": "STR_PART_HINT_LATER", "it": "Più tardi", "st": "ok"}
+{"id": "STR_PART_HINT_QR", "it": "Web flasher", "st": "ok"}
+{"id": "STR_GH_OTA_TOO_BIG", "it": "%s non entra più: flash una volta via USB", "st": "ok"}
+{"id": "STR_W_FW_UPLOADING", "it": "Caricamento del firmware", "st": "ok"}
+{"id": "STR_W_FW_TOOBIG", "it": "Il file è più grande della memoria di questa bilancia ({s}). Aggiorna una volta via USB con il web flasher, poi entra.", "st": "ok"}
+{"id": "STR_PART_HINT_ERASE", "it": "Se il flasher propone \\\"Install\\\" invece di \\\"Update\\\", lascia deselezionata la casella \\\"Erase\\\", altrimenti WiFi e taratura si perdono.", "st": "ok"}
+{"id": "STR_INIT_W_FAIL_TEXT", "it": "Il server non ha accettato il peso iniziale. Resta il valore precedente.", "st": "ok"}
+{"id": "STR_TARE_CHOICE_TITLE", "it": "Peso bobina vuota", "st": "ok"}
+{"id": "STR_TARE_CHOICE_WEIGH", "it": "Pesa ora la bobina vuota\\nsulla bilancia: %.0f g", "st": "ok"}
+{"id": "STR_TARE_CHOICE_TYPE", "it": "Inserisci un valore\\nnoto o del produttore", "st": "ok"}
+{"id": "STR_TARE_ENTER_TITLE", "it": "Peso bobina vuota", "st": "ok"}
+{"id": "STR_TARE_ENTER_REST", "it": "Bilancia %.0f g\\n- bobina %.0f g\\n= %.0f g residui", "st": "ok"}
+{"id": "STR_TARE_ENTER_RANGE", "it": "Peso della bobina senza filamento, da %.0f a %.0f g", "st": "ok"}
+{"id": "STR_TARE_ENTER_OVER", "it": "Più del peso misurato", "st": "ok"}
+{"id": "STR_W_TAG_DRY", "it": "Essiccazione", "st": "ok"}
+{"id": "STR_W_TAG_CODE", "it": "Codice Bambu", "st": "ok"}
+{"id": "STR_W_TAG_COLOR2", "it": "Secondo colore", "st": "ok"}
+{"id": "STR_W_BCAT_TITLE", "it": "Catalogo Bambu", "st": "ok"}
+{"id": "STR_W_BCAT_NONE", "it": "Non ancora caricato.", "st": "ok"}
+{"id": "STR_W_BCAT_STATE", "it": "%d colori, caricati il %s, ultimo controllo il %s.", "st": "ok"}
+{"id": "STR_W_BCAT_BUSY", "it": "Caricamento ...", "st": "ok"}
+{"id": "STR_W_BCAT_FAIL", "it": "Caricamento fallito: %s.", "st": "ok"}
+{"id": "STR_W_BCAT_LOAD", "it": "Carica", "st": "ok"}
+{"id": "STR_W_BCAT_UPDATE", "it": "Aggiorna", "st": "ok"}
+{"id": "STR_W_BCAT_NOTE", "it": "La bilancia scarica la tabella dei colori da BambuStudio (GitHub, circa 230 KB) e ne tiene una copia compatta. Da lì mostra il nome del colore e il codice articolo di ogni tag Bambu, anche offline. Bambu amplia la tabella quando escono nuovi colori: la bilancia controlla una volta al giorno e scarica solo se qualcosa è cambiato. Segue l'interruttore del controllo automatico degli aggiornamenti.", "st": "ok"}
+{"id": "STR_W_BCAT_UNCHANGED", "it": "Invariato, niente scaricato.", "st": "ok"}
+{"id": "STR_W_TLS_INSECURE", "it": "Non verificare il certificato (solo https)", "st": "ok"}
+{"id": "STR_W_TLS_INSECURE_HINT", "it": "Un indirizzo con https:// viene raggiunto in modo cifrato. I certificati pubblici come Let's Encrypt li verifica la bilancia stessa. Se il browser avvisa sul tuo server perché il certificato è autofirmato, attiva questa opzione: la connessione resta cifrata, ma la bilancia non verifica chi risponde.", "st": "ok"}
+{"id": "STR_W_TLS_KEEP", "it": "Tieni aperta la connessione (solo https)", "st": "ok"}
+{"id": "STR_W_TLS_KEEP_HINT", "it": "Aprire una connessione https richiede alla bilancia circa 0,6 s, una connessione aperta risponde in circa 30 ms. La bilancia la apre appena si appoggia una bobina e la chiude dopo il tempo scelto senza richieste. 30 minuti servono solo se il tuo server tiene aperta la connessione così a lungo.", "st": "ok"}
+{"id": "STR_SP_HTTPS_HINT", "it": "https: nel browser", "st": "ok"}
+{"id": "STR_SP_HTTPS_TITLE", "it": "Indirizzo https", "st": "ok"}
+{"id": "STR_W_P_CAL_TITLE", "it": "Posizione di stampa", "st": "ok"}
+{"id": "STR_W_P_CAL_ROLL", "it": "Posizione del rotolo", "st": "ok"}
+{"id": "STR_W_P_CAL_LEFT", "it": "Sinistra", "st": "ok"}
+{"id": "STR_W_P_CAL_CENTER", "it": "Centro", "st": "ok"}
+{"id": "STR_W_P_CAL_RIGHT", "it": "Destra", "st": "ok"}
+{"id": "STR_W_P_CAL_OFFSET", "it": "Scostamento", "st": "ok"}
+{"id": "STR_W_P_CAL_PRINT", "it": "Stampa pagina di calibrazione", "st": "ok"}
+{"id": "STR_W_P_CAL_HINT", "it": "Inserisci il primo numero a sinistra dell'etichetta. Se poi la cornice non è centrata, correggi con − e +.", "st": "ok"}
+{"id": "STR_LBL_CAL_EDGE", "it": "Numero a sinistra = scostam.", "st": "ok"}
+{"id": "STR_W_P_CAL_HINT2", "it": "Più di 1 mm di margine a sinistra e a destra della cornice: controlla il formato dell'etichetta.", "st": "ok"}
+{"id": "STR_PRN_OFFSET_HINT", "it": "Stampa la pagina di calibrazione, poi imposta il 1° numero a sinistra.", "st": "ok"}
+{"id": "STR_PRN_OFFSET_HELP", "it": "Dove passa il rotolo sotto la testina dipende da come sta nel supporto. La pagina di calibrazione stampa un righello su tutta la testina: il primo numero a sinistra dell'etichetta è lo scostamento. Quando la cornice ha lo stesso margine ai due lati, è giusto. Tieni premuto un pulsante per contare veloce.", "st": "ok"}
+{"id": "STR_PRN_HEAT_SHORT", "it": "Essiccare ad alta temperatura annerisce l'etichetta sulla bobina.", "st": "ok"}
+{"id": "STR_PRN_HEAT_HELP", "it": "Le etichette sono carta termica: la stampante le colora senza inchiostro, solo col calore. L'essiccazione innesca la stessa reazione. Su una bobina essiccata ad alta temperatura tutta l'etichetta diventa nera, nell'AMS HT a 85 °C quasi sempre già la prima volta. A temperature più basse succede più lentamente e può accumularsi in più cicli. Testo e codice QR poi non si leggono più.", "st": "ok"}
+{"id": "STR_LINK_MISMATCH_TITLE", "it": "Non coincide col tag", "st": "ok"}
+{"id": "STR_BTN_LINK_ANYWAY", "it": "Collega comunque", "st": "ok"}
+{"id": "STR_TAG_MISMATCH_STATUS", "it": "Il tag non coincide", "st": "ok"}
+{"id": "STR_W_TL_MISMATCH", "it": "Il tag non coincide con la bobina #%d.\\nTag: %s\\nBobina: %s\\nCollegare comunque?", "st": "ok"}
+{"id": "STR_TAG_VIEW_SPOOL", "it": "Bobina #%d", "st": "ok"}
+{"id": "STR_W_NAV_THEME", "it": "Tema", "st": "ok"}
+{"id": "STR_W_C_THEME", "it": "Tema", "st": "ok"}
+{"id": "STR_W_THEME_HINT", "it": "Vale per la bilancia e per questa interfaccia web. La bilancia si riavvia per applicarlo; tutte le impostazioni restano.", "st": "ok"}
+{"id": "STR_W_THEME_DARK", "it": "Scuro", "st": "ok"}
+{"id": "STR_W_THEME_LIGHT", "it": "Chiaro", "st": "ok"}
+{"id": "STR_W_THEME_ACTIVE", "it": "Attivo", "st": "ok"}
+{"id": "STR_W_THEME_APPLY", "it": "Applica e riavvia", "st": "ok"}
+{"id": "STR_W_THEME_LATER", "it": "Salvato. Ha effetto al prossimo riavvio della bilancia.", "st": "ok"}
+{"id": "STR_W_THEME_RESTARTING", "it": "La bilancia si sta riavviando, questa pagina si ricarica da sola.", "st": "ok"}
+{"id": "STR_W_THEME_SPOOLMAN_DARK", "it": "Spoolman scuro", "st": "ok"}
+{"id": "STR_W_THEME_SPOOLMAN_LIGHT", "it": "Spoolman chiaro", "st": "ok"}
+{"id": "STR_W_THEME_FILAMAN_DARK", "it": "FilaMan scuro", "st": "ok"}
+{"id": "STR_W_THEME_FILAMAN_LIGHT", "it": "FilaMan chiaro", "st": "ok"}
+{"id": "STR_W_THEME_FOLLOW_H", "it": "Colori del backend", "st": "ok"}
+{"id": "STR_W_THEME_FOLLOW", "it": "I colori seguono il backend", "st": "ok"}
+{"id": "STR_W_THEME_FOLLOW_HINT", "it": "Spoolman, FilaMan e BamBuddy hanno ciascuno i propri colori. Chiaro o scuro dipende dalla tua scelta sopra.", "st": "ok"}
+{"id": "STR_W_THEME_AFTER", "it": "Tema dopo il riavvio", "st": "ok"}
+{"id": "STR_W_THEME_OWN_H", "it": "Colori personali", "st": "ok"}
+{"id": "STR_W_THEME_OWN_HINT", "it": "Sopra il tema. Ogni colore mantiene la sua luminosità, quindi il testo resta leggibile come prima.", "st": "ok"}
+{"id": "STR_W_THEME_ACCENT", "it": "Accento", "st": "ok"}
+{"id": "STR_W_THEME_ACCENT_HINT", "it": "Titoli, scelta attiva, cursori, link.", "st": "ok"}
+{"id": "STR_W_THEME_TONE", "it": "Tono di fondo", "st": "ok"}
+{"id": "STR_W_THEME_TONE_HINT", "it": "Sfondo, superfici, linee e testo grigio.", "st": "ok"}
+{"id": "STR_W_THEME_SCHEME_OWN", "it": "Quello del tema", "st": "ok"}
+{"id": "STR_W_THEME_OWN_COLOUR", "it": "Colore libero", "st": "ok"}
+{"id": "STR_W_THEME_HUE", "it": "Tonalità", "st": "ok"}
+{"id": "STR_W_THEME_STRENGTH", "it": "Intensità", "st": "ok"}
+{"id": "STR_W_THEME_STRENGTH_HINT", "it": "Grigio a sinistra, come il tema al centro, più intenso a destra.", "st": "ok"}
+{"id": "STR_W_THEME_PREVIEW", "it": "Anteprima", "st": "ok"}
+{"id": "STR_W_THEME_RESET", "it": "Torna ai colori del tema", "st": "ok"}
+{"id": "STR_W_THEME_ON_BG", "it": "sullo sfondo", "st": "ok"}
+{"id": "STR_W_THEME_PLUS_OWN", "it": "+ colori personali", "st": "ok"}
+{"id": "STR_W_COL_ORANGE", "it": "Arancione", "st": "ok"}
+{"id": "STR_W_COL_PINK", "it": "Rosa", "st": "ok"}
+{"id": "STR_W_COL_BLUE", "it": "Blu", "st": "ok"}
+{"id": "STR_W_COL_VIOLET", "it": "Viola", "st": "ok"}
+{"id": "STR_W_COL_YELLOW", "it": "Giallo", "st": "ok"}
+{"id": "STR_W_COL_PETROL", "it": "Petrolio", "st": "ok"}
+{"id": "STR_W_COL_RED", "it": "Rosso", "st": "ok"}
+{"id": "STR_W_COL_GREEN", "it": "Verde", "st": "ok"}
+{"id": "STR_W_COL_SAND", "it": "Sabbia", "st": "ok"}
+{"id": "STR_W_THEME_LIGHT_NOTE", "it": "Temi chiari: durante lo scorrimento e al cambio di schermata il display mostra scie visibili, perché costruisce ogni immagine a strisce. I temi scuri lì appaiono più calmi.", "st": "ok"}
+{"id": "STR_TAG_ON_FILAMENT", "it": "Tag del filamento #%d", "st": "ok"}
+{"id": "STR_SM_AUTH_MISSING", "it": "Il server chiede l'accesso", "st": "ok"}
+{"id": "STR_SM_AUTH_REJECTED", "it": "Accesso rifiutato", "st": "ok"}
+{"id": "STR_W_SM_AUTH_HINT", "it": "Compila solo se davanti c'è un proxy con password o se il server chiede una chiave.", "st": "ok"}
+{"id": "STR_W_SM_AUTH_KIND", "it": "Accesso", "st": "ok"}
+{"id": "STR_W_SM_AUTH_NONE", "it": "Nessuno", "st": "ok"}
+{"id": "STR_W_SM_AUTH_KEY", "it": "Chiave API (X-API-Key)", "st": "ok"}
+{"id": "STR_W_SM_AUTH_BEARER", "it": "Token (Bearer)", "st": "ok"}
+{"id": "STR_W_SM_AUTH_BASIC", "it": "Utente e password", "st": "ok"}
+{"id": "STR_W_SM_USER", "it": "Utente", "st": "ok"}
+{"id": "STR_W_SM_SECRET", "it": "Chiave o password", "st": "ok"}
+{"id": "STR_W_SM_AUTH_PLAIN", "it": "L'indirizzo inizia con http://, quindi l'accesso attraversa la rete in chiaro. Impedisce ad altri di scrivere, non di ascoltare sulla stessa rete.", "st": "ok"}
+{"id": "STR_W_THEME_WEB_H", "it": "Pagina web", "st": "ok"}
+{"id": "STR_W_THEME_WEB_OS", "it": "Chiaro o scuro come imposta il sistema", "st": "ok"}
+{"id": "STR_W_THEME_WEB_OS_HINT", "it": "Solo questa pagina web: segue l'impostazione del dispositivo o del browser, nella famiglia di colori della bilancia. La bilancia resta come scelto sopra. Ha effetto subito, senza riavvio.", "st": "ok"}
+{"id": "STR_W_SM_SECRET_LONG", "it": "Troppo lunga: al massimo %u caratteri. Niente salvato.", "st": "ok"}
+{"id": "STR_W_SM_AUTH_REBIND", "it": "Questo accesso era stato inserito per %s e non viene inviato al nuovo indirizzo. Inseriscilo di nuovo per questo indirizzo.", "st": "ok"}
+{"id": "STR_W_THEME_TEXT_ADJUSTED", "it": "Per il testo la luminosità viene regolata finché si legge, sulla bilancia come qui. Le superfici mantengono il colore scelto.", "st": "ok"}
+{"id": "STR_W_BACKEND_THEME_NOTE", "it": "I colori seguono il backend e cambiano al prossimo riavvio della bilancia.", "st": "ok"}
+{"id": "STR_THEME_RESET_OWN", "it": "Azzera colori personali", "st": "ok"}
+{"id": "STR_THEME_RESET_OWN_SUB", "it": "Accento e tono di fondo dal web", "st": "ok"}
+{"id": "STR_W_THEME_UNSAVED", "it": "Non ancora applicato", "st": "ok"}
+{"id": "STR_AMS_MAIN_ASSIGN", "it": "In AMS", "st": "ok"}
+{"id": "STR_W_C_SHOT", "it": "Screenshot del display", "st": "ok"}
+{"id": "STR_W_SHOT_NOTE", "it": "Immagini di ciò che mostra il display, per issue e pull request. Sulla bilancia stessa: appoggia due dita sul display per un secondo finché lampeggia scuro. Fino a 6 immagini restano qui fino al prossimo riavvio, la più vecchia se ne va per prima.", "st": "ok"}
+{"id": "STR_W_SHOT_TAKE", "it": "Cattura", "st": "ok"}
+{"id": "STR_W_SHOT_BUSY", "it": "Cattura in corso...", "st": "ok"}
+{"id": "STR_W_SHOT_SAVE_ALL", "it": "Salva tutte", "st": "ok"}
+{"id": "STR_W_SHOT_DROP_ALL", "it": "Elimina tutte", "st": "ok"}
+{"id": "STR_W_SHOT_AT_WEB", "it": "Catturata alle {t}", "st": "ok"}
+{"id": "STR_W_SHOT_AT_PANEL", "it": "Catturata sulla bilancia alle {t}", "st": "ok"}
+{"id": "STR_W_SHOT_FAIL", "it": "Screenshot fallito", "st": "ok"}
+{"id": "STR_W_SHOT_EMPTY", "it": "Ancora nessuno screenshot.", "st": "ok"}
+{"id": "STR_TAGNEW_SEARCHING", "it": "Cerco il filamento ...", "st": "ok"}
+{"id": "STR_TAGNEW_FOUND", "it": "Filamento esistente: #%d", "st": "ok"}
+{"id": "STR_TAGNEW_FROM_DB", "it": "Nuovo filamento da SpoolmanDB", "st": "ok"}
+{"id": "STR_TAGNEW_FROM_TAG", "it": "Nuovo filamento dal tag", "st": "ok"}
+{"id": "STR_TAGNEW_BAMBUDDY", "it": "BamBuddy crea la bobina", "st": "ok"}
+{"id": "STR_TAGNEW_NEEDS_CATALOG", "it": "Manca catalogo Bambu (pagina Tag)", "st": "ok"}
+{"id": "STR_TAGNEW_FAILED", "it": "Ricerca fallita (HTTP %d)", "st": "ok"}
+{"id": "STR_TAGNEW_CREATING", "it": "Creazione ...", "st": "ok"}
+{"id": "STR_TAGNEW_CREATE_FAIL", "it": "Creazione fallita (HTTP %d)", "st": "ok"}
+{"id": "STR_TAGNEW_FILAMENT_ONLY", "it": "Filamento #%d creato, bobina no (HTTP %d)", "st": "ok"}
+{"id": "STR_TAGNEW_OK_BOTH", "it": "Filamento e bobina creati!", "st": "ok"}
+{"id": "STR_TAGNEW_SPOOL_UNSURE", "it": "Nessuna risposta - verifica l'inventario", "st": "ok"}
+{"id": "STR_W_THEME_PRESETS", "it": "Preimpostazioni", "st": "ok"}
+{"id": "STR_W_THEME_PRESETS_HINT", "it": "Imposta accento, tono di fondo e intensità in un colpo. Chiaro o scuro resta come scelto sopra.", "st": "ok"}
+{"id": "STR_W_THEME_BAMBUDDY_DARK", "it": "BamBuddy scuro", "st": "ok"}
+{"id": "STR_W_THEME_BAMBUDDY_LIGHT", "it": "BamBuddy chiaro", "st": "ok"}
+{"id": "STR_TAGNEW_PRICE_BTN", "it": "Prezzo", "st": "ok"}
+{"id": "STR_PRICE_PAD_TITLE", "it": "Prezzo della bobina", "st": "ok"}
+{"id": "STR_PRICE_PAD_INFO", "it": "Vuoto = nessun prezzo. Valuta come sul server.", "st": "ok"}
+{"id": "STR_TAGNEW_PRICE_LOST", "it": "Bobina creata, prezzo non salvato", "st": "ok"}
+{"id": "STR_DBPICK_BTN", "it": "Nuova dal database", "st": "ok"}
+{"id": "STR_DBPICK_LOADING", "it": "Lettura database filamenti", "st": "ok"}
+{"id": "STR_DBPICK_MAKER_TITLE", "it": "Scegli produttore", "st": "ok"}
+{"id": "STR_DBPICK_OWNED", "it": "Già nell'inventario", "st": "ok"}
+{"id": "STR_DBPICK_OTHER_MAKERS", "it": "Altri produttori A-Z", "st": "ok"}
+{"id": "STR_DBPICK_NOT_LISTED", "it": "Manca? Crealo sul server.", "st": "ok"}
+{"id": "STR_DBPICK_COLOR_TITLE", "it": "Scegli colore", "st": "ok"}
+{"id": "STR_DBPICK_ALL", "it": "Tutti (%d)", "st": "ok"}
+{"id": "STR_DBPICK_FAM_RED", "it": "Rosso", "st": "ok"}
+{"id": "STR_DBPICK_FAM_ORANGE", "it": "Arancione", "st": "ok"}
+{"id": "STR_DBPICK_FAM_YELLOW", "it": "Giallo", "st": "ok"}
+{"id": "STR_DBPICK_FAM_GREEN", "it": "Verde", "st": "ok"}
+{"id": "STR_DBPICK_FAM_BLUE", "it": "Blu", "st": "ok"}
+{"id": "STR_DBPICK_FAM_PURPLE", "it": "Viola", "st": "ok"}
+{"id": "STR_DBPICK_FAM_PINK", "it": "Rosa", "st": "ok"}
+{"id": "STR_DBPICK_FAM_BROWN", "it": "Marrone", "st": "ok"}
+{"id": "STR_DBPICK_FAM_BLACK", "it": "Nero", "st": "ok"}
+{"id": "STR_DBPICK_FAM_GREY", "it": "Grigio", "st": "ok"}
+{"id": "STR_DBPICK_FAM_WHITE", "it": "Bianco", "st": "ok"}
+{"id": "STR_DBPICK_FAM_MULTI", "it": "Multicolore", "st": "ok"}
+{"id": "STR_DBPICK_FAM_CLEAR", "it": "Trasparente", "st": "ok"}
+{"id": "STR_DBPICK_SIZE_TITLE", "it": "Quale formato di bobina?", "st": "ok"}
+{"id": "STR_DBPICK_NEEDS_NEWER", "it": "La scelta dal database richiede Spoolman 0.27 o successivo.", "st": "ok"}
+{"id": "STR_DBPICK_FAILED", "it": "Lettura database filamenti fallita (HTTP %d)", "st": "ok"}
+{"id": "STR_DBPICK_EMPTY", "it": "Nessun filamento da 1,75 mm trovato.", "st": "ok"}
+{"id": "STR_DBPICK_LINE_TITLE", "it": "Scegli la linea", "st": "ok"}
+{"id": "STR_DBPICK_LINE_OTHER", "it": "Altro", "st": "ok"}
+{"id": "STR_DBPICK_PICK_LETTER", "it": "Scegli un produttore dalla lettera qui sopra.", "st": "ok"}
+{"id": "STR_DBPICK_FM_NO_PLUGIN", "it": "La scelta dal database richiede il plugin FilamentDB in FilaMan.", "st": "ok"}
+{"id": "STR_TAGNEW_FROM_FDB", "it": "Nuovo filamento dalla FilamentDB", "st": "ok"}
+{"id": "STR_TAGDB_TITLE", "it": "Tag e database differiscono", "st": "ok"}
+{"id": "STR_TAGDB_TAG", "it": "Tag", "st": "ok"}
+{"id": "STR_TAGDB_DB", "it": "Database", "st": "ok"}
+{"id": "STR_TAGDB_COLOR", "it": "Colore", "st": "ok"}
+{"id": "STR_TAGDB_NOZZLE_MIN", "it": "Ugello min", "st": "ok"}
+{"id": "STR_TAGDB_NOZZLE_MAX", "it": "Ugello max", "st": "ok"}
+{"id": "STR_TAGDB_WEIGHT", "it": "Peso", "st": "ok"}
+{"id": "STR_TAGDB_KEEP", "it": "Tieni il tag", "st": "ok"}
+{"id": "STR_TAGDB_TAKE", "it": "Usa il database", "st": "ok"}
+{"id": "STR_TAGNEW_TAG_PLUS_DB", "it": "Dal tag, completato dal database", "st": "ok"}
+{"id": "STR_DBPICK_CORE_TITLE", "it": "Quale bobina vuota?", "st": "ok"}
+{"id": "STR_DBPICK_CORE_NONE", "it": "Nessuna di queste", "st": "ok"}
+{"id": "STR_BB_DRIED_NATIVE", "it": "Campo BamBuddy", "st": "ok"}
+{"id": "STR_BB_DRIED_NATIVE_SUB", "it": "Usato in automatico", "st": "ok"}
+{"id": "STR_BB_DRIED_OLDER_ONLY", "it": "Solo per un BamBuddy senza questo campo", "st": "ok"}
+{"id": "STR_PRN_ERR_NOT_NIIMBOT", "it": "Non è una stampante NIIMBOT.", "st": "ok"}
+{"id": "STR_PRN_ERR_COVER", "it": "Coperchio aperto.", "st": "ok"}
+{"id": "STR_PRN_ERR_NO_PAPER", "it": "Nessuna etichetta.", "st": "ok"}
+{"id": "STR_PRN_ERR_NO_RIBBON", "it": "Nastro assente o sbagliato.", "st": "ok"}
+{"id": "STR_PRN_ERR_BUSY", "it": "Stampante occupata. Attendi un attimo, poi riprova.", "st": "ok"}
+{"id": "STR_PRN_ERR_PRINTER", "it": "La stampante segnala un errore, codice nel log.", "st": "ok"}
+{"id": "STR_PRN_ERR_MODEL_MISMATCH", "it": "Modello diverso da quello scelto. Il log lo indica.", "st": "ok"}
+{"id": "STR_PRN_ERR_MODEL_UNKNOWN", "it": "Modello NIIMBOT non ancora noto. Segnala l'ID riportato nel log.", "st": "ok"}
+{"id": "STR_W_P_RESTART_HINT", "it": "Il Bluetooth è attivo ma la bilancia deve riavviarsi una volta: la memoria della radio è stata liberata all'avvio.", "st": "ok"}
+{"id": "STR_PRN_ERR_BLE_RESTART", "it": "Il Bluetooth richiede prima un riavvio.", "st": "ok"}
+{"id": "STR_W_P_CAL_FILLS", "it": "L'etichetta occupa tutta la testina, quindi qui non c'è nulla da spostare.", "st": "ok"}
+{"id": "STR_W_NAV_LABEL", "it": "Etichette", "st": "ok"}
+{"id": "STR_W_L_TEMPLATE", "it": "Modello", "st": "ok"}
+{"id": "STR_W_L_ARRANGE", "it": "Disposizione", "st": "ok"}
+{"id": "STR_W_L_P_STANDARD", "it": "Standard", "st": "ok"}
+{"id": "STR_W_L_P_COMPACT", "it": "Compatta", "st": "ok"}
+{"id": "STR_W_L_P_BIG_QR", "it": "QR grande", "st": "ok"}
+{"id": "STR_W_L_ARRANGE_HINT", "it": "Standard: il produttore grande in alto. Compatta: il produttore piccolo tra i dettagli, il QR cresce. QR grande: il codice a tutta altezza, il testo accanto. Materiale grande: il materiale su un quarto dell'altezza, il codice piccolo. Solo testo: niente codice, i dettagli grandi, su due colonne dove ci stanno.", "st": "ok"}
+{"id": "STR_W_L_FIELDS", "it": "Campi", "st": "ok"}
+{"id": "STR_W_L_F_NAME", "it": "Nome", "st": "ok"}
+{"id": "STR_W_L_F_DATE", "it": "Data", "st": "ok"}
+{"id": "STR_W_L_F_QR", "it": "Codice QR", "st": "ok"}
+{"id": "STR_W_L_F_BRAND", "it": "Nome del progetto", "st": "ok"}
+{"id": "STR_W_L_OPTIONS", "it": "Opzioni", "st": "ok"}
+{"id": "STR_W_L_O_PLAIN", "it": "Materiale senza fascia nera", "st": "ok"}
+{"id": "STR_W_L_O_ADDED", "it": "Sempre la data di aggiunta", "st": "ok"}
+{"id": "STR_W_L_DATE_HINT", "it": "Altrimenti la data è il primo uso se il server lo registra, se no il giorno in cui la bobina è stata aggiunta.", "st": "ok"}
+{"id": "STR_W_L_SPOOL", "it": "Bobina", "st": "ok"}
+{"id": "STR_W_L_SAMPLE", "it": "Dati di esempio: dall'avvio la bilancia non ha riconosciuto alcuna bobina. Dopo, l'anteprima mostra l'ultima letta.", "st": "ok"}
+{"id": "STR_W_L_NO_PRINTER", "it": "Nessuna stampante configurata. Dispositivo, modello ed etichette si impostano in", "st": "ok"}
+{"id": "STR_W_L_PRINT", "it": "Stampa etichetta", "st": "ok"}
+{"id": "STR_W_L_PRINT_HINT", "it": "Stampa la bobina dell'anteprima con questo modello. L'esito compare anche sulla bilancia.", "st": "ok"}
+{"id": "STR_W_L_LAST_PRINT", "it": "Ultima etichetta stampata", "st": "ok"}
+{"id": "STR_W_L_PREVIEW_FAIL", "it": "Nessuna anteprima: controlla modello di stampante ed etichette.", "st": "ok"}
+{"id": "STR_W_L_OFF_PAD", "it": "(non più sulla bilancia)", "st": "ok"}
+{"id": "STR_PRN_ERR_SERVER_LABEL", "it": "FilaMan non ha generato l'etichetta.", "st": "ok"}
+{"id": "STR_PRN_OWN_LAYOUT", "it": "Layout bilancia", "st": "ok"}
+{"id": "STR_W_L_SOURCE", "it": "Fonte", "st": "ok"}
+{"id": "STR_W_L_SRC_SCALE", "it": "Bilancia", "st": "ok"}
+{"id": "STR_W_L_SRC_HINT", "it": "Preimpostazioni dal designer di etichette di FilaMan. Si possono scegliere quelle della misura del rotolo caricato.", "st": "ok"}
+{"id": "STR_W_L_SRC_LOADING", "it": "Caricamento preimpostazioni ...", "st": "ok"}
+{"id": "STR_W_L_SRC_FAILED", "it": "FilaMan non ha inviato le preimpostazioni, nuovo tentativo tra poco.", "st": "ok"}
+{"id": "STR_W_L_SRC_SERVER", "it": "Questa etichetta la genera FilaMan. Disposizione e campi si impostano nel designer di etichette di FilaMan.", "st": "ok"}
+{"id": "STR_W_L_PREVIEW_LOADING", "it": "Caricamento dell'etichetta da FilaMan ...", "st": "ok"}
+{"id": "STR_W_L_SRC_NO_SPOOL", "it": "Appoggia una bobina sulla bilancia per l'anteprima.", "st": "ok"}
+{"id": "STR_BTN_AUTO_TARE", "it": "Auto-tara (piatto vuoto)", "st": "ok"}
+{"id": "STR_BTN_AUTO_TARE_INFO", "it": "Corregge la lenta deriva dello zero mentre il piatto è vuoto.\\n\\nSe il peso resta stabile tra 0,5 e 5 g (positivo o negativo) per 3 secondi, quel valore diventa il nuovo zero. Non succede nulla mentre c'è un tag o una bobina sul piatto. Oltre 5 g non si corregge mai, e tra due correzioni passa almeno un minuto.\\n\\nIl pulsante TARE funziona come prima.", "st": "ok"}
+{"id": "STR_TARE_AUTO_MARK", "it": "A", "st": "ok"}
+{"id": "STR_BAG_OFF_SUB", "it": "Senza sacchetto", "st": "ok"}
+{"id": "STR_BTN_WEIGHT_VAL", "it": "{LV_SYMBOL_OK} Applica\\n%.0fg", "st": "ok"}
+{"id": "STR_LBL_SPOOL_TARE_CAP", "it": "Bobina", "st": "ok"}
+{"id": "STR_BAG_HELP_TEXT", "it": "Per bobine che stanno sulla bilancia in un sacchetto sottovuoto. Il valore è il peso del sacchetto vuoto con il gel di silice, e viene sottratto da ogni lettura.\\n\\nCon sacchetto (valore sopra 0 g): la schermata principale mostra quattro righe: bilancia meno bobina, diff, totale e il peso senza sacchetto con la sua diff. All'invio del peso la bilancia chiede se la bobina è sul piatto con o senza sacchetto.\\n\\nSenza sacchetto (0 g): la schermata principale mostra bilancia meno bobina, diff, totale e il peso bobina, più grande e con più spazio. L'invio è un solo pulsante, senza domande.\\n\\nIl valore di fabbrica è 0 g. Un nuovo valore vale subito. Solo il passaggio tra 0 g e un valore richiede un riavvio, perché la schermata principale viene ricostruita.", "st": "ok"}
+{"id": "STR_W_C_EMBED", "it": "Mostra in %s", "st": "ok"}
+{"id": "STR_W_EMBED_FM_INTRO", "it": "Con il plugin “SpoolmanScale” questa interfaccia web compare nella navigazione di FilaMan e ne segue la modalità chiara o scura.", "st": "ok"}
+{"id": "STR_W_EMBED_FM_DOWNLOAD", "it": "Scarica il plugin", "st": "ok"}
+{"id": "STR_W_EMBED_FM_UPLOAD", "it": "Caricalo in FilaMan in <b>Admin Panel › Plugins</b>", "st": "ok"}
+{"id": "STR_W_EMBED_OPEN_AS", "it": "Apri %s nel browser esattamente con questo indirizzo", "st": "ok"}
+{"id": "STR_W_EMBED_BB_INTRO", "it": "BamBuddy mostra questa interfaccia web nella sua barra laterale senza plugin e le passa la sua modalità chiara o scura.", "st": "ok"}
+{"id": "STR_W_EMBED_BB_STEP1", "it": "In BamBuddy aggiungi un link in <b>Settings › General › Sidebar</b>", "st": "ok"}
+{"id": "STR_W_EMBED_BB_STEP2", "it": "Inserisci l'indirizzo della bilancia come URL e lascia spento “Open in new tab”", "st": "ok"}
+{"id": "STR_W_EMBED_BB_IP", "it": "Il nome continua a funzionare quando il router dà un nuovo IP alla bilancia, ma alcuni dispositivi Android non lo risolvono. L'IP funziona ovunque; in quel caso riservalo nel router.", "st": "ok"}
+{"id": "STR_W_EMBED_BB_FIXIP", "it": "Dai alla bilancia un IP fisso nel router, altrimenti il link non porta da nessuna parte quando ne riceve uno nuovo.", "st": "ok"}
+{"id": "STR_W_EMBED_NOTE", "it": "Con qualsiasi altro indirizzo (un nome invece dell'IP, un proxy) il browser non mostra lì la bilancia.", "st": "ok"}
+{"id": "STR_W_EMBED_HTTPS", "it": "L'indirizzo qui sopra è https. Una pagina https non può incorporare la bilancia, che parla solo http. Per incorporarla, inserisci il backend qui sopra con http e aprilo così.", "st": "ok"}
+{"id": "STR_W_OPEN", "it": "Apri", "st": "ok"}
+{"id": "STR_W_COPY_FAILED", "it": "Copia fallita", "st": "ok"}
+{"id": "STR_DBPICK_SM_UNREACHABLE", "it": "Spoolman dietro BamBuddy non è raggiungibile dalla bilancia:\\n%s", "st": "ok"}
+{"id": "STR_DATE_FMT_DMY", "it": "DD.MM.YYYY", "st": "ok"}
+{"id": "STR_DATE_FMT_ISO", "it": "YYYY-MM-DD", "st": "ok"}
+{"id": "STR_DATE_FMT_US", "it": "MM/DD/YYYY", "st": "ok"}
+{"id": "STR_W_L_SRC_ROTATED", "it": "entra ruotata", "st": "ok"}
+{"id": "STR_FREE_TAG_ASK", "it": "Liberare il tag?\\nTutti i tag della bobina sono scollegati.", "st": "ok"}
+{"id": "STR_FREE_TAG_ERASE_LINE", "it": "Il tag sul lettore viene cancellato.", "st": "ok"}
+{"id": "STR_BTN_FREE_TAG", "it": "Libera", "st": "ok"}
+{"id": "STR_W_L_P_MATERIAL_BIG", "it": "Materiale grande", "st": "ok"}
+{"id": "STR_W_L_P_TEXT_ONLY", "it": "Solo testo", "st": "ok"}
+{"id": "STR_W_L_ORIENT", "it": "Orientamento", "st": "ok"}
+{"id": "STR_W_L_FLAT", "it": "Orizzontale", "st": "ok"}
+{"id": "STR_W_L_UPRIGHT", "it": "Verticale", "st": "ok"}
+{"id": "STR_W_L_CAP", "it": "Righe: %d di %d", "st": "ok"}
+{"id": "STR_W_L_CAP_FULL", "it": "Su questa etichetta non entrano altre righe.", "st": "ok"}
+{"id": "STR_W_L_CAP_OVER", "it": "Le ultime righe non entrano e vengono omesse.", "st": "ok"}
+{"id": "STR_LBL_L_EMPTY", "it": "Vuota", "st": "ok"}
+{"id": "STR_LBL_L_NET", "it": "Netto", "st": "ok"}
+{"id": "STR_LBL_L_NOZZLE", "it": "Ugello", "st": "ok"}
+{"id": "STR_LBL_L_TEMPS", "it": "Temp.", "st": "ok"}
+{"id": "STR_LBL_L_STORED", "it": "Posto", "st": "ok"}
+{"id": "STR_LBL_L_DRIED", "it": "Essiccata", "st": "ok"}
+{"id": "STR_W_L_F_SPOOL_W", "it": "Peso a vuoto", "st": "ok"}
+{"id": "STR_W_L_F_NET_W", "it": "Peso netto", "st": "ok"}
+{"id": "STR_W_L_F_TEMPS", "it": "Temperature", "st": "ok"}
+{"id": "STR_W_L_F_LOCATION", "it": "Posizione", "st": "ok"}
+{"id": "STR_W_L_F_DRIED", "it": "Data essiccazione", "st": "ok"}
+{"id": "STR_W_L_F_TEXT", "it": "Riga libera", "st": "ok"}
+{"id": "STR_W_L_TEXT_HINT", "it": "Riga libera: al massimo 40 caratteri.", "st": "ok"}
+{"id": "STR_W_L_CHANGE_HINT", "it": "Posizione e data di essiccazione cambiano, l'etichetta no. Non tutti i backend conoscono le temperature.", "st": "ok"}
+{"id": "STR_W_L_KIND", "it": "Etichetta per", "st": "ok"}
+{"id": "STR_W_L_KIND_SPOOL", "it": "Bobina", "st": "ok"}
+{"id": "STR_W_L_KIND_FILAMENT", "it": "Filamento", "st": "ok"}
+{"id": "STR_W_L_KIND_HINT", "it": "Sulla bilancia il tipo lo sceglie la finestra di stampa; senza la finestra si stampa quella della bobina.", "st": "ok"}
+{"id": "STR_W_L_FIL_NO_PAGE", "it": "Questo backend non ha una pagina del filamento: l'etichetta del filamento si stampa senza codice.", "st": "ok"}
+{"id": "STR_PS_PRINT", "it": "Stampa", "st": "ok"}
+{"id": "STR_PS_ASK", "it": "Anteprima prima", "st": "ok"}
+{"id": "STR_PS_ASK_SUB", "it": "Anteprima e impostazioni", "st": "ok"}
+{"id": "STR_PS_SERVER", "it": "Layout da FilaMan", "st": "ok"}
+{"id": "STR_PS_SERVER_SUB", "it": "Nel browser, in Etichette", "st": "ok"}
+{"id": "STR_PS_MORE_WEB", "it": "Campi, riga libera e modelli FilaMan: nel browser", "st": "ok"}
+{"id": "STR_LBL_FACT_FMT", "it": "%s: %s", "st": "ok"}
+{"id": "STR_LBL_L_DRYING", "it": "Essicc.", "st": "ok"}
+{"id": "STR_W_L_F_DRYING", "it": "Essiccazione (°C, h)", "st": "ok"}
+{"id": "STR_W_L_GAP_SPOOL", "it": "vuoto per questa bobina", "st": "ok"}
+{"id": "STR_W_L_GAP_BACKEND", "it": "%s non lo gestisce", "st": "ok"}
+{"id": "STR_W_P_METHOD_DIRECT", "it": "Stampa termica diretta, senza nastro.", "st": "ok"}
+{"id": "STR_W_P_METHOD_RIBBON", "it": "Stampa a trasferimento termico con nastro: il calore non colora l'etichetta.", "st": "ok"}
+{"id": "STR_W_P_SHOP_TITLE", "it": "Stampanti consigliate", "st": "ok"}
+{"id": "STR_W_P_SHOP_HINT", "it": "Le stampanti che testiamo noi stessi e le etichette adatte.", "st": "ok"}
+{"id": "STR_BT_REC_NONE", "it": "Ancora senza stampante?", "st": "ok"}
+{"id": "STR_BT_REC_NONE_SUB", "it": "Quali vanno bene: QR al manuale", "st": "ok"}
+{"id": "STR_BT_REC_OTHER", "it": "Stampanti consigliate", "st": "ok"}
+{"id": "STR_BT_REC_OTHER_SUB", "it": "Testate da noi: QR al manuale", "st": "ok"}
+{"id": "STR_BT_REC_LABELS", "it": "Compra altre etichette", "st": "ok"}
+{"id": "STR_BT_REC_RIBBON", "it": "Etichette e nastro", "st": "ok"}
+{"id": "STR_BT_REC_SUPPLY_SUB", "it": "Rotoli adatti: QR al manuale", "st": "ok"}
+{"id": "STR_W_P_REC_NONE_TEXT", "it": "Testiamo noi stessi due stampanti a ogni versione: la Phomemo M220 e la NIIMBOT M2. Il confronto nel manuale mostra quale fa per te.", "st": "ok"}
+{"id": "STR_W_P_REC_NONE_BTN", "it": "Confronta le stampanti", "st": "ok"}
+{"id": "STR_W_P_REC_OTHER_TEXT", "it": "Le nuove funzioni per le etichette le sviluppiamo e testiamo prima su M220 e M2. Cosa le distingue è nel manuale.", "st": "ok"}
+{"id": "STR_W_P_REC_OTHER_BTN", "it": "Vedi il confronto", "st": "ok"}
+{"id": "STR_W_P_REC_M220_TEXT", "it": "Rotoli adatti alla tua M220, in 40 x 30 e 50 x 30 mm.", "st": "ok"}
+{"id": "STR_W_P_REC_LABELS_BTN", "it": "Alle etichette", "st": "ok"}
+{"id": "STR_W_P_REC_M2_TEXT", "it": "Rotoli e nastro adatti alla tua M2.", "st": "ok"}
+{"id": "STR_W_P_REC_RIBBON_BTN", "it": "A etichette e nastro", "st": "ok"}
+{"id": "STR_TW_ERR_OTHER_TAG", "it": "Altro tag sul lettore - non cancellato", "st": "ok"}
+{"id": "STR_PRN_TAG_RECOMMENDED", "it": "Consigliata", "st": "ok"}
+{"id": "STR_PRN_TAG_EXPERIMENTAL", "it": "sperimentale", "st": "ok"}
+{"id": "STR_PRN_MEDIA_NO_LAYOUT", "it": "senza layout", "st": "ok"}
+{"id": "STR_TAG_COMP", "it": "Anche in campo extra", "st": "ok"}
+{"id": "STR_TAG_COMP_INFO", "it": "Non tutti i programmi conoscono i tag nativi di Spoolman. Con questa opzione la bilancia scrive anche in un campo extra quando collega, e crea il campo se manca.\\n\\nextra.tag: l'UUID di una bobina Bambu, per OpenSpoolman. Gli altri tag no.\\nextra.nfc_id: l'UUID di una bobina Bambu, l'UID del chip per gli altri tag.\\n\\nQuando si appoggia una bobina, la bilancia riempie solo un campo vuoto. Viene svuotato solo quando tutti i tag della bobina sono scollegati, o il tag di cui contiene l'UID.", "st": "ok"}
+{"id": "STR_TAG_COMP_OFF", "it": "Spento", "st": "ok"}
+{"id": "STR_TAG_COMP_OFF_SUB", "it": "Solo tag nativi", "st": "ok"}
+{"id": "STR_TAG_COMP_TAG", "it": "extra.tag", "st": "ok"}
+{"id": "STR_TAG_COMP_TAG_SUB", "it": "UUID Bambu, per OpenSpoolman", "st": "ok"}
+{"id": "STR_TAG_COMP_NFCID", "it": "extra.nfc_id", "st": "ok"}
+{"id": "STR_TAG_COMP_NFCID_SUB", "it": "UUID Bambu o UID chip", "st": "ok"}
+{"id": "STR_W_P_BLE_ONLY", "it": "La bilancia parla solo Bluetooth Low Energy. Le stampanti in Bluetooth classico, come le Brother P-touch, sono fuori portata.", "st": "ok"}
+{"id": "STR_W_P_NEEDS_LINK", "it": "Cosa serve a una stampante", "st": "ok"}
+{"id": "STR_W_P_RESTART_NEEDED", "it": "Riavvio necessario", "st": "ok"}
+{"id": "STR_W_P_EMPTY_HINT", "it": "Accendi la stampante, poi avvia la ricerca.", "st": "ok"}
+{"id": "STR_W_P_PICK_HINT", "it": "Scegli la tua dall'elenco qui sotto.", "st": "ok"}
+{"id": "STR_W_P_CHANGE", "it": "Cambia stampante", "st": "ok"}
+{"id": "STR_W_P_SPEC_RIBBON", "it": "nastro", "st": "ok"}
+{"id": "STR_UNK_ASK", "it": "Chiedi per bobine ignote", "st": "ok"}
+{"id": "STR_UNK_ASK_SUB", "it": "Quando la appoggi", "st": "ok"}
+{"id": "STR_UNK_ASK_INFO", "it": "Attivo: quando appoggi una bobina che l'inventario non conosce ancora, la bilancia propone il passo successivo - collegare una bobina adatta senza tag, o crearne una nuova dal tag. \\\"Solo peso\\\" chiude la domanda finché la bobina non viene tolta.\\n\\nSpento: cambiano solo i due pulsanti della schermata principale.", "st": "ok"}
+{"id": "STR_UNK_SUGGEST_ONE", "it": "Suggerimento: questa bobina senza tag", "st": "ok"}
+{"id": "STR_UNK_SUGGEST_MANY", "it": "Suggerimento: %d bobine senza tag adatte", "st": "ok"}
+{"id": "STR_UNK_SUGGEST_NEW", "it": "Suggerimento: nuova dal tag", "st": "ok"}
+{"id": "STR_UNK_STORED_HIT", "it": "%s in archivio, come la bilancia", "st": "ok"}
+{"id": "STR_UNK_STORED", "it": "%s in archivio", "st": "ok"}
+{"id": "STR_UNK_NONE_LINE", "it": "Ancora nessuna bobina nell'inventario", "st": "ok"}
+{"id": "STR_UNK_NONE_SUB", "it": "Nuova bobina dai dati del tag", "st": "ok"}
+{"id": "STR_UNK_MORE", "it": "+%d altre", "st": "ok"}
+{"id": "STR_UNK_BTN_ALL", "it": "Mostra tutte", "st": "ok"}
+{"id": "STR_UNK_BTN_OTHER", "it": "Altre vie", "st": "ok"}
+{"id": "STR_UNK_BTN_WEIGH", "it": "Solo peso", "st": "ok"}
+{"id": "STR_UNK_TILE_COPY", "it": "Copia", "st": "ok"}
+{"id": "STR_UNK_NET", "it": "%.0f g netti", "st": "ok"}
+{"id": "STR_UNK_GROSS", "it": "%.0f g sulla bilancia", "st": "ok"}
+{"id": "STR_UNK_UID", "it": "UID %s", "st": "ok"}
+{"id": "STR_UNK_NO_COLOR", "it": "?", "st": "ok"}
+{"id": "STR_TAGNEW_W_OF", "it": "%.0f di %d g", "st": "ok"}
+{"id": "STR_TAGNEW_W_FULL", "it": "piena: %.0f g", "st": "ok"}
+{"id": "STR_TAGNEW_W_NOT", "it": "non pesata, piena: %d g", "st": "ok"}
+{"id": "STR_TAGNEW_W_NO_TARE", "it": "bobina vuota ignota, piena: %d g", "st": "ok"}
+{"id": "STR_TAGNEW_W_OVER", "it": "troppo pesante: %.0f g, piena: %d g", "st": "ok"}
+{"id": "STR_TAGNEW_W_OVER_TARE", "it": "troppo pesante: %.0f g, verifica vuota %d g", "st": "ok"}
+{"id": "STR_COPY_CARD_TARE", "it": "%s | vuota %.0f g", "st": "ok"}
+{"id": "STR_PCP_TITLE", "it": "Stampa sul PC", "st": "ok"}
+{"id": "STR_PCP_SUB", "it": "Tramite FilaMan, aperto in un browser sul PC.", "st": "ok"}
+{"id": "STR_PCP_SPOOL", "it": "Etichetta bobina", "st": "ok"}
+{"id": "STR_PCP_FILAMENT", "it": "Etichetta filamento", "st": "ok"}
+{"id": "STR_PCP_SENDING", "it": "Invio a FilaMan ...", "st": "ok"}
+{"id": "STR_PCP_SENT_TITLE", "it": "Inviato a FilaMan", "st": "ok"}
+{"id": "STR_PCP_SENT_TEXT", "it": "L'etichetta compare nella scheda FilaMan aperta.", "st": "ok"}
+{"id": "STR_PCP_FAIL_TITLE", "it": "Non inviato", "st": "ok"}
+{"id": "STR_PCP_NO_ROUTE", "it": "Questo FilaMan non accetta ancora richieste di stampa. Serve FilaMan 1.4.3 o successivo.", "st": "ok"}
+{"id": "STR_BTN_SPOOL_BY_ID", "it": "Bobina per ID", "st": "ok"}
+{"id": "STR_IDPAD_INFO", "it": "L'ID è indicato in Spoolman e sull'etichetta. Senza tag il peso si salva solo quando tocchi \\\"Invia peso\\\".", "st": "ok"}
+{"id": "STR_IDPAD_SEARCH", "it": "Cerca", "st": "ok"}
+{"id": "STR_IDPAD_SEARCHING", "it": "Ricerca ...", "st": "ok"}
+{"id": "STR_IDPAD_THIS_SPOOL", "it": "Questa bobina", "st": "ok"}
+{"id": "STR_IDPAD_NOT_FOUND", "it": "Nessun ID %d", "st": "ok"}
+{"id": "STR_IDPAD_NOT_FOUND_HINT", "it": "Controlla le cifre e cerca di nuovo.", "st": "ok"}
+{"id": "STR_ID_SPOOL_STATUS", "it": "Caricata per ID - senza tag", "st": "ok"}
+{"id": "STR_W_P_NET_TITLE", "it": "Stampante di rete (Brother QL)", "st": "ok"}
+{"id": "STR_W_P_NET_HINT", "it": "Indirizzo IPv4 della stampante, o del computer a cui è collegato il suo cavo USB (porta 9100).", "st": "ok"}
+{"id": "STR_W_P_NET_USE", "it": "Usa come stampante", "st": "ok"}
+{"id": "STR_W_P_NET_BAD", "it": "Indirizzo IPv4 non valido.", "st": "ok"}

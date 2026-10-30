@@ -5,7 +5,7 @@
     "german_comment_lines": 73,
     "http_in_handler": 0,
     "inline_color_hex": 0,
-    "label_literal_captions": 14,
+    "label_literal_captions": 16,
     "lines:src/app/app_loop.cpp": 2332,
     "lines:src/services/backend_api.cpp": 1716,
     "lines:src/services/bambuddy_api.cpp": 1902,

@@ -23,7 +23,7 @@ static lv_obj_t *scr_language = nullptr;
 // cancelling the restart left a half translated screen and the new language
 // on the next boot anyway. Each button clears the other's pick: a cancelled
 // choice must not ride along with the next one.
-static int s_pick_lang = -1;   // 0 DE, 1 EN, 2 FR, -1 untouched
+static int s_pick_lang = -1;   // 0 DE, 1 EN, 2 FR, 3 IT, -1 untouched
 static int s_pick_date = -1;   // a DateFormat, -1 untouched
 
 static void commitLanguageChoice() {
@@ -149,8 +149,10 @@ void showLanguageScreen() {
   // which matters - the time zone row already ends at 302 of 320. The labels
   // lose their "DE " / "EN " prefix to make room; "Deutsch" measures 69 px at
   // this font, "Français" 68, so 148 is comfortable.
-  const int LB_W = 148, LB_H = 52, LB_Y0 = 90;
-  const int LB_X_DE = 8, LB_X_EN = 166, LB_X_FR = 324;
+  // Four since Italian: 8 px margins, three 8 px gaps, (480 - 16 - 24) / 4 =
+  // 110. "Français", the widest, is 68 px at this font.
+  const int LB_W = 110, LB_H = 52, LB_Y0 = 90;
+  const int LB_X_DE = 8, LB_X_EN = 126, LB_X_FR = 244, LB_X_IT = 362;
 
   lv_obj_t *btn_de = lv_btn_create(scr);
   lv_obj_set_size(btn_de, LB_W, LB_H);
@@ -211,6 +213,26 @@ void showLanguageScreen() {
   lv_obj_add_event_cb(btn_fr, [](lv_event_t *e){
     s_pick_lang = 2; s_pick_date = -1;
     Serial.println("Language: French -> Reboot");
+    showRebootPopup(commitLanguageChoice);
+  }, LV_EVENT_CLICKED, NULL);
+
+  lv_obj_t *btn_it = lv_btn_create(scr);
+  lv_obj_set_size(btn_it, LB_W, LB_H);
+  lv_obj_set_pos(btn_it, LB_X_IT, LB_Y0);
+  bool it_active = (g_lang == LANG_IT);
+  lv_obj_set_style_bg_color(btn_it, lv_color_hex(it_active ? UI_COL_CHOICE_BG : UI_COL_SURFACE), 0);
+  lv_obj_set_style_radius(btn_it, 10, 0);
+  lv_obj_set_style_shadow_width(btn_it, 0, 0);
+  lv_obj_set_style_border_width(btn_it, 2, 0);
+  lv_obj_set_style_border_color(btn_it, lv_color_hex(it_active ? UI_COL_ACCENT : UI_COL_LINE), 0);
+  lv_obj_t *lbl_it = lv_label_create(btn_it);
+  lv_label_set_text(lbl_it, "Italiano");
+  lv_obj_set_style_text_color(lbl_it, lv_color_hex(it_active ? UI_COL_ACCENT : UI_COL_CAPTION), 0);
+  lv_obj_set_style_text_font(lbl_it, &lv_font_montserrat_ext_16, 0);
+  lv_obj_center(lbl_it);
+  lv_obj_add_event_cb(btn_it, [](lv_event_t *e){
+    s_pick_lang = 3; s_pick_date = -1;
+    Serial.println("Language: Italian -> Reboot");
     showRebootPopup(commitLanguageChoice);
   }, LV_EVENT_CLICKED, NULL);
 

@@ -1,6 +1,6 @@
 // ============================================================
 //  SpoolmanScale – Localization (i18n)
-//  lang.cpp - String table DE / EN / FR
+//  lang.cpp - String table DE / EN / FR / IT
 // ============================================================
 #include <lvgl.h>
 #include "services/tag_write.h"   // the TagWriteResult codes
@@ -10,829 +10,1035 @@ Lang   g_lang     = LANG_EN;
 uint8_t g_date_fmt = DATE_FMT_DMY;
 
 // Order MUST exactly match the StringID enum in lang.h!
-// Format: { "Deutsch", "English", "Francais" }
-const char* const STRINGS[][3] = {
+// Format: { "Deutsch", "English", "Francais", "Italiano" }
+const char* const STRINGS[][4] = {
 
   // Navigation
-  { "Abbrechen",        "Cancel",       "Annuler" },  // STR_CANCEL
-  { "Zurück",           "Back",         "Retour" },  // STR_BACK
-  { "Bestätigen",       "Confirm",      "Confirmer" },  // STR_CONFIRM
-  { "Erneut versuchen", "Try again",    "Réessayer" },  // STR_RETRY
-  { "ID neu eingeben",  "Enter new ID", "Ressaisir l'ID" },  // STR_ENTER_NEW_ID
+  { "Abbrechen", "Cancel", "Annuler", "Annulla" },  // STR_CANCEL
+  { "Zurück", "Back", "Retour", "Indietro" },  // STR_BACK
+  { "Bestätigen", "Confirm", "Confirmer", "Conferma" },  // STR_CONFIRM
+  { "Erneut versuchen", "Try again", "Réessayer", "Riprova" },  // STR_RETRY
+  { "ID neu eingeben", "Enter new ID", "Ressaisir l'ID", "Reinserisci ID" },  // STR_ENTER_NEW_ID
 
   // Mainscreen Labels
-  { "Spoolman",         "Spoolman",    "Spoolman" },  // STR_LBL_SPOOLMAN
-  { "Waage",            "Scale",       "Balance" },  // STR_LBL_SCALE
-  { "Letzte Benutzung", "Last used",   "Dernier usage" },  // STR_LBL_LAST_USED
-  { "Letzte Trocknung", "Last dried",  "Dernier séchage" },  // STR_LBL_LAST_DRIED
-  { "Temperatur",       "Temperature", "Température" },  // STR_LBL_TEMP
-  { "Hersteller",       "Vendor",      "Fabricant" },  // STR_LBL_VENDOR
+  { "Spoolman", "Spoolman", "Spoolman", "Spoolman" },  // STR_LBL_SPOOLMAN
+  { "Waage", "Scale", "Balance", "Bilancia" },  // STR_LBL_SCALE
+  { "Letzte Benutzung", "Last used", "Dernier usage", "Ultimo uso" },  // STR_LBL_LAST_USED
+  { "Letzte Trocknung", "Last dried", "Dernier séchage", "Essiccata" },  // STR_LBL_LAST_DRIED
+  { "Temperatur", "Temperature", "Température", "Temperatura" },  // STR_LBL_TEMP
+  { "Hersteller", "Vendor", "Fabricant", "Marca" },  // STR_LBL_VENDOR
 
   // Mainscreen Status
-  { "Spule an Reader halten...",    "Hold spool near reader...",    "Présentez la bobine..." },  // STR_WAIT_SCAN
-  { "NFC Tag erkannt",              "NFC tag detected",             "Tag NFC détecté" },  // STR_TAG_FOUND
-  { "Kein WLAN",                    "No WiFi",                      "Pas de WiFi" },  // STR_NO_WIFI
-  { "Warte...",                     "Please wait...",               "Patientez..." },  // STR_WAIT
-  { "Warte auf Scan...",            "Waiting for scan...",          "Attente du scan..." },  // STR_WAIT_SCAN_SM
-  { "unbekannt",                    "unknown",                      "inconnu" },  // STR_UNKNOWN
-  { "nicht lesbar",                 "not readable",                 "illisible" },  // STR_NOT_READABLE
-  { "heute",                        "today",                        "aujourd'hui" },  // STR_TODAY
-  { "gestern",                      "yesterday",                    "hier" },  // STR_YESTERDAY
-  { "vor %d Tagen",                 "%d days ago",                  "il y a %d jours" },  // STR_DAYS_AGO
-  { "Fehler beim Speichern",        "Error saving",                 "Échec de sauvegarde" },  // STR_ERR_SAVE
-  { "Nicht in Spoolman",            "Not in Spoolman",              "Hors Spoolman" },  // STR_NOT_IN_SPOOLMAN
-  { "Archiviert",                   "Archived",                     "Archivée" },  // STR_ARCHIVED
-  { "Lese Tag...",                  "Reading tag...",               "Lecture du tag..." },  // STR_READING_TAG
+  { "Spule an Reader halten...", "Hold spool near reader...",
+    "Présentez la bobine...",
+    "Avvicina la bobina..." },  // STR_WAIT_SCAN
+  { "NFC Tag erkannt", "NFC tag detected", "Tag NFC détecté", "Tag NFC rilevato" },  // STR_TAG_FOUND
+  { "Kein WLAN", "No WiFi", "Pas de WiFi", "No WiFi" },  // STR_NO_WIFI
+  { "Warte...", "Please wait...", "Patientez...", "Attendere..." },  // STR_WAIT
+  { "Warte auf Scan...", "Waiting for scan...", "Attente du scan...", "In attesa scan..." },  // STR_WAIT_SCAN_SM
+  { "unbekannt", "unknown", "inconnu", "ignoto" },  // STR_UNKNOWN
+  { "nicht lesbar", "not readable", "illisible", "illeggibile" },  // STR_NOT_READABLE
+  { "heute", "today", "aujourd'hui", "oggi" },  // STR_TODAY
+  { "gestern", "yesterday", "hier", "ieri" },  // STR_YESTERDAY
+  { "vor %d Tagen", "%d days ago", "il y a %d jours", "%d giorni fa" },  // STR_DAYS_AGO
+  { "Fehler beim Speichern", "Error saving", "Échec de sauvegarde", "Errore di salvataggio" },  // STR_ERR_SAVE
+  { "Nicht in Spoolman", "Not in Spoolman", "Hors Spoolman", "Non in Spoolman" },  // STR_NOT_IN_SPOOLMAN
+  { "Archiviert", "Archived", "Archivée", "Archivio" },  // STR_ARCHIVED
+  { "Lese Tag...", "Reading tag...", "Lecture du tag...", "Lettura tag..." },  // STR_READING_TAG
   { "Durchsuche Inventar...", "Searching inventory...",
-    "Parcours de l'inventaire..." },  // STR_SEARCHING_INVENTORY
+    "Parcours de l'inventaire...",
+    "Ricerca in inventario..." },  // STR_SEARCHING_INVENTORY
   { "Durchsuche Inventar... %u KB", "Searching inventory... %u KB",
-    "Parcours de l'inventaire... %u ko" },  // STR_SEARCHING_INVENTORY_KB
+    "Parcours de l'inventaire... %u ko",
+    "Ricerca in inventario... %u KB" },  // STR_SEARCHING_INVENTORY_KB
 
   // Mainscreen Buttons
-  { "Gewicht updaten",  "Update Weight", "Envoyer le poids" },  // STR_BTN_WEIGHT
-  { "Heute getrocknet", "Dried today",   "Noter le séchage" },  // STR_BTN_DRIED
-  { "Spule verknüpfen", "Link Spool",    "Lier la bobine" },  // STR_BTN_LINK
+  { "Gewicht updaten", "Update Weight", "Envoyer le poids", "Invia peso" },  // STR_BTN_WEIGHT
+  { "Heute getrocknet", "Dried today", "Noter le séchage", "Essiccata oggi" },  // STR_BTN_DRIED
+  { "Spule verknüpfen", "Link Spool", "Lier la bobine", "Collega bobina" },  // STR_BTN_LINK
 
   // Welcome Screen
 
   // WiFi Setup
-  { "WLAN einrichten",          "WiFi setup",           "Réglage du WiFi" },  // STR_WIFI_TITLE
-  { "Netzwerke suchen...",      "Scanning networks...", "Recherche des réseaux..." },  // STR_WIFI_SCAN
-  { "Keine Netzwerke gefunden", "No networks found",    "Aucun réseau trouvé" },  // STR_WIFI_NO_NET
-  { "WLAN-Passwort",            "WiFi password",        "Mot de passe WiFi" },  // STR_WIFI_PASS_TITLE
-  { "Passwort für: %s",         "Password for: %s",     "Pour le réseau %s" },  // STR_WIFI_PASS_HINT
-  { "Passwort...",              "Password...",          "Mot de passe..." },  // STR_WIFI_PASS_PLACEHOLDER
-  { "Verbinde mit %s...",       "Connecting to %s...",  "Connexion à %s..." },  // STR_WIFI_CONNECTING
-  { "Verbunden!",               "Connected!",           "Connecté !" },  // STR_WIFI_SUCCESS
+  { "WLAN einrichten", "WiFi setup", "Réglage du WiFi", "Configura WiFi" },  // STR_WIFI_TITLE
+  { "Netzwerke suchen...", "Scanning networks...", "Recherche des réseaux...", "Ricerca reti..." },  // STR_WIFI_SCAN
+  { "Keine Netzwerke gefunden", "No networks found",
+    "Aucun réseau trouvé",
+    "Nessuna rete trovata" },  // STR_WIFI_NO_NET
+  { "WLAN-Passwort", "WiFi password", "Mot de passe WiFi", "Password WiFi" },  // STR_WIFI_PASS_TITLE
+  { "Passwort für: %s", "Password for: %s", "Pour le réseau %s", "Password per: %s" },  // STR_WIFI_PASS_HINT
+  { "Passwort...", "Password...", "Mot de passe...", "Password..." },  // STR_WIFI_PASS_PLACEHOLDER
+  { "Verbinde mit %s...", "Connecting to %s...", "Connexion à %s...", "Connetto a %s..." },  // STR_WIFI_CONNECTING
+  { "Verbunden!", "Connected!", "Connecté !", "Connesso!" },  // STR_WIFI_SUCCESS
 
   // Spoolman IP
-  { "Spoolman Server", "Spoolman Server", "Serveur Spoolman" },  // STR_SPOOLMAN_TITLE
+  { "Spoolman Server", "Spoolman Server", "Serveur Spoolman", "Server Spoolman" },  // STR_SPOOLMAN_TITLE
 
   // Settings
-  { "Einstellungen",                  "Settings",                       "Réglages" },  // STR_SETTINGS_TITLE
-  { "Verbindung",                     "Connection",                     "Connexion" },  // STR_TILE_CONNECTION
+  { "Einstellungen", "Settings", "Réglages", "Impostazioni" },  // STR_SETTINGS_TITLE
+  { "Verbindung", "Connection", "Connexion", "Rete" },  // STR_TILE_CONNECTION
   { "WLAN | Bluetooth | Spoolman", "WiFi | Bluetooth | Spoolman",
+    "WiFi | Bluetooth | Spoolman",
     "WiFi | Bluetooth | Spoolman" },  // STR_TILE_CONN_SUB
-  { "Spulen & Waage",                 "Spools & scale",                 "Bobines et balance" },  // STR_TILE_SCALE
+  { "Spulen & Waage", "Spools & scale", "Bobines et balance", "Bobine e bilancia" },  // STR_TILE_SCALE
   { "Tags | Trocknung | Kalibrieren", "Tags | Drying | Calibration",
-    "Tags | Séchage | Étalonnage" },  // STR_TILE_SCALE_SUB
-  { "Display",                        "Display",                        "Affichage" },  // STR_TILE_DISPLAY
+    "Tags | Séchage | Étalonnage",
+    "Tag | Essiccazione | Taratura" },  // STR_TILE_SCALE_SUB
+  { "Display", "Display", "Affichage", "Display" },  // STR_TILE_DISPLAY
   { "Helligkeit | Dimmen | Schlaf", "Brightness | Dim | Sleep",
-    "Luminosité | Atténuer | Veille" },  // STR_TILE_DISPLAY_SUB
-  { "System",                         "System",                         "Système" },  // STR_TILE_SYSTEM
+    "Luminosité | Atténuer | Veille",
+    "Luminosità | Attenua | Riposo" },  // STR_TILE_DISPLAY_SUB
+  { "System", "System", "Système", "Sistema" },  // STR_TILE_SYSTEM
   { "Web | Update | Sprache | Info", "Web | Update | Language | Info",
-    "Web | Mise à jour | Langue | Info" },  // STR_TILE_SYSTEM_SUB
+    "Web | Mise à jour | Langue | Info",
+    "Web | Aggiorna | Lingua | Info" },  // STR_TILE_SYSTEM_SUB
 
   // Connection
-  { "WLAN-Einstellungen", "WiFi settings",     "Réglages WiFi" },  // STR_BTN_WIFI_SETTINGS
-  { "Nicht konfiguriert", "Not configured",    "Non configuré" },  // STR_BTN_WIFI_NONE
-  { "WLAN-Status",        "WiFi status",       "État du WiFi" },  // STR_BTN_WIFI_STATUS
-  { "Nicht verbunden",    "Not connected",     "Sans connexion" },  // STR_BTN_WIFI_STATUS_SUB
-  { "Server, OTA, Logs",  "Server, OTA, logs", "Serveur, OTA, journaux" },  // STR_BTN_WEB_SUB
-  { "Webserver",          "Web server",        "Serveur web" },  // STR_WEB_SERVER
-  { "Wartung",            "Maintenance",       "Maintenance" },  // STR_WEB_MAINT
-  { "Einstellungen",      "Settings",          "Réglages" },  // STR_WEB_CONFIG
+  { "WLAN-Einstellungen", "WiFi settings", "Réglages WiFi", "Impostazioni WiFi" },  // STR_BTN_WIFI_SETTINGS
+  { "Nicht konfiguriert", "Not configured", "Non configuré", "Non configurato" },  // STR_BTN_WIFI_NONE
+  { "WLAN-Status", "WiFi status", "État du WiFi", "Stato WiFi" },  // STR_BTN_WIFI_STATUS
+  { "Nicht verbunden", "Not connected", "Sans connexion", "Non connesso" },  // STR_BTN_WIFI_STATUS_SUB
+  { "Server, OTA, Logs", "Server, OTA, logs", "Serveur, OTA, journaux", "Server, OTA, log" },  // STR_BTN_WEB_SUB
+  { "Webserver", "Web server", "Serveur web", "Server web" },  // STR_WEB_SERVER
+  { "Wartung", "Maintenance", "Maintenance", "Manutenzione" },  // STR_WEB_MAINT
+  { "Einstellungen", "Settings", "Réglages", "Impostazioni" },  // STR_WEB_CONFIG
   { "Aus: Port 80 antwortet nicht.",
     "Off: nothing answers on port 80.",
-    "Désactivé : inaccessible depuis le navigateur." },  // STR_WEB_SERVER_HINT
+    "Désactivé : inaccessible depuis le navigateur.",
+    "Spento: nulla risponde sulla porta 80." },  // STR_WEB_SERVER_HINT
   { "Schaltet die Weboberfläche im Netz an und aus. Ausgeschaltet antwortet Port 80 nicht mehr - außer FilaMan hat ein Geräte-Token hinterlegt, dann bleibt allein dessen Tag-Auslöser erreichbar.",
     "Turns the web interface on and off across the network. Switched off, port 80 stops answering - unless FilaMan holds a device token, in which case only its tag trigger stays reachable.",
-    "Active ou désactive l'interface web sur le réseau. Désactivée, elle ne répond plus (port 80) - sauf avec FilaMan, si la balance y est associée : seules les lectures et écritures de tag demandées par FilaMan restent alors possibles." },  // STR_WEB_SERVER_INFO
+    "Active ou désactive l'interface web sur le réseau. Désactivée, elle ne répond plus (port 80) - sauf avec FilaMan, si la balance y est associée : seules les lectures et écritures de tag demandées par FilaMan restent alors possibles.",
+    "Accende e spegne l'interfaccia web sulla rete. Spenta, la porta 80 non risponde più - tranne se FilaMan ha un token del dispositivo: in quel caso resta raggiungibile solo la sua richiesta di lettura tag." },  // STR_WEB_SERVER_INFO
   { "Liefert Firmware-Upload, Logs, Neustart und das Tag-Schreiben. Standardmäßig aus: schreibt Firmware und NFC-Tags, ohne Passwort.",
     "Serves firmware upload, logs, restart and tag writing. Off by default: these write firmware and NFC tags, with no password.",
-    "Rend accessibles dans le navigateur l'envoi de firmware, les journaux, le redémarrage et l'écriture de tags. Désactivé par défaut : sans mot de passe, tout appareil du réseau pourrait installer un firmware et écrire des tags NFC." },  // STR_WEB_MAINT_HINT
+    "Rend accessibles dans le navigateur l'envoi de firmware, les journaux, le redémarrage et l'écriture de tags. Désactivé par défaut : sans mot de passe, tout appareil du réseau pourrait installer un firmware et écrire des tags NFC.",
+    "Rende disponibili caricamento firmware, log, riavvio e scrittura tag. Spento di default: scrivono firmware e tag NFC, senza password." },  // STR_WEB_MAINT_HINT
   { "Firmware, Logs, Tags, Neustart",
     "Firmware, logs, tags, restart",
-    "Firmware, journaux, tags, redémarrage" },  // STR_WEB_MAINT_SUB
+    "Firmware, journaux, tags, redémarrage",
+    "Firmware, log, tag, riavvio" },  // STR_WEB_MAINT_SUB
   { "Liefert Listenlimits, Trocknung, Anzeige und die Backend-Zugangsdaten. Standardmäßig aus: ändert Einstellungen ohne Passwort.",
     "Serves list limits, drying, display and the backend credentials. Off by default: changes settings with no password.",
-    "Rend accessibles dans le navigateur les limites de liste, le séchage, l'affichage et les identifiants du backend. Désactivé par défaut : sans mot de passe, tout appareil du réseau pourrait modifier les réglages." },  // STR_WEB_CONFIG_HINT
+    "Rend accessibles dans le navigateur les limites de liste, le séchage, l'affichage et les identifiants du backend. Désactivé par défaut : sans mot de passe, tout appareil du réseau pourrait modifier les réglages.",
+    "Rende disponibili limiti elenco, essiccazione, display e credenziali del backend. Spento di default: cambia impostazioni senza password." },  // STR_WEB_CONFIG_HINT
   { "Listenlimits, Trocknung, Anzeige",
     "List limits, drying, display",
-    "Limites de liste, séchage, affichage" },  // STR_WEB_CONFIG_SUB
+    "Limites de liste, séchage, affichage",
+    "Limiti elenco, essiccazione, display" },  // STR_WEB_CONFIG_SUB
 
   // Scale
-  { "Spulen & Waage", "Spools & scale", "Bobines et balance" },  // STR_SCALE_TITLE
-  { "Kalibrierung",   "Calibration",    "Étalonnage" },  // STR_BTN_CALIBRATE
-  { "Beutelgewicht",  "Bag weight",     "Poids du sachet" },  // STR_BTN_BAGWEIGHT
+  { "Spulen & Waage", "Spools & scale", "Bobines et balance", "Bobine e bilancia" },  // STR_SCALE_TITLE
+  { "Kalibrierung", "Calibration", "Étalonnage", "Taratura" },  // STR_BTN_CALIBRATE
+  { "Beutelgewicht", "Bag weight", "Poids du sachet", "Peso sacchetto" },  // STR_BTN_BAGWEIGHT
 
   // Calibration
-  { "Kalibrierung",             "Calibration",              "Étalonnage" },  // STR_CAL_TITLE
-  { "Faktor: --",               "Factor: --",               "Facteur : --" },  // STR_CAL_FACTOR
-  { "Faktor: %.4f",             "Factor: %.4f",             "Facteur : %.4f" },  // STR_CAL_OK
-  { "Fehler: Gewicht = 0",      "Error: weight = 0",        "Erreur : poids = 0" },  // STR_CAL_ZERO_ERR
-  { LV_SYMBOL_OK "  Berechnen", LV_SYMBOL_OK "  Calculate", LV_SYMBOL_OK "  Calculer" },  // STR_BTN_CALCULATE
+  { "Kalibrierung", "Calibration", "Étalonnage", "Taratura" },  // STR_CAL_TITLE
+  { "Faktor: --", "Factor: --", "Facteur : --", "Fattore: --" },  // STR_CAL_FACTOR
+  { "Faktor: %.4f", "Factor: %.4f", "Facteur : %.4f", "Fattore: %.4f" },  // STR_CAL_OK
+  { "Fehler: Gewicht = 0", "Error: weight = 0", "Erreur : poids = 0", "Errore: peso = 0" },  // STR_CAL_ZERO_ERR
+  { LV_SYMBOL_OK "  Berechnen", LV_SYMBOL_OK "  Calculate",
+    LV_SYMBOL_OK "  Calculer",
+    LV_SYMBOL_OK "  Calcola" },  // STR_BTN_CALCULATE
 
   // Bag weight
   { "Vakuumbeutel inkl. Silikagelpack in Gramm, 0 = kein Beutel",
     "Vacuum bag incl. silica gel pack in grams, 0 = no bag",
-    "Sachet sous vide, gel de silice en g, 0 = sans sachet" },  // STR_BAG_DESC
-  { "%.1fg gespeichert", "%.1fg saved",   "%.1fg enregistré" },  // STR_BAG_SAVED
-  { "Ungültiger Wert",   "Invalid value", "Valeur invalide" },  // STR_BAG_INVALID
+    "Sachet sous vide, gel de silice en g, 0 = sans sachet",
+    "Sacchetto sottovuoto con silica gel in g, 0 = nessuno" },  // STR_BAG_DESC
+  { "%.1fg gespeichert", "%.1fg saved", "%.1fg enregistré", "%.1fg salvati" },  // STR_BAG_SAVED
+  { "Ungültiger Wert", "Invalid value", "Valeur invalide", "Valore errato" },  // STR_BAG_INVALID
 
   // Display
-  { "Display", "Display", "Affichage" },  // STR_DISPLAY_TITLE
+  { "Display", "Display", "Affichage", "Display" },  // STR_DISPLAY_TITLE
   { LV_SYMBOL_IMAGE "  Helligkeit",
     LV_SYMBOL_IMAGE "  Brightness",
-    LV_SYMBOL_IMAGE "  Luminosité" },  // STR_BRIGHT_LABEL
+    LV_SYMBOL_IMAGE "  Luminosité",
+    LV_SYMBOL_IMAGE "  Luminosità" },  // STR_BRIGHT_LABEL
   { LV_SYMBOL_EYE_OPEN "  Dimmen nach (Min.)",
     LV_SYMBOL_EYE_OPEN "  Dim after (min.)",
-    LV_SYMBOL_EYE_OPEN "  Atténuer après (min)" },  // STR_DIM_LABEL
+    LV_SYMBOL_EYE_OPEN "  Atténuer après (min)",
+    LV_SYMBOL_EYE_OPEN "  Attenua dopo (min)" },  // STR_DIM_LABEL
   { LV_SYMBOL_POWER "  Tiefschlaf nach (Min.)",
     LV_SYMBOL_POWER "  Deep sleep after (min.)",
-    LV_SYMBOL_POWER "  Veille profonde après (min)" },  // STR_SLEEP_LABEL
+    LV_SYMBOL_POWER "  Veille profonde après (min)",
+    LV_SYMBOL_POWER "  Standby dopo (min)" },  // STR_SLEEP_LABEL
 
   // System
-  { "System", "System",
-    "Système" },  // STR_SYSTEM_TITLE
-  { "Deutsch / English / Français", "Deutsch / English / Français",
-    "Deutsch / English / Français" },  // STR_BTN_LANG_SUB
-  { "Firmware Update", "Firmware Update",
-    "Mise à jour firmware" },  // STR_BTN_FW_UPDATE
-  { "Browser oder GitHub", "Browser or GitHub",
-    "Navigateur ou GitHub" },  // STR_BTN_FW_SUB
-  { "Info & Unterstützung", "Info & Support",
-    "Info et soutien" },  // STR_BTN_INFO
+  { "System", "System", "Système", "Sistema" },  // STR_SYSTEM_TITLE
+  { "Deutsch / English / Français / Italiano", "Deutsch / English / Français / Italiano",
+    "Deutsch / English / Français / Italiano",
+    "Deutsch / English / Français / Italiano" },  // STR_BTN_LANG_SUB
+  { "Firmware Update", "Firmware Update", "Mise à jour firmware", "Aggiorna firmware" },  // STR_BTN_FW_UPDATE
+  { "Browser oder GitHub", "Browser or GitHub", "Navigateur ou GitHub", "Browser o GitHub" },  // STR_BTN_FW_SUB
+  { "Info & Unterstützung", "Info & Support", "Info et soutien", "Info e supporto" },  // STR_BTN_INFO
   { "Anleitung - Ko-fi - GitHub - Discord - MakerWorld", "Manual - Ko-fi - GitHub - Discord - MakerWorld",
-    "Manuel - Ko-fi - GitHub - Discord - MakerWorld" },  // STR_BTN_INFO_SUB
+    "Manuel - Ko-fi - GitHub - Discord - MakerWorld",
+    "Manuale - Ko-fi - GitHub - Discord - MakerWorld" },  // STR_BTN_INFO_SUB
 
   // Language screen
-  { "Sprache / Language", "Sprache / Language", "Langue / Language" },  // STR_LANG_TITLE
+  { "Sprache / Language", "Sprache / Language", "Langue / Language", "Lingua / Language" },  // STR_LANG_TITLE
   { "Gerät startet nach Auswahl neu.",
     "Device will reboot after selection.",
-    "Choisir une langue ou un format de date redémarre l'appareil." },  // STR_LANG_HINT
-  { "Datum / Date format:", "Datum / Date format:", "Format de date :" },  // STR_DATE_FMT_LABEL
+    "Choisir une langue ou un format de date redémarre l'appareil.",
+    "Scegliere lingua o formato data riavvia il dispositivo." },  // STR_LANG_HINT
+  { "Datum / Date format:", "Datum / Date format:", "Format de date :", "Formato data:" },  // STR_DATE_FMT_LABEL
 
   // OTA
-  { "Firmware Update", "Firmware Update",
-    "Mise à jour firmware" },  // STR_OTA_TITLE
+  { "Firmware Update", "Firmware Update", "Mise à jour firmware", "Aggiorna firmware" },  // STR_OTA_TITLE
   { "Upload via Webbrowser", "Upload via web browser",
-    "Envoi par navigateur web" },  // STR_OTA_BROWSER
+    "Envoi par navigateur web",
+    "Carica dal browser web" },  // STR_OTA_BROWSER
   { ".bin vom PC + SD-Logging", "Upload from PC + SD logging",
-    "Depuis le PC + journal SD" },  // STR_OTA_BROWSER_SUB
-  { "Update via GitHub", "Update via GitHub",
-    "Mise à jour par GitHub" },  // STR_OTA_GITHUB
+    "Depuis le PC + journal SD",
+    "Da PC + log su SD" },  // STR_OTA_BROWSER_SUB
+  { "Update via GitHub", "Update via GitHub", "Mise à jour par GitHub", "Aggiorna da GitHub" },  // STR_OTA_GITHUB
   { "Direkt-Update aus GitHub Releases", "Direct update from GitHub Releases",
-    "Mise à jour directe depuis GitHub Releases" },  // STR_OTA_GITHUB_SUB
+    "Mise à jour directe depuis GitHub Releases",
+    "Diretto da GitHub Releases" },  // STR_OTA_GITHUB_SUB
   { "Browser Update", "Browser Update",
-    "Mise à jour par navigateur" },  // STR_OTA_BROWSER_TITLE
+    "Mise à jour par navigateur",
+    "Aggiorna da browser" },  // STR_OTA_BROWSER_TITLE
   { LV_SYMBOL_WARNING "  Kein WiFi\nBitte zuerst WiFi einrichten.",
     LV_SYMBOL_WARNING "  No WiFi\nPlease set up WiFi first.",
-    LV_SYMBOL_WARNING "  Pas de WiFi\nConfigurez d'abord le WiFi." },  // STR_OTA_NO_WIFI
+    LV_SYMBOL_WARNING "  Pas de WiFi\nConfigurez d'abord le WiFi.",
+    LV_SYMBOL_WARNING "  No WiFi\nConfigura prima il WiFi." },  // STR_OTA_NO_WIFI
   { "Browser öffnen und aufrufen:",
     "Open browser and go to:",
-    "Ouvrez un navigateur et allez à :" },  // STR_OTA_OPEN_BROWSER
+    "Ouvrez un navigateur et allez à :",
+    "Apri un browser e vai a:" },  // STR_OTA_OPEN_BROWSER
   { "Datei auswählen: SpoolmanScale vX.Y.Z.bin",
     "Select file: SpoolmanScale vX.Y.Z.bin",
-    "Choisissez le fichier : SpoolmanScale vX.Y.Z.bin" },  // STR_OTA_FILE_HINT
+    "Choisissez le fichier : SpoolmanScale vX.Y.Z.bin",
+    "Scegli il file: SpoolmanScale vX.Y.Z.bin" },  // STR_OTA_FILE_HINT
   { LV_SYMBOL_WIFI "  Warte auf Upload...",
     LV_SYMBOL_WIFI "  Waiting for upload...",
-    LV_SYMBOL_WIFI "  Attente de l'envoi..." },  // STR_OTA_WAITING
+    LV_SYMBOL_WIFI "  Attente de l'envoi...",
+    LV_SYMBOL_WIFI "  In attesa del file..." },  // STR_OTA_WAITING
   { LV_SYMBOL_DOWNLOAD "  Lade hoch...",
     LV_SYMBOL_DOWNLOAD "  Uploading...",
-    LV_SYMBOL_DOWNLOAD "  Envoi en cours..." },  // STR_OTA_UPLOADING
+    LV_SYMBOL_DOWNLOAD "  Envoi en cours...",
+    LV_SYMBOL_DOWNLOAD "  Caricamento..." },  // STR_OTA_UPLOADING
   { LV_SYMBOL_OK "  Update OK! Starte neu...",
     LV_SYMBOL_OK "  Update OK! Restarting...",
-    LV_SYMBOL_OK "  Mise à jour OK ! Redémarrage..." },  // STR_OTA_SUCCESS
+    LV_SYMBOL_OK "  Mise à jour OK ! Redémarrage...",
+    LV_SYMBOL_OK "  Aggiornato! Riavvio..." },  // STR_OTA_SUCCESS
   { LV_SYMBOL_WARNING "  Update fehlgeschlagen",
     LV_SYMBOL_WARNING "  Update failed",
-    LV_SYMBOL_WARNING "  Échec de la mise à jour" },  // STR_OTA_FAIL
+    LV_SYMBOL_WARNING "  Échec de la mise à jour",
+    LV_SYMBOL_WARNING "  Aggiornamento fallito" },  // STR_OTA_FAIL
   { LV_SYMBOL_CLOSE "  Server stoppen",
     LV_SYMBOL_CLOSE "  Stop server",
-    LV_SYMBOL_CLOSE "  Arrêter le serveur" },  // STR_BTN_STOP_SERVER
-  { "Aktuell: %s", "Current: %s", "Actuelle : %s" },  // STR_OTA_CURRENT
+    LV_SYMBOL_CLOSE "  Arrêter le serveur",
+    LV_SYMBOL_CLOSE "  Ferma server" },  // STR_BTN_STOP_SERVER
+  { "Aktuell: %s", "Current: %s", "Actuelle : %s", "Attuale: %s" },  // STR_OTA_CURRENT
 
   // Info Screen
-  { "SpoolmanScale  %s", "SpoolmanScale  %s", "SpoolmanScale  %s" },  // STR_INFO_VERSION
+  { "SpoolmanScale  %s", "SpoolmanScale  %s", "SpoolmanScale  %s", "SpoolmanScale  %s" },  // STR_INFO_VERSION
   { "Tippe einen Button um den QR-Code anzuzeigen.",
     "Tap a button to show the QR code.",
-    "Touchez un bouton pour afficher le QR code." },  // STR_INFO_HINT
+    "Touchez un bouton pour afficher le QR code.",
+    "Tocca un pulsante per vedere il codice QR." },  // STR_INFO_HINT
 
   // QR Popups
   { "Projekt gefällt dir? Kauf mir einen Kaffee!",
     "Support this project!",
-    "Le projet vous plaît ? Offrez-moi un café !" },  // STR_QR_KOFI_DESC
+    "Le projet vous plaît ? Offrez-moi un café !",
+    "Sostieni questo progetto!" },  // STR_QR_KOFI_DESC
   { "Quellcode, Releases & Dokumentation",
     "Source code, releases & docs",
-    "Code source, versions et documentation" },  // STR_QR_GITHUB_DESC
+    "Code source, versions et documentation",
+    "Sorgenti, versioni e documentazione" },  // STR_QR_GITHUB_DESC
   { "Community, Fragen & Support",
     "Community, questions & support",
-    "Communauté, questions et entraide" },  // STR_QR_DISCORD_DESC
+    "Communauté, questions et entraide",
+    "Community, domande e supporto" },  // STR_QR_DISCORD_DESC
   { "3D-Modelle & Designs auf MakerWorld",
     "3D models & designs on MakerWorld",
-    "Modèles 3D et créations sur MakerWorld" },  // STR_QR_MAKER_DESC
+    "Modèles 3D et créations sur MakerWorld",
+    "Modelli 3D e progetti su MakerWorld" },  // STR_QR_MAKER_DESC
 
   // Weight popup
   { "Heute getrocknet\nspeichern?", "Save dried\ntoday?",
-    "Enregistrer le séchage\nd'aujourd'hui ?" },  // STR_POPUP_DRIED_Q
+    "Enregistrer le séchage\nd'aujourd'hui ?",
+    "Salvare l'essiccazione\ndi oggi?" },  // STR_POPUP_DRIED_Q
   { "Gewicht in\nSpoolman updaten?", "Update weight\nin Spoolman?",
-    "Mettre le poids à jour\ndans Spoolman ?" },  // STR_POPUP_WEIGHT_Q
+    "Mettre le poids à jour\ndans Spoolman ?",
+    "Aggiornare il peso\nin Spoolman?" },  // STR_POPUP_WEIGHT_Q
   { "Leergewicht\nmessen / eingeben", "Empty spool weight\nweigh / type in",
-    "Poids à vide\nmesurer / saisir" },  // STR_BTN_EMPTY_SPOOL
-  { "Ja, bestätigen",                 "Yes, confirm",                        "Oui, confirmer" },  // STR_BTN_CONFIRMED
+    "Poids à vide\nmesurer / saisir",
+    "Peso bobina vuota\npesa / inserisci" },  // STR_BTN_EMPTY_SPOOL
+  { "Ja, bestätigen", "Yes, confirm", "Oui, confirmer", "Sì, conferma" },  // STR_BTN_CONFIRMED
 
   // Spool weight sub-popup
   { "Spulengewicht: %.0f g speichern als...",
     "Save spool weight: %.0f g as...",
-    "Poids à vide %.0f g : enregistrer pour..." },  // STR_SPOOL_WEIGHT_TITLE
+    "Poids à vide %.0f g : enregistrer pour...",
+    "Salva peso bobina: %.0f g come..." },  // STR_SPOOL_WEIGHT_TITLE
   { "Diese Spule\n(spool_weight)", "This spool\n(spool_weight)",
-    "Cette bobine\n(spool_weight)" },  // STR_BTN_THIS_SPOOL
+    "Cette bobine\n(spool_weight)",
+    "Bobina\n(spool_weight)" },  // STR_BTN_THIS_SPOOL
   { "Dieses Filament\n(spool_weight)", "This filament\n(spool_weight)",
-    "Ce filament\n(spool_weight)" },  // STR_BTN_THIS_FILAMENT
+    "Ce filament\n(spool_weight)",
+    "Filamento\n(spool_weight)" },  // STR_BTN_THIS_FILAMENT
   { "Hersteller\n(empty_spool_weight)", "Vendor\n(empty_spool_weight)",
-    "Fabricant\n(empty_spool_weight)" },  // STR_BTN_THIS_VENDOR
+    "Fabricant\n(empty_spool_weight)",
+    "Marca\n(empty_spool_weight)" },  // STR_BTN_THIS_VENDOR
 
   // Link Flow
-  { "Bambu-Spule verknüpfen", "Link Bambu spool",  "Lier une bobine Bambu" },  // STR_LINK_BAMBU_TITLE
-  { "Unbekannte Spule",       "Unknown spool",     "Bobine inconnue" },  // STR_LINK_NTAG_TITLE
-  { "Spool-ID eingeben",      "Enter Spool-ID",    "Saisir l'ID de bobine" },  // STR_BTN_ENTER_ID
-  { "Aus Liste wählen",       "Choose from list",  "Choisir dans la liste" },  // STR_BTN_FROM_LIST
-  { "Spoolman Spool-ID",      "Spoolman Spool-ID", "ID de bobine Spoolman" },  // STR_LINK_ID_TITLE
-  { "Prüfe...",               "Checking...",       "Vérification..." },  // STR_LINK_CHECKING
-  { "ID nicht gefunden",      "ID not found",      "ID introuvable" },  // STR_LINK_ID_NOT_FOUND
-  { "HTTP Fehler %d",         "HTTP Error %d",     "Erreur HTTP %d" },  // STR_LINK_HTTP_ERR
-  { "JSON Fehler",            "JSON error",        "Erreur JSON" },  // STR_LINK_JSON_ERR
-  { "Kein WLAN",              "No WiFi",           "Pas de WiFi" },  // STR_LINK_NO_WIFI
+  { "Bambu-Spule verknüpfen", "Link Bambu spool",
+    "Lier une bobine Bambu",
+    "Collega bobina Bambu" },  // STR_LINK_BAMBU_TITLE
+  { "Unbekannte Spule", "Unknown spool", "Bobine inconnue", "Bobina ignota" },  // STR_LINK_NTAG_TITLE
+  { "Spool-ID eingeben", "Enter Spool-ID", "Saisir l'ID de bobine", "Inserisci ID bobina" },  // STR_BTN_ENTER_ID
+  { "Aus Liste wählen", "Choose from list", "Choisir dans la liste", "Scegli dall'elenco" },  // STR_BTN_FROM_LIST
+  { "Spoolman Spool-ID", "Spoolman Spool-ID", "ID de bobine Spoolman", "ID bobina Spoolman" },  // STR_LINK_ID_TITLE
+  { "Prüfe...", "Checking...", "Vérification...", "Verifica..." },  // STR_LINK_CHECKING
+  { "ID nicht gefunden", "ID not found", "ID introuvable", "ID non trovato" },  // STR_LINK_ID_NOT_FOUND
+  { "HTTP Fehler %d", "HTTP Error %d", "Erreur HTTP %d", "Errore HTTP %d" },  // STR_LINK_HTTP_ERR
+  { "JSON Fehler", "JSON error", "Erreur JSON", "Errore JSON" },  // STR_LINK_JSON_ERR
+  { "Kein WLAN", "No WiFi", "Pas de WiFi", "No WiFi" },  // STR_LINK_NO_WIFI
   { LV_SYMBOL_WARNING "  Spule bereits verknüpft",
     LV_SYMBOL_WARNING "  Tag already assigned!",
-    LV_SYMBOL_WARNING "  Bobine déjà liée" },  // STR_WARN_A_TITLE
+    LV_SYMBOL_WARNING "  Bobine déjà liée",
+    LV_SYMBOL_WARNING "  Tag già assegnato!" },  // STR_WARN_A_TITLE
   { LV_SYMBOL_WARNING "  Trotzdem verknüpfen",
     LV_SYMBOL_WARNING "  Link anyway",
-    LV_SYMBOL_WARNING "  Lier quand même" },  // STR_BTN_OVERWRITE
-  { "Material stimmt nicht überein", "Material mismatch", "Le matériau ne correspond pas" },  // STR_WARN_B_TITLE
+    LV_SYMBOL_WARNING "  Lier quand même",
+    LV_SYMBOL_WARNING "  Collega comunque" },  // STR_BTN_OVERWRITE
+  { "Material stimmt nicht überein", "Material mismatch",
+    "Le matériau ne correspond pas",
+    "Materiale diverso" },  // STR_WARN_B_TITLE
   { "Tag:      %s\nSpoolman: %s  (#%d)\n\nFalsche ID? Bitte nochmal prüfen.",
     "Tag:      %s\nSpoolman: %s  (#%d)\n\nWrong ID? Please double-check.",
-    "Tag :      %s\nSpoolman : %s  (#%d)\n\nMauvais ID ? Vérifiez-le." },  // STR_WARN_B_DETAILS
+    "Tag :      %s\nSpoolman : %s  (#%d)\n\nMauvais ID ? Vérifiez-le.",
+    "Tag:      %s\nSpoolman: %s  (#%d)\n\nID sbagliato? Ricontrolla." },  // STR_WARN_B_DETAILS
   { "Hersteller wählen  (%d Spulen)", "Choose vendor  (%d spools)",
-    "Choisir le fabricant  (%d bobines)" },  // STR_VENDOR_TITLE
-  { "Material wählen",                "Choose material",            "Choisir le matériau" },  // STR_MAT_TITLE
+    "Choisir le fabricant  (%d bobines)",
+    "Scegli produttore  (%d bobine)" },  // STR_VENDOR_TITLE
+  { "Material wählen", "Choose material", "Choisir le matériau", "Scegli materiale" },  // STR_MAT_TITLE
   { "Keine Spulen ohne Tag\nin Spoolman gefunden.",
     "No unlinked spools\nfound in Spoolman.",
-    "Aucune bobine sans tag\ntrouvée dans Spoolman." },  // STR_NO_VENDORS
+    "Aucune bobine sans tag\ntrouvée dans Spoolman.",
+    "Nessuna bobina\nsenza tag in Spoolman." },  // STR_NO_VENDORS
   { "Keine Materialien gefunden.", "No materials found.",
-    "Aucun matériau trouvé." },  // STR_NO_MATERIALS
+    "Aucun matériau trouvé.",
+    "Nessun materiale trovato." },  // STR_NO_MATERIALS
   { "Keine passenden Spulen.\nBitte per ID verlinken.", "No matching spools.\nPlease link via ID.",
-    "Aucune bobine correspondante.\nLiez la bobine par son ID." },  // STR_NO_SPOOLS
-  { "Verknüpfen?", "Link this spool?",
-    "Lier cette bobine ?" },  // STR_CONFIRM_LINK
+    "Aucune bobine correspondante.\nLiez la bobine par son ID.",
+    "Nessuna bobina adatta.\nCollega tramite ID." },  // STR_NO_SPOOLS
+  { "Verknüpfen?", "Link this spool?", "Lier cette bobine ?", "Collegare?" },  // STR_CONFIRM_LINK
   { LV_SYMBOL_OK "  Verknüpfen", LV_SYMBOL_OK "  Link",
-    LV_SYMBOL_OK "  Lier" },  // STR_LINK_OK
+    LV_SYMBOL_OK "  Lier",
+    LV_SYMBOL_OK "  Collega" },  // STR_LINK_OK
 
   // Tare
-  { LV_SYMBOL_OK "  Tare gesetzt!", LV_SYMBOL_OK "  Tare set!", LV_SYMBOL_OK "  Tare faite !" },  // STR_TARE_OK
+  { LV_SYMBOL_OK "  Tare gesetzt!", LV_SYMBOL_OK "  Tare set!",
+    LV_SYMBOL_OK "  Tare faite !",
+    LV_SYMBOL_OK "  Tara fatta!" },  // STR_TARE_OK
   { LV_SYMBOL_WARNING "  Waage nicht bereit",
     LV_SYMBOL_WARNING "  Scale not ready",
-    LV_SYMBOL_WARNING "  Balance non prête" },  // STR_TARE_NOT_READY
-  { "API Fehler", "API Error", "Erreur d'API" },  // STR_API_ERROR
+    LV_SYMBOL_WARNING "  Balance non prête",
+    LV_SYMBOL_WARNING "  Bilancia non pronta" },  // STR_TARE_NOT_READY
+  { "API Fehler", "API Error", "Erreur d'API", "Errore API" },  // STR_API_ERROR
 
   // Reboot popup
-  { "Neustart erforderlich", "Restart required", "Redémarrage nécessaire" },  // STR_REBOOT_TITLE
+  { "Neustart erforderlich", "Restart required",
+    "Redémarrage nécessaire",
+    "Riavvio necessario" },  // STR_REBOOT_TITLE
   { "Einstellung wird nach\ndem Neustart aktiv.",
     "Setting takes effect\nafter restart.",
-    "Le réglage s'applique après\nle redémarrage." },  // STR_REBOOT_MSG
+    "Le réglage s'applique après\nle redémarrage.",
+    "L'impostazione vale\ndopo il riavvio." },  // STR_REBOOT_MSG
   { LV_SYMBOL_REFRESH "  Jetzt neu starten",
     LV_SYMBOL_REFRESH "  Restart now",
-    LV_SYMBOL_REFRESH "  Redémarrer" },  // STR_REBOOT_BTN
+    LV_SYMBOL_REFRESH "  Redémarrer",
+    LV_SYMBOL_REFRESH "  Riavvia ora" },  // STR_REBOOT_BTN
 
   // WiFi connecting result
   { LV_SYMBOL_WARNING "  Verbindung fehlgeschlagen.\nSSID: %s",
     LV_SYMBOL_WARNING "  Connection failed.\nSSID: %s",
-    LV_SYMBOL_WARNING "  Échec de la connexion.\nSSID : %s" },  // STR_WIFI_CONN_FAILED
+    LV_SYMBOL_WARNING "  Échec de la connexion.\nSSID : %s",
+    LV_SYMBOL_WARNING "  Connessione fallita.\nSSID: %s" },  // STR_WIFI_CONN_FAILED
 
   // WiFi quality
-  { "Ausgezeichnet", "Excellent",    "Excellent" },  // STR_WIFI_QUAL_EXCELLENT
-  { "Gut",           "Good",         "Bon" },  // STR_WIFI_QUAL_GOOD
-  { "Mittel",        "Medium",       "Moyen" },  // STR_WIFI_QUAL_MEDIUM
-  { "Schwach",       "Weak",         "Faible" },  // STR_WIFI_QUAL_WEAK
-  { "Verbunden",     "Connected",    "Connecté" },  // STR_WIFI_STATUS_CONNECTED
-  { "Getrennt",      "Disconnected", "Déconnecté" },  // STR_WIFI_STATUS_DISCONNECTED
+  { "Ausgezeichnet", "Excellent", "Excellent", "Ottimo" },  // STR_WIFI_QUAL_EXCELLENT
+  { "Gut", "Good", "Bon", "Buono" },  // STR_WIFI_QUAL_GOOD
+  { "Mittel", "Medium", "Moyen", "Medio" },  // STR_WIFI_QUAL_MEDIUM
+  { "Schwach", "Weak", "Faible", "Debole" },  // STR_WIFI_QUAL_WEAK
+  { "Verbunden", "Connected", "Connecté", "Connesso" },  // STR_WIFI_STATUS_CONNECTED
+  { "Getrennt", "Disconnected", "Déconnecté", "Disconnesso" },  // STR_WIFI_STATUS_DISCONNECTED
 
   // Numpad buttons
-  { LV_SYMBOL_OK "  Speichern", LV_SYMBOL_OK "  Save", LV_SYMBOL_OK "  Enregistrer" },  // STR_BTN_SAVE
+  { LV_SYMBOL_OK "  Speichern", LV_SYMBOL_OK "  Save",
+    LV_SYMBOL_OK "  Enregistrer",
+    LV_SYMBOL_OK "  Salva" },  // STR_BTN_SAVE
 
   // Spool list title
-  { "Alle", "All", "Toutes" },  // STR_SPOOLS_ALL
+  { "Alle", "All", "Toutes", "Tutte" },  // STR_SPOOLS_ALL
 
   // Settings calibration sub
-  { "Faktor: %.2f", "Factor: %.2f", "Facteur : %.2f" },  // STR_CAL_FACTOR_SHORT
+  { "Faktor: %.2f", "Factor: %.2f", "Facteur : %.2f", "Fattore: %.2f" },  // STR_CAL_FACTOR_SHORT
 
   // Archive confirm
   { "Spule wirklich\narchivieren?", "Really archive\nthis spool?",
-    "Voulez-vous vraiment\narchiver cette bobine ?" },  // STR_ARCHIVE_CONFIRM
+    "Voulez-vous vraiment\narchiver cette bobine ?",
+    "Archiviare davvero\nquesta bobina?" },  // STR_ARCHIVE_CONFIRM
 
   // Weight popup archive button
   { LV_SYMBOL_CLOSE " leer / Archivieren\nremaining=0",
     LV_SYMBOL_CLOSE " empty / Archive\nremaining=0",
-    LV_SYMBOL_CLOSE " vide / Archiver\nremaining=0" },  // STR_BTN_ARCHIVE_EMPTY
+    LV_SYMBOL_CLOSE " vide / Archiver\nremaining=0",
+    LV_SYMBOL_CLOSE " vuota / Archivia\nremaining=0" },  // STR_BTN_ARCHIVE_EMPTY
 
   // Welcome language select screen
-  { "Sprache und Zeitzone", "Language and time zone", "Langue et fuseau horaire" },  // STR_WELCOME_LANG_TITLE
+  { "Sprache und Zeitzone", "Language and time zone",
+    "Langue et fuseau horaire",
+    "Lingua e fuso orario" },  // STR_WELCOME_LANG_TITLE
   { "Beides lässt sich später in den Einstellungen ändern.\nWeiter startet das Gerät einmal neu.",
     "Both can be changed later in Settings.\nNext restarts the device once.",
-    "Langue et fuseau horaire restent modifiables dans les réglages.\nSuivant enregistre les deux choix et redémarre l'appareil une fois." },  // STR_WELCOME_LANG_HINT
+    "Langue et fuseau horaire restent modifiables dans les réglages.\nSuivant enregistre les deux choix et redémarre l'appareil une fois.",
+    "Entrambi modificabili poi nelle Impostazioni.\nAvanti riavvia il dispositivo una volta." },  // STR_WELCOME_LANG_HINT
 
   // WiFi scan count
-  { "%d Netzwerke gefunden", "%d networks found", "%d réseaux trouvés" },  // STR_WIFI_NETWORKS_FOUND
+  { "%d Netzwerke gefunden", "%d networks found",
+    "%d réseaux trouvés",
+    "%d reti trovate" },  // STR_WIFI_NETWORKS_FOUND
 
   // Bag weight current label
-  { "Aktuell: %.0f g", "Current: %.0f g", "Actuel : %.0f g" },  // STR_BAG_CURRENT
+  { "Aktuell: %.0f g", "Current: %.0f g", "Actuel : %.0f g", "Attuale: %.0f g" },  // STR_BAG_CURRENT
 
   // Warn popup A fields
   { "Spule #%d  |  %s %s\nAkt. Tag: %s",
     "Spool #%d  |  %s %s\nCur. tag: %s",
-    "Bobine #%d  |  %s %s\nTag : %s" },  // STR_WARN_A_SPOOL_INFO
+    "Bobine #%d  |  %s %s\nTag : %s",
+    "Bobina #%d  |  %s %s\nTag att.: %s" },  // STR_WARN_A_SPOOL_INFO
   { "Spule #%d\nAkt. Tag: %s",
     "Spool #%d\nCur. tag: %s",
-    "Bobine #%d\nTag : %s" },  // STR_WARN_A_SPOOL_SHORT
+    "Bobine #%d\nTag : %s",
+    "Bobina #%d\nTag att.: %s" },  // STR_WARN_A_SPOOL_SHORT
 
   // Link entry context
-  { "%s | nicht in Spoolman", "%s | not in Spoolman", "%s | absente de Spoolman" },  // STR_LINK_CTX_NOT_IN_SM
+  { "%s | nicht in Spoolman", "%s | not in Spoolman",
+    "%s | absente de Spoolman",
+    "%s | non in Spoolman" },  // STR_LINK_CTX_NOT_IN_SM
 
   // Weight popup buttons (with snprintf)
   { LV_SYMBOL_OK " Ohne Beutel\n%.0fg",
     LV_SYMBOL_OK " No bag\n%.0fg",
-    LV_SYMBOL_OK " Sans sachet\n%.0fg" },  // STR_BTN_NO_BAG_VAL
+    LV_SYMBOL_OK " Sans sachet\n%.0fg",
+    LV_SYMBOL_OK " Senza sacc.\n%.0fg" },  // STR_BTN_NO_BAG_VAL
   { LV_SYMBOL_OK " Mit Beutel\n%.0fg - %.0fg",
     LV_SYMBOL_OK " With bag\n%.0fg - %.0fg",
-    LV_SYMBOL_OK " Avec sachet\n%.0fg - %.0fg" },  // STR_BTN_WITH_BAG_VAL
+    LV_SYMBOL_OK " Avec sachet\n%.0fg - %.0fg",
+    LV_SYMBOL_OK " Con sacch.\n%.0fg - %.0fg" },  // STR_BTN_WITH_BAG_VAL
   { LV_SYMBOL_PLUS " Neue Spule\n%.0fg netto",
     LV_SYMBOL_PLUS " New spool\n%.0fg net",
-    LV_SYMBOL_PLUS " Nouvelle bobine\n%.0fg net" },  // STR_BTN_NEW_SPOOL_VAL
+    LV_SYMBOL_PLUS " Nouvelle bobine\n%.0fg net",
+    LV_SYMBOL_PLUS " Bobina nuova\n%.0fg netti" },  // STR_BTN_NEW_SPOOL_VAL
 
   // First boot welcome screen
   { "Willkommen!",
     "Welcome!",
-    "Bienvenue !" },  // STR_FIRSTBOOT_TITLE
+    "Bienvenue !",
+    "Benvenuto!" },  // STR_FIRSTBOOT_TITLE
   { "Deine SpoolmanScale ist fast bereit.",
     "Your SpoolmanScale is almost ready.",
-    "Votre SpoolmanScale est presque prête." },  // STR_FIRSTBOOT_SUB
+    "Votre SpoolmanScale est presque prête.",
+    "La tua SpoolmanScale è quasi pronta." },  // STR_FIRSTBOOT_SUB
   // Both backends are named here because this screen appears before the user
   // has chosen one. It must therefore not go through backendText().
   { "In wenigen Schritten richten wir\nWLAN, Server und die Waage ein.",
     "In a few steps we will set up\nWiFi, the server and the scale.",
-    "En quelques étapes, nous allons configurer\nle WiFi, le serveur et la balance." },  // STR_FIRSTBOOT_HINT
+    "En quelques étapes, nous allons configurer\nle WiFi, le serveur et la balance.",
+    "In pochi passi configuriamo\nWiFi, server e bilancia." },  // STR_FIRSTBOOT_HINT
   { LV_SYMBOL_RIGHT "  Los geht's",
     LV_SYMBOL_RIGHT "  Get started",
-    LV_SYMBOL_RIGHT "  C'est parti" },  // STR_FIRSTBOOT_BTN
+    LV_SYMBOL_RIGHT "  C'est parti",
+    LV_SYMBOL_RIGHT "  Iniziamo" },  // STR_FIRSTBOOT_BTN
 
   // Extra fields screen
   { "Spoolman Extra-Felder",
     "Spoolman Extra Fields",
-    "Champs supplémentaires Spoolman" },  // STR_EXTRA_FIELDS_TITLE
+    "Champs supplémentaires Spoolman",
+    "Campi extra Spoolman" },  // STR_EXTRA_FIELDS_TITLE
   { "Prüfen...",
     "Checking...",
-    "Vérification..." },  // STR_EXTRA_FIELDS_CHECKING
+    "Vérification...",
+    "Verifica..." },  // STR_EXTRA_FIELDS_CHECKING
   { LV_SYMBOL_OK "  Vorhanden: %s",
     LV_SYMBOL_OK "  Present: %s",
-    LV_SYMBOL_OK "  Présents : %s" },  // STR_EXTRA_FIELDS_ALL_OK
+    LV_SYMBOL_OK "  Présents : %s",
+    LV_SYMBOL_OK "  Presenti: %s" },  // STR_EXTRA_FIELDS_ALL_OK
   { LV_SYMBOL_WARNING "  Fehlende Felder: %s",
     LV_SYMBOL_WARNING "  Missing fields: %s",
-    LV_SYMBOL_WARNING "  Champs manquants : %s" },  // STR_EXTRA_FIELDS_MISSING
+    LV_SYMBOL_WARNING "  Champs manquants : %s",
+    LV_SYMBOL_WARNING "  Campi mancanti: %s" },  // STR_EXTRA_FIELDS_MISSING
   { "Lege Felder an...",
     "Creating fields...",
-    "Création des champs..." },  // STR_EXTRA_FIELDS_CREATING
+    "Création des champs...",
+    "Creazione campi..." },  // STR_EXTRA_FIELDS_CREATING
   { LV_SYMBOL_WARNING "  Fehler beim Anlegen: %s",
     LV_SYMBOL_WARNING "  Error creating: %s",
-    LV_SYMBOL_WARNING "  Échec de la création : %s" },  // STR_EXTRA_FIELDS_CREATE_FAIL
+    LV_SYMBOL_WARNING "  Échec de la création : %s",
+    LV_SYMBOL_WARNING "  Errore creando: %s" },  // STR_EXTRA_FIELDS_CREATE_FAIL
   { LV_SYMBOL_WARNING "  Kein WiFi",
     LV_SYMBOL_WARNING "  No WiFi",
-    LV_SYMBOL_WARNING "  Pas de WiFi" },  // STR_EXTRA_FIELDS_NO_WIFI
+    LV_SYMBOL_WARNING "  Pas de WiFi",
+    LV_SYMBOL_WARNING "  No WiFi" },  // STR_EXTRA_FIELDS_NO_WIFI
   { LV_SYMBOL_WARNING "  Kein Spoolman konfiguriert",
     LV_SYMBOL_WARNING "  No Spoolman configured",
-    LV_SYMBOL_WARNING "  Aucun Spoolman configuré" },  // STR_EXTRA_FIELDS_NO_SPOOLMAN
+    LV_SYMBOL_WARNING "  Aucun Spoolman configuré",
+    LV_SYMBOL_WARNING "  Spoolman non configurato" },  // STR_EXTRA_FIELDS_NO_SPOOLMAN
 
   // Calibration reminder screen
   { "Waage kalibrieren",
     "Calibrate scale",
-    "Étalonner la balance" },  // STR_CAL_REMINDER_TITLE
+    "Étalonner la balance",
+    "Tara la bilancia" },  // STR_CAL_REMINDER_TITLE
   { "Für genaue Messungen muss die Waage\nkalibriert werden.\n\nLege ein bekanntes Gewicht auf\nund gehe zu Einstellungen > Waage\n> Kalibrierung.\n\nDies kann auch später gemacht werden.",
     "For accurate measurements the scale\nneeds to be calibrated.\n\nPlace a known weight on the scale\nand go to Settings > Scale > Calibration.\n\nYou can also do this later.",
-    "Pour des mesures précises, la balance\ndoit être étalonnée.\n\nPrévoyez un objet de poids connu\npuis allez dans Réglages > Balance\n> Étalonnage.\n\nVous pouvez aussi le faire plus tard." },  // STR_CAL_REMINDER_MSG
+    "Pour des mesures précises, la balance\ndoit être étalonnée.\n\nPrévoyez un objet de poids connu\npuis allez dans Réglages > Balance\n> Étalonnage.\n\nVous pouvez aussi le faire plus tard.",
+    "Per misure precise la bilancia\nva tarata.\n\nPrepara un peso noto\ne vai in Impostazioni > Bilancia\n> Taratura.\n\nPuoi farlo anche più tardi." },  // STR_CAL_REMINDER_MSG
   { "Verstanden",
     "Got it!",
-    "Compris" },  // STR_CAL_REMINDER_LATER
+    "Compris",
+    "Capito!" },  // STR_CAL_REMINDER_LATER
   { LV_SYMBOL_EDIT "  Jetzt kalibrieren",
     LV_SYMBOL_EDIT "  Calibrate now",
-    LV_SYMBOL_EDIT "  Étalonner" },  // STR_CAL_REMINDER_NOW
+    LV_SYMBOL_EDIT "  Étalonner",
+    LV_SYMBOL_EDIT "  Tara ora" },  // STR_CAL_REMINDER_NOW
 
   // Calibration TARE hint
   { "Erst TARE ohne Gewicht, dann Gewicht auflegen und berechnen.",
     "First TARE with nothing on the pad, then place the weight and calculate.",
-    "Plateau vide, appuyez sur TARE, puis posez le poids et calculez." },  // STR_CAL_TARE_HINT
+    "Plateau vide, appuyez sur TARE, puis posez le poids et calculez.",
+    "Piatto vuoto: premi TARE, poi metti il peso e calcola." },  // STR_CAL_TARE_HINT
 
   // Extra fields test button
 
   // Spoolman IP validation
   { "Verbindung wird geprüft...",
     "Testing connection...",
-    "Test de la connexion..." },  // STR_SPOOLMAN_TESTING
+    "Test de la connexion...",
+    "Test connessione..." },  // STR_SPOOLMAN_TESTING
   { LV_SYMBOL_WARNING "  Spoolman nicht erreichbar",
     LV_SYMBOL_WARNING "  Spoolman not reachable",
-    LV_SYMBOL_WARNING "  Spoolman injoignable" },  // STR_SPOOLMAN_FAIL
+    LV_SYMBOL_WARNING "  Spoolman injoignable",
+    LV_SYMBOL_WARNING "  Spoolman irraggiungibile" },  // STR_SPOOLMAN_FAIL
   { "Erneut versuchen",
     "Retry",
-    "Réessayer" },  // STR_SPOOLMAN_RETRY
+    "Réessayer",
+    "Riprova" },  // STR_SPOOLMAN_RETRY
   { "Überspringen",
     "Skip",
-    "Ignorer" },  // STR_SPOOLMAN_SKIP
+    "Ignorer",
+    "Salta" },  // STR_SPOOLMAN_SKIP
 
   // More info filament screen
   { "Mehr Info",
     "More info",
-    "Plus d'infos" },  // STR_BTN_MORE_INFO
+    "Plus d'infos",
+    "Più info" },  // STR_BTN_MORE_INFO
 
   // GitHub OTA check screen
   { "GitHub Update",
     "GitHub Update",
-    "Mise à jour GitHub" },  // STR_GH_OTA_TITLE
+    "Mise à jour GitHub",
+    "Aggiorna da GitHub" },  // STR_GH_OTA_TITLE
   { "Auf Updates prüfen",
     "Check for Updates",
-    "Rechercher des mises à jour" },  // STR_GH_OTA_CHECK_BTN
+    "Rechercher des mises à jour",
+    "Cerca aggiornamenti" },  // STR_GH_OTA_CHECK_BTN
   { "Prüfen...",
     "Checking...",
-    "Recherche..." },  // STR_GH_OTA_CHECKING
+    "Recherche...",
+    "Ricerca..." },  // STR_GH_OTA_CHECKING
   { "Kein WLAN - bitte zuerst verbinden",
     "No WiFi - please connect first",
-    "Pas de WiFi - connectez-vous d'abord" },  // STR_GH_OTA_NO_WIFI
+    "Pas de WiFi - connectez-vous d'abord",
+    "No WiFi - connettiti prima" },  // STR_GH_OTA_NO_WIFI
   { "Bereits aktuell",
     "Already up to date",
-    "Déjà à jour" },  // STR_GH_OTA_UP_TO_DATE
+    "Déjà à jour",
+    "Già aggiornato" },  // STR_GH_OTA_UP_TO_DATE
   { "Update verfügbar: %s",
     "Update available: %s",
-    "Mise à jour disponible : %s" },  // STR_GH_OTA_UPDATE_AVAIL
+    "Mise à jour disponible : %s",
+    "Nuova versione: %s" },  // STR_GH_OTA_UPDATE_AVAIL
   { "Jetzt installieren",
     "Install Now",
-    "Installer maintenant" },  // STR_GH_OTA_UPDATE_BTN
+    "Installer maintenant",
+    "Installa ora" },  // STR_GH_OTA_UPDATE_BTN
   { "Installiere... bitte warten",
     "Installing... please wait",
-    "Installation... veuillez patienter" },  // STR_GH_OTA_FLASHING
+    "Installation... veuillez patienter",
+    "Installazione... attendere" },  // STR_GH_OTA_FLASHING
   { "Update erfolgreich - startet neu...",
     "Update successful - restarting...",
-    "Mise à jour réussie - redémarrage..." },  // STR_GH_OTA_FLASH_OK
+    "Mise à jour réussie - redémarrage...",
+    "Aggiornato - riavvio..." },  // STR_GH_OTA_FLASH_OK
   { "Update fehlgeschlagen",
     "Update failed",
-    "Échec de la mise à jour" },  // STR_GH_OTA_FLASH_FAIL
+    "Échec de la mise à jour",
+    "Aggiornamento fallito" },  // STR_GH_OTA_FLASH_FAIL
   { "Installiert: %s",
     "Installed: %s",
-    "Installée : %s" },  // STR_GH_OTA_INSTALLED
+    "Installée : %s",
+    "Installata: %s" },  // STR_GH_OTA_INSTALLED
   { "Neueste: %s",
     "Latest: %s",
-    "Dernière : %s" },  // STR_GH_OTA_LATEST
+    "Dernière : %s",
+    "Ultima: %s" },  // STR_GH_OTA_LATEST
   { "Pre-release",
     "Pre-release",
-    "Pré-version" },  // STR_GH_OTA_PRERELEASE
+    "Pré-version",
+    "Pre-release" },  // STR_GH_OTA_PRERELEASE
   { "Autom. Suche",
     "Auto check",
-    "Recherche auto" },  // STR_GH_OTA_AUTOCHECK
+    "Recherche auto",
+    "Controllo auto" },  // STR_GH_OTA_AUTOCHECK
   { "Ältere Version verfügbar: %s",
     "Older release available: %s",
-    "Version plus ancienne disponible : %s" },  // STR_GH_OTA_OLDER
+    "Version plus ancienne disponible : %s",
+    "Versione più vecchia disponibile: %s" },  // STR_GH_OTA_OLDER
   { "Zurückstufen",
     "Downgrade",
-    "Rétrograder" },  // STR_GH_OTA_DOWNGRADE_BTN
+    "Rétrograder",
+    "Downgrade" },  // STR_GH_OTA_DOWNGRADE_BTN
   { "Auf %s zurückstufen?\nDiese Version ist älter als die installierte.",
     "Downgrade to %s?\nThis release is older than the installed one.",
-    "Revenir à %s ?\nCette version est plus ancienne que celle installée." },  // STR_GH_OTA_DOWNGRADE_ASK
+    "Revenir à %s ?\nCette version est plus ancienne que celle installée.",
+    "Tornare a %s?\nQuesta versione è più vecchia di quella installata." },  // STR_GH_OTA_DOWNGRADE_ASK
 
   { "Last Used Modus",
     "Last Used Mode",
-    "Mode Last Used" },  // STR_BTN_LASTUSED_MODE
+    "Mode Last Used",
+    "Modo Last Used" },  // STR_BTN_LASTUSED_MODE
   { "OpenSpoolMan oder SpoolmanScale",
     "OpenSpoolMan or SpoolmanScale",
-    "OpenSpoolMan ou SpoolmanScale" },  // STR_BTN_LASTUSED_MODE_SUB
+    "OpenSpoolMan ou SpoolmanScale",
+    "OpenSpoolMan o SpoolmanScale" },  // STR_BTN_LASTUSED_MODE_SUB
   { "Last Used Modus",
     "Last Used Mode",
-    "Mode Last Used" },  // STR_LASTUSED_TITLE
+    "Mode Last Used",
+    "Modo Last Used" },  // STR_LASTUSED_TITLE
   { "OpenSpoolMan",
+    "OpenSpoolMan",
     "OpenSpoolMan",
     "OpenSpoolMan" },  // STR_LASTUSED_OPT_OSM
   { "Zuletzt gewogen",
     "Last Weighed",
-    "Dernière pesée" },  // STR_LASTUSED_OPT_WEIGHED
+    "Dernière pesée",
+    "Ultima pesata" },  // STR_LASTUSED_OPT_WEIGHED
   { "Wird die Nutzung deines Filaments in Spoolman genau getrackt, z.B. automatisch durch OpenSpoolMan beim Bambu Lab Drucker, dann wird auf dem Hauptscreen das Datum der letzten Benutzung aus Spoolman angezeigt.",
     "If your filament usage is tracked in Spoolman, e.g. automatically via OpenSpoolMan with a Bambu Lab printer, the main screen will show the date of the last use from Spoolman.",
-    "Si la consommation de votre filament est suivie avec précision dans Spoolman, par exemple automatiquement par OpenSpoolMan avec une imprimante Bambu Lab, l'écran principal affiche la date de dernière utilisation enregistrée dans Spoolman." },  // STR_LASTUSED_DESC_OSM
+    "Si la consommation de votre filament est suivie avec précision dans Spoolman, par exemple automatiquement par OpenSpoolMan avec une imprimante Bambu Lab, l'écran principal affiche la date de dernière utilisation enregistrée dans Spoolman.",
+    "Se il consumo del filamento è registrato in Spoolman, ad es. in automatico da OpenSpoolMan con una stampante Bambu Lab, la schermata principale mostra la data dell'ultimo uso da Spoolman." },  // STR_LASTUSED_DESC_OSM
   { "Wird das 'Last Used' Feld in Spoolman nicht aktiv von dir genutzt, dann benutzt SpoolmanScale dieses Feld, um das Datum des letzten Gewichtsupdates zu speichern. Der Hauptscreen zeigt dann 'Zuletzt gewogen' statt 'Zuletzt benutzt'.",
     "If you don't actively use the 'Last Used' field in Spoolman, SpoolmanScale will use it to store the date of the last weight update. The main screen will then show 'Last Weighed' instead of 'Last Used'.",
-    "Si vous ne vous servez pas du champ 'Last Used' (Dernière utilisation) de Spoolman, SpoolmanScale y inscrit la date de la dernière mise à jour du poids. L'écran principal affiche alors 'Dernière pesée' au lieu de 'Dernier usage'." },  // STR_LASTUSED_DESC_WEIGHED
+    "Si vous ne vous servez pas du champ 'Last Used' (Dernière utilisation) de Spoolman, SpoolmanScale y inscrit la date de la dernière mise à jour du poids. L'écran principal affiche alors 'Dernière pesée' au lieu de 'Dernier usage'.",
+    "Se non usi il campo 'Last Used' di Spoolman, SpoolmanScale ci salva la data dell'ultimo aggiornamento del peso. La schermata principale mostra allora 'Ultima pesata' invece di 'Ultimo uso'." },  // STR_LASTUSED_DESC_WEIGHED
   // FilaMan keeps both values itself, so the wording differs from Spoolman:
   // nothing is written, the scale only picks which source it reads.
   { "FilaMan",
     "FilaMan",
+    "FilaMan",
     "FilaMan" },  // STR_LASTUSED_OPT_FILAMAN
   { "FilaMan pflegt 'Zuletzt benutzt' selbst und trägt dort echten Druckverbrauch ein, z.B. über seine Druckeranbindung. Solange noch kein Druck erfasst wurde, zeigt der Hauptscreen ersatzweise die letzte Wägung an.",
     "FilaMan maintains 'Last Used' itself and records real print consumption there, e.g. through its printer integration. Until a print has been recorded, the main screen falls back to the last weighing.",
-    "FilaMan renseigne lui-même la date de dernière utilisation d'après la consommation réelle des impressions, par exemple via sa connexion à l'imprimante. Tant qu'aucune impression n'est enregistrée, l'écran principal affiche à la place la dernière pesée." },  // STR_LASTUSED_DESC_FILAMAN_USED
+    "FilaMan renseigne lui-même la date de dernière utilisation d'après la consommation réelle des impressions, par exemple via sa connexion à l'imprimante. Tant qu'aucune impression n'est enregistrée, l'écran principal affiche à la place la dernière pesée.",
+    "FilaMan gestisce da sé 'Last Used' e vi registra il consumo reale delle stampe, ad es. tramite la sua integrazione con la stampante. Finché non è registrata una stampa, la schermata principale mostra l'ultima pesata." },  // STR_LASTUSED_DESC_FILAMAN_USED
   { "FilaMan protokolliert jede Wägung mit Zeitstempel, auch die von dieser Waage. Der Hauptscreen zeigt dann 'Zuletzt gewogen' und damit, wann du die Spule zuletzt in der Hand hattest. Es wird nichts zusätzlich gespeichert.",
     "FilaMan logs every weighing with a timestamp, including the ones from this scale. The main screen then shows 'Last Weighed', i.e. when you last handled the spool. Nothing extra is stored.",
-    "FilaMan enregistre la date de chaque pesée, y compris celles faites avec cette balance. L'écran principal affiche alors 'Dernière pesée', c'est-à-dire la dernière fois que vous avez eu la bobine en main. La balance n'écrit rien de plus." },  // STR_LASTUSED_DESC_FILAMAN_WEIGHED
+    "FilaMan enregistre la date de chaque pesée, y compris celles faites avec cette balance. L'écran principal affiche alors 'Dernière pesée', c'est-à-dire la dernière fois que vous avez eu la bobine en main. La balance n'écrit rien de plus.",
+    "FilaMan registra ogni pesata con data e ora, anche quelle di questa bilancia. La schermata principale mostra allora 'Ultima pesata', cioè quando hai preso in mano la bobina. Non si salva altro." },  // STR_LASTUSED_DESC_FILAMAN_WEIGHED
   { "Druckverbrauch oder Wägung",
     "Print usage or weighing",
-    "Consommation ou pesée" },  // STR_BTN_LASTUSED_MODE_SUB_FM
+    "Consommation ou pesée",
+    "Consumo o pesata" },  // STR_BTN_LASTUSED_MODE_SUB_FM
   // BamBuddy keeps both dates itself: last_used is stamped when a print
   // consumes the spool, last_weighed_at when a weight is written. Neither is
   // ours to fill, so unlike Spoolman nothing is repurposed here.
   { "BamBuddy",
     "BamBuddy",
+    "BamBuddy",
     "BamBuddy" },  // STR_LASTUSED_OPT_BAMBUDDY
   { "BamBuddy trägt 'Zuletzt benutzt' selbst ein, wenn ein Druck von dieser Spule verbraucht. Solange kein Druck erfasst wurde, zeigt der Hauptscreen ersatzweise die letzte Wägung an.",
     "BamBuddy fills 'last used' itself when a print consumes this spool. Until a print has been recorded, the main screen falls back to the last weighing.",
-    "BamBuddy renseigne lui-même la date de dernier usage quand une impression consomme du filament de cette bobine. Tant qu'aucune impression n'a été enregistrée, l'écran principal affiche la dernière pesée à la place." },  // STR_LASTUSED_DESC_BAMBUDDY_USED
+    "BamBuddy renseigne lui-même la date de dernier usage quand une impression consomme du filament de cette bobine. Tant qu'aucune impression n'a été enregistrée, l'écran principal affiche la dernière pesée à la place.",
+    "BamBuddy compila da sé 'ultimo uso' quando una stampa consuma questa bobina. Finché non è registrata una stampa, la schermata principale mostra l'ultima pesata." },  // STR_LASTUSED_DESC_BAMBUDDY_USED
   { "BamBuddy stempelt jede Wägung mit Zeitstempel, auch die von dieser Waage. Der Hauptscreen zeigt dann 'Zuletzt gewogen'. Nur das BamBuddy-Inventar führt dieses Feld - mit einem Spoolman-Server dahinter bleibt es leer.",
     "BamBuddy stamps every weighing, including the ones from this scale. The main screen then shows 'last weighed'. Only the BamBuddy inventory keeps this field - with a Spoolman server behind it, it stays empty.",
-    "BamBuddy enregistre la date de chaque pesée, y compris celles faites avec cette balance. L'écran principal affiche alors 'Dernière pesée'. Seul l'inventaire propre à BamBuddy conserve cette date : si BamBuddy s'appuie sur un serveur Spoolman, elle reste vide." },  // STR_LASTUSED_DESC_BAMBUDDY_WEIGHED
+    "BamBuddy enregistre la date de chaque pesée, y compris celles faites avec cette balance. L'écran principal affiche alors 'Dernière pesée'. Seul l'inventaire propre à BamBuddy conserve cette date : si BamBuddy s'appuie sur un serveur Spoolman, elle reste vide.",
+    "BamBuddy registra ogni pesata, anche quelle di questa bilancia. La schermata principale mostra allora 'ultima pesata'. Solo l'inventario di BamBuddy conserva questo campo - con un server Spoolman dietro resta vuoto." },  // STR_LASTUSED_DESC_BAMBUDDY_WEIGHED
   { "Druckverbrauch oder Wägung",
     "Print usage or weighing",
-    "Consommation ou pesée" },  // STR_BTN_LASTUSED_MODE_SUB_BB
+    "Consommation ou pesée",
+    "Consumo o pesata" },  // STR_BTN_LASTUSED_MODE_SUB_BB
   // BamBuddy's own inventory stores consumption and derives the rest, so it
   // cannot hold more filament than the label promises. Asked before writing
   // rather than letting the value snap back on the next scan.
   { "Mehr als das Etikett",
     "More than the label",
-    "Dépasse l'étiquette" },  // STR_BB_CAP_TITLE
+    "Dépasse l'étiquette",
+    "Oltre l'etichetta" },  // STR_BB_CAP_TITLE
   { "Gemessen: %.0f g. Das Etikett sagt %.0f g. BamBuddy kann nicht mehr speichern, als das Etikett hergibt - der Rest stünde danach wieder auf voll.",
     "Measured: %.0f g. The label says %.0f g. BamBuddy cannot store more than the label allows, so the remainder would read as full again.",
-    "Mesuré : %.0f g. L'étiquette indique %.0f g. BamBuddy ne peut pas enregistrer plus que l'étiquette : le poids restant serait ramené à celui d'une bobine pleine." },  // STR_BB_CAP_BODY
+    "Mesuré : %.0f g. L'étiquette indique %.0f g. BamBuddy ne peut pas enregistrer plus que l'étiquette : le poids restant serait ramené à celui d'une bobine pleine.",
+    "Misurati: %.0f g. L'etichetta dice %.0f g. BamBuddy non salva più di quanto dice l'etichetta, quindi il residuo risulterebbe di nuovo pieno." },  // STR_BB_CAP_BODY
   { "Etikett auf %.0f g anheben",
     "Raise label to %.0f g",
-    "Porter l'étiquette à %.0f g" },  // STR_BB_CAP_RAISE
+    "Porter l'étiquette à %.0f g",
+    "Porta l'etichetta a %.0f g" },  // STR_BB_CAP_RAISE
   { "Etikett behalten",
     "Keep the label",
-    "Garder l'étiquette" },  // STR_BB_CAP_KEEP
+    "Garder l'étiquette",
+    "Tieni l'etichetta" },  // STR_BB_CAP_KEEP
   { "Trocknungsdatum",
     "Drying date",
-    "Date de séchage" },  // STR_BB_DRIED_TITLE
+    "Date de séchage",
+    "Data essiccazione" },  // STR_BB_DRIED_TITLE
   { "Nicht speichern",
     "Do not store",
-    "Ne pas mémoriser" },  // STR_BB_DRIED_OFF
+    "Ne pas mémoriser",
+    "Non salvare" },  // STR_BB_DRIED_OFF
   { "Das Datum bleibt leer",
     "The date stays empty",
-    "La date reste vide" },  // STR_BB_DRIED_OFF_SUB
+    "La date reste vide",
+    "La data resta vuota" },  // STR_BB_DRIED_OFF_SUB
   { "Spoolman hinter BamBuddy",
     "Spoolman behind BamBuddy",
-    "Spoolman derrière BamBuddy" },  // STR_BB_DRIED_SPOOLMAN
+    "Spoolman derrière BamBuddy",
+    "Spoolman dietro BamBuddy" },  // STR_BB_DRIED_SPOOLMAN
   { "In extra.last_dried auf dem Spoolman-Server",
     "Into extra.last_dried on the Spoolman server",
-    "Dans extra.last_dried sur le serveur Spoolman" },  // STR_BB_DRIED_SPOOLMAN_SUB
+    "Dans extra.last_dried sur le serveur Spoolman",
+    "In extra.last_dried sul server Spoolman" },  // STR_BB_DRIED_SPOOLMAN_SUB
   { "Nur wenn BamBuddy auf einen Spoolman-Server zeigt",
     "Only when BamBuddy points at a Spoolman server",
-    "Si BamBuddy pointe vers un serveur Spoolman" },  // STR_BB_DRIED_SPOOLMAN_NA
+    "Si BamBuddy pointe vers un serveur Spoolman",
+    "Solo se BamBuddy usa un server Spoolman" },  // STR_BB_DRIED_SPOOLMAN_NA
   { "Ins Notizfeld",
     "Into the note field",
-    "Dans le champ note" },  // STR_BB_DRIED_NOTE
+    "Dans le champ note",
+    "Nel campo note" },  // STR_BB_DRIED_NOTE
   { "Als [last_dried:JJJJ-MM-TT] in der Notiz",
     "As [last_dried:YYYY-MM-DD] in the note",
-    "[last_dried:AAAA-MM-JJ] dans la note" },  // STR_BB_DRIED_NOTE_SUB
+    "[last_dried:AAAA-MM-JJ] dans la note",
+    "[last_dried:AAAA-MM-GG] nelle note" },  // STR_BB_DRIED_NOTE_SUB
   { "Neuere BamBuddy-Versionen haben ein eigenes Feld für das Trocknungsdatum, die Waage schreibt dann immer dorthin. Ältere haben keines: Das Notizfeld geht immer und behält den übrigen Text, der andere Weg schreibt in last_dried auf dem Spoolman-Server hinter BamBuddy.",
     "Newer BamBuddy versions have their own field for the drying date, and the scale always writes there. Older ones have none: the note field always works and keeps the rest of the text, the other route writes into last_dried on the Spoolman server behind BamBuddy.",
-    "Les versions récentes de BamBuddy ont leur propre champ pour la date de séchage, la balance y écrit alors toujours. Les anciennes n'en ont pas : le champ note fonctionne dans tous les cas et garde le reste du texte, l'option 'Spoolman derrière BamBuddy' écrit dans last_dried, sur le serveur Spoolman relié à BamBuddy." },  // STR_BB_DRIED_INFO
+    "Les versions récentes de BamBuddy ont leur propre champ pour la date de séchage, la balance y écrit alors toujours. Les anciennes n'en ont pas : le champ note fonctionne dans tous les cas et garde le reste du texte, l'option 'Spoolman derrière BamBuddy' écrit dans last_dried, sur le serveur Spoolman relié à BamBuddy.",
+    "Le versioni recenti di BamBuddy hanno un campo proprio per la data di essiccazione, e la bilancia scrive sempre lì. Quelle vecchie no: il campo note funziona sempre e mantiene il resto del testo, l'altra via scrive in last_dried sul server Spoolman dietro BamBuddy." },  // STR_BB_DRIED_INFO
   // Short forms for the connection test line, which has room for about 34
   // characters. The "Inventar:" prefix is what says this names the data
   // source and not the backend - bare "Spoolman" always means the native one.
   { "Inventar: BamBuddy",
     "Inventory: BamBuddy",
-    "Inventaire : BamBuddy" },  // STR_BB_INV_OWN
+    "Inventaire : BamBuddy",
+    "Inventario: BamBuddy" },  // STR_BB_INV_OWN
   { "Inventar: Spoolman",
     "Inventory: Spoolman",
-    "Inventaire : Spoolman" },  // STR_BB_INV_SPOOLMAN
+    "Inventaire : Spoolman",
+    "Inventario: Spoolman" },  // STR_BB_INV_SPOOLMAN
   // Label above the database name on the backend screen. Same word as the
   // short form above, so the two places do not invent two vocabularies.
   { "Inventar",
     "Inventory",
-    "Inventaire" },  // STR_BACKEND_INVENTORY
+    "Inventaire",
+    "Inventario" },  // STR_BACKEND_INVENTORY
 
   // AMS view. The unit names are built here rather than taken from the
   // server: both backends generate their own "AMS A" style labels, and a
   // generated English label would land on the screen untranslated.
   { "AMS-Status",
     "AMS status",
-    "État de l'AMS" },  // STR_AMSV_TITLE
+    "État de l'AMS",
+    "Stato AMS" },  // STR_AMSV_TITLE
   { "AMS ansehen",
     "Show the AMS",
-    "Voir l'AMS" },  // STR_AMSV_BTN
+    "Voir l'AMS",
+    "Mostra l'AMS" },  // STR_AMSV_BTN
   { "Fächer des Druckers",
     "The printer's bays",
-    "Les bacs de l'imprimante" },  // STR_AMSV_BTN_SUB
+    "Les bacs de l'imprimante",
+    "Gli slot della stampante" },  // STR_AMSV_BTN_SUB
   { "Neu laden",
     "Reload",
-    "Recharger" },  // STR_AMSV_RELOAD
+    "Recharger",
+    "Ricarica" },  // STR_AMSV_RELOAD
   { "AMS wird gelesen...",
     "Reading the AMS...",
-    "Lecture de l'AMS..." },  // STR_AMSV_LOADING
+    "Lecture de l'AMS...",
+    "Lettura AMS..." },  // STR_AMSV_LOADING
   { "AMS %d",
+    "AMS %d",
     "AMS %d",
     "AMS %d" },  // STR_AMSV_UNIT
   { "AMS HT %d",
     "AMS HT %d",
+    "AMS HT %d",
     "AMS HT %d" },  // STR_AMSV_UNIT_HT
   { "Extern",
     "External",
-    "Externe" },  // STR_AMSV_UNIT_EXT
+    "Externe",
+    "Esterno" },  // STR_AMSV_UNIT_EXT
   { "Leer",
     "Empty",
-    "Vide" },  // STR_AMSV_EMPTY
+    "Vide",
+    "Vuoto" },  // STR_AMSV_EMPTY
   { "%d%%",
+    "%d%%",
     "%d%%",
     "%d%%" },  // STR_AMSV_HUM_PCT
   { "Stufe %d",
     "Step %d",
-    "Niveau %d" },  // STR_AMSV_HUM_LEVEL
+    "Niveau %d",
+    "Livello %d" },  // STR_AMSV_HUM_LEVEL
   // Says why the bays are still there. FilaMan keeps the assignment in its
   // database but temperature and humidity are live MQTT readings, so an
   // unreachable printer shows full bays with no climate - which looks like a
   // fault in the scale unless the line explains it.
   { "offline, letzter Stand",
     "offline, last known state",
-    "hors ligne, dernier état" },  // STR_AMSV_OFFLINE
+    "hors ligne, dernier état",
+    "offline, ultimo stato" },  // STR_AMSV_OFFLINE
   // Not the same as offline: the server has simply never heard from its
   // driver. Saying "offline" there blames the printer for the server.
   { "Status unbekannt",
     "state unknown",
-    "état inconnu" },  // STR_AMSV_UNKNOWN
+    "état inconnu",
+    "stato ignoto" },  // STR_AMSV_UNKNOWN
   { "Kein AMS gemeldet",
     "No AMS reported",
-    "Aucun AMS signalé" },  // STR_AMSV_NO_AMS
+    "Aucun AMS signalé",
+    "Nessun AMS" },  // STR_AMSV_NO_AMS
   { "Kein Drucker gefunden",
     "No printer found",
-    "Aucune imprimante trouvée" },  // STR_AMSV_NO_PRINTER
+    "Aucune imprimante trouvée",
+    "Nessuna stampante trovata" },  // STR_AMSV_NO_PRINTER
   { "Server antwortet %d",
     "The server answers %d",
-    "Le serveur répond %d" },  // STR_AMSV_ERR_HTTP
+    "Le serveur répond %d",
+    "Il server risponde %d" },  // STR_AMSV_ERR_HTTP
   { "Kein Netz",
     "No network",
-    "Pas de réseau" },  // STR_AMSV_ERR_NET
+    "Pas de réseau",
+    "Nessuna rete" },  // STR_AMSV_ERR_NET
   { "Zu wenig Speicher für alle Fächer",
     "Not enough memory for every bay",
-    "Mémoire insuffisante pour tous les bacs" },  // STR_AMSV_ERR_FULL
+    "Mémoire insuffisante pour tous les bacs",
+    "Memoria insufficiente per tutti gli slot" },  // STR_AMSV_ERR_FULL
   { "Trocknet %d °C, %d min",
     "Drying %d °C, %d min",
-    "Séchage %d °C, %d min" },  // STR_AMSV_DRYING_TIME
+    "Séchage %d °C, %d min",
+    "Essicca %d °C, %d min" },  // STR_AMSV_DRYING_TIME
   { "Trocknet %d °C",
     "Drying %d °C",
-    "Séchage %d °C" },  // STR_AMSV_DRYING_TEMP
+    "Séchage %d °C",
+    "Essicca %d °C" },  // STR_AMSV_DRYING_TEMP
   { "druckt %d%%",
     "printing %d%%",
-    "imprime %d%%" },  // STR_AMSV_JOB
+    "imprime %d%%",
+    "stampa %d%%" },  // STR_AMSV_JOB
   // The printer's own states, in words. Bambu keeps the last job and its
   // 100 % on the wire after a print until the next one starts, so the
   // percentage alone would read "printing 100%" for days.
   { "pausiert bei %d%%",
     "paused at %d%%",
-    "en pause à %d%%" },  // STR_AMSV_JOB_PAUSED
+    "en pause à %d%%",
+    "in pausa al %d%%" },  // STR_AMSV_JOB_PAUSED
   { "Druck fertig",
     "print finished",
-    "impression terminée" },  // STR_AMSV_STATE_FINISH
+    "impression terminée",
+    "stampa finita" },  // STR_AMSV_STATE_FINISH
   { "Druck abgebrochen",
     "print failed",
-    "impression échouée" },  // STR_AMSV_STATE_FAILED
+    "impression échouée",
+    "stampa fallita" },  // STR_AMSV_STATE_FAILED
   { "bereit",
     "idle",
-    "prête" },  // STR_AMSV_STATE_IDLE
+    "prête",
+    "libera" },  // STR_AMSV_STATE_IDLE
   { "bereitet vor",
     "preparing",
-    "en préparation" },  // STR_AMSV_STATE_PREPARE
+    "en préparation",
+    "preparazione" },  // STR_AMSV_STATE_PREPARE
   // Which of several printers is on screen. Same in both languages, but
   // it goes through T() so a language that numbers differently can change it.
   { "%d/%d",
     "%d/%d",
+    "%d/%d",
     "%d/%d" },  // STR_AMSV_PRN_OF
   { "%s -> in welches Fach?",
     "%s -> into which bay?",
-    "%s -> dans quel bac ?" },  // STR_AMSV_PICK_HEAD
+    "%s -> dans quel bac ?",
+    "%s -> in quale slot?" },  // STR_AMSV_PICK_HEAD
   { "Spule ist zugeordnet",
     "The spool is assigned",
-    "La bobine est affectée" },  // STR_AMSV_ASSIGNED
+    "La bobine est affectée",
+    "Bobina assegnata" },  // STR_AMSV_ASSIGNED
   { "Spule umgezogen",
     "The spool moved",
-    "La bobine a changé de bac" },  // STR_AMSV_MOVED
+    "La bobine a changé de bac",
+    "La bobina è stata spostata" },  // STR_AMSV_MOVED
   { "Zuordnung fehlgeschlagen",
     "Assignment failed",
-    "Échec de l'affectation" },  // STR_AMSV_ASSIGN_FAIL
+    "Échec de l'affectation",
+    "Assegnazione fallita" },  // STR_AMSV_ASSIGN_FAIL
   { "Nach dem Wiegen ins AMS",
     "Into the AMS after weighing",
-    "Vers l'AMS après la pesée" },  // STR_BBAMS_ASK
+    "Vers l'AMS après la pesée",
+    "In AMS dopo la pesata" },  // STR_BBAMS_ASK
   { "Beim Abheben nach dem Fach fragen",
     "Ask for the bay on removal",
-    "Demander le bac au retrait" },  // STR_BBAMS_ASK_SUB
+    "Demander le bac au retrait",
+    "Chiedi lo slot alla rimozione" },  // STR_BBAMS_ASK_SUB
   { "An: nach dem Wiegen einer bekannten Spule fragt die Waage beim Abheben, in welches AMS-Fach sie geht, und trägt das in BamBuddy ein.\n\nBamBuddy konfiguriert das Fach dabei über MQTT am Drucker mit - Material, Farbe und Temperaturen. Das ist gewollt, aber es wirkt auf den Drucker, nicht nur auf die Datenbank.",
     "On: after a known spool has been weighed, the scale asks on removal which AMS bay it goes into and records that in BamBuddy.\n\nBamBuddy also configures the bay on the printer over MQTT while doing so - material, colour and temperatures. That is intended, but it acts on the printer, not only on the database.",
-    "Activé : quand vous retirez une bobine connue après sa pesée, la balance demande dans quel bac AMS vous la placez, puis l'enregistre dans BamBuddy.\n\nBamBuddy configure alors aussi ce bac sur l'imprimante par MQTT : matériau, couleur et températures. C'est voulu, mais cela agit sur l'imprimante, pas seulement sur la base de données." },  // STR_BBAMS_ASK_INFO
-  { "Werkseinstellungen",         "Factory Reset",      "Réinitialisation" },  // STR_BTN_FACTORY_RESET
-  { "Alle Einstellungen löschen", "Erase all settings", "Effacer tous les réglages" },  // STR_BTN_FACTORY_RESET_SUB
-  { "Werkseinstellungen?",        "Factory Reset?",     "Réinitialiser ?" },  // STR_FACTORY_RESET_TITLE
+    "Activé : quand vous retirez une bobine connue après sa pesée, la balance demande dans quel bac AMS vous la placez, puis l'enregistre dans BamBuddy.\n\nBamBuddy configure alors aussi ce bac sur l'imprimante par MQTT : matériau, couleur et températures. C'est voulu, mais cela agit sur l'imprimante, pas seulement sur la base de données.",
+    "Attivo: dopo aver pesato una bobina nota, alla rimozione la bilancia chiede in quale slot AMS va e lo registra in BamBuddy.\n\nBamBuddy configura anche lo slot sulla stampante via MQTT: materiale, colore e temperature. È voluto, ma agisce sulla stampante, non solo sul database." },  // STR_BBAMS_ASK_INFO
+  { "Werkseinstellungen", "Factory Reset", "Réinitialisation", "Ripristino fabbrica" },  // STR_BTN_FACTORY_RESET
+  { "Alle Einstellungen löschen", "Erase all settings",
+    "Effacer tous les réglages",
+    "Cancella tutte le impost." },  // STR_BTN_FACTORY_RESET_SUB
+  { "Werkseinstellungen?", "Factory Reset?", "Réinitialiser ?", "Ripristinare?" },  // STR_FACTORY_RESET_TITLE
   { "Alle Einstellungen werden gelöscht:\nWLAN, Server-Adresse, Kalibrierung,\nSprache und alle anderen Daten.\nDanach startet das Gerät neu.",
     "All settings will be erased:\nWiFi, server address, calibration,\nlanguage and all other data.\nThe device will restart afterwards.",
-    "Tous les réglages seront effacés :\nWiFi, adresse du serveur, étalonnage,\nlangue et toutes les autres données.\nL'appareil redémarre ensuite." },  // STR_FACTORY_RESET_MSG
-  { "Ja, alles löschen",     "Yes, erase everything", "Oui, tout effacer" },  // STR_FACTORY_RESET_CONFIRM
-  { "Neu / Kopie",           "New / Copy",            "Nouveau / Copie" },  // STR_BTN_COPY_SPOOL
-  { "Spule kopieren",        "Copy spool",            "Copier la bobine" },  // STR_COPY_TITLE
-  { "Spoolman-ID eingeben",  "Enter Spoolman ID",     "Saisir l'ID Spoolman" },  // STR_COPY_ID_BTN
-  { "Aktive Spulen",         "Active spools",         "Bobines actives" },  // STR_COPY_ACTIVE_BTN
-  { "Archivierte Spulen",    "Archived spools",       "Bobines archivées" },  // STR_COPY_ARCHIVED_BTN
-  { "Neue Spule anlegen?",   "Create new spool?",     "Créer une bobine ?" },  // STR_COPY_CONFIRM_TITLE
-  { "Spule erstellt!",       "Spool created!",        "Bobine créée !" },  // STR_COPY_OK
-  { "Fehler beim Erstellen", "Error creating spool",  "Échec de la création" },  // STR_COPY_FAIL
-  { "Keine Spulen gefunden", "No spools found",       "Aucune bobine trouvée" },  // STR_COPY_NO_SPOOLS
-  { "Setup überspringen",    "Skip setup",            "Passer la config." },  // STR_BTN_SKIP_SETUP
-  { "Unlink",                "Unlink",                "Dissocier" },  // STR_UNLINK_BTN
-  { "Spule unlinken?",       "Unlink spool?",         "Dissocier la bobine ?" },  // STR_UNLINK_TITLE
+    "Tous les réglages seront effacés :\nWiFi, adresse du serveur, étalonnage,\nlangue et toutes les autres données.\nL'appareil redémarre ensuite.",
+    "Tutte le impostazioni saranno cancellate:\nWiFi, indirizzo server, taratura,\nlingua e tutti gli altri dati.\nPoi il dispositivo si riavvia." },  // STR_FACTORY_RESET_MSG
+  { "Ja, alles löschen", "Yes, erase everything",
+    "Oui, tout effacer",
+    "Sì, cancella tutto" },  // STR_FACTORY_RESET_CONFIRM
+  { "Neu / Kopie", "New / Copy", "Nouveau / Copie", "Nuova / Copia" },  // STR_BTN_COPY_SPOOL
+  { "Spule kopieren", "Copy spool", "Copier la bobine", "Copia bobina" },  // STR_COPY_TITLE
+  { "Spoolman-ID eingeben", "Enter Spoolman ID",
+    "Saisir l'ID Spoolman",
+    "Inserisci ID Spoolman" },  // STR_COPY_ID_BTN
+  { "Aktive Spulen", "Active spools", "Bobines actives", "Bobine attive" },  // STR_COPY_ACTIVE_BTN
+  { "Archivierte Spulen", "Archived spools", "Bobines archivées", "Bobine archiviate" },  // STR_COPY_ARCHIVED_BTN
+  { "Neue Spule anlegen?", "Create new spool?",
+    "Créer une bobine ?",
+    "Creare la bobina?" },  // STR_COPY_CONFIRM_TITLE
+  { "Spule erstellt!", "Spool created!", "Bobine créée !", "Bobina creata" },  // STR_COPY_OK
+  { "Fehler beim Erstellen", "Error creating spool", "Échec de la création", "Creazione fallita" },  // STR_COPY_FAIL
+  { "Keine Spulen gefunden", "No spools found", "Aucune bobine trouvée", "Nessuna bobina" },  // STR_COPY_NO_SPOOLS
+  { "Setup überspringen", "Skip setup", "Passer la config.", "Salta configur." },  // STR_BTN_SKIP_SETUP
+  { "Unlink", "Unlink", "Dissocier", "Scollega" },  // STR_UNLINK_BTN
+  { "Spule unlinken?", "Unlink spool?", "Dissocier la bobine ?", "Scollegare bobina?" },  // STR_UNLINK_TITLE
   { "Löscht den Eintrag im Tag-Feld in Spoolman.\nDie Spule bleibt erhalten.",
     "Clears the tag field entry in Spoolman.\nThe spool itself is kept.",
-    "Efface l'entrée du champ tag dans Spoolman.\nLa bobine elle-même est conservée." },  // STR_UNLINK_MSG
-  { "Ja, unlinken", "Yes, unlink",
-    "Oui, dissocier" },  // STR_UNLINK_CONFIRM
+    "Efface l'entrée du champ tag dans Spoolman.\nLa bobine elle-même est conservée.",
+    "Svuota il campo tag in Spoolman.\nLa bobina resta." },  // STR_UNLINK_MSG
+  { "Ja, unlinken", "Yes, unlink", "Oui, dissocier", "Sì, scollega" },  // STR_UNLINK_CONFIRM
   { "Verbinde mit WLAN...", "Connecting to WiFi...",
-    "Connexion au WiFi..." },  // STR_WIFI_CONNECTING_BOOT
+    "Connexion au WiFi...",
+    "Connessione WiFi..." },  // STR_WIFI_CONNECTING_BOOT
   { "Gerät wird gestartet...", "Starting up, please wait...",
-    "Démarrage de l'appareil..." },  // STR_BOOTING
-  { "Neustart", "Reboot",
-    "Redémarrer" },  // STR_BTN_REBOOT
-  { "Gerät neu starten", "Restart device",
-    "Redémarrer l'appareil" },  // STR_BTN_REBOOT_SUB
-  { "Ganze Gramm", "Whole grams",
-    "Grammes entiers" },  // STR_WHOLE_GRAM
+    "Démarrage de l'appareil...",
+    "Avvio, attendere..." },  // STR_BOOTING
+  { "Neustart", "Reboot", "Redémarrer", "Riavvia" },  // STR_BTN_REBOOT
+  { "Gerät neu starten", "Restart device", "Redémarrer l'appareil", "Riavvia il dispositivo" },  // STR_BTN_REBOOT_SUB
+  { "Ganze Gramm", "Whole grams", "Grammes entiers", "Grammi interi" },  // STR_WHOLE_GRAM
   { "Mehr Spulen gefunden - nicht gelistet? Per Spool-ID verknüpfen", "More spools found - not listed? Use Spool-ID",
-    "Liste incomplète - bobine absente ? Liez-la par son ID" },  // STR_LIST_MORE_SPOOLS
+    "Liste incomplète - bobine absente ? Liez-la par son ID",
+    "Altre bobine trovate - manca? Usa l'ID bobina" },  // STR_LIST_MORE_SPOOLS
   { "Mehr Hersteller gefunden - nicht gelistet? Per Spool-ID verknüpfen", "More vendors found - not listed? Use Spool-ID",
-    "Liste incomplète - fabricant absent ? Liez par l'ID de bobine" },  // STR_LIST_MORE_VENDORS
+    "Liste incomplète - fabricant absent ? Liez par l'ID de bobine",
+    "Altri produttori trovati - manca? Usa l'ID bobina" },  // STR_LIST_MORE_VENDORS
   { "Mehr Materialien gefunden - nicht gelistet? Per Spool-ID verknüpfen", "More materials found - not listed? Use Spool-ID",
-    "Liste incomplète - matériau absent ? Liez par l'ID de bobine" },  // STR_LIST_MORE_MATS
+    "Liste incomplète - matériau absent ? Liez par l'ID de bobine",
+    "Altri materiali trovati - manca? Usa l'ID bobina" },  // STR_LIST_MORE_MATS
 
   // Auto-Weight
   { "Auto-Gewichtsupdate",
     "Auto weight update",
-    "Envoi auto du poids" },  // STR_AUTO_WEIGHT_TITLE
+    "Envoi auto du poids",
+    "Invio peso auto" },  // STR_AUTO_WEIGHT_TITLE
   { "Sobald eine Spule erkannt und das Gewicht\n3 Sekunden stabil ist, wird es automatisch\ngespeichert (ohne Beutel).",
     "Once a spool is detected and the weight\nis stable for 3 seconds, it will be saved\nautomatically (without bag).",
-    "Dès qu'une bobine est reconnue et que le poids\nest stable pendant 3 secondes, il est enregistré\nautomatiquement (sachet non déduit)." },  // STR_AUTO_WEIGHT_INFO
+    "Dès qu'une bobine est reconnue et que le poids\nest stable pendant 3 secondes, il est enregistré\nautomatiquement (sachet non déduit).",
+    "Quando una bobina è riconosciuta e il peso\nè stabile per 3 secondi, viene salvato\nin automatico (senza sacchetto)." },  // STR_AUTO_WEIGHT_INFO
   { LV_SYMBOL_REFRESH " Auto aktivieren",
     LV_SYMBOL_REFRESH " Enable auto",
-    LV_SYMBOL_REFRESH " Activer le mode auto" },  // STR_AUTO_WEIGHT_ENABLE
+    LV_SYMBOL_REFRESH " Activer le mode auto",
+    LV_SYMBOL_REFRESH " Attiva auto" },  // STR_AUTO_WEIGHT_ENABLE
   { LV_SYMBOL_REFRESH " Auto deaktivieren",
     LV_SYMBOL_REFRESH " Disable auto",
-    LV_SYMBOL_REFRESH " Arrêter le mode auto" },  // STR_AUTO_WEIGHT_DISABLE
+    LV_SYMBOL_REFRESH " Arrêter le mode auto",
+    LV_SYMBOL_REFRESH " Disattiva auto" },  // STR_AUTO_WEIGHT_DISABLE
   { "Lagerort",
     "Location",
-    "Emplacement" },  // STR_BTN_LOCATION
+    "Emplacement",
+    "Posizione" },  // STR_BTN_LOCATION
   { "Lagerort wählen",
     "Select location",
-    "Choisir l'emplacement" },  // STR_LOCATION_TITLE
+    "Choisir l'emplacement",
+    "Scegli posizione" },  // STR_LOCATION_TITLE
   { LV_SYMBOL_CLOSE " Kein Lagerort",
     LV_SYMBOL_CLOSE " No location",
-    LV_SYMBOL_CLOSE " Aucun emplacement" },  // STR_LOCATION_NONE
+    LV_SYMBOL_CLOSE " Aucun emplacement",
+    LV_SYMBOL_CLOSE " Nessuna posizione" },  // STR_LOCATION_NONE
   { "Lade...",
     "Loading...",
-    "Chargement..." },  // STR_LOCATION_LOADING
+    "Chargement...",
+    "Carico..." },  // STR_LOCATION_LOADING
   { "Kein WLAN",
     "No WiFi",
-    "Pas de WiFi" },  // STR_LOCATION_NO_WIFI
+    "Pas de WiFi",
+    "No WiFi" },  // STR_LOCATION_NO_WIFI
   { "Keine Spoolman-Lagerorte gefunden",
     "No Spoolman locations found",
-    "Aucun emplacement Spoolman trouvé" },  // STR_LOCATION_NO_LOCATIONS
+    "Aucun emplacement Spoolman trouvé",
+    "Nessuna posizione Spoolman trovata" },  // STR_LOCATION_NO_LOCATIONS
   { "Leere Lagerorte werden nicht angezeigt",
     "Empty locations are not shown",
-    "Les emplacements vides ne sont pas affichés" },  // STR_LOCATION_HINT_EMPTY
+    "Les emplacements vides ne sont pas affichés",
+    "Le posizioni vuote non sono mostrate" },  // STR_LOCATION_HINT_EMPTY
   { "Zu viele Lagerorte - nicht alle angezeigt",
     "Too many locations - not all shown",
-    "Trop d'emplacements - tous ne sont pas affichés" },  // STR_LOCATION_LIMIT_HIT
+    "Trop d'emplacements - tous ne sont pas affichés",
+    "Troppe posizioni - non tutte mostrate" },  // STR_LOCATION_LIMIT_HIT
   { "Ortsabfrage bei Entnahme", "Location on removal",
-    "Demander l'emplacement au retrait" },  // STR_BTN_AUTO_LOC_POPUP
-  { "Trocknungserinnerung",     "Drying Reminder",     "Rappel de séchage" },  // STR_BTN_DRYING_REMINDER
-  { "Trocknungserinnerung",     "Drying Reminder",     "Rappel de séchage" },  // STR_DRYING_REMINDER_TITLE
+    "Demander l'emplacement au retrait",
+    "Posizione alla rimozione" },  // STR_BTN_AUTO_LOC_POPUP
+  { "Trocknungserinnerung", "Drying Reminder",
+    "Rappel de séchage",
+    "Avviso essiccazione" },  // STR_BTN_DRYING_REMINDER
+  { "Trocknungserinnerung", "Drying Reminder",
+    "Rappel de séchage",
+    "Avviso essiccazione" },  // STR_DRYING_REMINDER_TITLE
 
   // Drying Reminder Screen
-  { "Aus",      "Off",      "Désactivé" },  // STR_DRY_MODE_OFF
-  { "Material", "Material", "Matériau" },  // STR_DRY_MODE_MATERIAL
-  { "Manuell",  "Manual",   "Manuel" },  // STR_DRY_MODE_MANUAL
+  { "Aus", "Off", "Désactivé", "Spento" },  // STR_DRY_MODE_OFF
+  { "Material", "Material", "Matériau", "Materiale" },  // STR_DRY_MODE_MATERIAL
+  { "Manuell", "Manual", "Manuel", "Manuale" },  // STR_DRY_MODE_MANUAL
   { "Kein Ampelsignal aktiv.\n\nMaterial: Schwellwerte pro Filamenttyp\n(konfigurierbar im Browser).\n\nManuell: Eigene Grenzwerte in Tagen.",
     "No alert signal active.\n\nMaterial: Thresholds per filament type\n(configurable in browser).\n\nManual: Custom limits in days.",
-    "Aucun code couleur (vert, jaune, rouge).\n\nMatériau : seuils par type de filament\n(réglables dans le navigateur).\n\nManuel : vos propres seuils, en jours." },  // STR_DRY_OFF_DESC
+    "Aucun code couleur (vert, jaune, rouge).\n\nMatériau : seuils par type de filament\n(réglables dans le navigateur).\n\nManuel : vos propres seuils, en jours.",
+    "Nessun segnale colorato attivo.\n\nMateriale: soglie per tipo di filamento\n(modificabili nel browser).\n\nManuale: limiti propri in giorni." },  // STR_DRY_OFF_DESC
   { "Schwellwerte im Browser editierbar.", "Thresholds editable in browser.",
-    "Seuils modifiables dans le navigateur." },  // STR_DRY_MAT_HINT
-  { "Material", "Material",
-    "Matériau" },  // STR_DRY_MAT_HDR_MAT
-  { "Gelb (Tage)", "Yellow (days)",
-    "Jaune (jours)" },  // STR_DRY_MAT_HDR_YELLOW
-  { "Rot (Tage)", "Red (days)",
-    "Rouge (jours)" },  // STR_DRY_MAT_HDR_RED
-  { "Gelb ab", "Yellow from",
-    "Jaune dès" },  // STR_DRY_MAN_YELLOW_LBL
-  { "Rot ab", "Red from",
-    "Rouge dès" },  // STR_DRY_MAN_RED_LBL
+    "Seuils modifiables dans le navigateur.",
+    "Soglie modificabili nel browser." },  // STR_DRY_MAT_HINT
+  { "Material", "Material", "Matériau", "Materiale" },  // STR_DRY_MAT_HDR_MAT
+  { "Gelb (Tage)", "Yellow (days)", "Jaune (jours)", "Giallo (gg)" },  // STR_DRY_MAT_HDR_YELLOW
+  { "Rot (Tage)", "Red (days)", "Rouge (jours)", "Rosso (gg)" },  // STR_DRY_MAT_HDR_RED
+  { "Gelb ab", "Yellow from", "Jaune dès", "Giallo da" },  // STR_DRY_MAN_YELLOW_LBL
+  { "Rot ab", "Red from", "Rouge dès", "Rosso da" },  // STR_DRY_MAN_RED_LBL
   { "Tippen zum Bearbeiten", "Tap to edit",
-    "Touchez pour modifier" },  // STR_DRY_MAN_EDIT_HINT
+    "Touchez pour modifier",
+    "Tocca per modificare" },  // STR_DRY_MAN_EDIT_HINT
   { "Grenzwerte gelten für alle Materialien.", "Limits apply to all materials.",
-    "Ces seuils s'appliquent à tous les matériaux." },  // STR_DRY_MAN_INFO
-  { "Tage", "days",
-    "jours" },  // STR_DRY_DAYS_UNIT
-  { "Gelb-Schwellwert", "Yellow threshold",
-    "Seuil jaune" },  // STR_DRY_NUMPAD_YELLOW_TITLE
-  { "Rot-Schwellwert", "Red threshold",
-    "Seuil rouge" },  // STR_DRY_NUMPAD_RED_TITLE
+    "Ces seuils s'appliquent à tous les matériaux.",
+    "I limiti valgono per tutti i materiali." },  // STR_DRY_MAN_INFO
+  { "Tage", "days", "jours", "gg" },  // STR_DRY_DAYS_UNIT
+  { "Gelb-Schwellwert", "Yellow threshold", "Seuil jaune", "Soglia gialla" },  // STR_DRY_NUMPAD_YELLOW_TITLE
+  { "Rot-Schwellwert", "Red threshold", "Seuil rouge", "Soglia rossa" },  // STR_DRY_NUMPAD_RED_TITLE
   { "Effektive Werte (%.1fx Multiplikator eingerechnet)", "Effective values (%.1fx multiplier included)",
-    "Valeurs effectives (facteur sous vide %.1fx inclus)" },  // STR_DRY_MAT_EFF_NOTE
-  { "Versiegelt", "Sealed",
-    "Sous vide" },  // STR_DRY_SEALED_HDR
+    "Valeurs effectives (facteur sous vide %.1fx inclus)",
+    "Valori effettivi (moltiplicatore %.1fx incluso)" },  // STR_DRY_MAT_EFF_NOTE
+  { "Versiegelt", "Sealed", "Sous vide", "Sottov." },  // STR_DRY_SEALED_HDR
 
   // Backend selection. "Spoolman" and "FilaMan" are product names and stay
   // untranslated, so they are not in this table.
@@ -840,81 +1046,98 @@ const char* const STRINGS[][3] = {
   // FilaMan manage a filament inventory, and that is what the user picks
   // here. The address screen keeps "Server", because a server address is
   // literally what gets typed in there.
-  { "Filamentverwaltung", "Filament manager", "Gestion du filament" },  // STR_BACKEND_TITLE
-  { "Adresse",            "Address",          "Adresse" },  // STR_BACKEND_ADDRESS
-  { "API-Key",            "API key",          "Clé d'API" },  // STR_BACKEND_APIKEY
-  { "Device-Token",       "Device token",     "Jeton d'appareil" },  // STR_BACKEND_DEVICE_TOKEN
-  { "gesetzt",            "set",              "en mémoire" },  // STR_BACKEND_SET
-  { "fehlt",              "missing",          "à définir" },  // STR_BACKEND_MISSING
+  { "Filamentverwaltung", "Filament manager", "Gestion du filament", "Gestione filamento" },  // STR_BACKEND_TITLE
+  { "Adresse", "Address", "Adresse", "Indirizzo" },  // STR_BACKEND_ADDRESS
+  { "API-Key", "API key", "Clé d'API", "API key" },  // STR_BACKEND_APIKEY
+  { "Device-Token", "Device token", "Jeton d'appareil", "Token dispositivo" },  // STR_BACKEND_DEVICE_TOKEN
+  { "gesetzt", "set", "en mémoire", "impostato" },  // STR_BACKEND_SET
+  { "fehlt", "missing", "à définir", "manca" },  // STR_BACKEND_MISSING
 
   // Web interface. The same server serves the firmware upload and the
   // FilaMan credentials, so the screen title stays neutral.
-  { "Weboberfläche", "Web interface", "Interface web" },  // STR_WEB_TITLE
+  { "Weboberfläche", "Web interface", "Interface web", "Interfaccia web" },  // STR_WEB_TITLE
   { "Adresse am Rechner im Browser öffnen und dort API-Key und Gerätecode eintragen. Der Status unten aktualisiert sich von selbst.",
     "Open this address in a browser on your computer and enter the API key and device code there. The status below updates on its own.",
-    "Ouvrez cette adresse dans un navigateur sur votre ordinateur, et saisissez-y la clé d'API et le code d'appareil. L'état ci-dessous se met à jour tout seul." },  // STR_WEB_SETUP_HINT
+    "Ouvrez cette adresse dans un navigateur sur votre ordinateur, et saisissez-y la clé d'API et le code d'appareil. L'état ci-dessous se met à jour tout seul.",
+    "Apri questo indirizzo in un browser sul computer e inserisci lì la chiave API e il codice dispositivo. Lo stato qui sotto si aggiorna da solo." },  // STR_WEB_SETUP_HINT
   // BamBuddy has one credential where FilaMan has two, so the sentence that
   // tells the user what to type differs.
   { "Adresse am Rechner im Browser öffnen und dort den API-Key eintragen. Der Status unten aktualisiert sich von selbst.",
     "Open this address in a browser on your computer and enter the API key there. The status below updates on its own.",
-    "Ouvrez cette adresse dans un navigateur sur votre ordinateur, et saisissez-y la clé d'API. L'état ci-dessous se met à jour tout seul." },  // STR_WEB_SETUP_HINT_BB
-  { "Im Browser einrichten", "Set up in browser", "Config. navigateur" },  // STR_BTN_WEB_SETUP
-  { "Fertig",                "Done",              "Terminer" },  // STR_BTN_FINISH
-  { "Weiter",                "Next",              "Suivant" },  // STR_BTN_NEXT
+    "Ouvrez cette adresse dans un navigateur sur votre ordinateur, et saisissez-y la clé d'API. L'état ci-dessous se met à jour tout seul.",
+    "Apri questo indirizzo in un browser sul computer e inserisci lì la chiave API. Lo stato qui sotto si aggiorna da solo." },  // STR_WEB_SETUP_HINT_BB
+  { "Im Browser einrichten", "Set up in browser", "Config. navigateur", "Imposta da browser" },  // STR_BTN_WEB_SETUP
+  { "Fertig", "Done", "Terminer", "Fine" },  // STR_BTN_FINISH
+  { "Weiter", "Next", "Suivant", "Avanti" },  // STR_BTN_NEXT
   { "Welche Filamentverwaltung benutzt du? Das lässt sich später jederzeit im Menü ändern.",
     "Which filament manager do you use? This can be changed in the menu at any time.",
-    "Quel gestionnaire de filament utilisez-vous ? Vous pourrez le changer à tout moment dans le menu." },  // STR_SETUP_BACKEND_HINT
+    "Quel gestionnaire de filament utilisez-vous ? Vous pourrez le changer à tout moment dans le menu.",
+    "Quale gestore di filamento usi? Puoi cambiarlo dal menu in qualsiasi momento." },  // STR_SETUP_BACKEND_HINT
   // Shown instead of a spool count when the server answered but the number
   // could not be asked for yet, which is the normal FilaMan setup case.
-  { "verbunden",         "connected",       "connecté" },  // STR_CONNECTED
-  { "AN",                "ON",              "ON" },  // STR_ON
-  { "AUS",               "OFF",             "OFF" },  // STR_OFF
-  { "Im Browser öffnen", "Open in browser", "Navigateur" },  // STR_BTN_OPEN_BROWSER
+  { "verbunden", "connected", "connecté", "connesso" },  // STR_CONNECTED
+  { "AN", "ON", "ON", "ON" },  // STR_ON
+  { "AUS", "OFF", "OFF", "OFF" },  // STR_OFF
+  { "Im Browser öffnen", "Open in browser", "Navigateur", "Apri nel browser" },  // STR_BTN_OPEN_BROWSER
   // Names every product in both languages and in every backend mode. Not
   // passed through backendText(), see the comment at the call site.
   { "Nicht mit Spoolman, FilaMan oder BamBuddy verbunden",
     "Not affiliated with Spoolman, FilaMan or BamBuddy",
-    "Sans lien avec Spoolman, FilaMan ou BamBuddy" },  // STR_NOT_AFFILIATED
+    "Sans lien avec Spoolman, FilaMan ou BamBuddy",
+    "Non affiliato a Spoolman, FilaMan o BamBuddy" },  // STR_NOT_AFFILIATED
   { "Kein Tag erkannt, bitte neu auflegen",
     "No tag detected, place it again",
-    "Aucun tag détecté, reposez-le" },  // STR_LINK_NO_TAG
+    "Aucun tag détecté, reposez-le",
+    "Nessun tag rilevato, riappoggialo" },  // STR_LINK_NO_TAG
 
   // Main screen weight box and More-info detail grid
-  { "Waage - Spule",     "Scale - Spool",        "Balance - Bobine" },  // STR_LBL_SCALE_SPOOL_CAP
-  { "Gesamt",            "Total",                "Total" },  // STR_LBL_TOTAL_CAP
-  { "o. Beutel",         "w/o bag",              "s. sachet" },  // STR_LBL_WO_BAG_CAP
-  { "Farbe",             "Hex Color",            "Couleur" },  // STR_LBL_HEX_COLOR
-  { "Produktionsdatum",  "Production date",      "Date de production" },  // STR_LBL_PRODUCTION_DATE
-  { "Artikelnr.",        "Article no.",          "Réf. article" },  // STR_LBL_ARTICLE_NO_SHORT
-  { "Leergewicht Spule", "Spool weight (empty)", "Poids bobine vide" },  // STR_LBL_SPOOL_WEIGHT_EMPTY
+  { "Waage - Spule", "Scale - Spool", "Balance - Bobine", "Bilancia - Bobina" },  // STR_LBL_SCALE_SPOOL_CAP
+  { "Gesamt", "Total", "Total", "Totale" },  // STR_LBL_TOTAL_CAP
+  { "o. Beutel", "w/o bag", "s. sachet", "s. sacch." },  // STR_LBL_WO_BAG_CAP
+  { "Farbe", "Hex Color", "Couleur", "Colore" },  // STR_LBL_HEX_COLOR
+  { "Produktionsdatum", "Production date", "Date de production", "Data produzione" },  // STR_LBL_PRODUCTION_DATE
+  { "Artikelnr.", "Article no.", "Réf. article", "Cod. art." },  // STR_LBL_ARTICLE_NO_SHORT
+  { "Leergewicht Spule", "Spool weight (empty)",
+    "Poids bobine vide",
+    "Peso bobina vuota" },  // STR_LBL_SPOOL_WEIGHT_EMPTY
 
   // Status bar address selector
-  { "Im Statusbalken zeigen", "Show in status bar", "Afficher dans la barre d'état" },  // STR_BTN_IP_STATUSBAR
-  { "Gerät",                  "Device",             "Appareil" },  // STR_IP_BAR_DEVICE
+  { "Im Statusbalken zeigen", "Show in status bar",
+    "Afficher dans la barre d'état",
+    "Mostra nella barra di stato" },  // STR_BTN_IP_STATUSBAR
+  { "Gerät", "Device", "Appareil", "Bilancia" },  // STR_IP_BAR_DEVICE
 
   // Remote link. Deliberately not passed through backendText(): this only
   // ever happens in FilaMan mode, so naming it outright is clearer than a
   // substitution that can never differ.
-  { "FilaMan: Spule verknüpfen?", "FilaMan: link spool?", "FilaMan : lier la bobine ?" },  // STR_REMOTE_LINK_TITLE
+  { "FilaMan: Spule verknüpfen?", "FilaMan: link spool?",
+    "FilaMan : lier la bobine ?",
+    "FilaMan: collegare bobina?" },  // STR_REMOTE_LINK_TITLE
   { "Aufliegenden Tag mit dieser Spule verknüpfen?",
     "Link the tag on the scale to this spool?",
-    "Lier le tag posé sur la balance à cette bobine ?" },  // STR_REMOTE_LINK_QUESTION
-  { "Verknüpfen",             "Link",                   "Lier" },  // STR_REMOTE_LINK_CONFIRM
-  { "Details nicht abrufbar", "Details unavailable",    "Détails indisponibles" },  // STR_REMOTE_LINK_NO_DETAILS
-  { "Verknüpfung abgelaufen", "Link request timed out", "Demande de liaison expirée" },  // STR_REMOTE_LINK_TIMEOUT
+    "Lier le tag posé sur la balance à cette bobine ?",
+    "Collegare il tag sulla bilancia a questa bobina?" },  // STR_REMOTE_LINK_QUESTION
+  { "Verknüpfen", "Link", "Lier", "Collega" },  // STR_REMOTE_LINK_CONFIRM
+  { "Details nicht abrufbar", "Details unavailable",
+    "Détails indisponibles",
+    "Dettagli assenti" },  // STR_REMOTE_LINK_NO_DETAILS
+  { "Verknüpfung abgelaufen", "Link request timed out",
+    "Demande de liaison expirée",
+    "Richiesta scaduta" },  // STR_REMOTE_LINK_TIMEOUT
 
   // Tag versus spool comparison
-  { "Tag",      "Tag",      "Tag" },  // STR_REMOTE_LINK_COL_TAG
-  { "Spule",    "Spool",    "Bobine" },  // STR_REMOTE_LINK_COL_SPOOL
-  { "Material", "Material", "Matériau" },  // STR_REMOTE_LINK_ROW_MATERIAL
-  { "Farbe",    "Colour",   "Couleur" },  // STR_REMOTE_LINK_ROW_COLOR
+  { "Tag", "Tag", "Tag", "Tag" },  // STR_REMOTE_LINK_COL_TAG
+  { "Spule", "Spool", "Bobine", "Bobina" },  // STR_REMOTE_LINK_COL_SPOOL
+  { "Material", "Material", "Matériau", "Materiale" },  // STR_REMOTE_LINK_ROW_MATERIAL
+  { "Farbe", "Colour", "Couleur", "Colore" },  // STR_REMOTE_LINK_ROW_COLOR
 
   // FilaMan options sub screen
-  { "Weitere Optionen",        "More options",       "Autres options" },  // STR_BTN_MORE_OPTIONS
-  { "Mehrere Tags verknüpfen", "Link multiple tags", "Lier plusieurs tags" },  // STR_CU_WRITE
+  { "Weitere Optionen", "More options", "Autres options", "Altre opzioni" },  // STR_BTN_MORE_OPTIONS
+  { "Mehrere Tags verknüpfen", "Link multiple tags", "Lier plusieurs tags", "Collega più tag" },  // STR_CU_WRITE
   { "Schreibt in Spoolmans Feld card_uids",
     "Writes to Spoolman's card_uids field",
-    "Écrit dans le champ card_uids de Spoolman" },  // STR_CU_WRITE_SUB
+    "Écrit dans le champ card_uids de Spoolman",
+    "Scrive nel campo card_uids di Spoolman" },  // STR_CU_WRITE_SUB
   { "An: eine gescannte UID kommt an die Liste, statt sie zu ersetzen. "
     "Verknüpfte Spulen erscheinen wieder in der Verlinken-Liste, damit ein "
     "zweites Tag dazukommen kann.\n\n"
@@ -927,134 +1150,161 @@ const char* const STRINGS[][3] = {
     "Off: card_uids only ever holds one UID.\n\n"
     "card_uids only, because it is the one extra field that holds a list. "
     "Spoolman NFC does several tags natively and needs no switch.",
-    "Activé : un UID scanné s'ajoute à la liste au lieu de la remplacer. Les bobines déjà liées restent proposées au moment de lier, pour pouvoir leur ajouter un second tag.\n\nDésactivé : card_uids contient toujours un seul UID.\n\nCe réglage ne concerne que card_uids, seul champ supplémentaire qui accepte une liste. Spoolman NFC gère plusieurs tags de lui-même et n'en a pas besoin." },  // STR_CU_WRITE_INFO
-  { "UID nicht hinzugefügt",        "UID not added",            "UID non ajouté" },  // STR_CU_NOT_WRITTEN
+    "Activé : un UID scanné s'ajoute à la liste au lieu de la remplacer. Les bobines déjà liées restent proposées au moment de lier, pour pouvoir leur ajouter un second tag.\n\nDésactivé : card_uids contient toujours un seul UID.\n\nCe réglage ne concerne que card_uids, seul champ supplémentaire qui accepte une liste. Spoolman NFC gère plusieurs tags de lui-même et n'en a pas besoin.",
+    "Attivo: un UID letto si aggiunge alla lista invece di sostituirla. Le bobine già collegate ricompaiono nella lista di collegamento, così si può aggiungere un secondo tag.\n\nSpento: card_uids contiene sempre un solo UID.\n\nSolo card_uids, perché è l'unico campo extra che accetta una lista. Spoolman NFC gestisce più tag da sé e non serve l'interruttore." },  // STR_CU_WRITE_INFO
+  { "UID nicht hinzugefügt", "UID not added", "UID non ajouté", "UID non aggiunto" },  // STR_CU_NOT_WRITTEN
   { "Tag hängt schon an Spule #%d", "Tag already on spool #%d",
-    "Ce tag est déjà sur la bobine #%d" },  // STR_TAG_ON_OTHER_SPOOL
+    "Ce tag est déjà sur la bobine #%d",
+    "Tag già sulla bobina #%d" },  // STR_TAG_ON_OTHER_SPOOL
   { LV_SYMBOL_WARNING "  Spule hat schon UIDs",
     LV_SYMBOL_WARNING "  Spool already has UIDs",
-    LV_SYMBOL_WARNING "  La bobine a déjà des UID" },  // STR_WARN_A_ADD_TITLE
+    LV_SYMBOL_WARNING "  La bobine a déjà des UID",
+    LV_SYMBOL_WARNING "  La bobina ha già UID" },  // STR_WARN_A_ADD_TITLE
   { "Spule #%d  |  %s %s\nHat bereits %d UID(s)",
     "Spool #%d  |  %s %s\nAlready has %d UID(s)",
-    "Bobine #%d  |  %s %s\nPorte déjà %d UID" },  // STR_WARN_A_ADD_INFO
+    "Bobine #%d  |  %s %s\nPorte déjà %d UID",
+    "Bobina #%d  |  %s %s\nHa già %d UID" },  // STR_WARN_A_ADD_INFO
   { "Spule #%d\nHat bereits %d UID(s)",
     "Spool #%d\nAlready has %d UID(s)",
-    "Bobine #%d\nPorte déjà %d UID" },  // STR_WARN_A_ADD_SHORT
-  { "UID hinzufügen", "Add UID", "Ajouter l'UID" },  // STR_BTN_ADD_UID
+    "Bobine #%d\nPorte déjà %d UID",
+    "Bobina #%d\nHa già %d UID" },  // STR_WARN_A_ADD_SHORT
+  { "UID hinzufügen", "Add UID", "Ajouter l'UID", "Aggiungi UID" },  // STR_BTN_ADD_UID
   { "Diese Spule ist mehrfach gebunden.\nNur das Tag auf der Waage lösen\noder die ganze Bindung?",
     "This spool is bound more than once.\nRemove only the tag on the scale\nor the whole binding?",
-    "Cette bobine est liée plusieurs fois.\nDissocier le tag sur la balance\nou toute la liaison ?" },  // STR_UNLINK_MULTI_MSG
-  { "Nur dieses Tag",                "Only this tag",                "Ce tag seulement" },  // STR_BTN_UNLINK_ONE
-  { "Alle lösen",                    "Unlink all",                   "Tout dissocier" },  // STR_BTN_UNLINK_ALL
-  { "Ohne Nachfrage verknüpfen",     "Link without asking",          "Lier sans demander" },  // STR_FLM_AUTOLINK
+    "Cette bobine est liée plusieurs fois.\nDissocier le tag sur la balance\nou toute la liaison ?",
+    "Questa bobina è collegata più volte.\nScollegare solo il tag sul piatto\no tutto il collegamento?" },  // STR_UNLINK_MULTI_MSG
+  { "Nur dieses Tag", "Only this tag", "Ce tag seulement", "Solo questo tag" },  // STR_BTN_UNLINK_ONE
+  { "Alle lösen", "Unlink all", "Tout dissocier", "Scollega tutti" },  // STR_BTN_UNLINK_ALL
+  { "Ohne Nachfrage verknüpfen", "Link without asking",
+    "Lier sans demander",
+    "Collega senza chiedere" },  // STR_FLM_AUTOLINK
   { "wenn die Spule schon aufliegt", "when the spool is already on",
-    "si la bobine est déjà posée" },  // STR_FLM_AUTOLINK_SUB
-  { " (Filament)",                   " (filament)",                  " (filament)" },  // STR_TARE_FROM_FILAMENT
-  { " (Hersteller)",                 " (brand)",                     " (fabricant)" },  // STR_TARE_FROM_BRAND
+    "si la bobine est déjà posée",
+    "se la bobina è già sopra" },  // STR_FLM_AUTOLINK_SUB
+  { " (Filament)", " (filament)", " (filament)", " (filam.)" },  // STR_TARE_FROM_FILAMENT
+  { " (Hersteller)", " (brand)", " (fabricant)", " (marca)" },  // STR_TARE_FROM_BRAND
   { "Ohne Beutel wiegen - sonst %.0f g zu viel",
     "Weigh without the bag - %.0f g too much otherwise",
-    "Pesez sans le sachet - sinon %.0f g de trop" },  // STR_SPOOL_WEIGHT_BAG_HINT
-  { "Ohne Tag wiegen",              "Weigh without a tag",           "Peser sans tag" },  // STR_FLM_TAGLESS
+    "Pesez sans le sachet - sinon %.0f g de trop",
+    "Pesa senza sacchetto - altrimenti %.0f g in più" },  // STR_SPOOL_WEIGHT_BAG_HINT
+  { "Ohne Tag wiegen", "Weigh without a tag", "Peser sans tag", "Pesa senza tag" },  // STR_FLM_TAGLESS
   { "wenn kein Tag aufgelegt wird", "when no tag is presented",
-    "si aucun tag n'est présenté" },  // STR_FLM_TAGLESS_SUB
+    "si aucun tag n'est présenté",
+    "se nessun tag è presente" },  // STR_FLM_TAGLESS_SUB
   { "Spule gewählt - jetzt wiegen", "Spool selected - weigh it now",
-    "Bobine choisie - pesez-la" },  // STR_REMOTE_LINK_WEIGH
+    "Bobine choisie - pesez-la",
+    "Bobina scelta - pesala ora" },  // STR_REMOTE_LINK_WEIGH
   { LV_SYMBOL_EYE_CLOSE "  Bildschirm aus nach (Min.)",
     LV_SYMBOL_EYE_CLOSE "  Screen off after (min.)",
-    LV_SYMBOL_EYE_CLOSE "  Écran éteint après (min)" },  // STR_SCREENOFF_LABEL
-  { "Nie", "Never", "Jamais" },  // STR_SCREENOFF_NEVER
+    LV_SYMBOL_EYE_CLOSE "  Écran éteint après (min)",
+    LV_SYMBOL_EYE_CLOSE "  Schermo off dopo (min)" },  // STR_SCREENOFF_LABEL
+  { "Nie", "Never", "Jamais", "Mai" },  // STR_SCREENOFF_NEVER
   { "Löst FilaMan eine Verknüpfung aus und die Spule liegt schon auf der Waage, wird ohne Rückfrage verknüpft. Passen Material oder Farbe nicht zusammen, fragt die Waage trotzdem nach.",
     "When FilaMan triggers a link and the spool is already on the scale, it is linked without asking. If the material or colour do not match, the scale asks anyway.",
-    "Quand une liaison est lancée depuis FilaMan alors que la bobine est déjà sur la balance, la liaison se fait sans confirmation. Si le matériau ou la couleur du tag ne correspondent pas à la bobine choisie, la balance demande quand même." },  // STR_FLM_AUTOLINK_INFO
+    "Quand une liaison est lancée depuis FilaMan alors que la bobine est déjà sur la balance, la liaison se fait sans confirmation. Si le matériau ou la couleur du tag ne correspondent pas à la bobine choisie, la balance demande quand même.",
+    "Quando FilaMan avvia un collegamento e la bobina è già sulla bilancia, viene collegata senza chiedere. Se materiale o colore non corrispondono, la bilancia chiede comunque." },  // STR_FLM_AUTOLINK_INFO
   { "Wird nach einer Verknüpfung aus FilaMan innerhalb von 10 Sekunden kein Tag aufgelegt, lädt die Waage die dort gewählte Spule trotzdem und zeigt sie an. Gewogen wird sie danach wie jede andere: bei eingeschalteter Automatik von selbst, sonst über den Gewichtsknopf. FilaMans eigener Dialog meldet dabei einen Fehler, weil dort kein Tag geschrieben wurde - geladen ist die Spule trotzdem. Auf einen Tag wird nie etwas geschrieben, und die Zuordnung endet, sobald die Spule wieder heruntergenommen wird.",
     "If no tag is presented within 10 seconds of a link from FilaMan, the scale loads the spool chosen there anyway and shows it. Weighing then works as for any other spool: on its own when automatic weighing is on, otherwise through the weight button. FilaMan's own dialog reports an error because no tag was written there - the spool is loaded regardless. Nothing is ever written to a tag, and the spool is released as soon as it is taken off the pad.",
-    "Si aucun tag n'est posé dans les 10 secondes qui suivent une liaison lancée depuis FilaMan, la balance charge quand même la bobine choisie dans FilaMan et l'affiche. La pesée se fait ensuite comme pour toute autre bobine : toute seule si la pesée automatique est activée, sinon avec le bouton Envoyer le poids. FilaMan affiche de son côté une erreur, puisqu'aucun tag n'a été écrit, mais la bobine est bien chargée. Rien n'est jamais écrit sur un tag, et cette association temporaire prend fin dès que la bobine est retirée de la balance." },  // STR_FLM_TAGLESS_INFO
+    "Si aucun tag n'est posé dans les 10 secondes qui suivent une liaison lancée depuis FilaMan, la balance charge quand même la bobine choisie dans FilaMan et l'affiche. La pesée se fait ensuite comme pour toute autre bobine : toute seule si la pesée automatique est activée, sinon avec le bouton Envoyer le poids. FilaMan affiche de son côté une erreur, puisqu'aucun tag n'a été écrit, mais la bobine est bien chargée. Rien n'est jamais écrit sur un tag, et cette association temporaire prend fin dès que la bobine est retirée de la balance.",
+    "Se entro 10 secondi da un collegamento avviato da FilaMan non viene presentato alcun tag, la bilancia carica comunque la bobina scelta lì e la mostra. La pesata funziona come per ogni altra bobina: da sola se la pesata automatica è attiva, altrimenti con il pulsante del peso. La finestra di FilaMan segnala un errore perché non è stato scritto alcun tag - la bobina è comunque caricata. Su un tag non viene mai scritto nulla, e la bobina è rilasciata appena tolta dal piatto." },  // STR_FLM_TAGLESS_INFO
   // FilaMan variants of the spool-weight scope buttons. The Spoolman ones
   // carry the REST field name in brackets, which is a real reading aid there
   // because the three scopes use three different names. In FilaMan two of
   // the three are called the same thing, so the bracket helps nobody and is
   // simply wrong on top. FilaMan also calls a vendor a manufacturer.
-  { "Diese Spule",     "This spool",    "Cette bobine" },  // STR_BTN_THIS_SPOOL_FM
-  { "Dieses Filament", "This filament", "Ce filament" },  // STR_BTN_THIS_FILAMENT_FM
-  { "Hersteller",      "Manufacturer",  "Fabricant" },  // STR_BTN_THIS_VENDOR_FM
+  { "Diese Spule", "This spool", "Cette bobine", "Bobina" },  // STR_BTN_THIS_SPOOL_FM
+  { "Dieses Filament", "This filament", "Ce filament", "Filamento" },  // STR_BTN_THIS_FILAMENT_FM
+  { "Hersteller", "Manufacturer", "Fabricant", "Produttore" },  // STR_BTN_THIS_VENDOR_FM
   { LV_SYMBOL_CLOSE " leer / Archivieren\nRest wird 0",
     LV_SYMBOL_CLOSE " empty / Archive\nremaining set to 0",
-    LV_SYMBOL_CLOSE " vide / Archiver\nreste mis à 0" },  // STR_BTN_ARCHIVE_EMPTY_FM
+    LV_SYMBOL_CLOSE " vide / Archiver\nreste mis à 0",
+    LV_SYMBOL_CLOSE " vuota / Archivia\nresiduo a 0" },  // STR_BTN_ARCHIVE_EMPTY_FM
 
   // Auto AMS assignment. FilaMan marks a freshly weighed spool as pending on
   // every printer driver for a few seconds, so the next tray to be loaded
   // gets it. The wording avoids "auto assign" on its own because the whole
   // point of the ask mode is that it is not automatic.
-  { "Auto AMS-Zuordnung",           "Auto AMS assign",                "Affectation AMS auto" },  // STR_AMS_TITLE
+  { "Auto AMS-Zuordnung", "Auto AMS assign", "Affectation AMS auto", "Assegna AMS auto" },  // STR_AMS_TITLE
   { "Spule beim Einlegen zuordnen", "assign the spool as it goes in",
-    "affecter la bobine à l'insertion" },  // STR_AMS_SUB
+    "affecter la bobine à l'insertion",
+    "assegna all'inserimento" },  // STR_AMS_SUB
   { "FilaMan merkt eine gewogene Spule einige Sekunden vor. Wer in dieser Zeit ein AMS-Fach belädt, bekommt sie zugeordnet. Geöffnet wird das Fenster nur von einem Gewicht, deshalb bucht die Waage beim Zuordnen ein zweites Mal: die Messung steht dann doppelt im Protokoll, der Wert bleibt gleich. Wandert die Spule ohnehin gleich in den Drucker, genügt kurz auflegen.",
     "FilaMan reserves a weighed spool for a few seconds. Whoever loads an AMS tray in that time gets it assigned. Only a weight opens that window, so assigning books the value a second time: the measurement then shows twice in the log, the value stays the same. If the spool is going into the printer anyway, just resting it on the pad is enough.",
-    "FilaMan réserve une bobine pesée pendant quelques secondes : si un bac AMS est chargé pendant cette fenêtre, la bobine lui est affectée. Seul un envoi de poids ouvre la fenêtre : pour affecter la bobine, la balance renvoie donc son poids, qui figure alors deux fois dans l'historique FilaMan, avec la même valeur. Si la bobine va de toute façon tout de suite dans l'imprimante, il suffit de la poser un instant sur la balance." },  // STR_AMS_INFO
-  { "Aus",        "Off", "Désactivé" },  // STR_AMS_MODE_OFF
-  { "Nachfragen", "Ask", "Demander" },  // STR_AMS_MODE_ASK
+    "FilaMan réserve une bobine pesée pendant quelques secondes : si un bac AMS est chargé pendant cette fenêtre, la bobine lui est affectée. Seul un envoi de poids ouvre la fenêtre : pour affecter la bobine, la balance renvoie donc son poids, qui figure alors deux fois dans l'historique FilaMan, avec la même valeur. Si la bobine va de toute façon tout de suite dans l'imprimante, il suffit de la poser un instant sur la balance.",
+    "FilaMan riserva una bobina pesata per alcuni secondi. Chi carica uno slot AMS in quel tempo se la vede assegnata. Solo un peso apre la finestra, quindi assegnare registra il valore una seconda volta: la misura compare due volte nello storico, il valore resta uguale. Se la bobina va comunque nella stampante, basta appoggiarla sul piatto." },  // STR_AMS_INFO
+  { "Aus", "Off", "Désactivé", "Spento" },  // STR_AMS_MODE_OFF
+  { "Nachfragen", "Ask", "Demander", "Chiedi" },  // STR_AMS_MODE_ASK
   // Not "Immer an": next to "Nachfragen" that reads as "the question is
   // always on", which is the opposite of what it does. Users asking for a way
   // out of the popup had the mode in front of them and did not recognise it.
-  { "Automatisch", "Automatic", "Automatique" },  // STR_AMS_MODE_ALWAYS
+  { "Automatisch", "Automatic", "Automatique", "Automatico" },  // STR_AMS_MODE_ALWAYS
   { "Es wird nichts vorgemerkt. Wiegen und Lagerort verhalten sich genau wie bisher.",
     "Nothing is reserved. Weighing and location behave exactly as before.",
-    "Rien n'est réservé. La pesée et le choix de l'emplacement restent inchangés." },  // STR_AMS_OFF_DESC
+    "Rien n'est réservé. La pesée et le choix de l'emplacement restent inchangés.",
+    "Niente viene riservato. Pesata e posizione funzionano come prima." },  // STR_AMS_OFF_DESC
   { "Beim Abnehmen wird gefragt, ob die Spule in den Drucker wandert. Ein Ja sendet das Gewicht und öffnet das Fenster.",
     "When the spool is lifted you are asked whether it goes into the printer. A yes sends the weight and opens the window.",
-    "Au retrait, la balance demande si la bobine va dans l'imprimante. Un oui envoie le poids et ouvre la fenêtre d'affectation." },  // STR_AMS_ASK_DESC
+    "Au retrait, la balance demande si la bobine va dans l'imprimante. Un oui envoie le poids et ouvre la fenêtre d'affectation.",
+    "Quando sollevi la bobina ti chiede se va nella stampante. Un sì invia il peso e apre la finestra." },  // STR_AMS_ASK_DESC
   // The gain first, the price second: this is the mode people come looking
   // for when the popup is in their way, so it has to say so before it warns.
   { "Kein Popup, kein Countdown: jede Wiegung merkt die Spule vor. Der Preis ist, dass auch kurzes Nachwiegen sie vormerkt.",
     "No popup, no countdown: every weighing reserves the spool. The price is that checking a weight reserves it too.",
-    "Ni question ni compte à rebours : chaque pesée réserve la bobine. Contrepartie : une pesée de contrôle la réserve aussi." },  // STR_AMS_ALWAYS_DESC
-  { "Fenster",                               "Window",                            "Fenêtre" },  // STR_AMS_WINDOW_LBL
+    "Ni question ni compte à rebours : chaque pesée réserve la bobine. Contrepartie : une pesée de contrôle la réserve aussi.",
+    "Niente domanda, niente conto alla rovescia: ogni pesata riserva la bobina. Il prezzo: anche una pesata di controllo la riserva." },  // STR_AMS_ALWAYS_DESC
+  { "Fenster", "Window", "Fenêtre", "Finestra" },  // STR_AMS_WINDOW_LBL
   { "wie lange die Spule vorgemerkt bleibt", "how long the spool stays reserved",
-    "durée de réservation de la bobine" },  // STR_AMS_WINDOW_HINT
-  { "s",                                     "s",                                 "s" },  // STR_AMS_SEC_UNIT
-  { "Bei Ablauf", "When it runs out",
-    "À l'expiration" },  // STR_AMS_TIMER_LBL
+    "durée de réservation de la bobine",
+    "quanto resta riservata la bobina" },  // STR_AMS_WINDOW_HINT
+  { "s", "s", "s", "s" },  // STR_AMS_SEC_UNIT
+  { "Bei Ablauf", "When it runs out", "À l'expiration", "Allo scadere" },  // STR_AMS_TIMER_LBL
   { "wenn niemand antwortet", "when nobody answers",
-    "si personne ne répond" },  // STR_AMS_TIMER_HINT
-  { "Ja",                                    "Yes",                               "Oui" },  // STR_AMS_TIMER_YES
-  { "Nein",                                  "No",                                "Non" },  // STR_AMS_TIMER_NO
+    "si personne ne répond",
+    "se nessuno risponde" },  // STR_AMS_TIMER_HINT
+  { "Ja", "Yes", "Oui", "Sì" },  // STR_AMS_TIMER_YES
+  { "Nein", "No", "Non", "No" },  // STR_AMS_TIMER_NO
   { "Spule jetzt ins AMS legen?", "Putting the spool into the AMS?",
-    "Mettre la bobine dans l'AMS ?" },  // STR_AMS_POPUP_Q
+    "Mettre la bobine dans l'AMS ?",
+    "Metti la bobina nell'AMS?" },  // STR_AMS_POPUP_Q
   { "Zuordnung startet in %d s", "Assignment starts in %d s",
-    "Affectation dans %d s" },  // STR_AMS_POPUP_STARTS_IN
+    "Affectation dans %d s",
+    "Assegnazione tra %d s" },  // STR_AMS_POPUP_STARTS_IN
   { "Ohne Zuordnung in %d s", "Without assigning in %d s",
-    "Sans affectation dans %d s" },  // STR_AMS_POPUP_CLOSES_IN
-  { "Ja, zuordnen", "Yes, assign",
-    "Oui, affecter" },  // STR_AMS_BTN_YES
+    "Sans affectation dans %d s",
+    "Senza assegnare tra %d s" },  // STR_AMS_POPUP_CLOSES_IN
+  { "Ja, zuordnen", "Yes, assign", "Oui, affecter", "Sì, assegna" },  // STR_AMS_BTN_YES
   { "Der ApiKey darf keine Geräte verwalten",
     "This ApiKey may not manage devices",
-    "Cette clé d'API ne peut pas gérer les appareils" },  // STR_AMS_ERR_FORBIDDEN
+    "Cette clé d'API ne peut pas gérer les appareils",
+    "Questa ApiKey non può gestire dispositivi" },  // STR_AMS_ERR_FORBIDDEN
   { "Server antwortet nicht (HTTP %d)", "Server not answering (HTTP %d)",
-    "Le serveur ne répond pas (HTTP %d)" },  // STR_AMS_ERR_HTTP
+    "Le serveur ne répond pas (HTTP %d)",
+    "Il server non risponde (HTTP %d)" },  // STR_AMS_ERR_HTTP
   { "%.0f g sind gespeichert", "%.0f g are saved",
-    "%.0f g sont enregistrés" },  // STR_AMS_POPUP_SAVED
-  { "Zuordnung %d s", "Assigning %d s",
-    "Affectation %d s" },  // STR_AMS_WINDOW_RUNNING
+    "%.0f g sont enregistrés",
+    "%.0f g salvati" },  // STR_AMS_POPUP_SAVED
+  { "Zuordnung %d s", "Assigning %d s", "Affectation %d s", "Assegno %d s" },  // STR_AMS_WINDOW_RUNNING
   { "Server: Zuordnung aktiv", "Server: assigning active",
-    "Serveur : affectation active" },  // STR_AMS_SRV_ON
-  { "Server: aus", "Server: off",
-    "Serveur : désactivé" },  // STR_AMS_SRV_OFF
+    "Serveur : affectation active",
+    "Server: assegnaz. attiva" },  // STR_AMS_SRV_ON
+  { "Server: aus", "Server: off", "Serveur : désactivé", "Server: spento" },  // STR_AMS_SRV_OFF
   { "%.0f g werden dabei gespeichert", "%.0f g will be saved too",
-    "%.0f g seront enregistrés au passage" },  // STR_AMS_POPUP_WILL_SAVE
-  { "Neu aus Tag anlegen", "Create from tag",
-    "Créer depuis le tag" },  // STR_NEWTAG_BTN
+    "%.0f g seront enregistrés au passage",
+    "Saranno salvati anche %.0f g" },  // STR_AMS_POPUP_WILL_SAVE
+  { "Neu aus Tag anlegen", "Create from tag", "Créer depuis le tag", "Crea dal tag" },  // STR_NEWTAG_BTN
   { "Spule aus Tag anlegen?", "Create spool from tag?",
-    "Créer la bobine depuis le tag ?" },  // STR_NEWTAG_TITLE
+    "Créer la bobine depuis le tag ?",
+    "Creare bobina dal tag?" },  // STR_NEWTAG_TITLE
   { "%s %s\nFarbe: %s\nWaagengewicht (netto): %.0f g", "%s %s\nColour: %s\nScale weight (net): %.0f g",
-    "%s %s\nCouleur : %s\nPoids sur la balance (net) : %.0f g" },  // STR_NEWTAG_MSG
-  { "Nenngewicht", "Label weight",
-    "Poids nominal" },  // STR_NEWTAG_LABEL_W
-  { "Spule angelegt!", "Spool created!",
-    "Bobine créée !" },  // STR_NEWTAG_OK
+    "%s %s\nCouleur : %s\nPoids sur la balance (net) : %.0f g",
+    "%s %s\nColore: %s\nPeso bilancia (netto): %.0f g" },  // STR_NEWTAG_MSG
+  { "Nenngewicht", "Label weight", "Poids nominal", "Peso nomin." },  // STR_NEWTAG_LABEL_W
+  { "Spule angelegt!", "Spool created!", "Bobine créée !", "Bobina creata!" },  // STR_NEWTAG_OK
   { "Anlegen fehlgeschlagen", "Could not create spool",
-    "Création impossible" },  // STR_NEWTAG_FAIL
+    "Création impossible",
+    "Creazione fallita" },  // STR_NEWTAG_FAIL
 
-  { "Tag-Feld", "Tag field", "Champ du tag" },  // STR_TAG_FIELD
+  { "Tag-Feld", "Tag field", "Champ du tag", "Campo tag" },  // STR_TAG_FIELD
   { "Jedes Projekt legt die Tag-UID in ein anderes Extra-Feld, weil Spoolman "
     "lange keines dafür hatte. Seit Version 0.27 hat Spoolman ein eigenes "
     "Tag-Modell.\n\n"
@@ -1076,11 +1326,18 @@ const char* const STRINGS[][3] = {
     "the next link a UID found elsewhere moves into the selected source.\n\n"
     "If the selected extra field is missing on the server, the scale creates "
     "it on the first write. Spoolman NFC needs no field.",
-    "Chaque logiciel range l'identifiant (UID) du tag dans son propre champ supplémentaire, car Spoolman n'en a longtemps proposé aucun. Depuis la version 0.27, Spoolman a sa propre gestion des tags.\n\nCe réglage indique où la balance écrit. Si le serveur gère les tags nativement, elle choisit cette gestion d'elle-même au premier tag lu, sauf si vous avez déjà fait votre choix.\n\nToutes les sources sont toujours lues, pour qu'aucune bobine ne devienne introuvable si vous changez de source. Quand vous liez à nouveau une bobine, son UID trouvé ailleurs passe dans la source choisie.\n\nSi le champ choisi manque sur le serveur, la balance le crée à la première écriture. Spoolman NFC n'a besoin d'aucun champ." },  // STR_TAG_FIELD_INFO
+    "Chaque logiciel range l'identifiant (UID) du tag dans son propre champ supplémentaire, car Spoolman n'en a longtemps proposé aucun. Depuis la version 0.27, Spoolman a sa propre gestion des tags.\n\nCe réglage indique où la balance écrit. Si le serveur gère les tags nativement, elle choisit cette gestion d'elle-même au premier tag lu, sauf si vous avez déjà fait votre choix.\n\nToutes les sources sont toujours lues, pour qu'aucune bobine ne devienne introuvable si vous changez de source. Quand vous liez à nouveau une bobine, son UID trouvé ailleurs passe dans la source choisie.\n\nSi le champ choisi manque sur le serveur, la balance le crée à la première écriture. Spoolman NFC n'a besoin d'aucun champ.",
+    "Ogni progetto mette l'UID del tag in un campo extra diverso, perché per molto tempo Spoolman non ne aveva uno. Dalla versione 0.27 Spoolman ha una gestione propria dei tag.\n\nQui scegli dove scrive la bilancia. Se il server ha la gestione nativa, la sceglie da sé alla prima lettura; una scelta fatta da te resta.\n\nTutte le fonti vengono sempre lette, quindi cambiando non si perde nulla. Al prossimo collegamento un UID trovato altrove passa nella fonte scelta.\n\nSe il campo extra scelto manca sul server, la bilancia lo crea alla prima scrittura. Spoolman NFC non ha bisogno di campi." },  // STR_TAG_FIELD_INFO
 
-  { "Spoolman NFC (nativ)",   "Spoolman NFC (native)",    "Spoolman NFC (natif)" },  // STR_TF_NATIVE
-  { "Vom Server unterstützt", "Supported by the server",  "Pris en charge par le serveur" },  // STR_TF_NATIVE_SUB
-  { "Erst ab Spoolman v0.27", "Spoolman v0.27 and later", "À partir de Spoolman v0.27" },  // STR_TF_NATIVE_NA
+  { "Spoolman NFC (nativ)", "Spoolman NFC (native)",
+    "Spoolman NFC (natif)",
+    "Spoolman NFC (nativo)" },  // STR_TF_NATIVE
+  { "Vom Server unterstützt", "Supported by the server",
+    "Pris en charge par le serveur",
+    "Supportato dal server" },  // STR_TF_NATIVE_SUB
+  { "Erst ab Spoolman v0.27", "Spoolman v0.27 and later",
+    "À partir de Spoolman v0.27",
+    "Da Spoolman v0.27" },  // STR_TF_NATIVE_NA
   { "Spoolman hat seit Version 0.27 ein eigenes Tag-Modell, statt einer UID in "
     "einem Extra-Feld. Diese Zeile ist wählbar, sobald der Server es kann.\n\n"
     "Was es besser macht: eine Spule kann mehrere Tags tragen, ohne Liste in "
@@ -1101,9 +1358,12 @@ const char* const STRINGS[][3] = {
     "The extra fields stay selectable regardless: SpoolLink, SpoolSense and "
     "FilaMan keep writing their own, and anyone running one of them alongside "
     "still needs it.",
-    "Depuis la version 0.27, Spoolman gère les tags lui-même, au lieu d'un UID dans un champ supplémentaire. Cette ligne est sélectionnable dès que le serveur le permet.\n\nAvantages : une bobine peut porter plusieurs tags, sans liste tassée dans un champ texte. Lire un tag ne demande qu'une requête, qui renvoie directement la bobine, au lieu d'une recherche puis d'une vérification. Et un tag déjà lié à une autre bobine est signalé, au lieu d'être écrasé sans prévenir.\n\nLes champs supplémentaires restent malgré tout sélectionnables : SpoolLink, SpoolSense et FilaMan continuent d'écrire dans les leurs, et si vous utilisez l'un d'eux en parallèle, il vous faut son champ." },  // STR_TF_NATIVE_INFO
-  { "extra.tag",                 "extra.tag",                "extra.tag" },  // STR_TF_TAG
-  { "Diese Waage, OpenSpoolman", "This scale, OpenSpoolman", "Cette balance, OpenSpoolman" },  // STR_TF_TAG_SUB
+    "Depuis la version 0.27, Spoolman gère les tags lui-même, au lieu d'un UID dans un champ supplémentaire. Cette ligne est sélectionnable dès que le serveur le permet.\n\nAvantages : une bobine peut porter plusieurs tags, sans liste tassée dans un champ texte. Lire un tag ne demande qu'une requête, qui renvoie directement la bobine, au lieu d'une recherche puis d'une vérification. Et un tag déjà lié à une autre bobine est signalé, au lieu d'être écrasé sans prévenir.\n\nLes champs supplémentaires restent malgré tout sélectionnables : SpoolLink, SpoolSense et FilaMan continuent d'écrire dans les leurs, et si vous utilisez l'un d'eux en parallèle, il vous faut son champ.",
+    "Dalla versione 0.27 Spoolman ha una gestione propria dei tag, invece di un UID in un campo extra. Questa voce è selezionabile quando il server la offre.\n\nCosa fa meglio: una bobina può avere più tag senza una lista stipata in un campo di testo. Una lettura è una sola richiesta che restituisce anche la bobina, invece di una ricerca più una verifica. E un tag che appartiene già a un'altra bobina viene segnalato invece di essere sovrascritto in silenzio.\n\nI campi extra restano comunque selezionabili: SpoolLink, SpoolSense e FilaMan continuano a scrivere nei loro, e chi ne usa uno in parallelo ne ha ancora bisogno." },  // STR_TF_NATIVE_INFO
+  { "extra.tag", "extra.tag", "extra.tag", "extra.tag" },  // STR_TF_TAG
+  { "Diese Waage, OpenSpoolman", "This scale, OpenSpoolman",
+    "Cette balance, OpenSpoolman",
+    "Bilancia, OpenSpoolman" },  // STR_TF_TAG_SUB
   { "Das Feld, das diese Waage seit jeher benutzt, und das auch OpenSpoolman "
     "und spoolnymous schreiben.\n\n"
     "Ein Wert pro Spule, kein Listenformat. Die Waage legt die UID so ab, wie "
@@ -1118,10 +1378,12 @@ const char* const STRINGS[][3] = {
     "puts a UUID of its own in there, so the field matches but the contents "
     "need not.\n\n"
     "The right choice unless something speaks against it.",
-    "Le champ que cette balance utilise depuis toujours, et où écrivent aussi OpenSpoolman et spoolnymous.\n\nUne seule valeur par bobine, pas de liste. La balance y écrit l'UID en hexadécimal majuscule sans séparateur (la tray_uuid pour un tag Bambu). OpenSpoolman y range son propre identifiant (UUID) : même champ, mais pas forcément même contenu.\n\nLe bon choix, sauf raison contraire." },  // STR_TF_TAG_INFO
+    "Le champ que cette balance utilise depuis toujours, et où écrivent aussi OpenSpoolman et spoolnymous.\n\nUne seule valeur par bobine, pas de liste. La balance y écrit l'UID en hexadécimal majuscule sans séparateur (la tray_uuid pour un tag Bambu). OpenSpoolman y range son propre identifiant (UUID) : même champ, mais pas forcément même contenu.\n\nLe bon choix, sauf raison contraire.",
+    "Il campo che questa bilancia usa da sempre, e in cui scrivono anche OpenSpoolman e spoolnymous.\n\nUn valore per bobina, niente liste. La bilancia salva l'UID come lo legge, in esadecimale senza separatori, e la tray_uuid per i tag Bambu. OpenSpoolman ci mette un proprio UUID: il campo coincide, il contenuto non per forza.\n\nLa scelta giusta, salvo motivi contrari." },  // STR_TF_TAG_INFO
 
-  { "extra.nfc_id",                     "extra.nfc_id",                     "extra.nfc_id" },  // STR_TF_NFCID
+  { "extra.nfc_id", "extra.nfc_id", "extra.nfc_id", "extra.nfc_id" },  // STR_TF_NFCID
   { "FilaMan, nfc2klipper, SpoolSense", "FilaMan, nfc2klipper, SpoolSense",
+    "FilaMan, nfc2klipper, SpoolSense",
     "FilaMan, nfc2klipper, SpoolSense" },  // STR_TF_NFCID_SUB
   { "Das Feld, auf das sich FilaMan, nfc2klipper und SpoolSense geeinigt "
     "haben.\n\n"
@@ -1137,10 +1399,13 @@ const char* const STRINGS[][3] = {
     "04:A1:B2:C3:D4:E5:F6 - otherwise the other tools will not find the "
     "UID.\n\n"
     "Useful when one of them works on the same Spoolman database.",
-    "Le champ sur lequel FilaMan, nfc2klipper et SpoolSense se sont accordés.\n\nUne seule valeur par bobine, pas de liste. Ces logiciels attendent de l'hexadécimal majuscule sans séparateur : la balance écrit donc 04A1B2C3D4E5F6 et non 04:A1:B2:C3:D4:E5:F6, sinon ils ne trouveraient pas l'UID.\n\nUtile si l'un d'eux accède en parallèle à la même base Spoolman." },  // STR_TF_NFCID_INFO
+    "Le champ sur lequel FilaMan, nfc2klipper et SpoolSense se sont accordés.\n\nUne seule valeur par bobine, pas de liste. Ces logiciels attendent de l'hexadécimal majuscule sans séparateur : la balance écrit donc 04A1B2C3D4E5F6 et non 04:A1:B2:C3:D4:E5:F6, sinon ils ne trouveraient pas l'UID.\n\nUtile si l'un d'eux accède en parallèle à la même base Spoolman.",
+    "Il campo su cui si sono accordati FilaMan, nfc2klipper e SpoolSense.\n\nUn valore per bobina, niente liste. Si aspetta esadecimale maiuscolo senza separatori, quindi la bilancia scrive 04A1B2C3D4E5F6 e non 04:A1:B2:C3:D4:E5:F6 - altrimenti gli altri programmi non trovano l'UID.\n\nUtile se uno di loro lavora sullo stesso database Spoolman." },  // STR_TF_NFCID_INFO
 
-  { "extra.card_uids",         "extra.card_uids",         "extra.card_uids" },  // STR_TF_CARDUIDS
-  { "SpoolLink, Snapmaker U1", "SpoolLink, Snapmaker U1", "SpoolLink, Snapmaker U1" },  // STR_TF_CARDUIDS_SUB
+  { "extra.card_uids", "extra.card_uids", "extra.card_uids", "extra.card_uids" },  // STR_TF_CARDUIDS
+  { "SpoolLink, Snapmaker U1", "SpoolLink, Snapmaker U1",
+    "SpoolLink, Snapmaker U1",
+    "SpoolLink, Snapmaker U1" },  // STR_TF_CARDUIDS_SUB
   { "Das Feld, das SpoolLink in der Snapmaker-Firmware und Spool Studio "
     "benutzen.\n\n"
     "Das einzige Extra-Feld, das eine Liste aufnimmt: mehrere UIDs, "
@@ -1162,9 +1427,10 @@ const char* const STRINGS[][3] = {
     "normal case there rather than a format squeezed into a text field. Given "
     "the choice, take Spoolman NFC - this field is the right one when "
     "SpoolLink is to run alongside.",
-    "Le champ qu'utilisent SpoolLink (firmware Snapmaker) et Spool Studio.\n\nLe seul champ supplémentaire qui accepte une liste : plusieurs UID séparés par des virgules, en hexadécimal majuscule. C'est la règle sur le Snapmaker U1 : une bobine porte un tag par flasque, pour se monter d'un côté comme de l'autre de l'imprimante.\n\nParmi les champs supplémentaires, seul celui-ci permet l'option « Lier plusieurs tags ». Spoolman NFC le permet aussi, sans cette option, car plusieurs tags y sont la norme et non un format tassé dans un champ texte. Si vous avez le choix, prenez Spoolman NFC ; ce champ convient si SpoolLink doit tourner en parallèle." },  // STR_TF_CARDUIDS_INFO
+    "Le champ qu'utilisent SpoolLink (firmware Snapmaker) et Spool Studio.\n\nLe seul champ supplémentaire qui accepte une liste : plusieurs UID séparés par des virgules, en hexadécimal majuscule. C'est la règle sur le Snapmaker U1 : une bobine porte un tag par flasque, pour se monter d'un côté comme de l'autre de l'imprimante.\n\nParmi les champs supplémentaires, seul celui-ci permet l'option « Lier plusieurs tags ». Spoolman NFC le permet aussi, sans cette option, car plusieurs tags y sont la norme et non un format tassé dans un champ texte. Si vous avez le choix, prenez Spoolman NFC ; ce champ convient si SpoolLink doit tourner en parallèle.",
+    "Il campo usato da SpoolLink nel firmware Snapmaker e da Spool Studio.\n\nL'unico campo extra che accetta una lista: più UID separati da virgole, in esadecimale maiuscolo. Sullo Snapmaker U1 è la regola, perché una bobina ha un tag per fianco e si monta da entrambi i lati della stampante.\n\nTra i campi extra solo questo permette \"Collega più tag\". Anche Spoolman NFC lo fa e non serve l'interruttore, perché lì più tag sono la norma e non un formato stipato in un campo di testo. Potendo, scegli Spoolman NFC - questo campo è giusto se SpoolLink deve funzionare in parallelo." },  // STR_TF_CARDUIDS_INFO
 
-  { "Trocknungsdatum", "Drying date", "Date de séchage" },  // STR_EF_LAST_DRIED
+  { "Trocknungsdatum", "Drying date", "Date de séchage", "Data essiccazione" },  // STR_EF_LAST_DRIED
   { "Wann die Spule zuletzt getrocknet wurde. Spoolman hat dafür kein eigenes "
     "Feld, deshalb schreibt die Waage es nach extra.last_dried.\n\n"
     "Fehlt das Feld, legt die Waage es beim ersten Speichern einer Trocknung "
@@ -1173,791 +1439,1042 @@ const char* const STRINGS[][3] = {
     "so the scale writes it to extra.last_dried.\n\n"
     "If the field is missing, the scale creates it the first time a drying is "
     "saved.",
-    "Date du dernier séchage de la bobine. Spoolman n'a pas de champ pour cela : la balance l'écrit donc dans extra.last_dried.\n\nS'il manque, la balance le crée au premier séchage enregistré." },  // STR_EF_LAST_DRIED_INFO
+    "Date du dernier séchage de la bobine. Spoolman n'a pas de champ pour cela : la balance l'écrit donc dans extra.last_dried.\n\nS'il manque, la balance le crée au premier séchage enregistré.",
+    "Quando la bobina è stata essiccata l'ultima volta. Spoolman non ha un campo apposito, quindi la bilancia la scrive in extra.last_dried.\n\nSe il campo manca, la bilancia lo crea al primo salvataggio di un'essiccazione." },  // STR_EF_LAST_DRIED_INFO
 
-  { "vorhanden",                   "present",                        "présent" },  // STR_EF_PRESENT
-  { "fehlt auf dem Server",        "missing on the server",          "absent du serveur" },  // STR_EF_MISSING
+  { "vorhanden", "present", "présent", "presente" },  // STR_EF_PRESENT
+  { "fehlt auf dem Server", "missing on the server", "absent du serveur", "manca sul server" },  // STR_EF_MISSING
   { "Feld auf dem Server anlegen", "Create the field on the server",
-    "Créer le champ sur le serveur" },  // STR_EF_CREATE_ROW
+    "Créer le champ sur le serveur",
+    "Crea il campo sul server" },  // STR_EF_CREATE_ROW
   { "Lade Spulen ...", "Loading spools ...",
-    "Chargement des bobines ..." },  // STR_LOADING_SPOOLS
+    "Chargement des bobines ...",
+    "Caricamento bobine ..." },  // STR_LOADING_SPOOLS
   { "%d Spulen, sortiere ...", "%d spools, sorting ...",
-    "%d bobines, tri en cours ..." },  // STR_LOADING_FILTER
+    "%d bobines, tri en cours ...",
+    "%d bobine, ordino ..." },  // STR_LOADING_FILTER
 
   // ── Web interface ─────────────────────────────────────
   { "Status",
     "Status",
-    "État" },  // STR_W_NAV_STATUS
+    "État",
+    "Stato" },  // STR_W_NAV_STATUS
   { "Backend",
+    "Backend",
     "Backend",
     "Backend" },  // STR_W_NAV_BACKEND
   { "Trocknung",
     "Drying",
-    "Séchage" },  // STR_W_NAV_DRYING
+    "Séchage",
+    "Essiccazione" },  // STR_W_NAV_DRYING
   { "Tags",
     "Tags",
-    "Tags" },  // STR_W_NAV_TAGS
+    "Tags",
+    "Tag" },  // STR_W_NAV_TAGS
   { "Einstellungen",
     "Settings",
-    "Réglages" },  // STR_W_NAV_SETTINGS
+    "Réglages",
+    "Impostazioni" },  // STR_W_NAV_SETTINGS
   { "Logs",
     "Logs",
-    "Journaux" },  // STR_W_NAV_LOGS
+    "Journaux",
+    "Log" },  // STR_W_NAV_LOGS
   { "Firmware",
+    "Firmware",
     "Firmware",
     "Firmware" },  // STR_W_NAV_FIRMWARE
   { "Unabhängig von Spoolman, FilaMan und BamBuddy - Open-Source-Projekt",
     "Not affiliated with Spoolman, FilaMan or BamBuddy - Open Source Project",
-    "Sans lien avec Spoolman, FilaMan ou BamBuddy - projet open source" },  // STR_W_DISCLAIMER
+    "Sans lien avec Spoolman, FilaMan ou BamBuddy - projet open source",
+    "Non affiliato a Spoolman, FilaMan o BamBuddy - progetto open source" },  // STR_W_DISCLAIMER
   { "Speichern",
     "Save",
-    "Enregistrer" },  // STR_W_SAVE
+    "Enregistrer",
+    "Salva" },  // STR_W_SAVE
   { "Gespeichert",
     "Saved",
-    "Enregistré" },  // STR_W_SAVED
+    "Enregistré",
+    "Salvato" },  // STR_W_SAVED
   { "Fehler",
     "Error",
-    "Erreur" },  // STR_W_ERROR
+    "Erreur",
+    "Errore" },  // STR_W_ERROR
   { "Auf Standard zurück",
     "Reset to defaults",
-    "Rétablir les valeurs par défaut" },  // STR_W_DEFAULTS
+    "Rétablir les valeurs par défaut",
+    "Ripristina predefiniti" },  // STR_W_DEFAULTS
   { "%s ist ausgeschaltet",
     "%s is switched off",
-    "%s est désactivé" },  // STR_W_OFF_TITLE
+    "%s est désactivé",
+    "%s è disattivato" },  // STR_W_OFF_TITLE
   { "Dieser Bereich ist am Gerät abgeschaltet und wird deshalb nicht ausgeliefert.",
     "This section is disabled on the device, so it is not being served.",
-    "Cette section est désactivée sur l'appareil, elle n'est donc pas servie." },  // STR_W_OFF_BODY
+    "Cette section est désactivée sur l'appareil, elle n'est donc pas servie.",
+    "Questa sezione è disattivata sul dispositivo, quindi non viene servita." },  // STR_W_OFF_BODY
   { "Hier einschalten:",
     "Turn it on here:",
-    "Activez-la ici :" },  // STR_W_OFF_WHERE
+    "Activez-la ici :",
+    "Attivala qui:" },  // STR_W_OFF_WHERE
   { "Einstellungen &rsaquo; System &rsaquo; Weboberfläche",
     "Settings &rsaquo; System &rsaquo; Web interface",
-    "Réglages &rsaquo; Système &rsaquo; Interface web" },  // STR_W_OFF_PATH
+    "Réglages &rsaquo; Système &rsaquo; Interface web",
+    "Impostazioni &rsaquo; Sistema &rsaquo; Interfaccia web" },  // STR_W_OFF_PATH
   { "Danach diese Seite neu laden.",
     "Then reload this page.",
-    "Rechargez ensuite cette page." },  // STR_W_OFF_RELOAD
+    "Rechargez ensuite cette page.",
+    "Poi ricarica questa pagina." },  // STR_W_OFF_RELOAD
   { "Zurück zum Status",
     "Back to status",
-    "Retour à l'état" },  // STR_W_BACK_STATUS
+    "Retour à l'état",
+    "Torna allo stato" },  // STR_W_BACK_STATUS
   { "Netzwerk",
     "Network",
-    "Réseau" },  // STR_W_C_NETWORK
+    "Réseau",
+    "Rete" },  // STR_W_C_NETWORK
   { "Hardware",
     "Hardware",
-    "Matériel" },  // STR_W_C_HARDWARE
+    "Matériel",
+    "Hardware" },  // STR_W_C_HARDWARE
   { "Bestandsverwaltung",
     "Inventory",
-    "Gestion des stocks" },  // STR_W_C_INVENTORY
+    "Gestion des stocks",
+    "Inventario" },  // STR_W_C_INVENTORY
   { "Zugriff",
     "Access",
-    "Accès" },  // STR_W_C_ACCESS
+    "Accès",
+    "Accesso" },  // STR_W_C_ACCESS
   { "Gerät",
     "Device",
-    "Appareil" },  // STR_W_C_DEVICE
+    "Appareil",
+    "Dispositivo" },  // STR_W_C_DEVICE
   { "WLAN",
+    "WiFi",
     "WiFi",
     "WiFi" },  // STR_W_R_WIFI
   { "Adresse",
     "Address",
-    "Adresse" },  // STR_W_R_ADDRESS
+    "Adresse",
+    "Indirizzo" },  // STR_W_R_ADDRESS
   { "Name",
     "Name",
-    "Nom" },  // STR_W_R_NAME
+    "Nom",
+    "Nome" },  // STR_W_R_NAME
   { "Gateway",
     "Gateway",
-    "Passerelle" },  // STR_W_R_GATEWAY
+    "Passerelle",
+    "Gateway" },  // STR_W_R_GATEWAY
   { "Waage",
     "Scale",
-    "Balance" },  // STR_W_R_SCALE
+    "Balance",
+    "Bilancia" },  // STR_W_R_SCALE
   { "NFC-Leser",
     "NFC reader",
-    "Lecteur NFC" },  // STR_W_R_NFC
+    "Lecteur NFC",
+    "Lettore NFC" },  // STR_W_R_NFC
   { "SD-Karte",
     "SD card",
-    "Carte SD" },  // STR_W_R_SD
+    "Carte SD",
+    "Scheda SD" },  // STR_W_R_SD
   { "Laufzeit",
     "Uptime",
-    "Durée de marche" },  // STR_W_R_UPTIME
+    "Durée de marche",
+    "Attivo da" },  // STR_W_R_UPTIME
   { "Backend",
+    "Backend",
     "Backend",
     "Backend" },  // STR_W_R_BACKEND
   { "Erreichbar",
     "Reachable",
-    "Joignable" },  // STR_W_R_REACHABLE
+    "Joignable",
+    "Raggiungibile" },  // STR_W_R_REACHABLE
   { "Tags gescannt",
     "Tags scanned",
-    "Tags scannés" },  // STR_W_R_SCANS
+    "Tags scannés",
+    "Tag letti" },  // STR_W_R_SCANS
   { "bereit",
     "ready",
-    "en service" },  // STR_W_S_READY
+    "en service",
+    "pronto" },  // STR_W_S_READY
   { "fehlt",
     "missing",
-    "introuvable" },  // STR_W_S_MISSING
+    "introuvable",
+    "mancante" },  // STR_W_S_MISSING
   { "an",
     "on",
-    "oui" },  // STR_W_S_ON
+    "oui",
+    "acceso" },  // STR_W_S_ON
   { "aus",
     "off",
-    "non" },  // STR_W_S_OFF
+    "non",
+    "spento" },  // STR_W_S_OFF
   { "ja",
     "yes",
-    "oui" },  // STR_W_S_YES
+    "oui",
+    "sì" },  // STR_W_S_YES
   { "nein",
     "no",
-    "non" },  // STR_W_S_NO
+    "non",
+    "no" },  // STR_W_S_NO
   { "nicht verbunden",
     "not connected",
-    "hors ligne" },  // STR_W_S_NOWIFI
+    "hors ligne",
+    "non connesso" },  // STR_W_S_NOWIFI
   { "Was ausgeschaltet ist, wird nicht ausgeliefert - auch die Endpunkte dahinter nicht. Umschalten am Gerät unter",
     "A section that is off is not served at all, and neither are the endpoints behind it. Switch it on the device under",
-    "Une section désactivée est totalement inaccessible, y compris par ses adresses d'API. Se règle sur l'appareil, dans" },  // STR_W_ACCESS_NOTE
+    "Une section désactivée est totalement inaccessible, y compris par ses adresses d'API. Se règle sur l'appareil, dans",
+    "Una sezione spenta non viene servita affatto, e nemmeno gli endpoint dietro di essa. Si attiva sul dispositivo in" },  // STR_W_ACCESS_NOTE
   { "Neu starten",
     "Restart",
-    "Redémarrer" },  // STR_W_RESTART
+    "Redémarrer",
+    "Riavvia" },  // STR_W_RESTART
   { "Alle Einstellungen liegen im NVS, ein Neustart verliert nichts.",
     "Settings are kept in NVS, so a restart loses nothing.",
-    "Tous les réglages restent en mémoire permanente : un redémarrage n'en perd aucun." },  // STR_W_RESTART_NOTE
+    "Tous les réglages restent en mémoire permanente : un redémarrage n'en perd aucun.",
+    "Le impostazioni restano in NVS, quindi un riavvio non perde nulla." },  // STR_W_RESTART_NOTE
   { "Gerät jetzt neu starten?",
     "Restart the device now?",
-    "Redémarrer l'appareil maintenant ?" },  // STR_W_RESTART_ASK
+    "Redémarrer l'appareil maintenant ?",
+    "Riavviare il dispositivo ora?" },  // STR_W_RESTART_ASK
   { "Startet neu",
     "Restarting",
-    "Redémarrage" },  // STR_W_RESTARTING
+    "Redémarrage",
+    "Riavvio" },  // STR_W_RESTARTING
   { "warte auf das Gerät",
     "waiting for the device",
-    "attente de l'appareil" },  // STR_W_RESTART_WAIT
+    "attente de l'appareil",
+    "in attesa del dispositivo" },  // STR_W_RESTART_WAIT
   { " (SD-Karte steckt, der Start dauert rund 20 s länger)",
     " (SD card fitted, boot takes about 20s longer)",
-    " (carte SD présente, le démarrage prend environ 20 s de plus)" },  // STR_W_RESTART_SD
+    " (carte SD présente, le démarrage prend environ 20 s de plus)",
+    " (scheda SD inserita, l'avvio richiede circa 20 s in più)" },  // STR_W_RESTART_SD
   { "immer noch am Warten",
     "still waiting",
-    "toujours en attente" },  // STR_W_RESTART_LONG
+    "toujours en attente",
+    "ancora in attesa" },  // STR_W_RESTART_LONG
   { "Das Gerät hat nicht geantwortet. Vielleicht ist es nicht mehr im Netz -",
     "The device has not answered. It may be off the network -",
-    "L'appareil n'a pas répondu. Il n'est peut-être plus sur le réseau -" },  // STR_W_RESTART_GONE
+    "L'appareil n'a pas répondu. Il n'est peut-être plus sur le réseau -",
+    "Il dispositivo non ha risposto. Forse non è più in rete -" },  // STR_W_RESTART_GONE
   { "neu laden",
     "reload",
-    "recharger" },  // STR_W_RELOAD
+    "recharger",
+    "ricarica" },  // STR_W_RELOAD
   { "Adresse",
     "Address",
-    "Adresse" },  // STR_W_C_BACKEND_ADDR
+    "Adresse",
+    "Indirizzo" },  // STR_W_C_BACKEND_ADDR
   { "Adresse des Backends",
     "Backend address",
-    "Adresse du backend" },  // STR_W_HOST_LABEL
+    "Adresse du backend",
+    "Indirizzo del backend" },  // STR_W_HOST_LABEL
   { "Hostname oder IP, bei Bedarf mit Port. Ein Name funktioniert auch hinter einem Reverse Proxy, wo die IP allein nicht ans Ziel führt.",
     "Host name or IP, with a port when one is needed. A name also works behind a reverse proxy, where the IP alone does not reach the target.",
-    "Nom d'hôte ou adresse IP, avec le port si besoin. Un nom fonctionne aussi derrière un proxy inverse, où l'adresse IP seule ne mène pas au serveur visé." },  // STR_W_HOST_HINT
+    "Nom d'hôte ou adresse IP, avec le port si besoin. Un nom fonctionne aussi derrière un proxy inverse, où l'adresse IP seule ne mène pas au serveur visé.",
+    "Nome host o IP, con la porta se serve. Un nome funziona anche dietro un reverse proxy, dove il solo IP non raggiunge la destinazione." },  // STR_W_HOST_HINT
   { "Ohne Port geht es auf 80. Üblich sind Spoolman 7912, FilaMan 8083, BamBuddy 8000.",
     "Without a port this goes to 80. The usual ones are Spoolman 7912, FilaMan 8083, BamBuddy 8000.",
-    "Sans port indiqué, le port 80 est utilisé. Ports habituels : Spoolman 7912, FilaMan 8083, BamBuddy 8000." },  // STR_W_HOST_PORTHINT
+    "Sans port indiqué, le port 80 est utilisé. Ports habituels : Spoolman 7912, FilaMan 8083, BamBuddy 8000.",
+    "Senza porta si usa la 80. Le solite sono Spoolman 7912, FilaMan 8083, BamBuddy 8000." },  // STR_W_HOST_PORTHINT
   { "Die Adresse darf nicht leer sein.",
     "The address cannot be empty.",
-    "L'adresse ne peut pas être vide." },  // STR_W_HOST_EMPTY
+    "L'adresse ne peut pas être vide.",
+    "L'indirizzo non può essere vuoto." },  // STR_W_HOST_EMPTY
   { "https wird noch nicht unterstützt. Die Waage spricht nur http.",
     "https is not supported yet. The scale speaks plain http only.",
-    "https n'est pas encore pris en charge. La balance ne parle que http." },  // STR_W_HOST_HTTPS
+    "https n'est pas encore pris en charge. La balance ne parle que http.",
+    "https non è ancora supportato. La bilancia parla solo http." },  // STR_W_HOST_HTTPS
   { "Verbinde ...",
     "Connecting ...",
-    "Connexion ..." },  // STR_W_HOST_TESTING
+    "Connexion ...",
+    "Connessione ..." },  // STR_W_HOST_TESTING
   { "Erreichbar",
     "Reachable",
-    "Joignable" },  // STR_W_HOST_OK
+    "Joignable",
+    "Raggiungibile" },  // STR_W_HOST_OK
   { "Nicht erreichbar",
     "Not reachable",
-    "Injoignable" },  // STR_W_HOST_FAIL
+    "Injoignable",
+    "Non raggiungibile" },  // STR_W_HOST_FAIL
   { "Zugangsdaten",
     "Credentials",
-    "Identifiants" },  // STR_W_C_CREDS
+    "Identifiants",
+    "Credenziali" },  // STR_W_C_CREDS
   { "API-Key",
     "API key",
-    "Clé d'API" },  // STR_W_APIKEY
+    "Clé d'API",
+    "Chiave API" },  // STR_W_APIKEY
   { "Gerätecode",
     "Device code",
-    "Code d'appareil" },  // STR_W_DEVICE_CODE
+    "Code d'appareil",
+    "Codice dispositivo" },  // STR_W_DEVICE_CODE
   { "Registrieren",
     "Register",
-    "Associer l'appareil" },  // STR_W_REGISTER
+    "Associer l'appareil",
+    "Registra" },  // STR_W_REGISTER
   { "hinterlegt",
     "set",
-    "en mémoire" },  // STR_W_SET
+    "en mémoire",
+    "impostato" },  // STR_W_SET
   { "fehlt",
     "missing",
-    "à définir" },  // STR_W_UNSET
+    "à définir",
+    "mancante" },  // STR_W_UNSET
   { "Spoolman braucht keine Zugangsdaten.",
     "Spoolman needs no credentials.",
-    "Spoolman n'a besoin d'aucun identifiant." },  // STR_W_NO_CREDS
+    "Spoolman n'a besoin d'aucun identifiant.",
+    "Spoolman non richiede credenziali." },  // STR_W_NO_CREDS
   { "Schwellwerte je Material",
     "Thresholds per material",
-    "Seuils par matériau" },  // STR_W_C_DRYING
+    "Seuils par matériau",
+    "Soglie per materiale" },  // STR_W_C_DRYING
   { "Material",
     "Material",
-    "Matériau" },  // STR_W_DRY_MATERIAL
+    "Matériau",
+    "Materiale" },  // STR_W_DRY_MATERIAL
   { "Gelb ab",
     "Amber after",
-    "Jaune dès" },  // STR_W_DRY_YELLOW
+    "Jaune dès",
+    "Giallo dopo" },  // STR_W_DRY_YELLOW
   { "Rot ab",
     "Red after",
-    "Rouge dès" },  // STR_W_DRY_RED
+    "Rouge dès",
+    "Rosso dopo" },  // STR_W_DRY_RED
   { "Lagerung",
     "Storage",
-    "Stockage" },  // STR_W_DRY_STORAGE
+    "Stockage",
+    "Conservazione" },  // STR_W_DRY_STORAGE
   { "trocken",
     "sealed",
-    "sous vide" },  // STR_W_DRY_SEALED
+    "sous vide",
+    "sottovuoto" },  // STR_W_DRY_SEALED
   { "Tage",
     "days",
-    "jours" },  // STR_W_DRY_DAYS
+    "jours",
+    "giorni" },  // STR_W_DRY_DAYS
   { "Faktor für trockene Lagerung",
     "Multiplier for sealed storage",
-    "Facteur pour un stockage sous vide" },  // STR_W_DRY_MULT
+    "Facteur pour un stockage sous vide",
+    "Moltiplicatore per conservazione sottovuoto" },  // STR_W_DRY_MULT
   { "Luftdicht gelagert hält Filament länger. Die Schwellwerte oben werden für diese Materialien mit dem Faktor multipliziert.",
     "Filament stored airtight lasts longer. The thresholds above are multiplied by this factor for those materials.",
-    "Stocké à l'abri de l'air, le filament se conserve plus longtemps. Pour les matériaux marqués « sous vide », les seuils ci-dessus sont multipliés par ce facteur." },  // STR_W_DRY_MULT_HINT
+    "Stocké à l'abri de l'air, le filament se conserve plus longtemps. Pour les matériaux marqués « sous vide », les seuils ci-dessus sont multipliés par ce facteur.",
+    "Il filamento conservato ermeticamente dura di più. Per quei materiali le soglie qui sopra sono moltiplicate per questo fattore." },  // STR_W_DRY_MULT_HINT
   { "Gerätename",
     "Device name",
-    "Nom de l'appareil" },  // STR_W_C_DEVNAME
+    "Nom de l'appareil",
+    "Nome dispositivo" },  // STR_W_C_DEVNAME
   { "Name oder ganze Adresse, zum Beispiel scale.home.arpa. Der Teil vor dem ersten Punkt ist auch der Name, den der Router zeigt.",
     "A name, or a whole address such as scale.home.arpa. The part before the first dot is also the name your router shows.",
-    "Un nom, ou une adresse complète comme scale.home.arpa. La partie avant le premier point est aussi le nom que votre routeur affiche." },  // STR_W_DEVNAME_HINT
+    "Un nom, ou une adresse complète comme scale.home.arpa. La partie avant le premier point est aussi le nom que votre routeur affiche.",
+    "Un nome, o un indirizzo completo come scale.home.arpa. La parte prima del primo punto è anche il nome mostrato dal router." },  // STR_W_DEVNAME_HINT
   { "Buchstaben, Ziffern und Bindestriche, durch Punkte getrennt. Kein Bindestrich am Anfang oder Ende, keine Leerzeichen, kein leerer Teil zwischen zwei Punkten.",
     "Letters, digits and hyphens, separated by dots. No hyphen at the start or end, no spaces, no empty part between two dots.",
-    "Lettres, chiffres et traits d'union, séparés par des points. Pas de trait d'union au début ni à la fin, pas d'espace, aucune partie vide entre deux points." },  // STR_W_DEVNAME_BAD
+    "Lettres, chiffres et traits d'union, séparés par des points. Pas de trait d'union au début ni à la fin, pas d'espace, aucune partie vide entre deux points.",
+    "Lettere, cifre e trattini, separati da punti. Niente trattino all'inizio o alla fine, niente spazi, nessuna parte vuota tra due punti." },  // STR_W_DEVNAME_BAD
   { "Jetzt erreichbar unter %s - beim Router nach dem nächsten Verbinden.",
     "Reachable now at %s - the router shows it after the next connection.",
-    "Joignable maintenant à %s - le routeur l'affiche après la prochaine connexion." },  // STR_W_DEVNAME_NOW
+    "Joignable maintenant à %s - le routeur l'affiche après la prochaine connexion.",
+    "Raggiungibile ora su %s - il router lo mostra dopo la prossima connessione." },  // STR_W_DEVNAME_NOW
   { "Listenlimits",
     "List limits",
-    "Limites de liste" },  // STR_W_C_LIMITS
+    "Limites de liste",
+    "Limiti elenco" },  // STR_W_C_LIMITS
   { "Spulenliste",
     "Spool list",
-    "Liste des bobines" },  // STR_W_LIMIT_SPOOLS
+    "Liste des bobines",
+    "Elenco bobine" },  // STR_W_LIMIT_SPOOLS
   { "Standortliste",
     "Location list",
-    "Liste des emplacements" },  // STR_W_LIMIT_LOCS
+    "Liste des emplacements",
+    "Elenco posizioni" },  // STR_W_LIMIT_LOCS
   { "Wie viele Einträge die Auswahl am Gerät zeigt.",
     "How many entries the picker on the device shows.",
-    "Nombre maximal d'entrées affichées dans la liste de l'appareil." },  // STR_W_LIMIT_HINT
+    "Nombre maximal d'entrées affichées dans la liste de l'appareil.",
+    "Quante voci mostra la lista sul dispositivo." },  // STR_W_LIMIT_HINT
   { "Zu viele Einträge lassen die Anzeige einfrieren - ein Neustart erfolgt nicht von selbst.",
     "Too many entries freeze the display - it does not reboot by itself.",
-    "Trop d'entrées figent l'affichage - et l'appareil ne redémarre pas de lui-même." },  // STR_W_LIMIT_WARN
+    "Trop d'entrées figent l'affichage - et l'appareil ne redémarre pas de lui-même.",
+    "Troppe voci bloccano il display - e non si riavvia da solo." },  // STR_W_LIMIT_WARN
   { "Anzeige",
     "Display",
-    "Affichage" },  // STR_W_C_DISPLAY
+    "Affichage",
+    "Display" },  // STR_W_C_DISPLAY
   { "Helligkeitsanhebung",
     "Brightness lift",
-    "Renfort de luminosité" },  // STR_W_GAIN
+    "Renfort de luminosité",
+    "Aumento luminosità" },  // STR_W_GAIN
   { "100 ist aus. Die Hintergrundbeleuchtung ist bei 255 schon am Anschlag, das hier ist der verbleibende Hebel auf ein dunkles Panel.",
     "100 is off. The backlight is already at its ceiling at 255, so this is the only remaining lever on a dim panel.",
-    "À 100, aucun renfort. Le rétroéclairage plafonne déjà à 255 : ce renfort reste le seul moyen d'éclaircir un écran trop sombre." },  // STR_W_GAIN_HINT
+    "À 100, aucun renfort. Le rétroéclairage plafonne déjà à 255 : ce renfort reste le seul moyen d'éclaircir un écran trop sombre.",
+    "100 è spento. La retroilluminazione è già al massimo a 255, quindi questa è l'unica leva rimasta per uno schermo poco luminoso." },  // STR_W_GAIN_HINT
   { "Tag beschreiben",
     "Write a tag",
-    "Écrire un tag" },  // STR_W_C_WRITETAG
+    "Écrire un tag",
+    "Scrivi un tag" },  // STR_W_C_WRITETAG
   { "Spule",
     "Spool",
-    "Bobine" },  // STR_W_TAG_SPOOL
+    "Bobine",
+    "Bobina" },  // STR_W_TAG_SPOOL
   { "-- Spule wählen --",
     "-- pick a spool --",
-    "-- choisir une bobine --" },  // STR_W_TAG_PICK
+    "-- choisir une bobine --",
+    "-- scegli una bobina --" },  // STR_W_TAG_PICK
   { "Auf dem Tag",
     "On the tag",
-    "Sur le tag" },  // STR_W_TAG_ONTAG
+    "Sur le tag",
+    "Sul tag" },  // STR_W_TAG_ONTAG
   { "Würde geschrieben",
     "Will be written",
-    "Sera écrit" },  // STR_W_TAG_WILLBE
+    "Sera écrit",
+    "Verrà scritto" },  // STR_W_TAG_WILLBE
   { "Kein Tag auf dem Leser.",
     "No tag on the reader.",
-    "Aucun tag sur le lecteur." },  // STR_W_TAG_NOTAG
+    "Aucun tag sur le lecteur.",
+    "Nessun tag sul lettore." },  // STR_W_TAG_NOTAG
   { "Tag auf dem Leser:",
     "Tag on the reader:",
-    "Tag sur le lecteur :" },  // STR_W_TAG_ONREADER
+    "Tag sur le lecteur :",
+    "Tag sul lettore:" },  // STR_W_TAG_ONREADER
   { "Erst eine Spule wählen.",
     "Pick a spool first.",
-    "Choisissez d'abord une bobine." },  // STR_W_TAG_PICKFIRST
+    "Choisissez d'abord une bobine.",
+    "Scegli prima una bobina." },  // STR_W_TAG_PICKFIRST
   { "Leerer Tag",
     "Blank tag",
-    "Tag vierge" },  // STR_W_TAG_BLANK
+    "Tag vierge",
+    "Tag vuoto" },  // STR_W_TAG_BLANK
   { "Daten, die diese Firmware nicht lesen kann",
     "Data this firmware cannot read",
-    "Données que ce firmware ne sait pas lire" },  // STR_W_TAG_UNKNOWN
+    "Données que ce firmware ne sait pas lire",
+    "Dati che questo firmware non sa leggere" },  // STR_W_TAG_UNKNOWN
   { "Tag beschreiben",
     "Write tag",
-    "Écrire le tag" },  // STR_W_TAG_WRITE
+    "Écrire le tag",
+    "Scrivi tag" },  // STR_W_TAG_WRITE
   { "Tag überschreiben",
     "Overwrite tag",
-    "Écraser le tag" },  // STR_W_TAG_OVERWRITE
+    "Écraser le tag",
+    "Sovrascrivi tag" },  // STR_W_TAG_OVERWRITE
   { "Tag stimmt bereits überein",
     "Tag already matches",
-    "Le tag correspond déjà" },  // STR_W_TAG_MATCHES
+    "Le tag correspond déjà",
+    "Il tag corrisponde già" },  // STR_W_TAG_MATCHES
   { "Tag leeren",
     "Erase tag",
-    "Vider le tag" },  // STR_W_TAG_ERASE
+    "Vider le tag",
+    "Cancella tag" },  // STR_W_TAG_ERASE
   { "Alles auf diesem Tag löschen?",
     "Erase everything on this tag?",
-    "Effacer tout ce qui est sur ce tag ?" },  // STR_W_TAG_ERASE_ASK
+    "Effacer tout ce qui est sur ce tag ?",
+    "Cancellare tutto su questo tag?" },  // STR_W_TAG_ERASE_ASK
   { "Spule mit diesem Tag verknüpfen",
     "Link the spool to this tag",
-    "Lier la bobine à ce tag" },  // STR_W_TAG_LINK
+    "Lier la bobine à ce tag",
+    "Collega la bobina a questo tag" },  // STR_W_TAG_LINK
   { "Diese Spule hängt an %s, das damit zum vorherigen Tag wird.",
     "This spool is linked to %s, which becomes its previous tag.",
-    "Cette bobine est liée à %s, qui devient son tag précédent." },  // STR_W_TAG_RELINK
+    "Cette bobine est liée à %s, qui devient son tag précédent.",
+    "Questa bobina è collegata a %s, che diventa il suo tag precedente." },  // STR_W_TAG_RELINK
   { "Eingereiht.",
     "Queued.",
-    "En file d'attente." },  // STR_W_TAG_QUEUED
+    "En file d'attente.",
+    "In coda." },  // STR_W_TAG_QUEUED
   { "Spulenliste nicht verfügbar",
     "Spool list unavailable",
-    "Liste indisponible" },  // STR_W_TAG_NOLIST
+    "Liste indisponible",
+    "Elenco bobine non disponibile" },  // STR_W_TAG_NOLIST
   { "SKU",
     "SKU",
-    "Référence" },  // STR_W_TAG_SKU
+    "Référence",
+    "Codice" },  // STR_W_TAG_SKU
   { "Düse",
     "Nozzle",
-    "Buse" },  // STR_W_TAG_NOZZLE
+    "Buse",
+    "Ugello" },  // STR_W_TAG_NOZZLE
   { "Bett",
     "Bed",
-    "Plateau" },  // STR_W_TAG_BED
+    "Plateau",
+    "Piatto" },  // STR_W_TAG_BED
   { "Gewicht",
     "Weight",
-    "Poids" },  // STR_W_TAG_WEIGHT
+    "Poids",
+    "Peso" },  // STR_W_TAG_WEIGHT
   { "Durchmesser",
     "Diameter",
-    "Diamètre" },  // STR_W_TAG_DIA
+    "Diamètre",
+    "Diametro" },  // STR_W_TAG_DIA
   { "Länge",
     "Length",
-    "Longueur" },  // STR_W_TAG_LENGTH
+    "Longueur",
+    "Lunghezza" },  // STR_W_TAG_LENGTH
   { "Links steht, was gerade auf dem Tag liegt, rechts, was die gewählte Spule ergäbe. Abweichende Zeilen sind farbig.",
     "On the left what the tag holds right now, on the right what the selected spool would put there. Lines that differ are coloured.",
-    "À gauche, ce que le tag contient en ce moment ; à droite, ce que la bobine choisie y mettrait. Les lignes qui diffèrent sont en couleur." },  // STR_W_TAG_COMPARE
+    "À gauche, ce que le tag contient en ce moment ; à droite, ce que la bobine choisie y mettrait. Les lignes qui diffèrent sont en couleur.",
+    "A sinistra cosa contiene ora il tag, a destra cosa ci metterebbe la bobina scelta. Le righe diverse sono colorate." },  // STR_W_TAG_COMPARE
   { "SD-Karte",
     "SD card",
-    "Carte SD" },  // STR_W_C_LOGS
+    "Carte SD",
+    "Scheda SD" },  // STR_W_C_LOGS
   { "Ansehen",
     "View",
-    "Voir" },  // STR_W_LOG_VIEW
+    "Voir",
+    "Vedi" },  // STR_W_LOG_VIEW
   { "Löschen",
     "Delete",
-    "Supprimer" },  // STR_W_LOG_DELETE
+    "Supprimer",
+    "Elimina" },  // STR_W_LOG_DELETE
   { "Diese Datei löschen?",
     "Delete this file?",
-    "Supprimer ce fichier ?" },  // STR_W_LOG_DELETE_ASK
+    "Supprimer ce fichier ?",
+    "Eliminare questo file?" },  // STR_W_LOG_DELETE_ASK
   { "Keine SD-Karte erkannt",
     "No SD card detected",
-    "Aucune carte SD détectée" },  // STR_W_LOG_NOSD
+    "Aucune carte SD détectée",
+    "Nessuna scheda SD rilevata" },  // STR_W_LOG_NOSD
   { "Eine FAT32-formatierte Karte einlegen, um die Diagnoseprotokolle zu aktivieren.",
     "Insert a FAT32 formatted card to enable diagnostic logging.",
-    "Insérez une carte formatée en FAT32 pour activer les journaux de diagnostic." },  // STR_W_LOG_NOSD_HINT
+    "Insérez une carte formatée en FAT32 pour activer les journaux de diagnostic.",
+    "Inserisci una scheda formattata FAT32 per attivare i log di diagnostica." },  // STR_W_LOG_NOSD_HINT
   { "Noch keine Protokolle.",
     "No logs yet.",
-    "Aucun journal pour l'instant." },  // STR_W_LOG_EMPTY
+    "Aucun journal pour l'instant.",
+    "Ancora nessun log." },  // STR_W_LOG_EMPTY
   { "Firmware",
+    "Firmware",
     "Firmware",
     "Firmware" },  // STR_W_C_FIRMWARE
   { "Installiert",
     "Installed",
-    "Version installée" },  // STR_W_FW_INSTALLED
+    "Version installée",
+    "Installato" },  // STR_W_FW_INSTALLED
   { "Datei hochladen",
     "Upload a file",
-    "Envoyer un fichier" },  // STR_W_FW_FILE
+    "Envoyer un fichier",
+    "Carica un file" },  // STR_W_FW_FILE
   { "Flashen",
     "Flash",
-    "Flasher" },  // STR_W_FW_FLASH
+    "Flasher",
+    "Installa" },  // STR_W_FW_FLASH
   { "Das Gerät startet nach dem Schreiben von selbst neu. Strom nicht trennen.",
     "The device restarts by itself once written. Do not cut the power.",
-    "Après l'écriture du firmware, l'appareil redémarre de lui-même. Ne coupez pas l'alimentation." },  // STR_W_FW_HINT
+    "Après l'écriture du firmware, l'appareil redémarre de lui-même. Ne coupez pas l'alimentation.",
+    "Dopo la scrittura il dispositivo si riavvia da solo. Non togliere l'alimentazione." },  // STR_W_FW_HINT
   { "Update erfolgreich",
     "Update successful",
-    "Mise à jour réussie" },  // STR_W_FW_OK
+    "Mise à jour réussie",
+    "Aggiornamento riuscito" },  // STR_W_FW_OK
   { "Das Gerät startet neu ...",
     "Device is restarting ...",
-    "L'appareil redémarre ..." },  // STR_W_FW_RESTARTING
+    "L'appareil redémarre ...",
+    "Il dispositivo si sta riavviando ..." },  // STR_W_FW_RESTARTING
   { "Update fehlgeschlagen",
     "Update failed",
-    "Échec de la mise à jour" },  // STR_W_FW_FAIL
+    "Échec de la mise à jour",
+    "Aggiornamento fallito" },  // STR_W_FW_FAIL
   { "Bitte erneut versuchen.",
     "Please try again.",
-    "Veuillez réessayer." },  // STR_W_FW_RETRY
+    "Veuillez réessayer.",
+    "Riprova." },  // STR_W_FW_RETRY
   { "Update über GitHub",
     "Update from GitHub",
-    "Mise à jour par GitHub" },  // STR_W_C_FW_GITHUB
+    "Mise à jour par GitHub",
+    "Aggiorna da GitHub" },  // STR_W_C_FW_GITHUB
   { "Kanal",
     "Channel",
-    "Canal" },  // STR_W_FW_CHANNEL
+    "Canal",
+    "Canale" },  // STR_W_FW_CHANNEL
   { "Release",
     "Release",
-    "Version stable" },  // STR_W_FW_CH_STABLE
+    "Version stable",
+    "Stabile" },  // STR_W_FW_CH_STABLE
   { "Vorabversion",
     "Pre-release",
-    "Pré-version" },  // STR_W_FW_CH_PRE
+    "Pré-version",
+    "Pre-release" },  // STR_W_FW_CH_PRE
   { "Neueste",
     "Latest",
-    "Dernière version" },  // STR_W_FW_LATEST
+    "Dernière version",
+    "Ultima" },  // STR_W_FW_LATEST
   { "Nach Updates suchen",
     "Check for updates",
-    "Rechercher des mises à jour" },  // STR_W_FW_CHECK
+    "Rechercher des mises à jour",
+    "Cerca aggiornamenti" },  // STR_W_FW_CHECK
   { "Suche ...",
     "Checking ...",
-    "Recherche ..." },  // STR_W_FW_CHECKING
+    "Recherche ...",
+    "Ricerca ..." },  // STR_W_FW_CHECKING
   { "Bereits aktuell",
     "Already up to date",
-    "Déjà à jour" },  // STR_W_FW_UPTODATE
+    "Déjà à jour",
+    "Già aggiornato" },  // STR_W_FW_UPTODATE
   { "Update verfügbar",
     "Update available",
-    "Mise à jour disponible" },  // STR_W_FW_AVAIL
+    "Mise à jour disponible",
+    "Aggiornamento disponibile" },  // STR_W_FW_AVAIL
   { "Installieren",
     "Install",
-    "Installer" },  // STR_W_FW_INSTALL
+    "Installer",
+    "Installa" },  // STR_W_FW_INSTALL
   { "Wird installiert ...",
     "Installing ...",
-    "Installation ..." },  // STR_W_FW_INSTALLING
+    "Installation ...",
+    "Installazione ..." },  // STR_W_FW_INSTALLING
   { "Kein WLAN",
     "No WiFi connection",
-    "Pas de connexion WiFi" },  // STR_W_FW_NOWIFI
+    "Pas de connexion WiFi",
+    "Nessuna connessione WiFi" },  // STR_W_FW_NOWIFI
   { "Das Gerät prüft oder schreibt gerade",
     "The device is already checking or writing",
-    "L'appareil est déjà en train de chercher ou d'écrire" },  // STR_W_FW_BUSY
+    "L'appareil est déjà en train de chercher ou d'écrire",
+    "Il dispositivo sta già cercando o scrivendo" },  // STR_W_FW_BUSY
   { "Suche fehlgeschlagen",
     "Check failed",
-    "Échec de la recherche" },  // STR_W_FW_CHECK_FAIL
+    "Échec de la recherche",
+    "Ricerca fallita" },  // STR_W_FW_CHECK_FAIL
   { "Der Kanal ist derselbe wie am Gerät. Das Image wird vom Gerät geladen, nicht vom Browser.",
     "The channel is the same setting as on the device. The image is fetched by the device, not by this browser.",
-    "Le canal est le même réglage que sur l'appareil. C'est l'appareil qui télécharge le firmware, pas ce navigateur." },  // STR_W_FW_GH_HINT
+    "Le canal est le même réglage que sur l'appareil. C'est l'appareil qui télécharge le firmware, pas ce navigateur.",
+    "Il canale è la stessa impostazione del dispositivo. Il firmware lo scarica il dispositivo, non questo browser." },  // STR_W_FW_GH_HINT
   { "Veröffentlicht",
     "Released",
-    "Publiée le" },  // STR_W_FW_RELEASED
+    "Publiée le",
+    "Pubblicata" },  // STR_W_FW_RELEASED
   { "Installiert am",
     "Installed on",
-    "Installée le" },  // STR_W_FW_SINCE
+    "Installée le",
+    "Installata il" },  // STR_W_FW_SINCE
   { "Release Notes",
     "Release notes",
-    "Notes de version" },  // STR_W_FW_NOTES
+    "Notes de version",
+    "Note di rilascio" },  // STR_W_FW_NOTES
   { "Was ist neu",
     "What is new",
-    "Nouveautés" },  // STR_W_FW_WHATSNEW
+    "Nouveautés",
+    "Novità" },  // STR_W_FW_WHATSNEW
   { "Nicht als Release veröffentlicht",
     "Not a published release",
-    "Version non publiée" },  // STR_W_FW_UNPUBLISHED
+    "Version non publiée",
+    "Versione non pubblicata" },  // STR_W_FW_UNPUBLISHED
   { "unbekannt",
     "unknown",
-    "inconnue" },  // STR_W_FW_UNKNOWN
+    "inconnue",
+    "sconosciuta" },  // STR_W_FW_UNKNOWN
   { "Ausblenden",
     "Hide",
-    "Masquer" },  // STR_W_FW_HIDE
+    "Masquer",
+    "Nascondi" },  // STR_W_FW_HIDE
   { "{v} installieren?",
     "Install {v}?",
-    "Installer {v} ?" },  // STR_W_FW_CONFIRM
+    "Installer {v} ?",
+    "Installare {v}?" },  // STR_W_FW_CONFIRM
   { "Das Gerät startet nach dem Download automatisch neu, die Seite lädt sich dann selbst. Strom nicht trennen.",
     "The device restarts by itself when the download finishes, and this page reloads. Do not cut the power.",
-    "L'appareil redémarre tout seul à la fin du téléchargement, et cette page se recharge. Ne coupez pas l'alimentation." },  // STR_W_FW_REBOOTS
+    "L'appareil redémarre tout seul à la fin du téléchargement, et cette page se recharge. Ne coupez pas l'alimentation.",
+    "Al termine del download il dispositivo si riavvia da solo e questa pagina si ricarica. Non togliere l'alimentazione." },  // STR_W_FW_REBOOTS
   { "Ältere Version",
     "Older release",
-    "Version plus ancienne" },  // STR_W_FW_OLDER
+    "Version plus ancienne",
+    "Versione precedente" },  // STR_W_FW_OLDER
   { "Auf {v} zurückstufen?",
     "Downgrade to {v}?",
-    "Revenir à {v} ?" },  // STR_W_FW_DOWNGRADE
+    "Revenir à {v} ?",
+    "Tornare a {v}?" },  // STR_W_FW_DOWNGRADE
   { "{v} ist älter als die installierte {i}.",
     "{v} is older than the installed {i}.",
-    "{v} est plus ancienne que la version installée {i}." },  // STR_W_FW_DOWNWARN
+    "{v} est plus ancienne que la version installée {i}.",
+    "{v} è più vecchia della versione installata {i}." },  // STR_W_FW_DOWNWARN
   { "Gewicht",
     "Weight",
-    "Poids" },  // STR_W_R_WEIGHT
+    "Poids",
+    "Peso" },  // STR_W_R_WEIGHT
   { "Konnte nicht geladen werden.",
     "Could not be loaded.",
-    "Chargement impossible." },  // STR_W_LOAD_FAIL
+    "Chargement impossible.",
+    "Impossibile caricare." },  // STR_W_LOAD_FAIL
   { "Jede Zeile auf der Karte ist ein eigener Schreibzugriff. Läuft alles rund, lässt sich das Protokoll oben abschalten, ohne die Karte zu ziehen. Das Sitzungsprotokoll weiter unten läuft immer weiter.",
     "Every line on the card is a write of its own. When everything runs fine, switch the log off above instead of pulling the card. The session log further down keeps running either way.",
-    "Chaque ligne du journal est une écriture distincte sur la carte. Quand tout fonctionne bien, désactivez le journal ci-dessus plutôt que de retirer la carte. Le journal de session, plus bas, continue dans tous les cas." },  // STR_W_LOG_NOTE
+    "Chaque ligne du journal est une écriture distincte sur la carte. Quand tout fonctionne bien, désactivez le journal ci-dessus plutôt que de retirer la carte. Le journal de session, plus bas, continue dans tous les cas.",
+    "Ogni riga sulla scheda è una scrittura a sé. Quando tutto funziona, spegni il log qui sopra invece di togliere la scheda. Il log di sessione più in basso continua in ogni caso." },  // STR_W_LOG_NOTE
   { "Sitzungsprotokoll",
     "Session log",
-    "Journal de session" },  // STR_W_C_SESSION
+    "Journal de session",
+    "Log di sessione" },  // STR_W_C_SESSION
   { "Die letzten Zeilen seit dem Start, im Arbeitsspeicher gehalten und beim Neustart weg. Eine SD-Karte braucht es nur, um Protokolle zu behalten.",
     "The last lines since start, held in memory and gone on restart. An SD card is only needed to keep logs, not to have them.",
-    "Les dernières lignes du journal depuis le démarrage, gardées en mémoire vive et perdues à chaque redémarrage. Une carte SD n'est nécessaire que pour conserver les journaux." },  // STR_W_SESSION_NOTE
+    "Les dernières lignes du journal depuis le démarrage, gardées en mémoire vive et perdues à chaque redémarrage. Une carte SD n'est nécessaire que pour conserver les journaux.",
+    "Le ultime righe dall'avvio, tenute in memoria e perse al riavvio. La scheda SD serve solo per conservare i log, non per averli." },  // STR_W_SESSION_NOTE
   { "Noch nichts protokolliert.",
     "Nothing logged yet.",
-    "Rien de journalisé pour l'instant." },  // STR_W_SESSION_EMPTY
+    "Rien de journalisé pour l'instant.",
+    "Ancora nessun log." },  // STR_W_SESSION_EMPTY
   { "Aktualisieren",
     "Refresh",
-    "Actualiser" },  // STR_W_SESSION_REFRESH
+    "Actualiser",
+    "Aggiorna" },  // STR_W_SESSION_REFRESH
   { "Wird geladen...",
     "Loading...",
-    "Chargement..." },  // STR_W_SESSION_BUSY
+    "Chargement...",
+    "Caricamento..." },  // STR_W_SESSION_BUSY
   { "Geholt um",
     "Fetched at",
-    "Récupéré à" },  // STR_W_SESSION_UPDATED
+    "Récupéré à",
+    "Letto alle" },  // STR_W_SESSION_UPDATED
   { "Zeilen",
     "lines",
-    "lignes" },  // STR_W_SESSION_LINES
+    "lignes",
+    "righe" },  // STR_W_SESSION_LINES
   { "Angehalten, zum Weiterlesen auf Aktualisieren tippen",
     "Paused, press refresh to follow again",
-    "En pause, touchez Actualiser pour reprendre le suivi" },  // STR_W_SESSION_PAUSED
+    "En pause, touchez Actualiser pour reprendre le suivi",
+    "In pausa, premi Aggiorna per seguire di nuovo" },  // STR_W_SESSION_PAUSED
   { "neu",
     "new",
-    "nouvelles" },  // STR_W_SESSION_NEW
+    "nouvelles",
+    "nuove" },  // STR_W_SESSION_NEW
   { "Text kopieren",
     "Copy text",
-    "Copier" },  // STR_W_SESSION_COPY
+    "Copier",
+    "Copia testo" },  // STR_W_SESSION_COPY
   { "Kopiert",
     "Copied",
-    "Copié" },  // STR_W_SESSION_COPIED
+    "Copié",
+    "Copiato" },  // STR_W_SESSION_COPIED
   { "Kopieren nicht möglich, bitte markieren",
     "Cannot copy, please select the text",
-    "Copie impossible, sélectionnez le texte" },  // STR_W_SESSION_COPYFAIL
+    "Copie impossible, sélectionnez le texte",
+    "Impossibile copiare, seleziona il testo" },  // STR_W_SESSION_COPYFAIL
   { "Einen beschreibbaren NTAG auflegen, Spule wählen, schreiben. Was auf dem Tag steht, wird ersetzt. Tags ab Werk sind meist MIFARE Classic oder gesperrt und lassen sich nur lesen.",
     "Place a writable NTAG on the reader, pick a spool, and write it. Whatever is already on the tag is replaced. Factory tags are usually MIFARE Classic or locked, and can only be read.",
-    "Posez un NTAG inscriptible sur le lecteur, choisissez une bobine, puis cliquez sur Écrire le tag. Tout ce que contient déjà le tag est remplacé. Les tags posés en usine sont le plus souvent des MIFARE Classic ou sont verrouillés : ils ne peuvent qu'être lus." },  // STR_W_TAG_NOTE
+    "Posez un NTAG inscriptible sur le lecteur, choisissez une bobine, puis cliquez sur Écrire le tag. Tout ce que contient déjà le tag est remplacé. Les tags posés en usine sont le plus souvent des MIFARE Classic ou sont verrouillés : ils ne peuvent qu'être lus.",
+    "Metti un NTAG scrivibile sul lettore, scegli una bobina e scrivilo. Quello che c'è già sul tag viene sostituito. I tag di fabbrica di solito sono MIFARE Classic o bloccati, e si possono solo leggere." },  // STR_W_TAG_NOTE
   { "<b>Welcher Tag für welches Format.</b> OpenSpool braucht rund 180 Byte und damit einen <b>NTAG215</b> (496 Byte) oder <b>NTAG216</b> (872 Byte). Auf einen NTAG213 (144 Byte) passt davon nichts, dort geht nur Anycubic ACE, das mit 112 Byte auskommt. Meldet ein Tag keine Größe, rechnet die Waage sicherheitshalber mit den 144 Byte eines NTAG213 - dann den Tag einmal mit einer NFC-App als NDEF formatieren, das trägt die Größe ein.",
     "<b>Which tag for which format.</b> OpenSpool needs about 180 bytes, so it wants an <b>NTAG215</b> (496 bytes) or an <b>NTAG216</b> (872 bytes). None of it fits an NTAG213 (144 bytes), which leaves Anycubic ACE, and that needs only 112. A tag that reports no size at all is treated as the 144 bytes of an NTAG213 to stay safe - format such a tag as NDEF once with any NFC app and it will report its real size.",
-    "<b>Quel tag pour quel format.</b> OpenSpool a besoin d'environ 180 octets, donc d'un <b>NTAG215</b> (496 octets) ou d'un <b>NTAG216</b> (872 octets). Un NTAG213 (144 octets) est trop petit pour OpenSpool : seul le format Anycubic ACE, qui se contente de 112 octets, y tient. Si un tag n'indique pas sa taille, la balance suppose par prudence qu'il n'a que 144 octets, comme un NTAG213 - dans ce cas, formatez-le une fois en NDEF avec une application NFC, ce qui y inscrit sa taille." },  // STR_W_TAG_SIZES
+    "<b>Quel tag pour quel format.</b> OpenSpool a besoin d'environ 180 octets, donc d'un <b>NTAG215</b> (496 octets) ou d'un <b>NTAG216</b> (872 octets). Un NTAG213 (144 octets) est trop petit pour OpenSpool : seul le format Anycubic ACE, qui se contente de 112 octets, y tient. Si un tag n'indique pas sa taille, la balance suppose par prudence qu'il n'a que 144 octets, comme un NTAG213 - dans ce cas, formatez-le une fois en NDEF avec une application NFC, ce qui y inscrit sa taille.",
+    "<b>Quale tag per quale formato.</b> OpenSpool richiede circa 180 byte, quindi serve un <b>NTAG215</b> (496 byte) o un <b>NTAG216</b> (872 byte). In un NTAG213 (144 byte) entra solo Anycubic ACE, che ne richiede 112. Un tag che non dichiara la dimensione viene trattato per sicurezza come i 144 byte di un NTAG213 - formatta una volta il tag come NDEF con un'app NFC e dichiarerà la sua dimensione reale." },  // STR_W_TAG_SIZES
   { "FilaMan legt beides an verschiedenen Stellen an und zeigt es jeweils nur einmal.<br><b>API-Key:</b> auf das Zahnrad neben dem Benutzernamen klicken, <b>API Keys</b> öffnen und einen Key erstellen. Oben eintragen und speichern.<br><b>Gerätecode:</b> <b>Admin-Bereich &gt; Geräte</b> öffnen und <b>Gerät erstellen</b> klicken. Den sechsstelligen Code oben eintragen und registrieren.<br>Ein Gerät anlegen kann nur ein Admin. Den Key mit demselben Konto erstellen, sonst lehnt FilaMan die AMS-Zuordnung ab.",
     "FilaMan creates the two in different places and shows each only once.<br><b>API key:</b> click the gear icon next to your user name, open <b>API Keys</b> and create a key. Enter it above and save.<br><b>Device code:</b> open <b>Admin Panel &gt; Devices</b> and click <b>Create Device</b>. Enter the six character code above and register.<br>Only an admin can create a device. Create the key with the same account, or FilaMan refuses the AMS assignment.",
-    "FilaMan crée la clé et le code à deux endroits différents, et n'affiche chacun qu'une seule fois.<br><b>Clé d'API :</b> cliquez sur l'icône d'engrenage à côté de votre nom d'utilisateur, ouvrez <b>Clés API</b> (API Keys) et créez une clé. Saisissez-la ci-dessus et cliquez sur Enregistrer.<br><b>Code d'appareil :</b> ouvrez <b>Espace admin &gt; Appareils</b> (Admin Panel > Devices) et cliquez sur <b>Créer un appareil</b> (Create Device). Saisissez le code à six caractères ci-dessus, puis cliquez sur Associer l'appareil.<br>Seul un administrateur peut créer un appareil. Créez la clé avec ce même compte, sinon FilaMan refuse l'affectation AMS." },  // STR_W_FM_SETUP
+    "FilaMan crée la clé et le code à deux endroits différents, et n'affiche chacun qu'une seule fois.<br><b>Clé d'API :</b> cliquez sur l'icône d'engrenage à côté de votre nom d'utilisateur, ouvrez <b>Clés API</b> (API Keys) et créez une clé. Saisissez-la ci-dessus et cliquez sur Enregistrer.<br><b>Code d'appareil :</b> ouvrez <b>Espace admin &gt; Appareils</b> (Admin Panel > Devices) et cliquez sur <b>Créer un appareil</b> (Create Device). Saisissez le code à six caractères ci-dessus, puis cliquez sur Associer l'appareil.<br>Seul un administrateur peut créer un appareil. Créez la clé avec ce même compte, sinon FilaMan refuse l'affectation AMS.",
+    "FilaMan crea i due in posti diversi e mostra ciascuno una sola volta.<br><b>Chiave API:</b> fai clic sull'ingranaggio accanto al tuo nome utente, apri <b>API Keys</b> e crea una chiave. Inseriscila qui sopra e salva.<br><b>Codice dispositivo:</b> apri <b>Admin Panel &gt; Devices</b> e fai clic su <b>Create Device</b>. Inserisci il codice di sei caratteri qui sopra e registra.<br>Solo un amministratore può creare un dispositivo. Crea la chiave con lo stesso account, altrimenti FilaMan rifiuta l'assegnazione AMS." },  // STR_W_FM_SETUP
   { "Der Schlüssel steht in BamBuddy unter den Einstellungen. Läuft die Instanz ohne Anmeldung, bleibt das Feld leer.",
     "The key is in BamBuddy under settings. Leave the field empty if the instance runs without authentication.",
-    "La clé se trouve dans BamBuddy, dans les réglages. Laissez le champ vide si l'instance tourne sans authentification." },  // STR_W_BB_SETUP
+    "La clé se trouve dans BamBuddy, dans les réglages. Laissez le champ vide si l'instance tourne sans authentification.",
+    "La chiave si trova in BamBuddy nelle impostazioni. Lascia il campo vuoto se l'istanza funziona senza autenticazione." },  // STR_W_BB_SETUP
   { "Strom nicht trennen",
     "Do not cut the power",
-    "Ne coupez pas l'alimentation" },  // STR_OTA_KEEP_POWER
+    "Ne coupez pas l'alimentation",
+    "Non togliere l'alimentazione" },  // STR_OTA_KEEP_POWER
   { "Kaffee ausgeben",
     "Buy me a coffee",
-    "Offrir un café" },  // STR_W_KOFI
+    "Offrir un café",
+    "Offrimi un caffè" },  // STR_W_KOFI
   { "Adresse ist ein Name",
     "Address is a name",
-    "L'adresse est un nom" },  // STR_SP_LOCKED_TITLE
+    "L'adresse est un nom",
+    "Indirizzo = nome" },  // STR_SP_LOCKED_TITLE
   { "Dieser Ziffernblock kann nur Zahlen. Die Adresse im Browser ändern:",
     "This keypad can only make numbers. Change the address in the browser:",
-    "Cet écran ne permet de saisir que des chiffres. Modifiez l'adresse depuis un navigateur :" },  // STR_SP_LOCKED_INFO
+    "Cet écran ne permet de saisir que des chiffres. Modifiez l'adresse depuis un navigateur :",
+    "Questo tastierino inserisce solo numeri. Cambia l'indirizzo dal browser:" },  // STR_SP_LOCKED_INFO
   { "Weboberfläche aus: Einstellungen > System > Weboberfläche",
     "Web interface off: Settings > System > Web interface",
-    "Désactivée : Réglages > Système > Interface web" },  // STR_SP_WEB_OFF
+    "Désactivée : Réglages > Système > Interface web",
+    "Web spento: Impostazioni > Sistema > Web" },  // STR_SP_WEB_OFF
   { "Adresse leeren",
     "Clear address",
-    "Effacer l'adresse" },  // STR_SP_CLEAR
+    "Effacer l'adresse",
+    "Cancella indirizzo" },  // STR_SP_CLEAR
   { "Adresse verwerfen? Danach ist das Backend nicht mehr eingerichtet, und am Gerät lässt sich nur eine IP eingeben.",
     "Discard the address? The backend is then no longer set up, and the device itself can only enter an IP.",
-    "Effacer l'adresse ? Le backend ne sera plus configuré, et sur l'appareil seule une adresse IP pourra être saisie." },  // STR_SP_CLEAR_ASK
+    "Effacer l'adresse ? Le backend ne sera plus configuré, et sur l'appareil seule une adresse IP pourra être saisie.",
+    "Eliminare l'indirizzo? Il backend non sarà più configurato, e sul dispositivo si può inserire solo un IP." },  // STR_SP_CLEAR_ASK
   { "Alle löschen",
     "Delete all",
-    "Tout supprimer" },  // STR_W_LOG_DELETE_ALL
+    "Tout supprimer",
+    "Elimina tutti" },  // STR_W_LOG_DELETE_ALL
   { "{n} Dateien löschen? Das Log von heute wird dabei neu begonnen.",
     "Delete {n} files? Today's log is started over.",
-    "Supprimer {n} fichiers ? Le journal du jour est recommencé." },  // STR_W_LOG_DELETE_ALL_ASK
+    "Supprimer {n} fichiers ? Le journal du jour est recommencé.",
+    "Eliminare {n} file? Il log di oggi ricomincia." },  // STR_W_LOG_DELETE_ALL_ASK
   { "{n} Dateien",
     "{n} files",
-    "{n} fichiers" },  // STR_W_LOG_COUNT
+    "{n} fichiers",
+    "{n} file" },  // STR_W_LOG_COUNT
   // Its own entry rather than a rule in code: which counts need their own
   // wording is a property of the language, not of the list.
   { "1 Datei",
     "1 file",
-    "1 fichier" },  // STR_W_LOG_COUNT_ONE
+    "1 fichier",
+    "1 file" },  // STR_W_LOG_COUNT_ONE
   { "Eine Datei löschen? Das Log von heute wird dabei neu begonnen.",
     "Delete one file? Today's log is started over.",
-    "Supprimer un fichier ? Le journal du jour est recommencé." },  // STR_W_LOG_DELETE_ALL_ASK_ONE
+    "Supprimer un fichier ? Le journal du jour est recommencé.",
+    "Eliminare un file? Il log di oggi ricomincia." },  // STR_W_LOG_DELETE_ALL_ASK_ONE
   { "Zeitzone",
     "Time zone",
-    "Fuseau horaire" },  // STR_TZ_TITLE
+    "Fuseau horaire",
+    "Fuso orario" },  // STR_TZ_TITLE
   { "Gilt für jeden Zeitstempel des Geräts und für die Zählung der Trocknungstage. Kein Neustart nötig.",
     "Applies to every timestamp the device writes and to the drying day count. No restart needed.",
-    "S'applique aux dates et heures notées par l'appareil et au décompte des jours depuis le dernier séchage. Sans redémarrage." },  // STR_TZ_HINT
+    "S'applique aux dates et heures notées par l'appareil et au décompte des jours depuis le dernier séchage. Sans redémarrage.",
+    "Vale per ogni data e ora scritta dal dispositivo e per il conteggio dei giorni di essiccazione. Nessun riavvio." },  // STR_TZ_HINT
   { "Gilt für jeden Zeitstempel des Geräts und für die Zählung der Trocknungstage. Wirkt sofort, ohne Neustart.",
     "Applies to every timestamp the device writes and to the drying day count. Takes effect at once, no restart.",
-    "S'applique aux dates et heures notées par l'appareil et au décompte des jours depuis le dernier séchage. Effet immédiat, sans redémarrage." },  // STR_W_TZ_NOTE
+    "S'applique aux dates et heures notées par l'appareil et au décompte des jours depuis le dernier séchage. Effet immédiat, sans redémarrage.",
+    "Vale per ogni data e ora scritta dal dispositivo e per il conteggio dei giorni di essiccazione. Ha effetto subito, senza riavvio." },  // STR_W_TZ_NOTE
 
   { "Felder",
     "Fields",
-    "Champs" },  // STR_FLM_FIELDS
+    "Champs",
+    "Campi" },  // STR_FLM_FIELDS
   { "wohin der Tag geschrieben wird",
     "where the tag is written",
-    "où le tag est écrit" },  // STR_FLM_FIELDS_SUB
+    "où le tag est écrit",
+    "dove viene scritto il tag" },  // STR_FLM_FIELDS_SUB
   { "FilaMan hat ein eigenes Feld für NFC-Tags, und die Waage benutzt es. Daneben führt das Bambu-Lab-Plugin zwei Felder für die RFID-Chips einer Bambu-Spule und merkt sich die Tray-UUID in external_id.\n\nGelesen werden alle vier, immer und ohne Schalter: eine Spule, die der Drucker kennt, soll die Waage auch erkennen. Geschrieben wird nur, was hier eingeschaltet ist.",
     "FilaMan has a field of its own for NFC tags and the scale uses it. Alongside it the Bambu Lab plugin keeps two fields for the RFID chips of a Bambu spool, and remembers the tray uuid in external_id.\n\nAll four are read, always and without a switch: a spool the printer knows is a spool this scale should recognise. Only what is switched on here is written.",
-    "FilaMan possède son propre champ pour les tags NFC, et la balance l'utilise. Le module Bambu Lab gère en outre deux champs pour les puces RFID d'une bobine Bambu, et enregistre son identifiant Tray-UUID dans external_id.\n\nCes quatre champs sont lus dans tous les cas : une bobine connue de l'imprimante doit aussi être reconnue par la balance. Seul ce qui est activé ici est écrit." },  // STR_FLM_FIELDS_INFO
+    "FilaMan possède son propre champ pour les tags NFC, et la balance l'utilise. Le module Bambu Lab gère en outre deux champs pour les puces RFID d'une bobine Bambu, et enregistre son identifiant Tray-UUID dans external_id.\n\nCes quatre champs sont lus dans tous les cas : une bobine connue de l'imprimante doit aussi être reconnue par la balance. Seul ce qui est activé ici est écrit.",
+    "FilaMan ha un campo proprio per i tag NFC e la bilancia lo usa. Accanto, il plugin Bambu Lab tiene due campi per i chip RFID di una bobina Bambu, e memorizza il tray uuid in external_id.\n\nTutti e quattro vengono letti, sempre e senza interruttore: una bobina che la stampante conosce deve essere riconosciuta anche dalla bilancia. Viene scritto solo ciò che è attivato qui." },  // STR_FLM_FIELDS_INFO
 
   { "Tag-Feld",
     "Tag field",
-    "Champ du tag" },  // STR_FLM_TAGFIELD
+    "Champ du tag",
+    "Campo tag" },  // STR_FLM_TAGFIELD
   { "Anders als bei Spoolman gibt es hier nichts zu wählen, und das ist gut so. rfid_uid ist FilaMans eigenes Feld für genau diesen Zweck, es ist das einzige, das die Server-Suche durchsucht, und das Bambu-Plugin fasst es laut eigener Zusage nie an.\n\nEin Ausweichfeld würde jeden Scan vom Schnellpfad auf den vollen Inventar-Scan werfen: unter 1 kB gegen 176 kB bei 280 Spulen.",
     "Unlike Spoolman there is nothing to choose here, and that is a good thing. rfid_uid is FilaMan's own field for exactly this, it is the only one the server side search covers, and the Bambu plugin never touches it - its own documentation says so.\n\nWriting somewhere else would drop every scan from the fast path to a full inventory load: under 1 kB against 176 kB on a library of 280.",
-    "Contrairement à Spoolman, il n'y a rien à choisir ici, et c'est une bonne chose. rfid_uid est le champ prévu par FilaMan pour cet usage : c'est le seul que la recherche du serveur parcourt, et le module Bambu s'engage à ne jamais y toucher.\n\nAvec un autre champ, chaque lecture de tag obligerait à télécharger tout l'inventaire au lieu d'une simple recherche : 176 ko au lieu de moins de 1 ko pour 280 bobines." },  // STR_FLM_TAGFIELD_INFO
+    "Contrairement à Spoolman, il n'y a rien à choisir ici, et c'est une bonne chose. rfid_uid est le champ prévu par FilaMan pour cet usage : c'est le seul que la recherche du serveur parcourt, et le module Bambu s'engage à ne jamais y toucher.\n\nAvec un autre champ, chaque lecture de tag obligerait à télécharger tout l'inventaire au lieu d'une simple recherche : 176 ko au lieu de moins de 1 ko pour 280 bobines.",
+    "A differenza di Spoolman qui non c'è nulla da scegliere, ed è un bene. rfid_uid è il campo di FilaMan proprio per questo, è l'unico coperto dalla ricerca lato server, e il plugin Bambu non lo tocca mai - lo dice la sua documentazione.\n\nScrivere altrove farebbe passare ogni lettura dalla via rapida al caricamento dell'intero inventario: meno di 1 kB contro 176 kB con 280 bobine." },  // STR_FLM_TAGFIELD_INFO
 
   { "Bambu-Tag-Felder pflegen",
     "Maintain the Bambu tag fields",
-    "Mettre à jour les champs Bambu" },  // STR_FLM_BTAGS
+    "Mettre à jour les champs Bambu",
+    "Aggiorna i campi tag Bambu" },  // STR_FLM_BTAGS
   { "Chip-UID in den ersten freien Slot",
     "chip uid into the first free slot",
-    "UID de puce dans le premier champ libre" },  // STR_FLM_BTAGS_SUB
+    "UID de puce dans le premier champ libre",
+    "UID del chip nel primo campo libero" },  // STR_FLM_BTAGS_SUB
   { "Eine Bambu-Spule trägt zwei RFID-Chips, einen je Seite. Das Plugin füllt nur den ersten der beiden Felder, mit dem, was der Drucker gemeldet hat; den zweiten hält es für einen weiteren Leser frei.\n\nAn: die Waage trägt die Chip-UID der aufliegenden Seite in den ersten freien der beiden Slots ein. Ein belegter Slot wird nie überschrieben. Legt man beide Seiten auf, sind danach beide gefüllt.\n\nNutzen: die Spule wird auch dann gefunden, wenn sich ihr Tag nicht entschlüsseln lässt und nur seine Chip-UID hergibt.",
     "A Bambu spool carries two RFID chips, one per flange. The plugin fills only the first of the two fields, with what the printer reported, and keeps the second free for another reader.\n\nOn: the scale writes the chip uid of the side on the reader into the first free of the two slots. A slot that holds something is never overwritten. Present both sides and both end up filled.\n\nWhat it buys: the spool is still found when its tag will not decrypt and has nothing but its chip uid to offer.",
-    "Une bobine Bambu porte deux puces RFID, une de chaque côté. Le module Bambu ne remplit que le premier des deux champs, avec ce que l'imprimante a signalé, et laisse le second libre pour un autre lecteur.\n\nActivé : la balance inscrit l'identifiant (UID) de la puce posée sur le lecteur dans le premier des deux champs resté vide. Un champ rempli n'est jamais écrasé. Posez un côté puis l'autre : les deux seront remplis.\n\nIntérêt : la bobine est retrouvée même si son tag ne peut pas être déchiffré et ne fournit que l'UID de sa puce." },  // STR_FLM_BTAGS_INFO
+    "Une bobine Bambu porte deux puces RFID, une de chaque côté. Le module Bambu ne remplit que le premier des deux champs, avec ce que l'imprimante a signalé, et laisse le second libre pour un autre lecteur.\n\nActivé : la balance inscrit l'identifiant (UID) de la puce posée sur le lecteur dans le premier des deux champs resté vide. Un champ rempli n'est jamais écrasé. Posez un côté puis l'autre : les deux seront remplis.\n\nIntérêt : la bobine est retrouvée même si son tag ne peut pas être déchiffré et ne fournit que l'UID de sa puce.",
+    "Una bobina Bambu ha due chip RFID, uno per fianco. Il plugin riempie solo il primo dei due campi, con quanto riportato dalla stampante, e lascia il secondo libero per un altro lettore.\n\nAttivo: la bilancia scrive l'UID del chip del lato sul lettore nel primo dei due campi libero. Un campo già pieno non viene mai sovrascritto. Presenta entrambi i lati e si riempiono tutti e due.\n\nIl vantaggio: la bobina viene trovata anche quando il suo tag non si decifra e offre solo l'UID del chip." },  // STR_FLM_BTAGS_INFO
 
   { "external_id mitschreiben",
     "Write external_id too",
-    "Écrire aussi external_id" },  // STR_FLM_EXTID
+    "Écrire aussi external_id",
+    "Scrivi anche external_id" },  // STR_FLM_EXTID
   { "verhindert doppelte Spulen",
     "stops duplicate spools",
-    "évite les bobines en double" },  // STR_FLM_EXTID_SUB
+    "évite les bobines en double",
+    "evita bobine doppie" },  // STR_FLM_EXTID_SUB
   { "Das Bambu-Plugin prüft vor dem Anlegen einer Spule nur external_id. Eine von der Waage verknüpfte Spule trägt die Tray-UUID aber in rfid_uid und ist für diese Prüfung unsichtbar - sie wird ein zweites Mal angelegt.\n\nAn: die Waage trägt bambulab:<Tray-UUID> nach, solange das Feld leer ist. Damit hören die Doppel auf.\n\nDer Preis: das Plugin behandelt die Spule danach als seine und schreibt das Restgewicht aus der AMS-Schätzung fort. Bis zur nächsten Wägung steht dann eine Schätzung dort, wo ein gemessener Wert stand.",
     "Before creating a spool the Bambu plugin looks at external_id and nothing else. A spool linked by this scale carries the tray uuid in rfid_uid instead and is invisible to that check, so it gets created a second time.\n\nOn: the scale fills in bambulab:<tray uuid> while the field is empty. That ends the duplicates.\n\nThe price: the plugin then treats the spool as its own and maintains the remaining weight from the AMS estimate. Until the next weighing an estimate stands where a measured value stood.",
-    "Avant de créer une bobine, le module Bambu ne vérifie que external_id. Or une bobine liée par la balance porte l'identifiant Tray-UUID dans rfid_uid : ce contrôle ne la voit pas, et elle est créée une seconde fois.\n\nActivé : la balance inscrit bambulab:<Tray-UUID> tant que le champ est vide. Il n'y a plus de doublons.\n\nL'inconvénient : le module considère ensuite la bobine comme la sienne et met à jour son poids restant d'après l'estimation de l'AMS. Jusqu'à la pesée suivante, ce poids est une estimation et non une mesure." },  // STR_FLM_EXTID_INFO
+    "Avant de créer une bobine, le module Bambu ne vérifie que external_id. Or une bobine liée par la balance porte l'identifiant Tray-UUID dans rfid_uid : ce contrôle ne la voit pas, et elle est créée une seconde fois.\n\nActivé : la balance inscrit bambulab:<Tray-UUID> tant que le champ est vide. Il n'y a plus de doublons.\n\nL'inconvénient : le module considère ensuite la bobine comme la sienne et met à jour son poids restant d'après l'estimation de l'AMS. Jusqu'à la pesée suivante, ce poids est une estimation et non une mesure.",
+    "Prima di creare una bobina il plugin Bambu guarda solo external_id. Una bobina collegata da questa bilancia ha invece il tray uuid in rfid_uid ed è invisibile a quel controllo, quindi viene creata una seconda volta.\n\nAttivo: la bilancia scrive bambulab:<Tray-UUID> finché il campo è vuoto. Basta doppioni.\n\nIl prezzo: il plugin considera poi la bobina come sua e aggiorna il peso residuo dalla stima dell'AMS. Fino alla prossima pesata, al posto di un valore misurato c'è una stima." },  // STR_FLM_EXTID_INFO
 
   { "Tag gefunden - mehrere Spulen",
     "Tag found - several spools",
-    "Tag trouvé - plusieurs bobines" },  // STR_TAG_FOUND_DUP
+    "Tag trouvé - plusieurs bobines",
+    "Tag trovato - più bobine" },  // STR_TAG_FOUND_DUP
 
   // ---- device name --------------------------------------------------
   { "mDNS",
     "mDNS",
+    "mDNS",
     "mDNS" },  // STR_W_R_MDNS
   { "Auch erreichbar über",
     "Also reachable at",
-    "Également joignable à" },  // STR_W_DEVNAME_ALSO
+    "Également joignable à",
+    "Raggiungibile anche su" },  // STR_W_DEVNAME_ALSO
   { "wird geprüft ...",
     "checking ...",
-    "vérification ..." },  // STR_W_DEVNAME_DNS_WAIT
+    "vérification ...",
+    "verifica ..." },  // STR_W_DEVNAME_DNS_WAIT
   { "Der Name wird in deinem Netz aufgelöst und zeigt auf diese Waage.",
     "This name resolves on your network and points at this scale.",
-    "Ce nom est résolu sur votre réseau et pointe vers cette balance." },  // STR_W_DEVNAME_DNS_OK
+    "Ce nom est résolu sur votre réseau et pointe vers cette balance.",
+    "Questo nome è risolto nella tua rete e punta a questa bilancia." },  // STR_W_DEVNAME_DNS_OK
   { "Der Name zeigt auf %s, nicht auf diese Waage.",
     "This name points at %s, not at this scale.",
-    "Ce nom pointe vers %s, pas vers cette balance." },  // STR_W_DEVNAME_DNS_OTHER
+    "Ce nom pointe vers %s, pas vers cette balance.",
+    "Questo nome punta a %s, non a questa bilancia." },  // STR_W_DEVNAME_DNS_OTHER
   { "Dein DNS-Server kennt diesen Namen nicht.",
     "Your DNS server does not know this name.",
-    "Votre serveur DNS ne connaît pas ce nom." },  // STR_W_DEVNAME_DNS_NONE
+    "Votre serveur DNS ne connaît pas ce nom.",
+    "Il tuo server DNS non conosce questo nome." },  // STR_W_DEVNAME_DNS_NONE
   { "Im lokalen Netz auf .local antworten (mDNS)",
     "Answer to .local on the local network (mDNS)",
-    "Répondre en .local sur le réseau local (mDNS)" },  // STR_W_MDNS
+    "Répondre en .local sur le réseau local (mDNS)",
+    "Rispondi a .local nella rete locale (mDNS)" },  // STR_W_MDNS
   { "Findet die Waage ohne DNS-Server. Aus, wenn in deinem Netz kein .local laufen soll.",
     "Finds the scale with no DNS server involved. Off if your network should carry no .local traffic.",
-    "Permet de trouver la balance sans serveur DNS. À désactiver si vous ne voulez pas de noms en .local sur votre réseau." },  // STR_W_MDNS_HINT
+    "Permet de trouver la balance sans serveur DNS. À désactiver si vous ne voulez pas de noms en .local sur votre réseau.",
+    "Trova la bilancia senza server DNS. Spegnilo se nella tua rete non deve circolare traffico .local." },  // STR_W_MDNS_HINT
 
   // Spool status (FilaMan). Id 6 is covered by STR_ARCHIVED above.
-  { "Status wählen", "Select status", "Choisir le statut" },  // STR_STATUS_TITLE
-  { "Neu",           "New",           "Neuve" },  // STR_STATUS_NEW
-  { "Geöffnet",      "Opened",        "Ouverte" },  // STR_STATUS_OPENED
-  { "Trocknet",      "Drying",        "Séchage" },  // STR_STATUS_DRYING
-  { "Aktiv",         "Active",        "Active" },  // STR_STATUS_ACTIVE
-  { "Leer",          "Empty",         "Vide" },  // STR_STATUS_EMPTY
-  { "Unbekannt",     "Unknown",       "Inconnu" },  // STR_STATUS_UNKNOWN
+  { "Status wählen", "Select status", "Choisir le statut", "Scegli stato" },  // STR_STATUS_TITLE
+  { "Neu", "New", "Neuve", "Nuova" },  // STR_STATUS_NEW
+  { "Geöffnet", "Opened", "Ouverte", "Aperta" },  // STR_STATUS_OPENED
+  { "Trocknet", "Drying", "Séchage", "Essicc." },  // STR_STATUS_DRYING
+  { "Aktiv", "Active", "Active", "Attiva" },  // STR_STATUS_ACTIVE
+  { "Leer", "Empty", "Vide", "Vuota" },  // STR_STATUS_EMPTY
+  { "Unbekannt", "Unknown", "Inconnu", "Ignoto" },  // STR_STATUS_UNKNOWN
 
   // Writing a tag
-  { "Beschreiben + verknüpfen", "Write + link", "Écrire + lier" },  // STR_REMOTE_LINK_WRITE
+  { "Beschreiben + verknüpfen", "Write + link", "Écrire + lier", "Scrivi + collega" },  // STR_REMOTE_LINK_WRITE
   { "Tag im Format %s beschreiben und mit dieser Spule verknüpfen?",
     "Write the tag as %s and link it to this spool?",
-    "Écrire le tag en %s et le lier à la bobine ?" },  // STR_REMOTE_LINK_Q_WRITE
-  { "Tag beschreiben?", "Write tag?", "Écrire le tag ?" },  // STR_TW_ASK_TITLE
+    "Écrire le tag en %s et le lier à la bobine ?",
+    "Scrivere il tag come %s e collegarlo a questa bobina?" },  // STR_REMOTE_LINK_Q_WRITE
+  { "Tag beschreiben?", "Write tag?", "Écrire le tag ?", "Scrivere il tag?" },  // STR_TW_ASK_TITLE
   { "Der Tag wird im Format %s beschrieben. Was jetzt darauf steht, geht verloren.",
     "The tag is written as %s. Whatever is on it now is lost.",
-    "Le tag sera écrit au format %s. Son contenu actuel sera perdu." },  // STR_TW_ASK_HINT
-  { "Beschreiben",               "Write",                      "Écrire" },  // STR_TW_BTN_WRITE
-  { "Nicht jetzt",               "Not now",                    "Pas maintenant" },  // STR_TW_BTN_SKIP
-  { "Tag beschrieben",           "Tag written",                "Tag écrit" },  // STR_TW_OK
-  { "Kein Tag auf dem Leser",    "No tag on the reader",       "Aucun tag sur le lecteur" },  // STR_TW_ERR_NO_TAG
+    "Le tag sera écrit au format %s. Son contenu actuel sera perdu.",
+    "Il tag viene scritto come %s. Il contenuto attuale va perso." },  // STR_TW_ASK_HINT
+  { "Beschreiben", "Write", "Écrire", "Scrivi" },  // STR_TW_BTN_WRITE
+  { "Nicht jetzt", "Not now", "Pas maintenant", "Non ora" },  // STR_TW_BTN_SKIP
+  { "Tag beschrieben", "Tag written", "Tag écrit", "Tag scritto" },  // STR_TW_OK
+  { "Kein Tag auf dem Leser", "No tag on the reader",
+    "Aucun tag sur le lecteur",
+    "Nessun tag sul lettore" },  // STR_TW_ERR_NO_TAG
   { "Dieser Tag ist nur lesbar", "This tag can only be read",
-    "Ce tag est en lecture seule" },  // STR_TW_ERR_NOT_NTAG
+    "Ce tag est en lecture seule",
+    "Tag di sola lettura" },  // STR_TW_ERR_NOT_NTAG
   { "Spule nicht abrufbar", "Spool could not be fetched",
-    "Impossible de lire la bobine sur le serveur" },  // STR_TW_ERR_BACKEND
+    "Impossible de lire la bobine sur le serveur",
+    "Impossibile leggere la bobina" },  // STR_TW_ERR_BACKEND
   { "Der Tag ist zu klein für dieses Format. OpenSpool braucht einen NTAG215 mit 496 Byte, ein NTAG213 hat nur 144. Die Spule ist trotzdem mit dem Tag verknüpft - sie wird also erkannt, der Tag trägt nur keine Daten.",
     "This tag is too small for the format. OpenSpool wants an NTAG215 with 496 bytes, an NTAG213 holds only 144. The spool is linked to the tag all the same, so it is still recognised - the tag just carries no data.",
-    "Ce tag est trop petit pour ce format. OpenSpool demande un NTAG215 de 496 octets, alors qu'un NTAG213 n'en a que 144. La bobine est tout de même liée au tag et sera donc reconnue, mais le tag ne contient aucune donnée." },  // STR_TW_ERR_SPACE
+    "Ce tag est trop petit pour ce format. OpenSpool demande un NTAG215 de 496 octets, alors qu'un NTAG213 n'en a que 144. La bobine est tout de même liée au tag et sera donc reconnue, mais le tag ne contient aucune donnée.",
+    "Questo tag è troppo piccolo per il formato. OpenSpool vuole un NTAG215 da 496 byte, un NTAG213 ne ha solo 144. La bobina è comunque collegata al tag, quindi viene riconosciuta - il tag solo non contiene dati." },  // STR_TW_ERR_SPACE
   { "Fehlgeschlagen - Tag still halten", "Failed - keep the tag still",
-    "Échec - gardez le tag immobile" },  // STR_TW_ERR_WRITE
+    "Échec - gardez le tag immobile",
+    "Fallito - tieni fermo il tag" },  // STR_TW_ERR_WRITE
   { "Tag beim Trigger beschreiben", "Write tag on trigger",
-    "Écrire le tag au déclenchement" },  // STR_FLM_REMOTE_WRITE
+    "Écrire le tag au déclenchement",
+    "Scrivi il tag su richiesta" },  // STR_FLM_REMOTE_WRITE
   { "Nur wenn nicht gefragt wird", "Only when not asking",
-    "Seulement si rien n'est demandé" },  // STR_FLM_REMOTE_WRITE_SUB
+    "Seulement si rien n'est demandé",
+    "Solo se non si chiede" },  // STR_FLM_REMOTE_WRITE_SUB
   { "Wenn der Filament-Manager einen Schreibvorgang auslöst, fragt die Waage nach - dort kannst du zwischen Beschreiben und nur Verknüpfen wählen. Ohne Nachfrage (Verknüpfen ohne Rückfrage) gibt es diese Wahl nicht. Dieser Schalter entscheidet dann, ob ein beschreibbarer NTAG die Spulendaten bekommt oder nur verknüpft wird. Bambu-Tags sind nur lesbar und werden immer nur verknüpft.",
     "When the filament manager triggers a write, the scale writes the tag and links it in one step. With the prompt turned off (link without asking) that happens without any question at all. Off, the trigger only links, exactly as it did before. Bambu tags are read-only and are always only linked.",
-    "Quand FilaMan demande l'écriture d'un tag, la balance écrit le tag et le lie à la bobine en une seule étape. Si l'option Lier sans demander est activée, tout se fait sans aucune question. Si ce réglage est désactivé, la demande ne fait que lier le tag, sans rien y écrire. Les tags Bambu sont en lecture seule et sont toujours seulement liés." },  // STR_FLM_REMOTE_WRITE_INFO
+    "Quand FilaMan demande l'écriture d'un tag, la balance écrit le tag et le lie à la bobine en une seule étape. Si l'option Lier sans demander est activée, tout se fait sans aucune question. Si ce réglage est désactivé, la demande ne fait que lier le tag, sans rien y écrire. Les tags Bambu sont en lecture seule et sont toujours seulement liés.",
+    "Quando il gestore di filamento chiede una scrittura, la bilancia scrive il tag e lo collega in un solo passo. Con la domanda spenta (collega senza chiedere) avviene senza alcuna domanda. Spento, la richiesta collega soltanto, come prima. I tag Bambu sono di sola lettura e vengono sempre solo collegati." },  // STR_FLM_REMOTE_WRITE_INFO
   { "%s passt nicht: %u Byte nötig, %u vorhanden. Dafür braucht es einen NTAG215.",
     "%s does not fit: %u bytes needed, %u available. That wants an NTAG215.",
-    "%s ne convient pas : %u octets nécessaires, %u disponibles. Il faut un NTAG215." },  // STR_W_TAG_TOOSMALL
+    "%s ne convient pas : %u octets nécessaires, %u disponibles. Il faut un NTAG215.",
+    "%s non entra: servono %u byte, disponibili %u. Serve un NTAG215." },  // STR_W_TAG_TOOSMALL
 
   // Results of a write or an erase
-  { "Tag nicht beschrieben", "Tag not written", "Tag non écrit" },  // STR_TW_FAILED
+  { "Tag nicht beschrieben", "Tag not written", "Tag non écrit", "Tag non scritto" },  // STR_TW_FAILED
   { "Die Spulendaten stehen jetzt im Format OpenSpool auf dem Tag.",
     "The spool data is now on the tag, as OpenSpool.",
-    "Les données de la bobine sont maintenant sur le tag, au format OpenSpool." },  // STR_TW_OK_INFO
-  { "Tag auch löschen?", "Erase the tag too?", "Effacer aussi le tag ?" },  // STR_TW_ERASE_ASK_TITLE
+    "Les données de la bobine sont maintenant sur le tag, au format OpenSpool.",
+    "I dati della bobina ora sono sul tag, come OpenSpool." },  // STR_TW_OK_INFO
+  { "Tag auch löschen?", "Erase the tag too?",
+    "Effacer aussi le tag ?",
+    "Cancellare il tag?" },  // STR_TW_ERASE_ASK_TITLE
   { "Die Verknüpfung ist gelöst. Der Tag trägt die Spulendaten aber weiter.",
     "The link is gone. The tag still carries the spool data though.",
-    "La liaison est supprimée, mais le tag contient encore les données de la bobine." },  // STR_TW_ERASE_ASK_HINT
-  { "Löschen",      "Erase",      "Effacer" },  // STR_TW_BTN_ERASE
-  { "Behalten",     "Keep",       "Conserver" },  // STR_TW_BTN_KEEP
-  { "Tag gelöscht", "Tag erased", "Tag effacé" },  // STR_TW_ERASED
+    "La liaison est supprimée, mais le tag contient encore les données de la bobine.",
+    "Il collegamento è rimosso. Il tag però contiene ancora i dati della bobina." },  // STR_TW_ERASE_ASK_HINT
+  { "Löschen", "Erase", "Effacer", "Svuota" },  // STR_TW_BTN_ERASE
+  { "Behalten", "Keep", "Conserver", "Tieni" },  // STR_TW_BTN_KEEP
+  { "Tag gelöscht", "Tag erased", "Tag effacé", "Tag cancellato" },  // STR_TW_ERASED
   { "Der Tag ist leer und kann neu beschrieben werden.",
     "The tag is empty and ready to be written again.",
-    "Le tag est vide et prêt à être réécrit." },  // STR_TW_ERASED_INFO
-  { "Tag nicht gelöscht", "Tag not erased", "Tag non effacé" },  // STR_TW_ERASE_FAILED
-  { "OK",                 "OK",             "OK" },  // STR_BTN_OK
+    "Le tag est vide et prêt à être réécrit.",
+    "Il tag è vuoto e pronto per essere riscritto." },  // STR_TW_ERASED_INFO
+  { "Tag nicht gelöscht", "Tag not erased", "Tag non effacé", "Non cancellato" },  // STR_TW_ERASE_FAILED
+  { "OK", "OK", "OK", "OK" },  // STR_BTN_OK
 
   // Web access. The first line is an LVGL label and stays one row wide; the
   // other two are the web footer and carry HTML.
   { "Weboberfläche dafür freigeschaltet",
     "Web interface switched on for this",
-    "Interface web activée pour cette action" },  // STR_WEB_GATE_OPENED
+    "Interface web activée pour cette action",
+    "Interfaccia web attivata per questo" },  // STR_WEB_GATE_OPENED
   { "sind am Gerät ausgeschaltet und werden nicht ausgeliefert. Einschalten unter",
     "are switched off on the device and are not being served. Switch them on under",
-    "sont désactivés sur l'appareil et ne sont pas servis. Activez-les dans" },  // STR_W_FOOT_GATE_OFF
+    "sont désactivés sur l'appareil et ne sont pas servis. Activez-les dans",
+    "sono spente sul dispositivo e non vengono servite. Attivale in" },  // STR_W_FOOT_GATE_OFF
   { "Welche Bereiche ausgeliefert werden, entscheidet das Gerät unter",
     "Which sections are served is decided on the device under",
-    "Les sections proposées se choisissent sur l'appareil, dans" },  // STR_W_FOOT_GATE_ALL
+    "Les sections proposées se choisissent sur l'appareil, dans",
+    "Quali sezioni vengono servite si decide sul dispositivo in" },  // STR_W_FOOT_GATE_ALL
 
   // Weight popup, in place of the archive button when the spool is archived.
   // The %.0f is the net weight on the pad: the button names the number it is
   // about to write, so nothing is decided out of sight.
   { LV_SYMBOL_REFRESH " Reaktivieren\nRest wird %.0f g",
     LV_SYMBOL_REFRESH " Reactivate\nremaining set to %.0f g",
-    LV_SYMBOL_REFRESH " Réactiver\nrestant mis à %.0f g" },  // STR_BTN_REACTIVATE
+    LV_SYMBOL_REFRESH " Réactiver\nrestant mis à %.0f g",
+    LV_SYMBOL_REFRESH " Riattiva\nresiduo a %.0f g" },  // STR_BTN_REACTIVATE
 
   // Backend options, mirrored in the browser
   { "Wird geladen ...",
     "Loading ...",
-    "Chargement ..." },  // STR_W_LOADING
+    "Chargement ...",
+    "Caricamento ..." },  // STR_W_LOADING
   { "am Gerät",
     "on the device",
-    "sur l'appareil" },  // STR_W_ON_DEVICE
+    "sur l'appareil",
+    "sul dispositivo" },  // STR_W_ON_DEVICE
   { "Dieses Backend hat keine weiteren Optionen.",
     "This backend has no further options.",
-    "Ce backend n'a pas d'autre option." },  // STR_W_NO_OPTIONS
+    "Ce backend n'a pas d'autre option.",
+    "Questo backend non ha altre opzioni." },  // STR_W_NO_OPTIONS
   { "Filamentverwaltung",
     "Filament manager",
-    "Gestion du filament" },  // STR_W_C_BACKEND
+    "Gestion du filament",
+    "Gestione filamento" },  // STR_W_C_BACKEND
   { "Adresse, Zugangsdaten und Optionen gehören jeweils zu einer Verwaltung und bleiben beim Wechsel erhalten.",
     "Address, credentials and options belong to one manager each and survive a switch.",
-    "L'adresse, les identifiants et les options sont propres à chaque gestionnaire, et restent enregistrés quand vous passez de l'un à l'autre." },  // STR_W_BACKEND_NOTE
+    "L'adresse, les identifiants et les options sont propres à chaque gestionnaire, et restent enregistrés quand vous passez de l'un à l'autre.",
+    "Indirizzo, credenziali e opzioni appartengono a ciascun gestore e restano salvati quando cambi." },  // STR_W_BACKEND_NOTE
   // %s is the name of the backend being switched to.
   { "Auf %s umschalten? Die Waage spricht danach mit einem anderen Bestand.",
     "Switch to %s? The scale will talk to a different inventory afterwards.",
-    "Basculer vers %s ? La balance dialoguera ensuite avec un autre inventaire." },  // STR_W_BACKEND_ASK
+    "Basculer vers %s ? La balance dialoguera ensuite avec un autre inventaire.",
+    "Passare a %s? La bilancia userà poi un altro inventario." },  // STR_W_BACKEND_ASK
   { "Panel",
     "Panel",
-    "Écran" },  // STR_W_C_PANEL
+    "Écran",
+    "Schermo" },  // STR_W_C_PANEL
   { "Beim Auflegen aufwachen",
     "Wake when a spool is put down",
-    "Réveiller l'écran à la pose d'une bobine" },  // STR_W_WAKE
+    "Réveiller l'écran à la pose d'une bobine",
+    "Riattiva quando si appoggia una bobina" },  // STR_W_WAKE
   // Only the half a reader can act on. Why it is on by default is already in
   // the label; what belongs here is when to turn it off.
   { "Ausschalten, wenn die Waage neben etwas steht, das sie anstößt.",
     "Turn it off for a scale that shares a bench with something that knocks it.",
-    "À désactiver si la balance est posée près de quelque chose qui la bouscule et risque de rallumer l'écran." },  // STR_W_WAKE_HINT
+    "À désactiver si la balance est posée près de quelque chose qui la bouscule et risque de rallumer l'écran.",
+    "Spegnilo per una bilancia su un banco dove qualcosa la urta." },  // STR_W_WAKE_HINT
 
   // Resetting the calibration, and the two refusals that keep a bad one from
   // being stored in the first place.
   { "Kalibrierung und Tara zurücksetzen?",
     "Reset calibration and tare?",
-    "Réinitialiser l'étalonnage et la tare ?" },  // STR_CAL_RESET_CONFIRM
+    "Réinitialiser l'étalonnage et la tare ?",
+    "Azzerare taratura e tara?" },  // STR_CAL_RESET_CONFIRM
   { LV_SYMBOL_OK "  Kalibrierung zurückgesetzt",
     LV_SYMBOL_OK "  Calibration reset",
-    LV_SYMBOL_OK "  Étalonnage réinitialisé" },  // STR_CAL_RESET_DONE
-  { "Referenz: 10 - 20000 g", "Reference: 10 - 20000 g", "Référence : 10 - 20000 g" },  // STR_CAL_RANGE_ERR
+    LV_SYMBOL_OK "  Étalonnage réinitialisé",
+    LV_SYMBOL_OK "  Taratura azzerata" },  // STR_CAL_RESET_DONE
+  { "Referenz: 10 - 20000 g", "Reference: 10 - 20000 g",
+    "Référence : 10 - 20000 g",
+    "Rif.: 10 - 20000 g" },  // STR_CAL_RANGE_ERR
   { LV_SYMBOL_WARNING "  Messwert unplausibel, nicht gespeichert",
     LV_SYMBOL_WARNING "  Reading implausible, not saved",
-    LV_SYMBOL_WARNING "  Mesure invraisemblable, non enregistrée" },  // STR_CAL_IMPLAUSIBLE
-  { "I2C-Bus",          "I2C bus",    "Bus I2C" },  // STR_W_R_I2C
-  { "Bus neu abfragen", "Rescan bus", "Réinterroger le bus" },  // STR_W_RESCAN
+    LV_SYMBOL_WARNING "  Mesure invraisemblable, non enregistrée",
+    LV_SYMBOL_WARNING "  Lettura non plausibile, non salvata" },  // STR_CAL_IMPLAUSIBLE
+  { "I2C-Bus", "I2C bus", "Bus I2C", "Bus I2C" },  // STR_W_R_I2C
+  { "Bus neu abfragen", "Rescan bus", "Réinterroger le bus", "Ricontrolla bus" },  // STR_W_RESCAN
 
   // ---- Writing a tag after a link ----
   { "Tag nach Verlinken beschreiben",
     "Write tag after linking",
-    "Écrire le tag après la liaison" },  // STR_TW_OPT_ASK
+    "Écrire le tag après la liaison",
+    "Scrivi tag dopo il collegamento" },  // STR_TW_OPT_ASK
   { "Was nach dem Verlinken einer Spule mit dem Tag geschieht. Beschrieben "
     "wird er vollständig, sein bisheriger Inhalt ist verloren.\n\n"
     "Aus: nur die UID wird mit der Spule verknüpft, der Tag bleibt unberührt. "
@@ -1978,8 +2495,9 @@ const char* const STRINGS[][3] = {
     "Only an NTAG with room for the record is written. An NTAG213 with 144 "
     "bytes is too small for OpenSpool and FilaMan, NTAG215 and NTAG216 are "
     "not. Bambu tags cannot be written at all.",
-    "Ce qui arrive au tag une fois la bobine liée. L'écriture remplace tout son contenu : ce qui s'y trouve actuellement est perdu.\n\nDésactivé : seul l'UID du tag est associé à la bobine, le tag lui-même reste intact. L'écriture reste possible depuis la page Tags de l'interface web, qui montre à l'avance ce qui sera écrit.\n\nDemander : la balance demande à chaque fois.\n\nÉcrire à chaque fois : aucune question, seul le résultat est affiché.\n\nSeul un NTAG assez grand est écrit. Un NTAG213 de 144 octets est trop petit pour OpenSpool et FilaMan ; un NTAG215 ou un NTAG216 suffit. Les tags Bambu ne peuvent pas être écrits." },  // STR_TW_OPT_ASK_INFO
-  { "Format", "Format", "Format" },  // STR_TW_OPT_FMT
+    "Ce qui arrive au tag une fois la bobine liée. L'écriture remplace tout son contenu : ce qui s'y trouve actuellement est perdu.\n\nDésactivé : seul l'UID du tag est associé à la bobine, le tag lui-même reste intact. L'écriture reste possible depuis la page Tags de l'interface web, qui montre à l'avance ce qui sera écrit.\n\nDemander : la balance demande à chaque fois.\n\nÉcrire à chaque fois : aucune question, seul le résultat est affiché.\n\nSeul un NTAG assez grand est écrit. Un NTAG213 de 144 octets est trop petit pour OpenSpool et FilaMan ; un NTAG215 ou un NTAG216 suffit. Les tags Bambu ne peuvent pas être écrits.",
+    "Cosa succede al tag quando una bobina è collegata. La scrittura sostituisce tutto il contenuto; quello che c'è ora va perso.\n\nSpento: solo l'UID viene legato alla bobina, il tag resta com'è. La scrittura resta disponibile nella pagina Tag dell'interfaccia web, dove si vede prima cosa verrà scritto.\n\nChiedi: la bilancia chiede ogni volta.\n\nScrivi sempre: nessuna domanda, viene mostrato solo il risultato.\n\nViene scritto solo un NTAG con spazio sufficiente. Un NTAG213 da 144 byte è troppo piccolo per OpenSpool e FilaMan, NTAG215 e NTAG216 no. I tag Bambu non si possono scrivere." },  // STR_TW_OPT_ASK_INFO
+  { "Format", "Format", "Format", "Formato" },  // STR_TW_OPT_FMT
   { "Das Format entscheidet, wer den Tag lesen kann.\n\n"
     "OpenSpool ist ein NDEF-Datensatz mit Material, Farbe, Marke, "
     "Temperaturen und der Spulen-ID, den FilaMan und OpenSpool-Leser "
@@ -1998,27 +2516,35 @@ const char* const STRINGS[][3] = {
     "Anycubic ACE writes no record at all but raw pages holding SKU, brand, "
     "material, colour, nozzle and bed temperature, diameter, length and "
     "weight. The ACE reads those itself.",
-    "Le format décide qui pourra lire le tag.\n\nOpenSpool est un enregistrement NDEF contenant le matériau, la couleur, la marque, les températures et l'ID de la bobine ; FilaMan et les lecteurs OpenSpool savent le lire.\n\nFilaMan est le même enregistrement, sous le nom de protocole qu'attend une installation FilaMan.\n\nAnycubic ACE n'écrit aucun enregistrement, mais des pages brutes contenant la référence article, la marque, le matériau, la couleur, les températures de buse et de plateau, le diamètre, la longueur et le poids. L'ACE les lit directement." },  // STR_TW_OPT_FMT_INFO
-  { "OpenSpool",              "OpenSpool",              "OpenSpool" },  // STR_TW_FMT_OPENSPOOL
-  { "FilaMan",                "FilaMan",                "FilaMan" },  // STR_TW_FMT_FILAMAN
-  { "Anycubic ACE",           "Anycubic ACE",           "Anycubic ACE" },  // STR_TW_FMT_ACE
-  { "Automatik an der Waage", "Automatic on the scale", "Actions automatiques de la balance" },  // STR_W_C_TAGOPTS
-  { "Nach dem Verlinken",     "After linking",          "Après la liaison" },  // STR_W_TAGOPT_ASK
-  { "Format",                 "Format",                 "Format" },  // STR_W_TAGOPT_FMT
+    "Le format décide qui pourra lire le tag.\n\nOpenSpool est un enregistrement NDEF contenant le matériau, la couleur, la marque, les températures et l'ID de la bobine ; FilaMan et les lecteurs OpenSpool savent le lire.\n\nFilaMan est le même enregistrement, sous le nom de protocole qu'attend une installation FilaMan.\n\nAnycubic ACE n'écrit aucun enregistrement, mais des pages brutes contenant la référence article, la marque, le matériau, la couleur, les températures de buse et de plateau, le diamètre, la longueur et le poids. L'ACE les lit directement.",
+    "Il formato decide chi può leggere il tag.\n\nOpenSpool è un record NDEF con materiale, colore, marca, temperature e ID della bobina, che capiscono FilaMan e i lettori OpenSpool.\n\nFilaMan è lo stesso record col nome di protocollo che un'installazione FilaMan si aspetta.\n\nAnycubic ACE non scrive alcun record ma pagine grezze con codice, marca, materiale, colore, temperatura di ugello e piatto, diametro, lunghezza e peso. L'ACE le legge da sé." },  // STR_TW_OPT_FMT_INFO
+  { "OpenSpool", "OpenSpool", "OpenSpool", "OpenSpool" },  // STR_TW_FMT_OPENSPOOL
+  { "FilaMan", "FilaMan", "FilaMan", "FilaMan" },  // STR_TW_FMT_FILAMAN
+  { "Anycubic ACE", "Anycubic ACE", "Anycubic ACE", "Anycubic ACE" },  // STR_TW_FMT_ACE
+  { "Automatik an der Waage", "Automatic on the scale",
+    "Actions automatiques de la balance",
+    "Automatico sulla bilancia" },  // STR_W_C_TAGOPTS
+  { "Nach dem Verlinken", "After linking", "Après la liaison", "Dopo il collegamento" },  // STR_W_TAGOPT_ASK
+  { "Format", "Format", "Format", "Formato" },  // STR_W_TAGOPT_FMT
   { "Gilt für das, was die Waage nach einem Verlinken selbst tut. "
     "Das Schreiben auf dieser Seite hat seine eigene Formatauswahl.",
     "Applies to what the scale does on its own after a link. Writing from this "
     "page has its own format selector.",
-    "Ces réglages concernent ce que la balance fait d'elle-même après avoir lié un tag à une bobine. L'écriture lancée depuis cette page a son propre choix de format, plus haut." },  // STR_W_TAGOPT_NOTE
-  { "Speichern",    "Download",   "Enregistrer" },  // STR_W_LOG_DOWNLOAD
-  { "Kal. löschen", "Reset cal.", "RAZ étal." },  // STR_BTN_CAL_RESET_SHORT
+    "Ces réglages concernent ce que la balance fait d'elle-même après avoir lié un tag à une bobine. L'écriture lancée depuis cette page a son propre choix de format, plus haut.",
+    "Vale per ciò che la bilancia fa da sola dopo un collegamento. La scrittura da questa pagina ha il proprio selettore di formato." },  // STR_W_TAGOPT_NOTE
+  { "Speichern", "Download", "Enregistrer", "Scarica" },  // STR_W_LOG_DOWNLOAD
+  { "Kal. löschen", "Reset cal.", "RAZ étal.", "Azzera tar." },  // STR_BTN_CAL_RESET_SHORT
   { "Kein Material passte - Filter aufgehoben",
     "No material matched - filter dropped",
-    "Aucun matériau ne correspondait - filtre levé" },  // STR_LIST_MAT_IGNORED
-  { "Bei Abweichung fragen", "Ask on a mismatch", "Demander en cas d'écart" },  // STR_TW_OPT_MISM
+    "Aucun matériau ne correspondait - filtre levé",
+    "Nessun materiale trovato - filtro rimosso" },  // STR_LIST_MAT_IGNORED
+  { "Bei Abweichung fragen", "Ask on a mismatch",
+    "Demander en cas d'écart",
+    "Chiedi se non coincide" },  // STR_TW_OPT_MISM
   { "Wenn der Tag nicht zur Spule passt",
     "When the tag disagrees with the spool",
-    "Si le tag ne correspond pas à la bobine" },  // STR_TW_OPT_MISM_SUB
+    "Si le tag ne correspond pas à la bobine",
+    "Se il tag non coincide con la bobina" },  // STR_TW_OPT_MISM_SUB
   { "Trägt der Tag ein anderes Material, eine andere Marke oder eine deutlich "
     "andere Farbe als die verknüpfte Spule, bietet die Waage an, ihn neu zu "
     "beschreiben. Verglichen wird nur der Inhalt, nicht das Format. Aus "
@@ -2027,45 +2553,59 @@ const char* const STRINGS[][3] = {
     "colour than the spool it is bound to, the scale offers to write it again. "
     "Only the contents are compared, not the format. Off leaves the tag "
     "untouched.",
-    "Si le tag indique un autre matériau, une autre marque ou une couleur nettement différente de celle de la bobine liée, la balance propose de le réécrire. Seul le contenu est comparé, pas le format. Désactivé : le tag reste intact." },  // STR_TW_OPT_MISM_INFO
-  { "Tag weicht ab",   "Tag disagrees", "Le tag ne correspond pas" },  // STR_TW_MISM_TITLE
-  { "%s",              "%s",            "%s" },  // STR_TW_MISM_HINT
-  { "Neu beschreiben", "Write again",   "Réécrire" },  // STR_TW_BTN_REWRITE
-  { "Tag",             "Tag",           "Tag" },  // STR_TW_MISM_TAG
-  { "Server",          "Server",        "Serveur" },  // STR_TW_MISM_SERVER
+    "Si le tag indique un autre matériau, une autre marque ou une couleur nettement différente de celle de la bobine liée, la balance propose de le réécrire. Seul le contenu est comparé, pas le format. Désactivé : le tag reste intact.",
+    "Se il tag riporta un materiale, una marca o un colore chiaramente diversi dalla bobina a cui è legato, la bilancia propone di riscriverlo. Si confronta solo il contenuto, non il formato. Spento, il tag non viene toccato." },  // STR_TW_OPT_MISM_INFO
+  { "Tag weicht ab", "Tag disagrees", "Le tag ne correspond pas", "Il tag non coincide" },  // STR_TW_MISM_TITLE
+  { "%s", "%s", "%s", "%s" },  // STR_TW_MISM_HINT
+  { "Neu beschreiben", "Write again", "Réécrire", "Riscrivi" },  // STR_TW_BTN_REWRITE
+  { "Tag", "Tag", "Tag", "Tag" },  // STR_TW_MISM_TAG
+  { "Server", "Server", "Serveur", "Server" },  // STR_TW_MISM_SERVER
   { "An der Waage fragen, wenn der Tag nicht zur Spule passt",
     "Ask at the scale when the tag disagrees with the spool",
-    "Demander sur la balance quand le tag ne correspond pas à la bobine" },  // STR_W_TAGOPT_MISM
-  { "Spule %d wird geschrieben...", "Writing spool %d...", "Écriture de la bobine %d..." },  // STR_W_TW_WRITING
-  { "Tag wird geleert...",          "Erasing the tag...",  "Effacement du tag..." },  // STR_W_TW_ERASING
+    "Demander sur la balance quand le tag ne correspond pas à la bobine",
+    "Chiedi sulla bilancia quando il tag non coincide con la bobina" },  // STR_W_TAGOPT_MISM
+  { "Spule %d wird geschrieben...", "Writing spool %d...",
+    "Écriture de la bobine %d...",
+    "Scrittura bobina %d..." },  // STR_W_TW_WRITING
+  { "Tag wird geleert...", "Erasing the tag...",
+    "Effacement du tag...",
+    "Cancellazione del tag..." },  // STR_W_TW_ERASING
   { "Spule %d (%s) als %s geschrieben",
     "Wrote spool %d (%s) as %s",
-    "Tag écrit pour la bobine %d (%s) au format %s" },  // STR_W_TW_WROTE
-  { ", verknüpft",      ", linked to the spool", ", lié à la bobine" },  // STR_W_TW_LINKED
-  { ", verknüpft (%s)", ", linked (%s)",         ", liaison établie (%s)" },  // STR_W_TW_LINKED_NOTE
+    "Tag écrit pour la bobine %d (%s) au format %s",
+    "Scritta bobina %d (%s) come %s" },  // STR_W_TW_WROTE
+  { ", verknüpft", ", linked to the spool", ", lié à la bobine", ", collegato alla bobina" },  // STR_W_TW_LINKED
+  { ", verknüpft (%s)", ", linked (%s)", ", liaison établie (%s)", ", collegato (%s)" },  // STR_W_TW_LINKED_NOTE
   { ", aber das Verknüpfen schlug fehl (HTTP %d)",
     ", but linking failed (HTTP %d)",
-    ", mais la liaison a échoué (HTTP %d)" },  // STR_W_TW_LINK_FAIL
-  { "Tag geleert", "Tag erased", "Tag effacé" },  // STR_W_TW_ERASED
+    ", mais la liaison a échoué (HTTP %d)",
+    ", ma il collegamento è fallito (HTTP %d)" },  // STR_W_TW_LINK_FAIL
+  { "Tag geleert", "Tag erased", "Tag effacé", "Tag cancellato" },  // STR_W_TW_ERASED
   { "Löschen fehlgeschlagen - Tag ruhig halten",
     "Erase failed - keep the tag still",
-    "Échec de l'effacement - gardez le tag immobile" },  // STR_W_TW_ERASE_FAIL
+    "Échec de l'effacement - gardez le tag immobile",
+    "Cancellazione fallita - tieni fermo il tag" },  // STR_W_TW_ERASE_FAIL
   { "MIFARE Classic, nur lesbar", "MIFARE Classic, read-only",
-    "MIFARE Classic, lecture seule" },  // STR_W_TAG_KIND_MIFARE
-  { "NTAG, beschreibbar",         "NTAG, writable",            "NTAG, inscriptible" },  // STR_W_TAG_KIND_NTAG
-  { ", %u Byte",                  ", %u bytes",                ", %u octets" },  // STR_W_TAG_KIND_BYTES
-  { "Gebunden über: %s",          "Bound through: %s",         "Liée via : %s" },  // STR_UNLINK_SOURCES
-  { "Aus",                        "Off",                       "Désactivé" },  // STR_TW_MODE_OFF
-  { "Fragen",                     "Ask",                       "Demander" },  // STR_TW_MODE_ASK
-  { "Immer schreiben",            "Write every time",          "Écrire à chaque fois" },  // STR_TW_MODE_ALWAYS
+    "MIFARE Classic, lecture seule",
+    "MIFARE Classic, sola lettura" },  // STR_W_TAG_KIND_MIFARE
+  { "NTAG, beschreibbar", "NTAG, writable", "NTAG, inscriptible", "NTAG, scrivibile" },  // STR_W_TAG_KIND_NTAG
+  { ", %u Byte", ", %u bytes", ", %u octets", ", %u byte" },  // STR_W_TAG_KIND_BYTES
+  { "Gebunden über: %s", "Bound through: %s", "Liée via : %s", "Legata via: %s" },  // STR_UNLINK_SOURCES
+  { "Aus", "Off", "Désactivé", "Spento" },  // STR_TW_MODE_OFF
+  { "Fragen", "Ask", "Demander", "Chiedi" },  // STR_TW_MODE_ASK
+  { "Immer schreiben", "Write every time", "Écrire à chaque fois", "Scrivi sempre" },  // STR_TW_MODE_ALWAYS
 
   // ---- Hardware self diagnosis -----------------------------------------
-  { "  -  antippen", "  -  tap for help", "  -  touchez ici" },  // STR_DIAG_TAP
-  { "Später",        "Later",             "Plus tard" },  // STR_DIAG_BTN_LATER
-  { "Erneut prüfen", "Check again",       "Vérifier à nouveau" },  // STR_DIAG_BTN_RECHECK
+  { "  -  antippen", "  -  tap for help", "  -  touchez ici", "  -  tocca qui" },  // STR_DIAG_TAP
+  { "Später", "Later", "Plus tard", "Più tardi" },  // STR_DIAG_BTN_LATER
+  { "Erneut prüfen", "Check again", "Vérifier à nouveau", "Ricontrolla" },  // STR_DIAG_BTN_RECHECK
 
-  { "Kein Modul am I2C-Bus", "Nothing on the I2C bus", "Rien sur le bus I2C" },  // STR_DIAG_BUS_EMPTY_BANNER
-  { "Kein Modul am I2C-Bus", "Nothing on the I2C bus", "Rien sur le bus I2C" },  // STR_DIAG_BUS_EMPTY_TITLE
+  { "Kein Modul am I2C-Bus", "Nothing on the I2C bus",
+    "Rien sur le bus I2C",
+    "Niente sul bus I2C" },  // STR_DIAG_BUS_EMPTY_BANNER
+  { "Kein Modul am I2C-Bus", "Nothing on the I2C bus",
+    "Rien sur le bus I2C",
+    "Niente sul bus I2C" },  // STR_DIAG_BUS_EMPTY_TITLE
   { "Weder der NFC-Reader noch der Waagen-ADC antworten.\n\n"
     "Das 7-polige Kabel muss bündig links in der 8-poligen I/O-Buchse sitzen. "
     "Ein Pin daneben und beide Module sind stromlos.\n\n"
@@ -2076,12 +2616,15 @@ const char* const STRINGS[][3] = {
     "One pin off and both modules are unpowered.\n\n"
     "Check pin 1 (5V, red), pin 2 (GND, black), pin 3 (SDA, yellow) and "
     "pin 4 (SCL, green).",
-    "Ni le lecteur NFC ni le convertisseur de la balance (NAU7802) ne répondent.\n\nDans la prise I/O à 8 broches, le câble à 7 broches doit être aligné sur le côté gauche. Décalé d'une seule broche, il n'alimente plus aucun des deux modules.\n\nVérifiez la broche 1 (5V, rouge), la broche 2 (GND, noir), la broche 3 (SDA, jaune) et la broche 4 (SCL, vert)." },  // STR_DIAG_BUS_EMPTY_TEXT
+    "Ni le lecteur NFC ni le convertisseur de la balance (NAU7802) ne répondent.\n\nDans la prise I/O à 8 broches, le câble à 7 broches doit être aligné sur le côté gauche. Décalé d'une seule broche, il n'alimente plus aucun des deux modules.\n\nVérifiez la broche 1 (5V, rouge), la broche 2 (GND, noir), la broche 3 (SDA, jaune) et la broche 4 (SCL, vert).",
+    "Né il lettore NFC né l'ADC della bilancia rispondono.\n\nIl cavo a 7 pin deve stare allineato a sinistra nella presa I/O a 8 pin. Spostato di un pin e nessuno dei due moduli è alimentato.\n\nControlla pin 1 (5V, rosso), pin 2 (GND, nero), pin 3 (SDA, giallo) e pin 4 (SCL, verde)." },  // STR_DIAG_BUS_EMPTY_TEXT
 
   { "Waagen-ADC fehlt (NAU7802)", "Scale ADC missing (NAU7802)",
-    "Convertisseur absent (NAU7802)" },  // STR_DIAG_NAU_MISSING_BANNER
+    "Convertisseur absent (NAU7802)",
+    "ADC bilancia assente (NAU7802)" },  // STR_DIAG_NAU_MISSING_BANNER
   { "Waagen-ADC fehlt", "Scale ADC missing",
-    "Convertisseur de la balance absent" },  // STR_DIAG_NAU_MISSING_TITLE
+    "Convertisseur de la balance absent",
+    "ADC bilancia assente" },  // STR_DIAG_NAU_MISSING_TITLE
   { "Die NAU7802 antwortet nicht auf 0x2A. Der NFC-Reader schon, SDA und SCL "
     "sind also grundsätzlich in Ordnung.\n\n"
     "Prüfe VIN, GND, SDA und SCL an der NAU7802.\n\n"
@@ -2096,11 +2639,15 @@ const char* const STRINGS[][3] = {
     "WT32 cable.\n\n"
     "If this device was deliberately built without a scale, switch it off "
     "under Settings > Scale and this finding goes away.",
-    "Le NAU7802 ne répond pas à l'adresse 0x2A. Le lecteur NFC, lui, répond : les fils SDA et SCL sont donc bons en principe.\n\nVérifiez les fils VIN, GND, SDA et SCL sur le NAU7802.\n\nSur les câbles STEMMA QT tout faits d'autres fabricants, l'ordre des broches diffère souvent de celui du câble WT32.\n\nSi cet appareil est volontairement monté sans balance, désactivez « Balance présente » dans Réglages > Balance : ce message disparaîtra." },  // STR_DIAG_NAU_MISSING_TEXT
+    "Le NAU7802 ne répond pas à l'adresse 0x2A. Le lecteur NFC, lui, répond : les fils SDA et SCL sont donc bons en principe.\n\nVérifiez les fils VIN, GND, SDA et SCL sur le NAU7802.\n\nSur les câbles STEMMA QT tout faits d'autres fabricants, l'ordre des broches diffère souvent de celui du câble WT32.\n\nSi cet appareil est volontairement monté sans balance, désactivez « Balance présente » dans Réglages > Balance : ce message disparaîtra.",
+    "Il NAU7802 non risponde su 0x2A. Il lettore NFC sì, quindi SDA e SCL in linea di massima sono a posto.\n\nControlla VIN, GND, SDA e SCL sul NAU7802.\n\nNei cavi STEMMA QT di terze parti l'ordine dei pin spesso non corrisponde al cavo WT32.\n\nSe questo dispositivo è stato costruito apposta senza bilancia, disattivala in Impostazioni > Bilancia e questo avviso sparisce." },  // STR_DIAG_NAU_MISSING_TEXT
 
   { "NFC-Reader fehlt (PN532)", "NFC reader missing (PN532)",
-    "Lecteur NFC absent (PN532)" },  // STR_DIAG_PN532_MISSING_BANNER
-  { "NFC-Reader fehlt",         "NFC reader missing",         "Lecteur NFC absent" },  // STR_DIAG_PN532_MISSING_TITLE
+    "Lecteur NFC absent (PN532)",
+    "Lettore NFC assente (PN532)" },  // STR_DIAG_PN532_MISSING_BANNER
+  { "NFC-Reader fehlt", "NFC reader missing",
+    "Lecteur NFC absent",
+    "Lettore NFC assente" },  // STR_DIAG_PN532_MISSING_TITLE
   { "Der PN532 antwortet nicht auf 0x24. Der Waagen-ADC schon, SDA und SCL "
     "sind also grundsätzlich in Ordnung.\n\n"
     "Prüfe zuerst die beiden DIP-Schalter auf dem Modul: für I2C muss "
@@ -2116,12 +2663,15 @@ const char* const STRINGS[][3] = {
     "Otherwise the PN532 needs 5V from pin 1 of the I/O cable. Do not daisy "
     "chain it through the NAU7802 STEMMA QT passthrough - that one only "
     "carries 3.3V.",
-    "Le PN532 ne répond pas à l'adresse 0x24. Le convertisseur de la balance, lui, répond : les fils SDA et SCL sont donc bons en principe.\n\nVérifiez d'abord les deux interrupteurs DIP du module : pour l'I2C, SW1 doit être sur ON et SW2 sur OFF. En position HSU ou SPI, la puce ne répond pas du tout sur le bus I2C - c'est exactement le symptôme observé.\n\nSinon, le PN532 doit recevoir le 5V de la broche 1 du câble I/O. Ne le branchez pas à la suite du NAU7802, par le connecteur STEMMA QT de celui-ci : ce connecteur ne fournit que du 3,3V." },  // STR_DIAG_PN532_MISSING_TEXT
+    "Le PN532 ne répond pas à l'adresse 0x24. Le convertisseur de la balance, lui, répond : les fils SDA et SCL sont donc bons en principe.\n\nVérifiez d'abord les deux interrupteurs DIP du module : pour l'I2C, SW1 doit être sur ON et SW2 sur OFF. En position HSU ou SPI, la puce ne répond pas du tout sur le bus I2C - c'est exactement le symptôme observé.\n\nSinon, le PN532 doit recevoir le 5V de la broche 1 du câble I/O. Ne le branchez pas à la suite du NAU7802, par le connecteur STEMMA QT de celui-ci : ce connecteur ne fournit que du 3,3V.",
+    "Il PN532 non risponde su 0x24. L'ADC della bilancia sì, quindi SDA e SCL in linea di massima sono a posto.\n\nControlla prima i due DIP switch sul modulo: per l'I2C servono SW1 = ON e SW2 = OFF. Impostato su HSU o SPI il chip non risponde affatto sul bus I2C - che è proprio ciò che succede qui.\n\nAltrimenti il PN532 ha bisogno dei 5V dal pin 1 del cavo I/O. Non collegarlo in cascata tramite il passante STEMMA QT del NAU7802 - porta solo 3,3V." },  // STR_DIAG_PN532_MISSING_TEXT
 
   { "NFC-Reader antwortet nicht", "NFC reader does not answer",
-    "Le lecteur NFC ne répond pas" },  // STR_DIAG_PN532_MUTE_BANNER
+    "Le lecteur NFC ne répond pas",
+    "Il lettore NFC non risponde" },  // STR_DIAG_PN532_MUTE_BANNER
   { "NFC-Reader meldet sich nicht", "NFC reader stays silent",
-    "Le lecteur NFC reste muet" },  // STR_DIAG_PN532_MUTE_TITLE
+    "Le lecteur NFC reste muet",
+    "Il lettore NFC resta muto" },  // STR_DIAG_PN532_MUTE_TITLE
   { "Der PN532 bestätigt 0x24, beantwortet aber keinen Befehl. Er steht damit "
     "auf I2C - sonst würde er sich gar nicht melden - und SDA und SCL "
     "stimmen ebenfalls.\n\n"
@@ -2142,10 +2692,15 @@ const char* const STRINGS[][3] = {
     "There is no reset to pull here: the orange RST wire sits on an output of "
     "the module rather than its reset input. Unplugging and replugging is the "
     "only hard reset there is.",
-    "Le PN532 se signale à l'adresse 0x24, mais ne répond à aucune commande. Il est donc bien réglé en I2C - sinon il ne se signalerait pas du tout - et les fils SDA et SCL sont bons eux aussi.\n\nVérifiez d'abord les deux interrupteurs DIP : pour l'I2C, SW1 doit être sur ON et SW2 sur OFF. Un interrupteur resté entre deux positions est la cause la plus fréquente.\n\nVérifiez ensuite le 5V sur la broche 1. Avec une tension trop faible, la puce se signale sur le bus sans pouvoir fonctionner.\n\nIci, la balance ne peut pas réinitialiser la puce par un signal : le fil orange RST est relié à une sortie du module, et non à son entrée de réinitialisation. Débrancher puis rebrancher est la seule réinitialisation matérielle possible." },  // STR_DIAG_PN532_MUTE_TEXT
+    "Le PN532 se signale à l'adresse 0x24, mais ne répond à aucune commande. Il est donc bien réglé en I2C - sinon il ne se signalerait pas du tout - et les fils SDA et SCL sont bons eux aussi.\n\nVérifiez d'abord les deux interrupteurs DIP : pour l'I2C, SW1 doit être sur ON et SW2 sur OFF. Un interrupteur resté entre deux positions est la cause la plus fréquente.\n\nVérifiez ensuite le 5V sur la broche 1. Avec une tension trop faible, la puce se signale sur le bus sans pouvoir fonctionner.\n\nIci, la balance ne peut pas réinitialiser la puce par un signal : le fil orange RST est relié à une sortie du module, et non à son entrée de réinitialisation. Débrancher puis rebrancher est la seule réinitialisation matérielle possible.",
+    "Il PN532 si annuncia su 0x24 ma non risponde ai comandi. Quindi è impostato su I2C - altrimenti non risponderebbe affatto - e anche SDA e SCL sono giusti.\n\nControlla prima i due DIP switch: per l'I2C servono SW1 = ON e SW2 = OFF. Un interruttore rimasto a metà è la causa più comune.\n\nPoi controlla i 5V sul pin 1. Con poca alimentazione il chip si annuncia sul bus ma non riesce a lavorare.\n\nQui non c'è un reset da azionare: il filo arancione RST è collegato a un'uscita del modulo e non al suo ingresso di reset. Staccare e riattaccare è l'unico reset hardware possibile." },  // STR_DIAG_PN532_MUTE_TEXT
 
-  { "Waage nicht kalibriert", "Scale not calibrated", "Balance non étalonnée" },  // STR_DIAG_UNCAL_BANNER
-  { "Waage nicht kalibriert", "Scale not calibrated", "Balance non étalonnée" },  // STR_DIAG_UNCAL_TITLE
+  { "Waage nicht kalibriert", "Scale not calibrated",
+    "Balance non étalonnée",
+    "Bilancia non tarata" },  // STR_DIAG_UNCAL_BANNER
+  { "Waage nicht kalibriert", "Scale not calibrated",
+    "Balance non étalonnée",
+    "Bilancia non tarata" },  // STR_DIAG_UNCAL_TITLE
   { "Der angezeigte Wert ist der Rohwert des ADC, nicht Gramm. Deshalb steht "
     "dort eine sechsstellige Zahl, die von selbst um Hunderte springt.\n\n"
     "Das ist kein Defekt und kein Verkabelungsfehler. Die Waage weiß nur noch "
@@ -2156,12 +2711,15 @@ const char* const STRINGS[][3] = {
     "This is neither a defect nor a wiring mistake. The scale simply does not "
     "know yet how many counts make a gram.\n\n"
     "Place a known weight on it and calibrate.",
-    "La valeur affichée est la mesure brute, pas un poids en grammes. C'est pourquoi vous voyez un nombre à six chiffres qui varie tout seul de plusieurs centaines.\n\nCe n'est ni une panne ni une erreur de câblage. La balance ne sait simplement pas encore à combien d'unités brutes correspond un gramme.\n\nPosez un poids connu sur le plateau et étalonnez la balance." },  // STR_DIAG_UNCAL_TEXT
+    "La valeur affichée est la mesure brute, pas un poids en grammes. C'est pourquoi vous voyez un nombre à six chiffres qui varie tout seul de plusieurs centaines.\n\nCe n'est ni une panne ni une erreur de câblage. La balance ne sait simplement pas encore à combien d'unités brutes correspond un gramme.\n\nPosez un poids connu sur le plateau et étalonnez la balance.",
+    "Il valore sullo schermo è la lettura grezza dell'ADC, non grammi. Per questo è un numero di sei cifre che salta di centinaia da solo.\n\nNon è un guasto né un errore di cablaggio. La bilancia semplicemente non sa ancora quante unità fanno un grammo.\n\nAppoggia un peso noto e fai la taratura." },  // STR_DIAG_UNCAL_TEXT
 
   { "Wägezelle verpolt (A+/A-)", "Load cell reversed (A+/A-)",
-    "Capteur de pesée inversé (A+/A-)" },  // STR_DIAG_INVERTED_BANNER
+    "Capteur de pesée inversé (A+/A-)",
+    "Cella di carico invertita (A+/A-)" },  // STR_DIAG_INVERTED_BANNER
   { "Wägezelle verpolt", "Load cell reversed",
-    "Capteur de pesée inversé" },  // STR_DIAG_INVERTED_TITLE
+    "Capteur de pesée inversé",
+    "Cella di carico invertita" },  // STR_DIAG_INVERTED_TITLE
   { "Die Waage liest bei leerer Plattform stark negativ und hat seit dem Start "
     "nie ein positives Gewicht gesehen. Auflegen macht die Zahl kleiner statt "
     "größer.\n\n"
@@ -2172,10 +2730,15 @@ const char* const STRINGS[][3] = {
     "instead of up.\n\n"
     "Swap the two signal wires on the NAU7802: A+ (white) and A- (green).\n\n"
     "Then tare and calibrate again.",
-    "À vide, la balance affiche une valeur très négative et n'a mesuré aucun poids positif depuis le démarrage. Poser un objet la fait baisser au lieu de l'augmenter.\n\nInversez les deux fils de signal sur le NAU7802 : A+ (blanc) et A- (vert).\n\nRefaites ensuite la tare et l'étalonnage." },  // STR_DIAG_INVERTED_TEXT
+    "À vide, la balance affiche une valeur très négative et n'a mesuré aucun poids positif depuis le démarrage. Poser un objet la fait baisser au lieu de l'augmenter.\n\nInversez les deux fils de signal sur le NAU7802 : A+ (blanc) et A- (vert).\n\nRefaites ensuite la tare et l'étalonnage.",
+    "A piatto vuoto la bilancia legge molto sotto zero e dall'avvio non ha mai visto un peso positivo. Caricandola il numero scende invece di salire.\n\nScambia i due fili di segnale sul NAU7802: A+ (bianco) e A- (verde).\n\nPoi rifai tara e taratura." },  // STR_DIAG_INVERTED_TEXT
 
-  { "Wägezelle unruhig", "Load cell unstable", "Capteur de pesée instable" },  // STR_DIAG_NOISY_BANNER
-  { "Wägezelle unruhig", "Load cell unstable", "Capteur de pesée instable" },  // STR_DIAG_NOISY_TITLE
+  { "Wägezelle unruhig", "Load cell unstable",
+    "Capteur de pesée instable",
+    "Cella di carico instabile" },  // STR_DIAG_NOISY_BANNER
+  { "Wägezelle unruhig", "Load cell unstable",
+    "Capteur de pesée instable",
+    "Cella di carico instabile" },  // STR_DIAG_NOISY_TITLE
   { "Der Messwert schwankt dauerhaft um mehr als %d g, obwohl auf der "
     "Plattform nichts bewegt wird.\n\n"
     "Das ist typisch für eine lose Ader an der NAU7802. Prüfe E+ (rot), "
@@ -2186,9 +2749,10 @@ const char* const STRINGS[][3] = {
     "That is typical for a loose wire on the NAU7802. Check E+ (red), "
     "E- (black), A+ (white) and A- (green) for cold solder joints.\n\n"
     "Also check whether a cable is pressing against the weighing platform.",
-    "La mesure varie en permanence de plus de %d g alors que rien ne bouge sur le plateau.\n\nC'est typique d'un fil mal fixé sur le NAU7802. Vérifiez E+ (rouge), E- (noir), A+ (blanc) et A- (vert), à la recherche d'une soudure froide.\n\nVérifiez aussi qu'aucun câble n'appuie contre le plateau de pesée." },  // STR_DIAG_NOISY_TEXT
+    "La mesure varie en permanence de plus de %d g alors que rien ne bouge sur le plateau.\n\nC'est typique d'un fil mal fixé sur le NAU7802. Vérifiez E+ (rouge), E- (noir), A+ (blanc) et A- (vert), à la recherche d'une soudure froide.\n\nVérifiez aussi qu'aucun câble n'appuie contre le plateau de pesée.",
+    "La lettura oscilla di continuo di oltre %d g anche se sul piatto non si muove nulla.\n\nÈ tipico di un filo allentato sul NAU7802. Controlla E+ (rosso), E- (nero), A+ (bianco) e A- (verde) per saldature fredde.\n\nControlla anche che nessun cavo prema contro il piatto di pesata." },  // STR_DIAG_NOISY_TEXT
 
-  { "So kalibrierst du", "How to calibrate", "Comment étalonner" },  // STR_CAL_HELP_TITLE
+  { "So kalibrierst du", "How to calibrate", "Comment étalonner", "Come tarare" },  // STR_CAL_HELP_TITLE
   { "1. Plattform leer räumen und TARE drücken. Die Anzeige muss auf 0 gehen.\n\n"
     "2. Ein Gewicht auflegen, das du genau kennst. Ideal sind etwa 1000 g - "
     "eine volle Spule, auf einer Küchenwaage nachgewogen, reicht völlig.\n\n"
@@ -2200,14 +2764,16 @@ const char* const STRINGS[][3] = {
     "3. Type that weight in grams and press Calculate.\n\n"
     "The more precise the reference weight, the more accurate the scale is "
     "afterwards.",
-    "1. Videz le plateau et appuyez sur TARE. L'affichage doit passer à 0.\n\n2. Posez un poids que vous connaissez exactement. L'idéal est un poids d'environ 1000 g - une bobine pleine, pesée sur une balance de cuisine, suffit amplement.\n\n3. Saisissez ce poids en grammes et appuyez sur Calculer.\n\nPlus le poids de référence est précis, plus les mesures de la balance seront précises ensuite." },  // STR_CAL_HELP_TEXT
+    "1. Videz le plateau et appuyez sur TARE. L'affichage doit passer à 0.\n\n2. Posez un poids que vous connaissez exactement. L'idéal est un poids d'environ 1000 g - une bobine pleine, pesée sur une balance de cuisine, suffit amplement.\n\n3. Saisissez ce poids en grammes et appuyez sur Calculer.\n\nPlus le poids de référence est précis, plus les mesures de la balance seront précises ensuite.",
+    "1. Svuota il piatto e premi TARE. La lettura deve andare a 0.\n\n2. Appoggia un peso che conosci con precisione. Circa 1000 g è l'ideale - una bobina piena verificata su una bilancia da cucina basta e avanza.\n\n3. Inserisci quel peso in grammi e premi Calcola.\n\nPiù è preciso il peso di riferimento, più sarà precisa la bilancia." },  // STR_CAL_HELP_TEXT
 
-  { "Diagnose",    "Diagnosis",     "Diagnostic" },  // STR_W_R_DIAG
-  { "ohne Befund", "nothing found", "rien à signaler" },  // STR_W_S_DIAG_OK
+  { "Diagnose", "Diagnosis", "Diagnostic", "Diagnosi" },  // STR_W_R_DIAG
+  { "ohne Befund", "nothing found", "rien à signaler", "nessun problema" },  // STR_W_S_DIAG_OK
 
   // ---- PN532 reset line, the optional hardware modification ----
   { "Hardware-Umbau möglich", "A hardware change is available",
-    "Modification matérielle possible" },  // STR_NFCRST_HINT_TITLE
+    "Modification matérielle possible",
+    "Modifica hardware possibile" },  // STR_NFCRST_HINT_TITLE
   { "Der NFC-Leser dieser Waage musste schon einmal neu gestartet werden.\n\n"
     "Dagegen gibt es einen optionalen Umbau: der orange RST-Draht gehört auf "
     "RSTPDN. Dann kann die Waage den Leser wirklich zurücksetzen.\n\n"
@@ -2218,32 +2784,44 @@ const char* const STRINGS[][3] = {
     "RSTPDN. The scale can then genuinely reset the reader.\n\n"
     "Guide in the docs under Wiring. Check afterwards under System > Check NFC "
     "reset. Nothing breaks if you leave it.",
-    "Le lecteur NFC de cette balance a déjà dû être redémarré au moins une fois.\n\nUne modification facultative y remédie : déplacer le fil orange RST sur RSTPDN. La balance pourra alors vraiment réinitialiser le lecteur.\n\nLa marche à suivre se trouve dans la documentation, section Wiring (câblage). Contrôlez ensuite le résultat dans Système > Vérifier la réinit. NFC. Si vous ne faites pas cette modification, rien ne sera endommagé." },  // STR_NFCRST_HINT_TEXT
-  { "Später",              "Later",             "Plus tard" },  // STR_NFCRST_LATER
-  { "Nicht mehr anzeigen", "Do not show again", "Ne plus afficher" },  // STR_NFCRST_NEVER
+    "Le lecteur NFC de cette balance a déjà dû être redémarré au moins une fois.\n\nUne modification facultative y remédie : déplacer le fil orange RST sur RSTPDN. La balance pourra alors vraiment réinitialiser le lecteur.\n\nLa marche à suivre se trouve dans la documentation, section Wiring (câblage). Contrôlez ensuite le résultat dans Système > Vérifier la réinit. NFC. Si vous ne faites pas cette modification, rien ne sera endommagé.",
+    "Il lettore NFC di questa bilancia ha dovuto essere riavviato almeno una volta.\n\nC'è una modifica facoltativa: il filo arancione RST va su RSTPDN. Così la bilancia può davvero resettare il lettore.\n\nGuida nella documentazione alla voce Wiring. Verifica poi in Sistema > Verifica reset NFC. Se la lasci com'è non si rompe nulla." },  // STR_NFCRST_HINT_TEXT
+  { "Später", "Later", "Plus tard", "Più tardi" },  // STR_NFCRST_LATER
+  { "Nicht mehr anzeigen", "Do not show again", "Ne plus afficher", "Non mostrare più" },  // STR_NFCRST_NEVER
 
-  { "NFC-Reset prüfen",       "Check NFC reset",       "Vérifier la réinit. NFC" },  // STR_NFCRST_ROW
-  { "Nach dem Umlöten",       "After the rewiring",    "Après la modification du câblage" },  // STR_NFCRST_ROW_SUB
-  { "Leitung geprüft, aktiv", "Line verified, in use", "Liaison vérifiée, active" },  // STR_NFCRST_ROW_DONE
+  { "NFC-Reset prüfen", "Check NFC reset", "Vérifier la réinit. NFC", "Verifica reset NFC" },  // STR_NFCRST_ROW
+  { "Nach dem Umlöten", "After the rewiring",
+    "Après la modification du câblage",
+    "Dopo il ricablaggio" },  // STR_NFCRST_ROW_SUB
+  { "Leitung geprüft, aktiv", "Line verified, in use",
+    "Liaison vérifiée, active",
+    "Linea ok, in uso" },  // STR_NFCRST_ROW_DONE
   { "Reset-Leitung sitzt", "Reset line is there",
-    "Liaison de réinitialisation présente" },  // STR_NFCRST_OK_TITLE
+    "Liaison de réinitialisation présente",
+    "Linea di reset presente" },  // STR_NFCRST_OK_TITLE
   { "Der Leser hat auf die Leitung reagiert. Ab dem nächsten Start benutzt "
     "die Waage den Hardware-Reset.",
     "The reader responded to the line. From the next start the scale uses the "
     "hardware reset.",
-    "Le lecteur a réagi à la liaison. Dès le prochain démarrage, la balance utilisera la réinitialisation matérielle." },  // STR_NFCRST_OK_TEXT
-  { "Keine Wirkung", "No effect", "Aucun effet" },  // STR_NFCRST_FAIL_TITLE
+    "Le lecteur a réagi à la liaison. Dès le prochain démarrage, la balance utilisera la réinitialisation matérielle.",
+    "Il lettore ha risposto alla linea. Dal prossimo avvio la bilancia usa il reset hardware." },  // STR_NFCRST_OK_TEXT
+  { "Keine Wirkung", "No effect", "Aucun effet", "Nessun effetto" },  // STR_NFCRST_FAIL_TITLE
   { "Der Leser hat nichts gemerkt. Der orange Draht liegt noch auf dem alten "
     "Pad, oder die Lötstelle hat keinen Kontakt.\n\n"
     "Es ändert sich nichts, die Waage arbeitet weiter wie bisher.",
     "The reader did not notice. The orange wire is still on the old pad, or "
     "the joint is not making contact.\n\n"
     "Nothing changes, the scale carries on as before.",
-    "Le lecteur n'a pas réagi au test de réinitialisation. Soit le fil orange est encore sur l'ancienne pastille, soit la soudure ne fait pas contact.\n\nRien n'est modifié : la balance continue de fonctionner comme avant." },  // STR_NFCRST_FAIL_TEXT
+    "Le lecteur n'a pas réagi au test de réinitialisation. Soit le fil orange est encore sur l'ancienne pastille, soit la soudure ne fait pas contact.\n\nRien n'est modifié : la balance continue de fonctionner comme avant.",
+    "Il lettore non se n'è accorto. Il filo arancione è ancora sulla vecchia piazzola, o la saldatura non fa contatto.\n\nNon cambia nulla, la bilancia continua come prima." },  // STR_NFCRST_FAIL_TEXT
 
   // ── Hardware UID into extra.rfid_tag ──
-  { "Chip-UID mitschreiben",  "Also write the chip UID", "Écrire aussi l'UID de la puce" },  // STR_HW_UID_WRITE
-  { "Zusätzlich in rfid_tag", "Into rfid_tag as well",   "Également dans rfid_tag" },  // STR_HW_UID_WRITE_SUB
+  { "Chip-UID mitschreiben", "Also write the chip UID",
+    "Écrire aussi l'UID de la puce",
+    "Scrivi anche l'UID del chip" },  // STR_HW_UID_WRITE
+  { "Zusätzlich in rfid_tag", "Into rfid_tag as well",
+    "Également dans rfid_tag",
+    "Anche in rfid_tag" },  // STR_HW_UID_WRITE_SUB
   { "An: die Hardware-UID des Chips, der gerade auf dem Leser liegt, kommt "
     "zusätzlich in das Extra-Feld rfid_tag, als kommagetrennte Liste. Die "
     "Bindung selbst bleibt unverändert in dem Feld, das oben gewählt ist.\n\n"
@@ -2270,10 +2848,13 @@ const char* const STRINGS[][3] = {
     "The scale writes this into every spool it recognises, not only when a "
     "link is made. Once the UID is in there, no request goes out again. If the "
     "field is missing, the scale creates it on the first write.",
-    "Activé : l'UID matériel de la puce posée sur le lecteur est aussi ajouté au champ supplémentaire rfid_tag, dans une liste séparée par des virgules. La liaison elle-même reste inchangée, dans le champ choisi plus haut.\n\nSur une Voron, Happy Hare ne lit que rfid_tag, et les lecteurs placés à ses entrées (gates) ne voient que l'UID matériel de la puce, jamais la tray_uuid d'une bobine Bambu. Sans ce champ, l'imprimante ne trouve pas une bobine que la balance reconnaît pourtant très bien.\n\nUne bobine Bambu porte deux puces, donc deux UID. La liste se complète toute seule : posez une fois chaque côté de la bobine sur le lecteur, et elle sera reconnue aux deux entrées.\n\nLa balance renseigne ce champ pour chaque bobine qu'elle reconnaît, pas seulement lors d'une liaison. Si l'UID y figure déjà, elle n'envoie plus aucune requête. Si le champ manque, la balance le crée à la première écriture." },  // STR_HW_UID_WRITE_INFO
+    "Activé : l'UID matériel de la puce posée sur le lecteur est aussi ajouté au champ supplémentaire rfid_tag, dans une liste séparée par des virgules. La liaison elle-même reste inchangée, dans le champ choisi plus haut.\n\nSur une Voron, Happy Hare ne lit que rfid_tag, et les lecteurs placés à ses entrées (gates) ne voient que l'UID matériel de la puce, jamais la tray_uuid d'une bobine Bambu. Sans ce champ, l'imprimante ne trouve pas une bobine que la balance reconnaît pourtant très bien.\n\nUne bobine Bambu porte deux puces, donc deux UID. La liste se complète toute seule : posez une fois chaque côté de la bobine sur le lecteur, et elle sera reconnue aux deux entrées.\n\nLa balance renseigne ce champ pour chaque bobine qu'elle reconnaît, pas seulement lors d'une liaison. Si l'UID y figure déjà, elle n'envoie plus aucune requête. Si le champ manque, la balance le crée à la première écriture.",
+    "Attivo: l'UID hardware del chip sul lettore va anche nel campo extra rfid_tag, come lista separata da virgole. Il collegamento resta invariato nel campo scelto sopra.\n\nHappy Hare su una Voron legge solo rfid_tag, e i lettori ai suoi ingressi (gate) vedono solo l'UID hardware del chip, mai la tray_uuid di una bobina Bambu. Senza questo campo la stampante non trova la bobina che la bilancia riconosce benissimo.\n\nUna bobina Bambu ha due chip e quindi due UID. La lista cresce da sola: metti ogni lato sul lettore una volta e la bobina risponde a entrambi i gate.\n\nLa bilancia lo scrive in ogni bobina che riconosce, non solo quando si fa un collegamento. Quando l'UID c'è già, non parte più alcuna richiesta. Se il campo manca, la bilancia lo crea alla prima scrittura." },  // STR_HW_UID_WRITE_INFO
 
   // ── A link that could not use the selected source ──
-  { "Tag-Quelle nicht verfügbar", "Tag source unavailable", "Source de tag indisponible" },  // STR_TF_NOREL_TITLE
+  { "Tag-Quelle nicht verfügbar", "Tag source unavailable",
+    "Source de tag indisponible",
+    "Fonte tag non disponibile" },  // STR_TF_NOREL_TITLE
   { "Dieser Spoolman hat noch keine eigene Tag-Relation - die gibt es erst ab "
     "v0.27. Als Quelle sind aber die nativen Tags gewählt.\n\n"
     "Der Tag wurde deshalb in das Extra-Feld tag geschrieben. Die Spule wird "
@@ -2287,11 +2868,16 @@ const char* const STRINGS[][3] = {
     "just not by the fastest route.\n\n"
     "Better for good: update Spoolman to v0.27 or newer. The scale then moves "
     "the binding into the relation by itself, on the next link.",
-    "Ce serveur Spoolman ne gère pas encore les tags nativement - cette fonction n'arrive qu'en v0.27. La source choisie est pourtant « Spoolman NFC (natif) ».\n\nLe tag a donc été enregistré dans le champ supplémentaire extra.tag. La bobine est bien retrouvée grâce à lui, mais pas par le chemin le plus rapide.\n\nSolution durable : mettre Spoolman à jour en v0.27 ou plus récent. La balance déplacera alors d'elle-même le tag vers la gestion native, lors de la prochaine liaison." },  // STR_TF_NOREL_TEXT
+    "Ce serveur Spoolman ne gère pas encore les tags nativement - cette fonction n'arrive qu'en v0.27. La source choisie est pourtant « Spoolman NFC (natif) ».\n\nLe tag a donc été enregistré dans le champ supplémentaire extra.tag. La bobine est bien retrouvée grâce à lui, mais pas par le chemin le plus rapide.\n\nSolution durable : mettre Spoolman à jour en v0.27 ou plus récent. La balance déplacera alors d'elle-même le tag vers la gestion native, lors de la prochaine liaison.",
+    "Questo Spoolman non ha ancora una gestione propria dei tag - arriva con la v0.27. La fonte scelta però è il tag nativo.\n\nIl tag è finito invece nel campo extra tag. La bobina viene trovata comunque, solo non per la via più rapida.\n\nMeglio per sempre: aggiorna Spoolman alla v0.27 o successiva. La bilancia sposta poi da sé il collegamento nella gestione nativa, al prossimo collegamento." },  // STR_TF_NOREL_TEXT
 
   // ── The tag on the other flange ──
-  { "Zweites Tag abfragen", "Ask for a second tag", "Demander un second tag" },  // STR_TAG2_ASK
-  { "Nach dem Verknüpfen",  "Right after a link",   "Juste après une liaison" },  // STR_TAG2_ASK_SUB
+  { "Zweites Tag abfragen", "Ask for a second tag",
+    "Demander un second tag",
+    "Chiedi un secondo tag" },  // STR_TAG2_ASK
+  { "Nach dem Verknüpfen", "Right after a link",
+    "Juste après une liaison",
+    "Dopo il collegamento" },  // STR_TAG2_ASK_SUB
   { "An: nach jedem erfolgreichen Verknüpfen fragt die Waage nach einem "
     "zweiten Tag. Spule umdrehen, Tag auflegen, fertig - es geht an dieselbe "
     "Spule wie das erste.\n\n"
@@ -2317,18 +2903,22 @@ const char* const STRINGS[][3] = {
     "The row only appears where the selected source can hold more than one "
     "tag. Whether the second tag is written as well is still decided by the "
     "tag writing setting.",
-    "Activé : après chaque liaison réussie, la balance demande un second tag. Retournez la bobine, posez le tag sur le lecteur, c'est fait - il est lié à la même bobine que le premier.\n\nLa demande d'origine était un second lecteur, un de chaque côté du boîtier. Le matériel ne le permet pas : c'est donc une étape à l'écran qui remplace ce composant.\n\nSur une bobine Bambu, les deux puces portent la même tray_uuid : l'UID de la seconde puce finirait donc par être ajouté de toute façon. La question indique seulement le bon moment pour le faire. Deux NTAG, en revanche, n'ont rien en commun : sans cette question, il faudrait rechercher la bobine à la main une seconde fois.\n\nCette ligne n'apparaît que si la source choisie peut contenir plus d'un tag. L'écriture des données sur le second tag reste décidée par le réglage « Écrire le tag après la liaison »." },  // STR_TAG2_ASK_INFO
-  { "Zweites Tag", "Second tag", "Second tag" },  // STR_TAG2_TITLE
+    "Activé : après chaque liaison réussie, la balance demande un second tag. Retournez la bobine, posez le tag sur le lecteur, c'est fait - il est lié à la même bobine que le premier.\n\nLa demande d'origine était un second lecteur, un de chaque côté du boîtier. Le matériel ne le permet pas : c'est donc une étape à l'écran qui remplace ce composant.\n\nSur une bobine Bambu, les deux puces portent la même tray_uuid : l'UID de la seconde puce finirait donc par être ajouté de toute façon. La question indique seulement le bon moment pour le faire. Deux NTAG, en revanche, n'ont rien en commun : sans cette question, il faudrait rechercher la bobine à la main une seconde fois.\n\nCette ligne n'apparaît que si la source choisie peut contenir plus d'un tag. L'écriture des données sur le second tag reste décidée par le réglage « Écrire le tag après la liaison ».",
+    "Attivo: dopo ogni collegamento riuscito la bilancia chiede un secondo tag. Gira la bobina, metti il tag sul lettore, fatto - va alla stessa bobina del primo.\n\nLa richiesta originale era un secondo lettore, uno per lato del case. L'hardware ne ha uno, quindi qui un passaggio fa ciò che avrebbe fatto un componente.\n\nSu una bobina Bambu entrambi i chip hanno la stessa tray uuid, quindi l'UID del secondo chip arriverebbe comunque prima o poi. La domanda dice solo quando. Due NTAG non hanno nulla in comune, e senza di essa la bobina va cercata a mano una seconda volta.\n\nLa riga compare solo dove la fonte scelta può contenere più di un tag. Se scrivere anche il secondo tag lo decide sempre l'impostazione di scrittura del tag." },  // STR_TAG2_ASK_INFO
+  { "Zweites Tag", "Second tag", "Second tag", "2° tag" },  // STR_TAG2_TITLE
   { "Spule umdrehen und das zweite Tag auflegen",
     "Turn the spool over and place the second tag",
-    "Retournez la bobine et posez le second tag" },  // STR_TAG2_PROMPT
-  { "Schließt in %d s",      "Closes in %d s",    "Se ferme dans %d s" },  // STR_TAG2_CLOSES_IN
-  { "Fertig",                "Done",              "Terminer" },  // STR_TAG2_BTN_DONE
-  { "Zweites Tag verknüpft", "Second tag linked", "Second tag lié" },  // STR_TAG2_LINKED
+    "Retournez la bobine et posez le second tag",
+    "Gira la bobina e appoggia il secondo tag" },  // STR_TAG2_PROMPT
+  { "Schließt in %d s", "Closes in %d s", "Se ferme dans %d s", "Si chiude tra %d s" },  // STR_TAG2_CLOSES_IN
+  { "Fertig", "Done", "Terminer", "Fine" },  // STR_TAG2_BTN_DONE
+  { "Zweites Tag verknüpft", "Second tag linked", "Second tag lié", "2° tag collegato" },  // STR_TAG2_LINKED
 
   // ── A device built without a load cell ──
-  { "Keine Waage angeschlossen", "No scale connected", "Aucune balance connectée" },  // STR_NO_SCALE
-  { "Waage vorhanden",           "Scale fitted",       "Balance présente" },  // STR_SCALE_FITTED
+  { "Keine Waage angeschlossen", "No scale connected",
+    "Aucune balance connectée",
+    "Nessuna bilancia collegata" },  // STR_NO_SCALE
+  { "Waage vorhanden", "Scale fitted", "Balance présente", "Bilancia presente" },  // STR_SCALE_FITTED
   { "An: das Gerät hat eine Wiegezelle und verhält sich wie bisher.\n\n"
     "Aus: der ganze Waagenteil verschwindet. Der NAU7802 wird beim Start gar "
     "nicht erst gesucht, der Hauptbildschirm zeigt statt der Gewichte einen "
@@ -2349,20 +2939,25 @@ const char* const STRINGS[][3] = {
     "against it, see the spool, give it a location and a printer. Without this "
     "switch such a device reports a fault it does not have, for good.\n\n"
     "Changing it needs a restart.",
-    "Activé : l'appareil a un capteur de pesée et fonctionne exactement comme avant.\n\nDésactivé : toute la partie pesée disparaît. Le NAU7802 n'est même plus recherché au démarrage, l'écran principal affiche un message à la place des poids et plus rien là où se trouvait TARE, le bouton « Envoyer le poids » devient le bouton « Emplacement », et Étalonnage et Poids du sachet disparaissent de ce menu.\n\nPrévu pour un appareil composé seulement d'un écran et d'un lecteur : poser un tag, voir la bobine, lui attribuer un emplacement et une imprimante. Sans ce réglage, un tel appareil signale en permanence une panne qu'il n'a pas.\n\nLe changement nécessite un redémarrage." },  // STR_SCALE_FITTED_INFO
-  { "Tags | Trocknung | Mehr", "Tags | Drying | More", "Tags | Séchage | Plus" },  // STR_TILE_SCALE_SUB_OFF
-  { "Waage vorhanden",         "Scale fitted",         "Balance présente" },  // STR_W_SCALE_FITTED
+    "Activé : l'appareil a un capteur de pesée et fonctionne exactement comme avant.\n\nDésactivé : toute la partie pesée disparaît. Le NAU7802 n'est même plus recherché au démarrage, l'écran principal affiche un message à la place des poids et plus rien là où se trouvait TARE, le bouton « Envoyer le poids » devient le bouton « Emplacement », et Étalonnage et Poids du sachet disparaissent de ce menu.\n\nPrévu pour un appareil composé seulement d'un écran et d'un lecteur : poser un tag, voir la bobine, lui attribuer un emplacement et une imprimante. Sans ce réglage, un tel appareil signale en permanence une panne qu'il n'a pas.\n\nLe changement nécessite un redémarrage.",
+    "Attivo: il dispositivo ha una cella di carico e funziona esattamente come prima.\n\nSpento: tutta la parte di pesata sparisce. Il NAU7802 non viene nemmeno cercato all'avvio, la schermata principale mostra un avviso al posto dei pesi e nulla dove c'era TARE, il pulsante \"Invia peso\" diventa quello della posizione, e taratura e peso sacchetto escono da questo menu.\n\nPensato per un dispositivo fatto solo di display e lettore: avvicina un tag, vedi la bobina, assegnale una posizione e una stampante. Senza questo interruttore un tale dispositivo segnala per sempre un guasto che non ha.\n\nIl cambio richiede un riavvio." },  // STR_SCALE_FITTED_INFO
+  { "Tags | Trocknung | Mehr", "Tags | Drying | More",
+    "Tags | Séchage | Plus",
+    "Tag | Essiccaz. | Altro" },  // STR_TILE_SCALE_SUB_OFF
+  { "Waage vorhanden", "Scale fitted", "Balance présente", "Bilancia presente" },  // STR_W_SCALE_FITTED
   { "Aus, wenn das Gerät nur aus Display und Leser besteht. Braucht einen "
     "Neustart.",
     "Off if the device is display and reader only. Needs a restart.",
-    "À désactiver si l'appareil se limite à un écran et un lecteur. Nécessite un redémarrage." },  // STR_W_SCALE_FITTED_HINT
-  { "abgeschaltet", "switched off", "désactivée" },  // STR_W_S_SCALE_OFF
+    "À désactiver si l'appareil se limite à un écran et un lecteur. Nécessite un redémarrage.",
+    "Spento se il dispositivo è solo display e lettore. Richiede un riavvio." },  // STR_W_SCALE_FITTED_HINT
+  { "abgeschaltet", "switched off", "désactivée", "spenta" },  // STR_W_S_SCALE_OFF
 
-  { "Passwort", "Password", "Mot de passe" },  // STR_WEB_PASS
+  { "Passwort", "Password", "Mot de passe", "Password" },  // STR_WEB_PASS
   { "Gesetzt - der Browser fragt danach",
     "Set - the browser asks for it",
-    "Défini - le navigateur le demande" },  // STR_WEB_PASS_SET
-  { "Nicht gesetzt", "Not set", "Non défini" },  // STR_WEB_PASS_UNSET
+    "Défini - le navigateur le demande",
+    "Impostata - il browser la chiede" },  // STR_WEB_PASS_SET
+  { "Nicht gesetzt", "Not set", "Non défini", "Nessuna" },  // STR_WEB_PASS_UNSET
   { "Schützt die Bereiche Einstellungen und Gerät im Browser: Backend, "
     "Einstellungen, Tags, Logs und Firmware. Ohne Passwort darf jedes Gerät "
     "im Netz diese Bereiche nutzen, sobald sie eingeschaltet sind - auch "
@@ -2375,1564 +2970,1929 @@ const char* const STRINGS[][3] = {
     "upload included.\n\n"
     "4 to 8 digits. The browser asks for it, the user name does not matter. "
     "Save empty to remove the password.",
-    "Protège les sections Réglages et Maintenance de l'interface web : backend, réglages, tags, journaux et firmware. Sans mot de passe, tout appareil du réseau peut utiliser ces sections dès qu'elles sont activées - y compris installer un firmware.\n\n4 à 8 chiffres. Le navigateur vous le demandera ; le nom d'utilisateur est ignoré. Validez sans rien saisir pour supprimer le mot de passe." },  // STR_WEB_PASS_INFO
-  { "Web-Passwort", "Web password", "Mot de passe web" },  // STR_WEB_PASS_TITLE
+    "Protège les sections Réglages et Maintenance de l'interface web : backend, réglages, tags, journaux et firmware. Sans mot de passe, tout appareil du réseau peut utiliser ces sections dès qu'elles sont activées - y compris installer un firmware.\n\n4 à 8 chiffres. Le navigateur vous le demandera ; le nom d'utilisateur est ignoré. Validez sans rien saisir pour supprimer le mot de passe.",
+    "Protegge le sezioni Impostazioni e Dispositivo nel browser: backend, impostazioni, tag, log e firmware. Senza password qualsiasi dispositivo in rete può usare queste sezioni una volta accese - caricamento firmware incluso.\n\nDa 4 a 8 cifre. La chiede il browser, il nome utente non conta. Salva vuota per rimuovere la password." },  // STR_WEB_PASS_INFO
+  { "Web-Passwort", "Web password", "Mot de passe web", "Password web" },  // STR_WEB_PASS_TITLE
   { "4 bis 8 Ziffern. Leer speichern entfernt das Passwort.",
     "4 to 8 digits. Save empty to remove the password.",
-    "4 à 8 chiffres. Validez sans rien saisir pour supprimer le mot de passe." },  // STR_WEB_PASS_HINT
-  { "Passwort",      "Password", "Mot de passe" },  // STR_W_R_PASSWORD
-  { "gesetzt",       "set",      "défini" },  // STR_W_S_SET
-  { "nicht gesetzt", "not set",  "non défini" },  // STR_W_S_NOTSET
+    "4 à 8 chiffres. Validez sans rien saisir pour supprimer le mot de passe.",
+    "Da 4 a 8 cifre. Salva vuota per rimuovere la password." },  // STR_WEB_PASS_HINT
+  { "Passwort", "Password", "Mot de passe", "Password" },  // STR_W_R_PASSWORD
+  { "gesetzt", "set", "défini", "impostata" },  // STR_W_S_SET
+  { "nicht gesetzt", "not set", "non défini", "non impostata" },  // STR_W_S_NOTSET
   { "Ohne Passwort kann jedes Gerät im Netz die eingeschalteten Bereiche nutzen, "
     "Firmware flashen eingeschlossen. Setzen am Gerät unter",
     "Without a password any device on the network can use the sections that "
     "are on, firmware upload included. Set one on the device under",
-    "Sans mot de passe, tout appareil du réseau peut utiliser les sections activées, y compris installer un firmware. Définissez-en un sur l'écran de la balance, dans" },  // STR_W_PASS_NOTE
+    "Sans mot de passe, tout appareil du réseau peut utiliser les sections activées, y compris installer un firmware. Définissez-en un sur l'écran de la balance, dans",
+    "Senza password qualsiasi dispositivo in rete può usare le sezioni accese, caricamento firmware incluso. Impostala sul dispositivo in" },  // STR_W_PASS_NOTE
   { "Passwort nötig: beliebiger Benutzername, das Web-Passwort der Waage.",
     "Password required: any user name, the scale's web password.",
-    "Mot de passe requis : n'importe quel nom d'utilisateur, et le mot de passe web de la balance." },  // STR_W_AUTH_NEEDED
+    "Mot de passe requis : n'importe quel nom d'utilisateur, et le mot de passe web de la balance.",
+    "Password richiesta: qualsiasi nome utente, la password web della bilancia." },  // STR_W_AUTH_NEEDED
   { "Diese Adresse gehört nicht zur Waage. Bitte über die IP-Adresse oder den "
     "Gerätenamen aufrufen.",
     "This address does not belong to the scale. Open it by IP address or by "
     "its device name.",
-    "Cette adresse n'appartient pas à la balance. Ouvrez-la par son adresse IP ou par son nom d'appareil." },  // STR_W_BAD_HOST
+    "Cette adresse n'appartient pas à la balance. Ouvrez-la par son adresse IP ou par son nom d'appareil.",
+    "Questo indirizzo non appartiene alla bilancia. Aprila tramite IP o col suo nome dispositivo." },  // STR_W_BAD_HOST
   { "Anfrage von einer fremden Seite abgelehnt.",
     "Request from a foreign page refused.",
-    "Requête venue d'une page étrangère refusée." },  // STR_W_BAD_ORIGIN
-  { "%d Spulen", "%d spools", "%d bobines" },  // STR_SPOOLS_COUNT
+    "Requête venue d'une page étrangère refusée.",
+    "Richiesta da una pagina estranea rifiutata." },  // STR_W_BAD_ORIGIN
+  { "%d Spulen", "%d spools", "%d bobines", "%d bobine" },  // STR_SPOOLS_COUNT
   { "Beide Tags gehören jetzt zu dieser Spule.",
     "Both tags now belong to this spool.",
-    "Les deux tags appartiennent maintenant à cette bobine." },  // STR_TAG2_LINKED_INFO
-  { "Zweites Tag nicht verknüpft", "Second tag not linked", "Second tag non lié" },  // STR_TAG2_FAILED
+    "Les deux tags appartiennent maintenant à cette bobine.",
+    "Ora entrambi i tag appartengono a questa bobina." },  // STR_TAG2_LINKED_INFO
+  { "Zweites Tag nicht verknüpft", "Second tag not linked",
+    "Second tag non lié",
+    "Secondo tag non collegato" },  // STR_TAG2_FAILED
   { "Spule #%d verliert das Tag.",
     "Spool #%d loses the tag.",
-    "La bobine #%d perdra ce tag." },  // STR_TAGMOVE_HINT
-  { "Umhängen",                "Move",           "Déplacer" },  // STR_TAGMOVE_BTN
-  { "Umhängen fehlgeschlagen", "Move failed",    "Échec du déplacement" },  // STR_TAGMOVE_FAILED
-  { "Hängt an:",               "On spool:",      "Lié à :" },  // STR_TAGMOVE_FROM
-  { "Umhängen zu:",            "Move to:",       "Déplacer vers :" },  // STR_TAGMOVE_TO
-  { "%d Min",                  "%d min",         "%d min" },  // STR_MINUTES_FMT
-  { "%d T.",                   "%d d",           "%d j" },  // STR_DAYS_ABBR_FMT
-  { "%.0f g neu",              "%.0f g new",     "%.0f g neuve" },  // STR_NEW_SPOOL_WEIGHT_FMT
-  { "Diff",                    "Diff",           "Écart" },  // STR_LBL_DIFF_CAP
-  { "Datei wählen",            "Choose file",    "Choisir un fichier" },  // STR_W_FW_CHOOSE
-  { "Keine Datei gewählt",     "No file chosen", "Aucun fichier choisi" },  // STR_W_FW_NOFILE
+    "La bobine #%d perdra ce tag.",
+    "La bobina #%d perde il tag." },  // STR_TAGMOVE_HINT
+  { "Umhängen", "Move", "Déplacer", "Sposta" },  // STR_TAGMOVE_BTN
+  { "Umhängen fehlgeschlagen", "Move failed", "Échec du déplacement", "Spostamento fallito" },  // STR_TAGMOVE_FAILED
+  { "Hängt an:", "On spool:", "Lié à :", "Sulla bobina:" },  // STR_TAGMOVE_FROM
+  { "Umhängen zu:", "Move to:", "Déplacer vers :", "Sposta su:" },  // STR_TAGMOVE_TO
+  { "%d Min", "%d min", "%d min", "%d min" },  // STR_MINUTES_FMT
+  { "%d T.", "%d d", "%d j", "%d gg" },  // STR_DAYS_ABBR_FMT
+  { "%.0f g neu", "%.0f g new", "%.0f g neuve", "%.0f g nuova" },  // STR_NEW_SPOOL_WEIGHT_FMT
+  { "Diff", "Diff", "Écart", "Diff" },  // STR_LBL_DIFF_CAP
+  { "Datei wählen", "Choose file", "Choisir un fichier", "Scegli file" },  // STR_W_FW_CHOOSE
+  { "Keine Datei gewählt", "No file chosen", "Aucun fichier choisi", "Nessun file scelto" },  // STR_W_FW_NOFILE
   { "Wartung (Firmware, Logs, Tags)",
     "Maintenance (firmware, logs, tags)",
-    "Maintenance (firmware, journaux, tags)" },  // STR_W_R_MAINT_GATE
-  { "AMS-Ansicht", "AMS view", "Vue AMS" },  // STR_AMS_BTN_VIEW
+    "Maintenance (firmware, journaux, tags)",
+    "Manutenzione (firmware, log, tag)" },  // STR_W_R_MAINT_GATE
+  { "AMS-Ansicht", "AMS view", "Vue AMS", "Vista AMS" },  // STR_AMS_BTN_VIEW
   { "%s -> Fenster für die Zuordnung öffnen?",
     "%s -> open the assignment window?",
-    "%s -> ouvrir la fenêtre d'affectation ?" },  // STR_AMSV_WINDOW_HEAD
-  { "Fenster öffnen", "Open window", "Ouvrir la fenêtre" },  // STR_AMSV_BTN_WINDOW
+    "%s -> ouvrir la fenêtre d'affectation ?",
+    "%s -> aprire la finestra di assegnazione?" },  // STR_AMSV_WINDOW_HEAD
+  { "Fenster öffnen", "Open window", "Ouvrir la fenêtre", "Apri finestra" },  // STR_AMSV_BTN_WINDOW
   { "Gespeichert - Test übersprungen, das Gerät ist beschäftigt",
     "Saved - test skipped, the device is busy",
-    "Enregistré - test ignoré, l'appareil est occupé" },  // STR_W_HOST_SAVED_ONLY
+    "Enregistré - test ignoré, l'appareil est occupé",
+    "Salvato - test saltato, il dispositivo è occupato" },  // STR_W_HOST_SAVED_ONLY
   { "Bereits mit einem WLAN verbunden.",
     "Already connected to WiFi.",
-    "Déjà connectée à un réseau WiFi." },  // STR_WIFI_ALREADY_CONNECTED
-  { "WLAN ändern",                  "Change WiFi",              "Changer de WiFi" },  // STR_BTN_WIFI_CHANGE
-  { "Per Handy einrichten",         "Set up by phone",          "Configurer par mobile" },  // STR_BTN_WIFI_PORTAL
+    "Déjà connectée à un réseau WiFi.",
+    "Già connesso al WiFi." },  // STR_WIFI_ALREADY_CONNECTED
+  { "WLAN ändern", "Change WiFi", "Changer de WiFi", "Cambia WiFi" },  // STR_BTN_WIFI_CHANGE
+  { "Per Handy einrichten", "Set up by phone",
+    "Configurer par mobile",
+    "Configura da telefono" },  // STR_BTN_WIFI_PORTAL
   { "WLAN per Handy einrichten", "Set up WiFi by phone",
-    "Configurer le WiFi par mobile" },  // STR_PORTAL_TITLE
+    "Configurer le WiFi par mobile",
+    "Configura WiFi da telefono" },  // STR_PORTAL_TITLE
   { "1. WLAN der Waage beitreten", "1. Join the scale's WiFi",
-    "1. Rejoignez le WiFi affiché" },  // STR_PORTAL_STEP_JOIN
-  { "2. Seite öffnen",              "2. Open the page",         "2. Ouvrez la page" },  // STR_PORTAL_STEP_OPEN
-  { "WLAN: %s",                     "WiFi: %s",                 "WiFi : %s" },  // STR_PORTAL_NET_FMT
-  { "Passwort: %s",                 "Password: %s",             "Mot de passe : %s" },  // STR_PORTAL_PASS_FMT
+    "1. Rejoignez le WiFi affiché",
+    "1. Collegati al WiFi della bilancia" },  // STR_PORTAL_STEP_JOIN
+  { "2. Seite öffnen", "2. Open the page", "2. Ouvrez la page", "2. Apri la pagina" },  // STR_PORTAL_STEP_OPEN
+  { "WLAN: %s", "WiFi: %s", "WiFi : %s", "WiFi: %s" },  // STR_PORTAL_NET_FMT
+  { "Passwort: %s", "Password: %s", "Mot de passe : %s", "Password: %s" },  // STR_PORTAL_PASS_FMT
   { "Öffnet sich meist von selbst", "Usually opens by itself",
-    "S'ouvre le plus souvent tout seul" },  // STR_PORTAL_OPENS_ITSELF
+    "S'ouvre le plus souvent tout seul",
+    "Di solito si apre da sola" },  // STR_PORTAL_OPENS_ITSELF
   { "Meldet das Handy \"kein Internet\", verbunden bleiben.",
     "If the phone reports \"no internet\", stay connected.",
-    "Si le téléphone signale « pas d'Internet », restez quand même connecté." },  // STR_PORTAL_ANDROID_HINT
+    "Si le téléphone signale « pas d'Internet », restez quand même connecté.",
+    "Se il telefono segnala \"nessuna connessione Internet\", resta connesso." },  // STR_PORTAL_ANDROID_HINT
   { "Warte auf Eingabe am Handy...", "Waiting for the phone...",
-    "Attente de la saisie sur le téléphone..." },  // STR_PORTAL_WAITING
+    "Attente de la saisie sur le téléphone...",
+    "In attesa del telefono..." },  // STR_PORTAL_WAITING
   { "Daten empfangen, verbinde gleich...",
     "Received, connecting in a moment...",
-    "Données reçues, connexion imminente..." },  // STR_PORTAL_RECEIVED
+    "Données reçues, connexion imminente...",
+    "Ricevuto, connessione tra un attimo..." },  // STR_PORTAL_RECEIVED
   { LV_SYMBOL_WARNING "  Das WLAN der Waage konnte nicht starten.",
     LV_SYMBOL_WARNING "  The scale's WiFi could not start.",
-    LV_SYMBOL_WARNING "  Le WiFi de la balance n'a pas pu démarrer." },  // STR_PORTAL_START_FAILED
+    LV_SYMBOL_WARNING "  Le WiFi de la balance n'a pas pu démarrer.",
+    LV_SYMBOL_WARNING "  Il WiFi della bilancia non è partito." },  // STR_PORTAL_START_FAILED
   { "Wähle das WLAN, mit dem sich die Waage verbinden soll.",
     "Choose the WiFi network the scale should join.",
-    "Choisissez le réseau WiFi que la balance doit rejoindre." },  // STR_PORTAL_PAGE_INTRO
-  { "Netzwerk",     "Network",       "Réseau" },  // STR_PORTAL_PAGE_NETWORK
-  { "Bitte wählen", "Please choose", "Veuillez choisir" },  // STR_PORTAL_PAGE_CHOOSE
+    "Choisissez le réseau WiFi que la balance doit rejoindre.",
+    "Scegli la rete WiFi a cui collegare la bilancia." },  // STR_PORTAL_PAGE_INTRO
+  { "Netzwerk", "Network", "Réseau", "Rete" },  // STR_PORTAL_PAGE_NETWORK
+  { "Bitte wählen", "Please choose", "Veuillez choisir", "Scegli" },  // STR_PORTAL_PAGE_CHOOSE
   { "Oder Namen eingeben (verstecktes Netz)",
     "Or type its name (hidden network)",
-    "Ou saisissez son nom (réseau masqué)" },  // STR_PORTAL_PAGE_OTHER
-  { "Passwort",  "Password", "Mot de passe" },  // STR_PORTAL_PAGE_PASS
-  { "Verbinden", "Connect",  "Se connecter" },  // STR_PORTAL_PAGE_SUBMIT
+    "Ou saisissez son nom (réseau masqué)",
+    "Oppure scrivi il nome (rete nascosta)" },  // STR_PORTAL_PAGE_OTHER
+  { "Passwort", "Password", "Mot de passe", "Password" },  // STR_PORTAL_PAGE_PASS
+  { "Verbinden", "Connect", "Se connecter", "Connetti" },  // STR_PORTAL_PAGE_SUBMIT
   { "Die Waage verbindet sich jetzt mit %s. Das Ergebnis erscheint auf ihrem Display, dieses WLAN schaltet sich dabei ab.",
     "The scale is now connecting to %s. The result appears on its display, and this WiFi network switches off.",
-    "La balance se connecte à %s. Le résultat apparaît sur son écran, et ce réseau WiFi s'éteint." },  // STR_PORTAL_PAGE_DONE
+    "La balance se connecte à %s. Le résultat apparaît sur son écran, et ce réseau WiFi s'éteint.",
+    "La bilancia si sta connettendo a %s. Il risultato compare sul suo display, e questa rete WiFi si spegne." },  // STR_PORTAL_PAGE_DONE
   { "Bitte ein Netzwerk wählen oder seinen Namen eingeben (höchstens 32 Zeichen).",
     "Please choose a network or type its name (32 characters at most).",
-    "Veuillez choisir un réseau ou saisir son nom (32 caractères au plus)." },  // STR_PORTAL_PAGE_ERR_SSID
+    "Veuillez choisir un réseau ou saisir son nom (32 caractères au plus).",
+    "Scegli una rete o scrivi il suo nome (al massimo 32 caratteri)." },  // STR_PORTAL_PAGE_ERR_SSID
   { "Das Passwort hat 8 bis 64 Zeichen, bei einem offenen Netz bleibt es leer.",
     "The password has 8 to 64 characters, or stays empty for an open network.",
-    "Le mot de passe compte 8 à 64 caractères, ou reste vide pour un réseau ouvert." },  // STR_PORTAL_PAGE_ERR_PASS
-  { "API-Key fehlt noch", "API key still missing", "Clé d'API manquante" },  // STR_BB_KEY_MISSING
-  { "API-Key abgelehnt",  "API key rejected",      "Clé d'API refusée" },  // STR_BB_KEY_REJECTED
+    "Le mot de passe compte 8 à 64 caractères, ou reste vide pour un réseau ouvert.",
+    "La password ha da 8 a 64 caratteri, o resta vuota per una rete aperta." },  // STR_PORTAL_PAGE_ERR_PASS
+  { "API-Key fehlt noch", "API key still missing", "Clé d'API manquante", "Manca chiave API" },  // STR_BB_KEY_MISSING
+  { "API-Key abgelehnt", "API key rejected", "Clé d'API refusée", "API key rifiutata" },  // STR_BB_KEY_REJECTED
 
   // AMS view: info mode and the detail card
-  { "Info", "Info", "Infos" },  // STR_AMSV_INFO
+  { "Info", "Info", "Infos", "Info" },  // STR_AMSV_INFO
   { "Fach antippen zeigt die Spule",
     "Tap a bay to see its spool",
-    "Touchez un bac pour voir sa bobine" },  // STR_AMSV_INFO_HINT
+    "Touchez un bac pour voir sa bobine",
+    "Tocca uno slot per vederne la bobina" },  // STR_AMSV_INFO_HINT
   { "Der externe Halter kann nicht zugewiesen werden",
     "The external holder cannot be assigned",
-    "Le support externe ne peut pas être affecté" },  // STR_AMSV_EXT_NO_PICK
-  { "%s - Fach %d", "%s - bay %d", "%s - bac %d" },  // STR_AMSD_BAY
-  { "Restmenge",    "Remaining",   "Reste" },  // STR_AMSD_REMAINING
-  { "%s von %s",    "%s of %s",    "%s sur %s" },  // STR_AMSD_OF
+    "Le support externe ne peut pas être affecté",
+    "Il supporto esterno non si può assegnare" },  // STR_AMSV_EXT_NO_PICK
+  { "%s - Fach %d", "%s - bay %d", "%s - bac %d", "%s - slot %d" },  // STR_AMSD_BAY
+  { "Restmenge", "Remaining", "Reste", "Residuo" },  // STR_AMSD_REMAINING
+  { "%s von %s", "%s of %s", "%s sur %s", "%s di %s" },  // STR_AMSD_OF
   { "Kein Gewicht im Backend hinterlegt",
     "No weight stored in the backend",
-    "Aucun poids enregistré dans le backend" },  // STR_AMSD_NO_WEIGHT
+    "Aucun poids enregistré dans le backend",
+    "Nessun peso salvato nel backend" },  // STR_AMSD_NO_WEIGHT
   { "Keine Spule im Backend verknüpft",
     "No spool linked in the backend",
-    "Aucune bobine liée dans le backend" },  // STR_AMSD_NO_SPOOL
-  { "Details werden geladen ...", "Loading details ...", "Chargement des détails ..." },  // STR_AMSD_LOADING
-  { "Details nicht abrufbar",     "Details unavailable", "Détails indisponibles" },  // STR_AMSD_FAIL
-  { "Ersatz %s",                  "Backup %s",           "Secours %s" },  // STR_AMSD_BACKUP
+    "Aucune bobine liée dans le backend",
+    "Nessuna bobina collegata" },  // STR_AMSD_NO_SPOOL
+  { "Details werden geladen ...", "Loading details ...",
+    "Chargement des détails ...",
+    "Caricamento dettagli ..." },  // STR_AMSD_LOADING
+  { "Details nicht abrufbar", "Details unavailable", "Détails indisponibles", "Dettagli assenti" },  // STR_AMSD_FAIL
+  { "Ersatz %s", "Backup %s", "Secours %s", "Riserva %s" },  // STR_AMSD_BACKUP
   { "Trocknung von heute für\ndiese Spule speichern?",
     "Record today's drying for\nthis spool?",
-    "Enregistrer le séchage du jour\npour cette bobine ?" },  // STR_AMSD_DRIED_Q
-  { "Wird gespeichert ...",     "Saving ...",    "Enregistrement ..." },  // STR_AMSD_SAVING
-  { "Speichern fehlgeschlagen", "Saving failed", "Échec d'enregistrement" },  // STR_AMSD_WRITE_FAIL
+    "Enregistrer le séchage du jour\npour cette bobine ?",
+    "Registrare l'essiccazione di oggi\nper questa bobina?" },  // STR_AMSD_DRIED_Q
+  { "Wird gespeichert ...", "Saving ...", "Enregistrement ...", "Salvataggio ..." },  // STR_AMSD_SAVING
+  { "Speichern fehlgeschlagen", "Saving failed",
+    "Échec d'enregistrement",
+    "Salvataggio fallito" },  // STR_AMSD_WRITE_FAIL
 
   // The caption the main screen and More Info used to spell out as a literal.
-  { "Material", "Material", "Matériau" },  // STR_LBL_MATERIAL
+  { "Material", "Material", "Matériau", "Materiale" },  // STR_LBL_MATERIAL
 
   // More captions that used to be literals, for the same reason.
-  { "Status",             "Status",             "Statut" },  // STR_LBL_STATUS
-  { "Status",             "Status",             "État" },  // STR_WIFI_ROW_STATUS
-  { "Gateway",            "Gateway",            "Passerelle" },  // STR_WIFI_ROW_GATEWAY
-  { "Name",               "Name",               "Nom" },  // STR_IP_BAR_NAME
-  { "%s Server",          "%s Server",          "Serveur %s" },  // STR_SERVER_TITLE
-  { "%s UUID",            "%s UUID",            "UUID %s" },  // STR_BACKEND_UUID
-  { "Language / Sprache", "Language / Sprache", "Langue / Language / Sprache" },  // STR_LANG_SCREEN_TITLE
-  { "DEL",                "DEL",                "Effacer" },  // STR_KEY_DEL
+  { "Status", "Status", "Statut", "Stato" },  // STR_LBL_STATUS
+  { "Status", "Status", "État", "Stato" },  // STR_WIFI_ROW_STATUS
+  { "Gateway", "Gateway", "Passerelle", "Gateway" },  // STR_WIFI_ROW_GATEWAY
+  { "Name", "Name", "Nom", "Nome" },  // STR_IP_BAR_NAME
+  { "%s Server", "%s Server", "Serveur %s", "Server %s" },  // STR_SERVER_TITLE
+  { "%s UUID", "%s UUID", "UUID %s", "UUID %s" },  // STR_BACKEND_UUID
+  { "Language / Sprache", "Language / Sprache",
+    "Langue / Language / Sprache",
+    "Lingua / Language" },  // STR_LANG_SCREEN_TITLE
+  { "DEL", "DEL", "Effacer", "CANC" },  // STR_KEY_DEL
 
   // AMS detail card: drying for the whole unit, and the material conflict hint
   { "Trocknung von heute speichern?",
     "Record today's drying?",
-    "Noter le séchage du jour ?" },  // STR_AMSD_DRIED_Q_ALL
-  { "Alle %d Spulen in %s", "All %d spools in %s", "%d bobines (%s)" },  // STR_AMSD_DRIED_ALL
-  { "Nur diese Spule",      "This spool only",     "Celle-ci seule" },  // STR_AMSD_DRIED_ONE
+    "Noter le séchage du jour ?",
+    "Salvare l'essiccazione?" },  // STR_AMSD_DRIED_Q_ALL
+  { "Alle %d Spulen in %s", "All %d spools in %s", "%d bobines (%s)", "%d bobine (%s)" },  // STR_AMSD_DRIED_ALL
+  { "Nur diese Spule", "This spool only", "Celle-ci seule", "Solo questa" },  // STR_AMSD_DRIED_ONE
   { "%d Spulen werden gespeichert ...",
     "Saving %d spools ...",
-    "Sauvegarde de %d bobines ..." },  // STR_AMSD_BATCH_RUNNING
-  { "%d von %d gespeichert", "%d of %d saved", "%d sur %d sauvées" },  // STR_AMSD_BATCH_DONE
-  { "Trocknet %d min",       "Drying %d min",  "Séchage %d min" },  // STR_AMSV_DRYING_MIN
-  { "Trocknet",              "Drying",         "Séchage" },  // STR_AMSV_DRYING
+    "Sauvegarde de %d bobines ...",
+    "Salvo %d bobine ..." },  // STR_AMSD_BATCH_RUNNING
+  { "%d von %d gespeichert", "%d of %d saved", "%d sur %d sauvées", "%d di %d salvate" },  // STR_AMSD_BATCH_DONE
+  { "Trocknet %d min", "Drying %d min", "Séchage %d min", "Essicca %d min" },  // STR_AMSV_DRYING_MIN
+  { "Trocknet", "Drying", "Séchage", "Essicca" },  // STR_AMSV_DRYING
   { "Drucker meldet %s - Zuordnung im Backend prüfen",
     "Printer reports %s - check the assignment in the backend",
-    "Imprimante : %s - vérifier l'affectation" },  // STR_AMSD_TYPE_CONFLICT
-  { "Snapmaker-Tags lesen", "Read Snapmaker tags", "Lire les tags Snapmaker" },  // STR_W_SNAPMAKER
+    "Imprimante : %s - vérifier l'affectation",
+    "La stampante dice %s - verifica l'assegnazione" },  // STR_AMSD_TYPE_CONFLICT
+  { "Snapmaker-Tags lesen", "Read Snapmaker tags",
+    "Lire les tags Snapmaker",
+    "Leggi i tag Snapmaker" },  // STR_W_SNAPMAKER
   { "Versucht bei einem 4-Byte-Tag, der kein Bambu-Tag ist, die Snapmaker-Schlüssel und liest Material und Farbe vom Tag. Kostet jeden anderen 4-Byte-Tag etwa eine halbe Sekunde beim Auflegen. Aus lassen, wenn keine Snapmaker-Spulen im Haus sind.",
     "Tries Snapmaker's keys on a 4 byte tag that is not a Bambu tag and reads material and colour off the tag. Costs every other 4 byte tag about half a second when it is put down. Leave it off if there are no Snapmaker spools around.",
-    "Essaie les clés Snapmaker sur un tag de 4 octets qui n'est pas un tag Bambu, et lit le matériau et la couleur sur le tag. Chaque autre tag de 4 octets met alors environ une demi-seconde de plus à être reconnu. À laisser désactivé s'il n'y a pas de bobines Snapmaker." },  // STR_W_SNAPMAKER_HINT
+    "Essaie les clés Snapmaker sur un tag de 4 octets qui n'est pas un tag Bambu, et lit le matériau et la couleur sur le tag. Chaque autre tag de 4 octets met alors environ une demi-seconde de plus à être reconnu. À laisser désactivé s'il n'y a pas de bobines Snapmaker.",
+    "Prova le chiavi Snapmaker su un tag da 4 byte che non è un tag Bambu e legge materiale e colore dal tag. Costa a ogni altro tag da 4 byte circa mezzo secondo quando viene appoggiato. Lascialo spento se non ci sono bobine Snapmaker." },  // STR_W_SNAPMAKER_HINT
   { "Einmalig kurz per USB aktualisieren",
     "A quick one-time update over USB",
-    "Mise à jour USB rapide, une fois" },  // STR_PART_HINT_TITLE
+    "Mise à jour USB rapide, une fois",
+    "Aggiornamento USB, una volta" },  // STR_PART_HINT_TITLE
   { "Für künftige Updates mit neuen Funktionen muss der Speicherbereich für die Firmware vergrößert werden. Das geht nur einmalig per USB-Kabel über den Web-Flasher: etwa 2 Minuten, alle Einstellungen bleiben erhalten. Danach kommen Updates wieder wie gewohnt drahtlos.",
     "For future updates with new features, the storage area for the firmware has to be enlarged. That only works once over a USB cable with the web flasher: about 2 minutes, every setting is kept. After that, updates arrive over the air as usual.",
-    "Pour les futures mises à jour, la zone mémoire du firmware doit être agrandie. Cela ne se fait qu'une fois, par câble USB avec le Web Flasher : environ 2 minutes, tous les réglages sont conservés. Ensuite, les mises à jour arrivent sans fil comme avant." },  // STR_PART_HINT_TEXT
-  { "Layout",   "Layout",   "Partitionnement" },  // STR_W_R_LAYOUT
-  { "aktuell",  "current",  "actuel" },  // STR_W_S_LAYOUT_NEW
-  { "veraltet", "outdated", "obsolète" },  // STR_W_S_LAYOUT_OLD
+    "Pour les futures mises à jour, la zone mémoire du firmware doit être agrandie. Cela ne se fait qu'une fois, par câble USB avec le Web Flasher : environ 2 minutes, tous les réglages sont conservés. Ensuite, les mises à jour arrivent sans fil comme avant.",
+    "Per i futuri aggiornamenti con nuove funzioni va ingrandita l'area di memoria del firmware. Si fa una sola volta via cavo USB con il web flasher: circa 2 minuti, tutte le impostazioni restano. Dopo, gli aggiornamenti arrivano via rete come al solito." },  // STR_PART_HINT_TEXT
+  { "Layout", "Layout", "Partitionnement", "Partizioni" },  // STR_W_R_LAYOUT
+  { "aktuell", "current", "actuel", "attuali" },  // STR_W_S_LAYOUT_NEW
+  { "veraltet", "outdated", "obsolète", "superate" },  // STR_W_S_LAYOUT_OLD
   { "Einmal per USB über den Web Flasher neu flashen bringt das aktuelle Layout. Die Einstellungen bleiben dabei erhalten.",
     "One flash over USB with the web flasher brings the current layout. Your settings are kept.",
-    "Un flash par USB avec le Web Flasher apporte le partitionnement actuel. Les réglages sont conservés." },  // STR_W_S_LAYOUT_OLD_HINT
-  { "Firmware",                                "Firmware",                    "Firmware" },  // STR_W_R_FIRMWARE
-  { "%s von %s MB",                            "%s of %s MB",                 "%s sur %s Mo" },  // STR_W_S_MB_OF
-  { "Datenbereich", "Data area",
-    "Zone de données" },  // STR_W_R_DATA_AREA
+    "Un flash par USB avec le Web Flasher apporte le partitionnement actuel. Les réglages sont conservés.",
+    "Un flash via USB con il web flasher porta le partizioni attuali. Le impostazioni restano." },  // STR_W_S_LAYOUT_OLD_HINT
+  { "Firmware", "Firmware", "Firmware", "Firmware" },  // STR_W_R_FIRMWARE
+  { "%s von %s MB", "%s of %s MB", "%s sur %s Mo", "%s di %s MB" },  // STR_W_S_MB_OF
+  { "Datenbereich", "Data area", "Zone de données", "Area dati" },  // STR_W_R_DATA_AREA
   { "%s MB, noch nicht genutzt", "%s MB, not used yet",
-    "%s Mo, pas encore utilisée" },  // STR_W_S_DATA_UNUSED
-  { "nicht vorhanden",                         "not present",                 "absente" },  // STR_W_S_NONE
-  { "Absturzspeicher", "Crash dump",
-    "Rapport de plantage" },  // STR_W_R_COREDUMP
+    "%s Mo, pas encore utilisée",
+    "%s MB, non ancora usata" },  // STR_W_S_DATA_UNUSED
+  { "nicht vorhanden", "not present", "absente", "assente" },  // STR_W_S_NONE
+  { "Absturzspeicher", "Crash dump", "Rapport de plantage", "Dump di crash" },  // STR_W_R_COREDUMP
   { "Nicht verknüpft: keine Verbindung", "Not linked: no connection",
-    "Non lié : pas de connexion" },  // STR_LINK_NO_CONNECTION
+    "Non lié : pas de connexion",
+    "Non collegata: niente rete" },  // STR_LINK_NO_CONNECTION
   { "Unlink fehlgeschlagen: keine Verbindung", "Not unlinked: no connection",
-    "Non dissocié : pas de connexion" },  // STR_UNLINK_NO_CONNECTION
-  { "Keine Verbindung", "No connection",
-    "Pas de connexion" },  // STR_NO_CONNECTION
+    "Non dissocié : pas de connexion",
+    "Non scollegata: nessuna connessione" },  // STR_UNLINK_NO_CONNECTION
+  { "Keine Verbindung", "No connection", "Pas de connexion", "Niente rete" },  // STR_NO_CONNECTION
   { "Keine Verbindung zu Spoolman", "No connection to Spoolman",
-    "Pas de connexion à Spoolman" },  // STR_NO_CONNECTION_TO
+    "Pas de connexion à Spoolman",
+    "Nessuna connessione a Spoolman" },  // STR_NO_CONNECTION_TO
   { "Keine Verbindung zum Server", "No connection to the server",
-    "Pas de connexion au serveur" },  // STR_SERVER_DOWN_TITLE
+    "Pas de connexion au serveur",
+    "Server non raggiungibile" },  // STR_SERVER_DOWN_TITLE
   { "Der Server hat nicht geantwortet. Prüfe, ob er läuft und ob die Waage im WLAN ist, und versuche es dann noch einmal.",
     "The server did not answer. Check that it is running and that the scale is on the WiFi, then try again.",
-    "Le serveur n'a pas répondu. Vérifiez qu'il fonctionne et que la balance est connectée au WiFi, puis réessayez." },  // STR_SERVER_DOWN_TEXT
+    "Le serveur n'a pas répondu. Vérifiez qu'il fonctionne et que la balance est connectée au WiFi, puis réessayez.",
+    "Il server non ha risposto. Controlla che sia attivo e che la bilancia sia sul WiFi, poi riprova." },  // STR_SERVER_DOWN_TEXT
   { "Protokoll schreiben",
     "Write the log",
-    "Écrire le journal" },  // STR_W_R_LOGDEST
+    "Écrire le journal",
+    "Scrivi il log" },  // STR_W_R_LOGDEST
   { "Aus",
     "Off",
-    "Désactivé" },  // STR_W_S_DEST_OFF
+    "Désactivé",
+    "Spento" },  // STR_W_S_DEST_OFF
   { "SD-Karte",
     "SD card",
-    "Carte SD" },  // STR_W_S_DEST_SD
+    "Carte SD",
+    "Scheda SD" },  // STR_W_S_DEST_SD
   { "Intern",
     "Internal",
-    "Interne" },  // STR_W_S_DEST_INT
+    "Interne",
+    "Interna" },  // STR_W_S_DEST_INT
   { "Umfang",
     "Scope",
-    "Niveau" },  // STR_W_R_LOGLVL
+    "Niveau",
+    "Livello" },  // STR_W_R_LOGLVL
   { "Knapp",
     "Minimal",
-    "Minimal" },  // STR_W_S_LVL_MIN
+    "Minimal",
+    "Minimo" },  // STR_W_S_LVL_MIN
   { "Normal",
     "Normal",
-    "Normal" },  // STR_W_S_LVL_NORM
+    "Normal",
+    "Normale" },  // STR_W_S_LVL_NORM
   { "Ausführlich",
     "Verbose",
-    "Détaillé" },  // STR_W_S_LVL_VERB
+    "Détaillé",
+    "Dettagliato" },  // STR_W_S_LVL_VERB
   { "Interner Speicher",
     "Internal storage",
-    "Mémoire interne" },  // STR_W_LOG_INTERNAL
+    "Mémoire interne",
+    "Memoria interna" },  // STR_W_LOG_INTERNAL
   { "{a} von {b} Zeilen",
     "{a} of {b} lines",
-    "{a} sur {b} lignes" },  // STR_W_LOG_LINES_OF
+    "{a} sur {b} lignes",
+    "{a} di {b} righe" },  // STR_W_LOG_LINES_OF
   { "Alle",
     "All",
-    "Tous" },  // STR_W_LOG_SRC_ALL
+    "Tous",
+    "Tutti" },  // STR_W_LOG_SRC_ALL
   { "Nicht verfügbar",
     "Not available",
-    "Non disponible" },  // STR_W_LOG_INT_NONE
+    "Non disponible",
+    "Non disponibile" },  // STR_W_LOG_INT_NONE
   { "Der interne Speicher fasst 4.096 Zeilen und überschreibt die ältesten. Das sind etwa zwei Tage im Umfang \"Normal\" und mehrere Stunden im Umfang \"Ausführlich\".",
     "The internal storage holds 4,096 lines and overwrites the oldest. That is about two days at normal scope and several hours at verbose.",
-    "La mémoire interne contient 4 096 lignes et écrase les plus anciennes. Cela fait environ deux jours au niveau « Normal » et plusieurs heures au niveau « Détaillé »." },  // STR_W_LOG_INT_NOTE
+    "La mémoire interne contient 4 096 lignes et écrase les plus anciennes. Cela fait environ deux jours au niveau « Normal » et plusieurs heures au niveau « Détaillé ».",
+    "La memoria interna tiene 4.096 righe e sovrascrive le più vecchie. Sono circa due giorni a livello normale e alcune ore a livello dettagliato." },  // STR_W_LOG_INT_NOTE
   { "Spule hat sich geändert, Liste neu geladen",
     "That spool changed, the list was reloaded",
-    "La bobine a changé, liste rechargée" },  // STR_LIST_SPOOL_CHANGED
+    "La bobine a changé, liste rechargée",
+    "La bobina è cambiata, elenco ricaricato" },  // STR_LIST_SPOOL_CHANGED
   { "Stand: %02d:%02d (vor %s min)",
     "As of %02d:%02d (%s min ago)",
-    "À %02d:%02d (il y a %s min)" },  // STR_LIST_AS_OF
+    "À %02d:%02d (il y a %s min)",
+    "Alle %02d:%02d (%s min fa)" },  // STR_LIST_AS_OF
   { "Neu laden",
     "Reload",
-    "Recharger" },  // STR_LIST_RELOAD
+    "Recharger",
+    "Ricarica" },  // STR_LIST_RELOAD
   { "Tag wird beschrieben",
     "Writing the tag",
-    "Écriture du tag" },  // STR_TW_BUSY_WRITE
+    "Écriture du tag",
+    "Scrittura del tag" },  // STR_TW_BUSY_WRITE
   { "Tag wird gelöscht",
     "Erasing the tag",
-    "Effacement du tag" },  // STR_TW_BUSY_ERASE
+    "Effacement du tag",
+    "Cancellazione del tag" },  // STR_TW_BUSY_ERASE
   { "Spule bitte liegen lassen, bis die Bestätigung kommt.",
     "Please leave the spool where it is until this is confirmed.",
-    "Laissez la bobine en place jusqu'à la confirmation." },  // STR_TW_BUSY_HINT
+    "Laissez la bobine en place jusqu'à la confirmation.",
+    "Lascia la bobina dov'è finché non è confermato." },  // STR_TW_BUSY_HINT
 
   // Tag page in the browser: a MIFARE tag, and the spool the scale shows
   { "Nur lesbar, und nichts darauf, was die Waage kennt.",
     "Read-only, and nothing on it this scale knows.",
-    "Lecture seule, sans contenu connu de cette balance." },  // STR_W_TAG_NOREC
-  { "Tray-UUID",           "Tray UUID",          "Tray UUID" },  // STR_W_TAG_TRAY
-  { "Spule auf der Waage", "Spool on the scale", "Bobine sur la balance" },  // STR_W_TAG_ONSCALE
+    "Lecture seule, sans contenu connu de cette balance.",
+    "Sola lettura, e niente che questa bilancia conosca." },  // STR_W_TAG_NOREC
+  { "Tray-UUID", "Tray UUID", "Tray UUID", "Tray UUID" },  // STR_W_TAG_TRAY
+  { "Spule auf der Waage", "Spool on the scale",
+    "Bobine sur la balance",
+    "Bobina sulla bilancia" },  // STR_W_TAG_ONSCALE
   { "Die Waage zeigt gerade keine Spule.",
     "The scale shows no spool right now.",
-    "La balance n'affiche aucune bobine pour le moment." },  // STR_W_TAG_NOSPOOL
+    "La balance n'affiche aucune bobine pour le moment.",
+    "Al momento la bilancia non mostra alcuna bobina." },  // STR_W_TAG_NOSPOOL
 
   // Tag view on the device, from the NFC chip in the header
-  { "NFC-Tag",   "NFC tag", "Tag NFC" },  // STR_TV_TITLE
-  { "UID",       "UID",     "UID" },  // STR_TV_UID
-  { "Chip",      "Chip",    "Puce" },  // STR_TV_CHIP
-  { "leer",      "blank",   "vierge" },  // STR_TV_FMT_BLANK
-  { "unbekannt", "unknown", "inconnu" },  // STR_TV_FMT_UNKNOWN
-  { "keins",     "none",    "aucun" },  // STR_TV_FMT_NONE
+  { "NFC-Tag", "NFC tag", "Tag NFC", "Tag NFC" },  // STR_TV_TITLE
+  { "UID", "UID", "UID", "UID" },  // STR_TV_UID
+  { "Chip", "Chip", "Puce", "Chip" },  // STR_TV_CHIP
+  { "leer", "blank", "vierge", "vuoto" },  // STR_TV_FMT_BLANK
+  { "unbekannt", "unknown", "inconnu", "sconosciuto" },  // STR_TV_FMT_UNKNOWN
+  { "keins", "none", "aucun", "nessuno" },  // STR_TV_FMT_NONE
   { "Auf dem Tag steht nichts. Er kann beschrieben werden.",
     "There is nothing on the tag. It can be written.",
-    "Le tag est vide. Il peut être écrit." },  // STR_TV_BLANK_NOTE
+    "Le tag est vide. Il peut être écrit.",
+    "Sul tag non c'è nulla. Si può scrivere." },  // STR_TV_BLANK_NOTE
   { "Kein Tag auf dem Leser. Leg einen auf, er erscheint hier sofort.",
     "No tag on the reader. Put one down and it shows up here right away.",
-    "Aucun tag sur le lecteur. Posez-en un, il s'affiche ici aussitôt." },  // STR_TV_PLACE
+    "Aucun tag sur le lecteur. Posez-en un, il s'affiche ici aussitôt.",
+    "Nessun tag sul lettore. Appoggiane uno e compare subito qui." },  // STR_TV_PLACE
   { "Der NFC-Leser antwortet gerade nicht. Tags werden erst wieder gelesen, wenn er zurück ist.",
     "The NFC reader is not answering right now. Tags are read again once it is back.",
-    "Le lecteur NFC ne répond pas. Les tags seront relus dès son retour." },  // STR_TV_READER_DOWN
-  { "Spule #%d schreiben", "Write spool #%d",     "Écrire bobine #%d" },  // STR_TV_WRITE
-  { "Keine Spule erkannt", "No spool recognised", "Aucune bobine" },  // STR_TV_NOSPOOL
-  { "Tag zu klein",        "Tag too small",       "Tag trop petit" },  // STR_TV_TOOSMALL
-  { "Tag löschen?",        "Erase the tag?",      "Effacer le tag ?" },  // STR_TV_ERASE_TITLE
+    "Le lecteur NFC ne répond pas. Les tags seront relus dès son retour.",
+    "Il lettore NFC al momento non risponde. I tag vengono riletti appena torna." },  // STR_TV_READER_DOWN
+  { "Spule #%d schreiben", "Write spool #%d", "Écrire bobine #%d", "Scrivi bobina #%d" },  // STR_TV_WRITE
+  { "Keine Spule erkannt", "No spool recognised", "Aucune bobine", "Bobina ignota" },  // STR_TV_NOSPOOL
+  { "Tag zu klein", "Tag too small", "Tag trop petit", "Tag troppo piccolo" },  // STR_TV_TOOSMALL
+  { "Tag löschen?", "Erase the tag?", "Effacer le tag ?", "Cancellare il tag?" },  // STR_TV_ERASE_TITLE
   { "Was darauf steht, geht verloren. Eine Verknüpfung mit einer Spule bleibt bestehen.",
     "Whatever is on it is lost. A link to a spool stays as it is.",
-    "Son contenu sera perdu. Une liaison avec une bobine reste en place." },  // STR_TV_ERASE_HINT
+    "Son contenu sera perdu. Une liaison avec une bobine reste en place.",
+    "Il contenuto va perso. Il collegamento a una bobina resta." },  // STR_TV_ERASE_HINT
 
   // Tag page in the browser: linking the tag on the reader without writing it
-  { "Nur verknüpfen", "Link only", "Lier seulement" },  // STR_W_TAG_LINKONLY
+  { "Nur verknüpfen", "Link only", "Lier seulement", "Solo collegamento" },  // STR_W_TAG_LINKONLY
   { "Dieser Tag ist nur lesbar. Verknüpfen geht trotzdem.",
     "This tag can only be read. It can still be linked.",
-    "Ce tag est en lecture seule. On peut quand même le lier." },  // STR_W_TAG_RO_LINK
+    "Ce tag est en lecture seule. On peut quand même le lier.",
+    "Questo tag si può solo leggere. Si può comunque collegare." },  // STR_W_TAG_RO_LINK
   { "Spule #%d ist schon mit Tag %s verknüpft. Stattdessen diesen Tag verknüpfen? Der bisherige verliert die Verknüpfung.",
     "Spool #%d is already linked to tag %s. Link this tag instead? The old one loses its link.",
-    "La bobine #%d est déjà liée au tag %s. Lier ce tag à la place ? L'ancien perd sa liaison." },  // STR_W_TL_ASK_REPLACE
+    "La bobine #%d est déjà liée au tag %s. Lier ce tag à la place ? L'ancien perd sa liaison.",
+    "La bobina #%d è già collegata al tag %s. Collegare invece questo tag? Il vecchio perde il collegamento." },  // STR_W_TL_ASK_REPLACE
   { "Spule #%d ist schon mit Tag %s verknüpft. Diesen Tag dazu verknüpfen? Beide führen danach zur Spule.",
     "Spool #%d is already linked to tag %s. Link this tag as well? Both lead to the spool afterwards.",
-    "La bobine #%d est déjà liée au tag %s. Lier aussi ce tag ? Les deux mèneront ensuite à la bobine." },  // STR_W_TL_ASK_ADD
+    "La bobine #%d est déjà liée au tag %s. Lier aussi ce tag ? Les deux mèneront ensuite à la bobine.",
+    "La bobina #%d è già collegata al tag %s. Collegare anche questo tag? Poi entrambi portano alla bobina." },  // STR_W_TL_ASK_ADD
   { "Nicht angenommen: es läuft schon eine Verknüpfung, oder Spule oder Tag fehlen.",
     "Not accepted: a link is already running, or the spool or the tag is missing.",
-    "Refusé : une liaison est déjà en cours, ou la bobine ou le tag manque." },  // STR_W_TL_REFUSED
+    "Refusé : une liaison est déjà en cours, ou la bobine ou le tag manque.",
+    "Non accettato: un collegamento è già in corso, oppure manca la bobina o il tag." },  // STR_W_TL_REFUSED
   { "Verknüpfe mit Spule #%d ...", "Linking to spool #%d ...",
-    "Liaison avec la bobine #%d ..." },  // STR_W_TL_BUSY
+    "Liaison avec la bobine #%d ...",
+    "Collegamento alla bobina #%d ..." },  // STR_W_TL_BUSY
   { "Tag mit Spule #%d verknüpft.", "Tag linked to spool #%d.",
-    "Tag lié à la bobine #%d." },  // STR_W_TL_OK
+    "Tag lié à la bobine #%d.",
+    "Tag collegato alla bobina #%d." },  // STR_W_TL_OK
   { "Der Tag ist schon mit Spule #%d verknüpft.", "The tag is already linked to spool #%d.",
-    "Le tag est déjà lié à la bobine #%d." },  // STR_W_TL_ALREADY
+    "Le tag est déjà lié à la bobine #%d.",
+    "Il tag è già collegato alla bobina #%d." },  // STR_W_TL_ALREADY
   { "Der Tag gehört zu Spule #%d. Dort zuerst die Verknüpfung lösen.",
     "The tag belongs to spool #%d. Unlink it there first.",
-    "Le tag appartient à la bobine #%d. Dissociez-le d'abord de cette bobine." },  // STR_W_TL_HELD
+    "Le tag appartient à la bobine #%d. Dissociez-le d'abord de cette bobine.",
+    "Il tag appartiene alla bobina #%d. Scollegalo prima da lì." },  // STR_W_TL_HELD
   { "Auf dem Leser liegt inzwischen ein anderer Tag. Nichts verknüpft.",
     "A different tag is on the reader now. Nothing was linked.",
-    "Un autre tag est maintenant sur le lecteur. Rien n'a été lié." },  // STR_W_TL_CHANGED
+    "Un autre tag est maintenant sur le lecteur. Rien n'a été lié.",
+    "Ora sul lettore c'è un altro tag. Non è stato collegato nulla." },  // STR_W_TL_CHANGED
   { "Der Server hat die Verknüpfung abgelehnt.", "The server refused the link.",
-    "Le serveur a refusé la liaison." },  // STR_W_TL_FAILED
-  { "%s | Vorlage #%d", "%s | template #%d",
-    "%s | modèle #%d" },  // STR_COPY_CARD_TEMPLATE
+    "Le serveur a refusé la liaison.",
+    "Il server ha rifiutato il collegamento." },  // STR_W_TL_FAILED
+  { "%s | Vorlage #%d", "%s | template #%d", "%s | modèle #%d", "%s | modello #%d" },  // STR_COPY_CARD_TEMPLATE
   { "Neue Spule: %.0f g netto | leer %.0f g", "New spool: %.0f g net | empty %.0f g",
-    "Bobine neuve : %.0f g net | vide %.0f g" },  // STR_COPY_CARD_WEIGHT
-  { "Anlegen", "Create",
-    "Créer" },  // STR_COPY_CARD_CREATE
+    "Bobine neuve : %.0f g net | vide %.0f g",
+    "Bobina nuova: %.0f g netti | vuota %.0f g" },  // STR_COPY_CARD_WEIGHT
+  { "Anlegen", "Create", "Créer", "Crea" },  // STR_COPY_CARD_CREATE
 
   // Bluetooth: the Connection tile, the screen behind it, the device scan
-  { "Bluetooth",                  "Bluetooth",                         "Bluetooth" },  // STR_BT_TITLE
-  { "Bluetooth nutzen",           "Use Bluetooth",                     "Bluetooth" },  // STR_BT_SWITCH
+  { "Bluetooth", "Bluetooth", "Bluetooth", "Bluetooth" },  // STR_BT_TITLE
+  { "Bluetooth nutzen", "Use Bluetooth", "Bluetooth", "Usa Bluetooth" },  // STR_BT_SWITCH
   { "Funk nur bei Bedarf an", "Radio only on when needed",
-    "Radio active au besoin" },  // STR_BT_SWITCH_SUB
-  { "Bluetooth-Geräte suchen...", "Scanning for Bluetooth devices...", "Recherche Bluetooth..." },  // STR_BT_SCANNING
+    "Radio active au besoin",
+    "Radio accesa solo se serve" },  // STR_BT_SWITCH_SUB
+  { "Bluetooth-Geräte suchen...", "Scanning for Bluetooth devices...",
+    "Recherche Bluetooth...",
+    "Ricerca dispositivi Bluetooth..." },  // STR_BT_SCANNING
   { "Keine Geräte gefunden", "No devices found",
-    "Aucun appareil trouvé" },  // STR_BT_NONE_FOUND
-  { "(ohne Namen)",               "(no name)",                         "(sans nom)" },  // STR_BT_UNNAMED
+    "Aucun appareil trouvé",
+    "Nessun dispositivo" },  // STR_BT_NONE_FOUND
+  { "(ohne Namen)", "(no name)", "(sans nom)", "(senza nome)" },  // STR_BT_UNNAMED
   { "Bluetooth konnte nicht gestartet werden. Zu wenig freier Speicher, siehe Log.",
     "Bluetooth could not be started. Not enough free memory, see the log.",
-    "Bluetooth n'a pas démarré. Mémoire insuffisante, voir le journal." },  // STR_BT_INIT_FAILED
+    "Bluetooth n'a pas démarré. Mémoire insuffisante, voir le journal.",
+    "Bluetooth non avviato. Memoria libera insufficiente, vedi il log." },  // STR_BT_INIT_FAILED
   { "Aus: kein Bluetooth, nichts läuft im Hintergrund. An: Funktionen wie die Gerätesuche starten den Funk bei Bedarf und geben ihn danach wieder frei. Die Suche zeigt, was in Reichweite ist. Verbunden wird nur zum Drucken, mit dem eingerichteten Drucker. Nach dem Einschalten startet die Waage einmal neu.",
     "Off: no Bluetooth, nothing runs in the background. On: features such as the device scan start the radio when needed and release it afterwards. The scan lists what is in range. A connection is only made to print, to the printer that is set up. After switching it on, the scale restarts once.",
-    "Désactivé : pas de Bluetooth, rien en arrière-plan. Activé : la recherche d'appareils et les autres fonctions allument la radio au besoin, puis la libèrent. La recherche montre ce qui est à portée. Une connexion n'est établie que pour imprimer, avec l'imprimante configurée. Après l'activation, la balance redémarre une fois." },  // STR_BT_HELP
-  { "Geräte",                "Devices",          "Appareils" },  // STR_BT_DEVICES
-  { "Noch nicht gesucht",    "Not searched yet", "Aucune recherche" },  // STR_BT_DEVICES_NONE_YET
-  { "%d in Reichweite",      "%d in range",      "%d à portée" },  // STR_BT_DEVICES_FMT
-  { "stark",                 "strong",           "fort" },  // STR_BT_SIG_STRONG
-  { "mittel",                "medium",           "moyen" },  // STR_BT_SIG_MEDIUM
-  { "schwach",               "weak",             "faible" },  // STR_BT_SIG_WEAK
-  { "Adresse",               "Address",          "Adresse" },  // STR_BT_CARD_ADDRESS
-  { "Signal",                "Signal",           "Signal" },  // STR_BT_CARD_SIGNAL
-  { "Schließen",             "Close",            "Fermer" },  // STR_BT_CLOSE
-  { "Als Drucker",           "As printer",       "Imprimante" },  // STR_BT_CARD_USE_PRINTER
-  { "Eingestellter Drucker", "The printer",      "Imprimante choisie" },  // STR_BT_CARD_IS_PRINTER
-  { "Entfernen",             "Remove",           "Retirer" },  // STR_BT_CARD_FORGET_PRINTER
+    "Désactivé : pas de Bluetooth, rien en arrière-plan. Activé : la recherche d'appareils et les autres fonctions allument la radio au besoin, puis la libèrent. La recherche montre ce qui est à portée. Une connexion n'est établie que pour imprimer, avec l'imprimante configurée. Après l'activation, la balance redémarre une fois.",
+    "Spento: niente Bluetooth, nulla in background. Acceso: funzioni come la ricerca dispositivi accendono la radio quando serve e poi la rilasciano. La ricerca elenca ciò che è nel raggio. Ci si collega solo per stampare, alla stampante impostata. Dopo l'accensione la bilancia si riavvia una volta." },  // STR_BT_HELP
+  { "Geräte", "Devices", "Appareils", "Disposit." },  // STR_BT_DEVICES
+  { "Noch nicht gesucht", "Not searched yet", "Aucune recherche", "Non ancora cercati" },  // STR_BT_DEVICES_NONE_YET
+  { "%d in Reichweite", "%d in range", "%d à portée", "%d nel raggio" },  // STR_BT_DEVICES_FMT
+  { "stark", "strong", "fort", "forte" },  // STR_BT_SIG_STRONG
+  { "mittel", "medium", "moyen", "medio" },  // STR_BT_SIG_MEDIUM
+  { "schwach", "weak", "faible", "debole" },  // STR_BT_SIG_WEAK
+  { "Adresse", "Address", "Adresse", "Indirizzo" },  // STR_BT_CARD_ADDRESS
+  { "Signal", "Signal", "Signal", "Segnale" },  // STR_BT_CARD_SIGNAL
+  { "Schließen", "Close", "Fermer", "Chiudi" },  // STR_BT_CLOSE
+  { "Als Drucker", "As printer", "Imprimante", "Stampante" },  // STR_BT_CARD_USE_PRINTER
+  { "Eingestellter Drucker", "The printer", "Imprimante choisie", "La stampante" },  // STR_BT_CARD_IS_PRINTER
+  { "Entfernen", "Remove", "Retirer", "Rimuovi" },  // STR_BT_CARD_FORGET_PRINTER
 
   // The label printer: its screen, its rows, what a print came back with
-  { "Drucker", "Printer",
-    "Imprimante" },  // STR_PRN_TITLE
-  { "Kein Drucker", "No printer",
-    "Aucune imprimante" },  // STR_PRN_NONE
-  { "Gerät", "Device",
-    "Appareil" },  // STR_PRN_DEVICE
+  { "Drucker", "Printer", "Imprimante", "Stampante" },  // STR_PRN_TITLE
+  { "Kein Drucker", "No printer", "Aucune imprimante", "Nessuna stampante" },  // STR_PRN_NONE
+  { "Gerät", "Device", "Appareil", "Dispositivo" },  // STR_PRN_DEVICE
   { "Keines gewählt, auf der Gerätekarte wählen", "None picked, pick one on the device card",
-    "Aucun, à choisir dans la liste" },  // STR_PRN_DEVICE_NONE
-  { "Modell", "Model",
-    "Modèle" },  // STR_PRN_MODEL
+    "Aucun, à choisir dans la liste",
+    "Nessuno, scegline uno dall'elenco" },  // STR_PRN_DEVICE_NONE
+  { "Modell", "Model", "Modèle", "Modello" },  // STR_PRN_MODEL
   { "(experimentell, ungetestet)", "(experimental, untested)",
-    "(expérimental, non testé)" },  // STR_PRN_EXPERIMENTAL
-  { "Etikett", "Label stock",
-    "Étiquette" },  // STR_PRN_MEDIA
-  { "%u x %u mm", "%u x %u mm",
-    "%u x %u mm" },  // STR_PRN_MEDIA_FMT
-  { "Testdruck", "Test print",
-    "Test d'impression" },  // STR_PRN_TEST
+    "(expérimental, non testé)",
+    "(sperimentale, non testato)" },  // STR_PRN_EXPERIMENTAL
+  { "Etikett", "Label stock", "Étiquette", "Etichette" },  // STR_PRN_MEDIA
+  { "%u x %u mm", "%u x %u mm", "%u x %u mm", "%u x %u mm" },  // STR_PRN_MEDIA_FMT
+  { "Testdruck", "Test print", "Test d'impression", "Stampa di prova" },  // STR_PRN_TEST
   { "Rahmen, Name und QR-Code auf dem eingelegten Etikett", "Frame, name and QR code on the loaded label",
-    "Cadre, nom et code QR sur l'étiquette chargée" },  // STR_PRN_TEST_SUB
-  { "Drucker entfernen", "Remove printer",
-    "Retirer l'imprimante" },  // STR_PRN_FORGET
+    "Cadre, nom et code QR sur l'étiquette chargée",
+    "Cornice, nome e QR sull'etichetta caricata" },  // STR_PRN_TEST_SUB
+  { "Drucker entfernen", "Remove printer", "Retirer l'imprimante", "Rimuovi stampante" },  // STR_PRN_FORGET
   { "Das Etikett wurde an den Drucker übertragen.", "The label was sent to the printer.",
-    "L'étiquette a été envoyée à l'imprimante." },  // STR_PRN_OK
+    "L'étiquette a été envoyée à l'imprimante.",
+    "L'etichetta è stata inviata alla stampante." },  // STR_PRN_OK
   { "Kein Drucker gewählt.", "No printer picked.",
-    "Aucune imprimante." },  // STR_PRN_ERR_NO_PRINTER
+    "Aucune imprimante.",
+    "Nessuna stampante." },  // STR_PRN_ERR_NO_PRINTER
   { "Das Etikett konnte nicht gerendert werden.", "The label could not be rendered.",
-    "Étiquette non générée." },  // STR_PRN_ERR_RASTER
+    "Étiquette non générée.",
+    "Etichetta non generata." },  // STR_PRN_ERR_RASTER
   { "Das Etikett ist breiter als der Druckkopf.", "The label is wider than the print head.",
-    "Étiquette plus large que la tête." },  // STR_PRN_ERR_TOO_WIDE
+    "Étiquette plus large que la tête.",
+    "Etichetta più larga della testina." },  // STR_PRN_ERR_TOO_WIDE
   { "Das Etikett passt nicht zum eingelegten Format.", "The label does not match the loaded stock.",
-    "Étiquette et format chargé différents." },  // STR_PRN_ERR_MEDIA
-  { "Bluetooth ist aus.", "Bluetooth is off.",
-    "Bluetooth inactif." },  // STR_PRN_ERR_BLE_OFF
+    "Étiquette et format chargé différents.",
+    "Etichetta e formato caricato diversi." },  // STR_PRN_ERR_MEDIA
+  { "Bluetooth ist aus.", "Bluetooth is off.", "Bluetooth inactif.", "Bluetooth spento." },  // STR_PRN_ERR_BLE_OFF
   { "Der Drucker antwortet nicht. Ist er eingeschaltet und in Reichweite?",
     "The printer does not answer. Is it on and in range?",
-    "L'imprimante ne répond pas. Allumée et à portée ?" },  // STR_PRN_ERR_CONNECT
+    "L'imprimante ne répond pas. Allumée et à portée ?",
+    "La stampante non risponde. Accesa e raggiungibile?" },  // STR_PRN_ERR_CONNECT
   { "Das Gerät ist kein Phomemo-Drucker.", "The device is not a Phomemo printer.",
-    "Pas une imprimante Phomemo." },  // STR_PRN_ERR_NOT_PRINTER
+    "Pas une imprimante Phomemo.",
+    "Non è una stampante Phomemo." },  // STR_PRN_ERR_NOT_PRINTER
   { "Die Verbindung ließ sich nicht trennen. Bitte neu starten.",
     "The link would not close. Please restart.",
-    "Connexion bloquée. Redémarrez." },  // STR_PRN_ERR_STUCK
-  { "Die Übertragung ist abgebrochen.", "The transfer was cut off.", "Transfert interrompu." },  // STR_PRN_ERR_WRITE
+    "Connexion bloquée. Redémarrez.",
+    "Connessione bloccata. Riavvia." },  // STR_PRN_ERR_STUCK
+  { "Die Übertragung ist abgebrochen.", "The transfer was cut off.",
+    "Transfert interrompu.",
+    "Trasferimento interrotto." },  // STR_PRN_ERR_WRITE
   { "Der Drucker wird auf der Gerätekarte gewählt. Modell und Etikett passen den Druck an den Druckkopf und das eingelegte Etikett an; der Testdruck zeigt, ob beides stimmt. Beim Drucken steht die Waage einige Sekunden.",
     "The printer is picked on the device card. Model and label stock fit the print to the head and the loaded label; the test print shows whether both are right. The scale pauses for a few seconds while printing.",
-    "L'imprimante se choisit parmi les appareils. Modèle et étiquette adaptent l'impression à la tête et au support ; le test montre si les deux sont bons. La balance s'arrête quelques secondes pendant l'impression." },  // STR_PRN_HELP
+    "L'imprimante se choisit parmi les appareils. Modèle et étiquette adaptent l'impression à la tête et au support ; le test montre si les deux sont bons. La balance s'arrête quelques secondes pendant l'impression.",
+    "La stampante si sceglie dall'elenco dispositivi. Modello ed etichetta adattano la stampa alla testina e al supporto caricato; la prova mostra se sono giusti. Durante la stampa la bilancia si ferma qualche secondo." },  // STR_PRN_HELP
 
   // The printer page in the browser
-  { "Drucker", "Printer", "Imprimante" },  // STR_W_NAV_PRINTER
+  { "Drucker", "Printer", "Imprimante", "Stampante" },  // STR_W_NAV_PRINTER
   { "Nur bei Bedarf an: der Funk läuft, während ein Gerät ihn braucht, und wird danach freigegeben. Nach dem Einschalten braucht die Waage einmal einen Neustart.",
     "Only when needed: the radio runs while a device needs it and is released afterwards. After switching it on, the scale needs one restart.",
-    "Seulement au besoin : la radio tourne tant qu'un appareil l'utilise, puis est libérée. Après l'activation, la balance a besoin d'un redémarrage." },  // STR_W_P_BLE_HINT
+    "Seulement au besoin : la radio tourne tant qu'un appareil l'utilise, puis est libérée. Après l'activation, la balance a besoin d'un redémarrage.",
+    "Solo quando serve: la radio resta accesa finché un dispositivo la usa e poi viene rilasciata. Dopo l'accensione la bilancia ha bisogno di un riavvio." },  // STR_W_P_BLE_HINT
   { "Weitere Modelle kommen mit Rückmeldungen aus der Community.",
     "More models come with feedback from the community.",
-    "D'autres modèles viendront avec les retours de la communauté." },  // STR_W_P_SUPPORTED_HINT
-  { "Geräte in Reichweite", "Devices in range", "Appareils à portée" },  // STR_W_P_DEVICES
-  { "Geräte suchen",        "Scan for devices", "Rechercher" },  // STR_BT_SCAN_WEB
+    "D'autres modèles viendront avec les retours de la communauté.",
+    "Altri modelli arriveranno con i riscontri della community." },  // STR_W_P_SUPPORTED_HINT
+  { "Geräte in Reichweite", "Devices in range", "Appareils à portée", "Dispositivi nel raggio" },  // STR_W_P_DEVICES
+  { "Geräte suchen", "Scan for devices", "Rechercher", "Cerca" },  // STR_BT_SCAN_WEB
   { "Die Suche läuft auf der Waage und dauert etwa 5 Sekunden; solange steht sie.",
     "The scan runs on the scale and takes about 5 seconds; the scale pauses meanwhile.",
-    "La recherche tourne sur la balance et dure environ 5 secondes ; la balance est en pause pendant ce temps." },  // STR_W_P_SCAN_HINT
+    "La recherche tourne sur la balance et dure environ 5 secondes ; la balance est en pause pendant ce temps.",
+    "La ricerca avviene sulla bilancia e dura circa 5 secondi; nel frattempo la bilancia è in pausa." },  // STR_W_P_SCAN_HINT
   { "Breite quer zum Druckkopf mal Länge in Laufrichtung, wie auf der Rolle angegeben.",
     "Width across the head by length along the feed, as printed on the roll.",
-    "Largeur (le long de la tête d'impression) × longueur (dans le sens du défilement), comme indiqué sur le rouleau." },  // STR_W_P_MEDIA_HINT
+    "Largeur (le long de la tête d'impression) × longueur (dans le sens du défilement), comme indiqué sur le rouleau.",
+    "Larghezza lungo la testina per lunghezza nel senso di avanzamento, come scritto sul rotolo." },  // STR_W_P_MEDIA_HINT
   { "Druckt Rahmen, Name und QR-Code auf das eingelegte Etikett. Das Ergebnis erscheint auch auf der Waage.",
     "Prints a frame, the name and a QR code on the loaded label. The verdict also shows on the scale.",
-    "Imprime un cadre, le nom et un code QR sur l'étiquette chargée. Le résultat s'affiche aussi sur la balance." },  // STR_W_P_TEST_HINT
-  { "Letzter Testdruck",               "Last test print",            "Dernier test" },  // STR_W_P_LAST_TEST
-  { "An die Waage übergeben",          "Handed to the scale",        "Transmis à la balance" },  // STR_W_P_QUEUED
-  { "Etikett drucken",                 "Print label",                "Imprimer" },  // STR_PRN_LABEL_PRINT
+    "Imprime un cadre, le nom et un code QR sur l'étiquette chargée. Le résultat s'affiche aussi sur la balance.",
+    "Stampa una cornice, il nome e un codice QR sull'etichetta caricata. L'esito compare anche sulla bilancia." },  // STR_W_P_TEST_HINT
+  { "Letzter Testdruck", "Last test print", "Dernier test", "Ultima prova" },  // STR_W_P_LAST_TEST
+  { "An die Waage übergeben", "Handed to the scale",
+    "Transmis à la balance",
+    "Passato alla bilancia" },  // STR_W_P_QUEUED
+  { "Etikett drucken", "Print label", "Imprimer", "Stampa" },  // STR_PRN_LABEL_PRINT
   { "Keine bekannte Spule aufgelegt.", "No known spool on the pad.",
-    "Aucune bobine connue posée." },  // STR_PRN_ERR_NO_SPOOL
+    "Aucune bobine connue posée.",
+    "Nessuna bobina nota sul piatto." },  // STR_PRN_ERR_NO_SPOOL
   // The captions on a printed label, short: the lines are 16 px on a 40 mm roll
-  { "Farbe", "Colour", "Couleur" },  // STR_LBL_L_COLOR
+  { "Farbe", "Colour", "Couleur", "Colore" },  // STR_LBL_L_COLOR
   { "Etikett wird erstellt...",
     "Preparing the label...",
-    "Préparation..." },  // STR_PRN_PH_RENDER
+    "Préparation...",
+    "Preparo l'etichetta..." },  // STR_PRN_PH_RENDER
   { "Drucker wird gesucht...",
     "Looking for the printer...",
-    "Recherche en cours..." },  // STR_PRN_PH_FIND
+    "Recherche en cours...",
+    "Cerco la stampante..." },  // STR_PRN_PH_FIND
   { "Verbinde mit dem Drucker...",
     "Connecting to the printer...",
-    "Connexion à l'imprimante..." },  // STR_PRN_PH_CONNECT
+    "Connexion à l'imprimante...",
+    "Connetto la stampante..." },  // STR_PRN_PH_CONNECT
   { "Etikett wird gesendet",
     "Sending the label",
-    "Envoi de l'étiquette" },  // STR_PRN_PH_SEND
+    "Envoi de l'étiquette",
+    "Invio dell'etichetta" },  // STR_PRN_PH_SEND
   { "Drucker druckt...",
     "The printer is printing...",
-    "Impression en cours..." },  // STR_PRN_PH_AWAIT
+    "Impression en cours...",
+    "Stampa in corso..." },  // STR_PRN_PH_AWAIT
   { "Gedruckt",
     "Printed",
-    "Imprimé" },  // STR_PRN_DONE_TITLE
+    "Imprimé",
+    "Stampata" },  // STR_PRN_DONE_TITLE
   { "Der Drucker hat den Druck bestätigt.",
     "The printer confirmed the print.",
-    "L'imprimante a confirmé." },  // STR_PRN_DONE_MSG
+    "L'imprimante a confirmé.",
+    "La stampante ha confermato." },  // STR_PRN_DONE_MSG
   { "Gesendet",
     "Sent",
-    "Envoyé" },  // STR_PRN_UNCONF_TITLE
+    "Envoyé",
+    "Inviata" },  // STR_PRN_UNCONF_TITLE
   { "Der Drucker hat den Druck nicht bestätigt. Papier und Deckel prüfen.",
     "The printer did not confirm the print. Check the paper and the lid.",
-    "L'imprimante n'a pas confirmé. Vérifiez papier et capot." },  // STR_PRN_UNCONF_MSG
+    "L'imprimante n'a pas confirmé. Vérifiez papier et capot.",
+    "La stampante non ha confermato. Controlla carta e coperchio." },  // STR_PRN_UNCONF_MSG
   { "Nicht gedruckt",
     "Not printed",
-    "Non imprimé" },  // STR_PRN_FAIL_TITLE
+    "Non imprimé",
+    "Non stampata" },  // STR_PRN_FAIL_TITLE
   { "Nur Geräte mit Namen. Fehlt deins? Näher an die Waage bringen und neu suchen.",
     "Only devices with a name. Yours is missing? Bring it closer to the scale and scan again.",
-    "Seulement les appareils nommés. Le vôtre manque ? Rapprochez-le et relancez." },  // STR_BT_FILTER_NOTE
+    "Seulement les appareils nommés. Le vôtre manque ? Rapprochez-le et relancez.",
+    "Solo dispositivi con un nome. Manca il tuo? Avvicinalo alla bilancia e cerca di nuovo." },  // STR_BT_FILTER_NOTE
   { "Alle anzeigen (+%d ohne Namen)",
     "Show all (+%d without a name)",
-    "Tout afficher (+%d sans nom)" },  // STR_BT_SHOW_ALL_FMT
+    "Tout afficher (+%d sans nom)",
+    "Mostra tutti (+%d senza nome)" },  // STR_BT_SHOW_ALL_FMT
   { "Nur Geräte mit Namen",
     "Only devices with a name",
-    "Appareils nommés seulement" },  // STR_BT_SHOW_NAMED
+    "Appareils nommés seulement",
+    "Solo dispositivi con nome" },  // STR_BT_SHOW_NAMED
   { "Anleitung",
     "Manual",
-    "Manuel" },  // STR_QR_DOCS_TITLE
+    "Manuel",
+    "Manuale" },  // STR_QR_DOCS_TITLE
   { "Einrichtung, Funktionen, häufige Fragen",
     "Setup, features, common questions",
-    "Installation, fonctions, FAQ" },  // STR_QR_DOCS_DESC
+    "Installation, fonctions, FAQ",
+    "Installazione, funzioni, FAQ" },  // STR_QR_DOCS_DESC
   { "Auf der Waage",
     "On the scale",
-    "Sur la balance" },  // STR_W_C_ONSCALE
+    "Sur la balance",
+    "Sulla bilancia" },  // STR_W_C_ONSCALE
   { "NFC-Tag",
     "NFC tag",
+    "Tag NFC",
     "Tag NFC" },  // STR_W_TAG_BADGE_TAG
   { "Vorschau",
     "Preview",
-    "Aperçu" },  // STR_W_TAG_PREVIEW
+    "Aperçu",
+    "Anteprima" },  // STR_W_TAG_PREVIEW
   { "Kein Eintrag in %s für diesen Tag.",
     "No record in %s for this tag.",
-    "Aucune fiche dans %s pour ce tag." },  // STR_W_TAG_NOTLINKED
+    "Aucune fiche dans %s pour ce tag.",
+    "Nessun record in %s per questo tag." },  // STR_W_TAG_NOTLINKED
   { "Spulen-ID",
     "Spool ID",
-    "ID bobine" },  // STR_W_TAG_SPOOLID
+    "ID bobine",
+    "ID bobina" },  // STR_W_TAG_SPOOLID
   { "Protokoll",
     "Protocol",
-    "Protocole" },  // STR_W_TAG_PROTO
+    "Protocole",
+    "Protocollo" },  // STR_W_TAG_PROTO
   { "Rohdaten",
     "Raw data",
-    "Données brutes" },  // STR_W_TAG_RAW
+    "Données brutes",
+    "Dati grezzi" },  // STR_W_TAG_RAW
   { "Rohdaten des Tags",
     "Raw tag data",
-    "Données brutes du tag" },  // STR_W_TAG_RAW_TITLE
+    "Données brutes du tag",
+    "Dati grezzi del tag" },  // STR_W_TAG_RAW_TITLE
   { "Kopieren",
     "Copy",
-    "Copier" },  // STR_W_COPY
+    "Copier",
+    "Copia" },  // STR_W_COPY
   { "Kopiert",
     "Copied",
-    "Copié" },  // STR_W_COPIED
+    "Copié",
+    "Copiato" },  // STR_W_COPIED
   { "Schreibe...",
     "Writing...",
-    "Écriture..." },  // STR_W_TW_BUSY_BTN
+    "Écriture...",
+    "Scrittura..." },  // STR_W_TW_BUSY_BTN
   { "Tag auf dem Leser liegen lassen",
     "Keep the tag on the reader",
-    "Laissez le tag sur le lecteur" },  // STR_W_TW_KEEP
+    "Laissez le tag sur le lecteur",
+    "Tieni il tag sul lettore" },  // STR_W_TW_KEEP
   { "Tag auflegen und noch einmal versuchen",
     "Put the tag on and try again",
-    "Posez le tag et réessayez" },  // STR_W_TW_RETRY
+    "Posez le tag et réessayez",
+    "Appoggia il tag e riprova" },  // STR_W_TW_RETRY
   { "Zweiten Tag für diese Spule?",
     "A second tag for this spool?",
-    "Un second tag pour cette bobine ?" },  // STR_W_T2_OFFER
+    "Un second tag pour cette bobine ?",
+    "Un secondo tag per questa bobina?" },  // STR_W_T2_OFFER
   { "Etwa für den Halter oder die Box. Beide Tags finden dieselbe Spule.",
     "For the holder or the box, say. Both tags find the same spool.",
-    "Par exemple pour le support ou la boîte. Les deux tags renvoient à la même bobine." },  // STR_W_T2_OFFER_HINT
+    "Par exemple pour le support ou la boîte. Les deux tags renvoient à la même bobine.",
+    "Per il supporto o la scatola, per esempio. Entrambi i tag trovano la stessa bobina." },  // STR_W_T2_OFFER_HINT
   { "Zweiten Tag schreiben",
     "Write a second tag",
-    "Écrire un second tag" },  // STR_W_T2_START
+    "Écrire un second tag",
+    "Scrivi un secondo tag" },  // STR_W_T2_START
   { "Fertig",
     "Done",
-    "Terminer" },  // STR_W_T2_DONE_BTN
+    "Terminer",
+    "Fine" },  // STR_W_T2_DONE_BTN
   { "Jetzt den zweiten Tag auflegen",
     "Now put the second tag on",
-    "Posez le second tag" },  // STR_W_T2_WAIT
+    "Posez le second tag",
+    "Ora appoggia il secondo tag" },  // STR_W_T2_WAIT
   { "Ersten Tag abnehmen, zweiten auf den Leser legen. Die Waage zeigt dieselbe Frage.",
     "Take the first tag off, put the second on the reader. The scale asks the same.",
-    "Retirez le premier tag et posez le second sur le lecteur. La balance affiche la même demande." },  // STR_W_T2_WAIT_HINT
+    "Retirez le premier tag et posez le second sur le lecteur. La balance affiche la même demande.",
+    "Togli il primo tag e appoggia il secondo sul lettore. La bilancia chiede lo stesso." },  // STR_W_T2_WAIT_HINT
   { "Noch %d s",
     "%d s left",
-    "Encore %d s" },  // STR_W_T2_LEFT
+    "Encore %d s",
+    "Ancora %d s" },  // STR_W_T2_LEFT
   { "Zweiter Tag wird verknüpft...",
     "Linking the second tag...",
-    "Liaison du second tag..." },  // STR_W_T2_LINKING
+    "Liaison du second tag...",
+    "Collegamento del secondo tag..." },  // STR_W_T2_LINKING
   { "Zweiter Tag verknüpft",
     "Second tag linked",
-    "Second tag lié" },  // STR_W_T2_OK
+    "Second tag lié",
+    "Secondo tag collegato" },  // STR_W_T2_OK
   { "Spule #%d wird jetzt von beiden Tags gefunden.",
     "Spool #%d is now found by both tags.",
-    "Les deux tags mènent désormais à la bobine #%d." },  // STR_W_T2_OK_HINT
+    "Les deux tags mènent désormais à la bobine #%d.",
+    "Ora la bobina #%d si trova con entrambi i tag." },  // STR_W_T2_OK_HINT
   { "Zweiter Tag nicht verknüpft",
     "Second tag not linked",
-    "Second tag non lié" },  // STR_W_T2_FAIL
+    "Second tag non lié",
+    "Secondo tag non collegato" },  // STR_W_T2_FAIL
   { "Kein zweiter Tag aufgelegt.",
     "No second tag was put on.",
-    "Aucun second tag posé." },  // STR_W_T2_EXPIRED
+    "Aucun second tag posé.",
+    "Non è stato appoggiato un secondo tag." },  // STR_W_T2_EXPIRED
   { "Diesen Tag mit Spule #%d beschreiben?",
     "Write spool #%d to this tag?",
-    "Écrire la bobine #%d sur ce tag ?" },  // STR_W_ASK_WRITE
+    "Écrire la bobine #%d sur ce tag ?",
+    "Scrivere la bobina #%d su questo tag?" },  // STR_W_ASK_WRITE
   { "Auf diesem Tag steht schon etwas",
     "This tag already holds something",
-    "Ce tag contient déjà quelque chose" },  // STR_W_ASK_OVER_TITLE
+    "Ce tag contient déjà quelque chose",
+    "Questo tag contiene già qualcosa" },  // STR_W_ASK_OVER_TITLE
   { "Überschreiben mit Spule #%d?",
     "Overwrite it with spool #%d?",
-    "L'écraser avec la bobine #%d ?" },  // STR_W_ASK_OVER
+    "L'écraser avec la bobine #%d ?",
+    "Sovrascriverlo con la bobina #%d?" },  // STR_W_ASK_OVER
   { "Überschreiben",
     "Overwrite",
-    "Écraser" },  // STR_W_ASK_YES_OVER
+    "Écraser",
+    "Sovrascrivi" },  // STR_W_ASK_YES_OVER
   { "Beschreiben",
     "Write",
-    "Écrire" },  // STR_W_ASK_YES_WRITE
+    "Écrire",
+    "Scrivi" },  // STR_W_ASK_YES_WRITE
   { "Nicht angenommen: es wird schon geschrieben, oder die Spulen-ID fehlt.",
     "Not accepted: a write is already running, or the spool ID is missing.",
-    "Refusé : une écriture est déjà en cours, ou l'ID de bobine manque." },  // STR_W_TW_REFUSED
-  { "Erstnutzung", "First used", "1re util." },  // STR_LBL_L_FIRST
-  { "Angelegt",    "Added",      "Ajoutée" },  // STR_LBL_L_ADDED
-  { "TESTDRUCK",   "TEST PRINT", "TEST" },  // STR_LBL_TEST_BAND
+    "Refusé : une écriture est déjà en cours, ou l'ID de bobine manque.",
+    "Non accettato: una scrittura è già in corso, oppure manca l'ID della bobina." },  // STR_W_TW_REFUSED
+  { "Erstnutzung", "First used", "1re util.", "Primo uso" },  // STR_LBL_L_FIRST
+  { "Angelegt", "Added", "Ajoutée", "Inserita" },  // STR_LBL_L_ADDED
+  { "TESTDRUCK", "TEST PRINT", "TEST", "PROVA" },  // STR_LBL_TEST_BAND
   { "Dieses Feature hat viel Zeit gekostet. Ich freue mich über eine Spende.",
     "This feature took a lot of time. I'd be glad about a donation.",
-    "Cette fonction a pris beaucoup de temps. Un don me ferait plaisir." },  // STR_LBL_TEST_DONATE
-  { "Alles eingerichtet", "All set",            "Tout est prêt" },  // STR_EF_HEAD_OK
-  { "Es fehlen Felder",   "Fields are missing", "Champs absents" },  // STR_EF_HEAD_MISSING
-  { "Anlegen",            "Create",             "Créer" },  // STR_EF_BTN_CREATE
-  { "Kein Feld nötig",    "No field needed",    "Pas de champ" },  // STR_EF_NATIVE_SUB
+    "Cette fonction a pris beaucoup de temps. Un don me ferait plaisir.",
+    "Questa funzione ha richiesto molto tempo. Una donazione è gradita." },  // STR_LBL_TEST_DONATE
+  { "Alles eingerichtet", "All set", "Tout est prêt", "Tutto pronto" },  // STR_EF_HEAD_OK
+  { "Es fehlen Felder", "Fields are missing", "Champs absents", "Campi mancanti" },  // STR_EF_HEAD_MISSING
+  { "Anlegen", "Create", "Créer", "Crea" },  // STR_EF_BTN_CREATE
+  { "Kein Feld nötig", "No field needed", "Pas de champ", "Nessun campo" },  // STR_EF_NATIVE_SUB
   { "Für das Update %s muss der Speicherbereich für die Firmware vergrößert werden. Das geht nur einmalig per USB-Kabel über den Web-Flasher: etwa 2 Minuten, alle Einstellungen bleiben erhalten. Danach kommen Updates wieder wie gewohnt drahtlos.",
     "For the update %s, the storage area for the firmware has to be enlarged. That only works once over a USB cable with the web flasher: about 2 minutes, every setting is kept. After that, updates arrive over the air as usual.",
-    "Pour la mise à jour %s, la zone mémoire du firmware doit être agrandie. Cela ne se fait qu'une fois, par câble USB avec le Web Flasher : environ 2 minutes, tous les réglages sont conservés. Ensuite, les mises à jour arrivent sans fil comme avant." },  // STR_PART_HINT_BLOCKED
-  { "Später", "Later",
-    "Plus tard" },  // STR_PART_HINT_LATER
-  { "Web-Flasher", "Web flasher",
-    "Web Flasher" },  // STR_PART_HINT_QR
+    "Pour la mise à jour %s, la zone mémoire du firmware doit être agrandie. Cela ne se fait qu'une fois, par câble USB avec le Web Flasher : environ 2 minutes, tous les réglages sont conservés. Ensuite, les mises à jour arrivent sans fil comme avant.",
+    "Per l'aggiornamento %s va ingrandita l'area di memoria del firmware. Si fa una sola volta via cavo USB con il web flasher: circa 2 minuti, tutte le impostazioni restano. Dopo, gli aggiornamenti arrivano via rete come al solito." },  // STR_PART_HINT_BLOCKED
+  { "Später", "Later", "Plus tard", "Più tardi" },  // STR_PART_HINT_LATER
+  { "Web-Flasher", "Web flasher", "Web Flasher", "Web flasher" },  // STR_PART_HINT_QR
   { "%s passt nicht mehr: einmal per USB flashen", "%s no longer fits: flash once over USB",
-    "%s ne tient plus : flasher une fois par USB" },  // STR_GH_OTA_TOO_BIG
+    "%s ne tient plus : flasher une fois par USB",
+    "%s non entra più: flash una volta via USB" },  // STR_GH_OTA_TOO_BIG
   { "Firmware wird hochgeladen", "Uploading the firmware",
-    "Envoi du firmware" },  // STR_W_FW_UPLOADING
+    "Envoi du firmware",
+    "Caricamento del firmware" },  // STR_W_FW_UPLOADING
   { "Die Datei ist größer als der Speicher dieser Waage ({s}). Einmal per USB über den Web-Flasher aktualisieren, dann passt sie.",
     "The file is larger than the storage of this scale ({s}). Update once over USB with the web flasher, then it fits.",
-    "Le fichier est plus grand que la mémoire de cette balance ({s}). Mettez à jour une fois par USB avec le Web Flasher, ensuite il tiendra." },  // STR_W_FW_TOOBIG
+    "Le fichier est plus grand que la mémoire de cette balance ({s}). Mettez à jour une fois par USB avec le Web Flasher, ensuite il tiendra.",
+    "Il file è più grande della memoria di questa bilancia ({s}). Aggiorna una volta via USB con il web flasher, poi entra." },  // STR_W_FW_TOOBIG
   { "Bietet der Flasher \"Install\" statt \"Update\" an, das Häkchen bei \"Erase\" nicht setzen, sonst sind WLAN und Kalibrierung weg.",
     "If the flasher offers \"Install\" instead of \"Update\", leave the \"Erase\" box unticked, or WiFi and calibration are gone.",
-    "Si le flasher propose « Install » au lieu de « Update », ne cochez pas « Erase », sinon le WiFi et l'étalonnage sont perdus." },  // STR_PART_HINT_ERASE
+    "Si le flasher propose « Install » au lieu de « Update », ne cochez pas « Erase », sinon le WiFi et l'étalonnage sont perdus.",
+    "Se il flasher propone \"Install\" invece di \"Update\", lascia deselezionata la casella \"Erase\", altrimenti WiFi e taratura si perdono." },  // STR_PART_HINT_ERASE
   { "Der Server hat das Anfangsgewicht nicht übernommen. Es gilt weiter der alte Wert.",
     "The server did not accept the initial weight. The old value still stands.",
-    "Le serveur n'a pas accepté le poids initial. L'ancienne valeur reste valable." },  // STR_INIT_W_FAIL_TEXT
+    "Le serveur n'a pas accepté le poids initial. L'ancienne valeur reste valable.",
+    "Il server non ha accettato il peso iniziale. Resta il valore precedente." },  // STR_INIT_W_FAIL_TEXT
   // Empty spool weight, weighed or typed in (issue #40)
   { "Leergewicht der Spule", "Empty spool weight",
-    "Poids de la bobine vide" },  // STR_TARE_CHOICE_TITLE
+    "Poids de la bobine vide",
+    "Peso bobina vuota" },  // STR_TARE_CHOICE_TITLE
   { "Leere Spule wiegen\njetzt auf der Waage: %.0f g", "Weigh the empty spool\non the scale now: %.0f g",
-    "Peser la bobine vide\nsur la balance : %.0f g" },  // STR_TARE_CHOICE_WEIGH
+    "Peser la bobine vide\nsur la balance : %.0f g",
+    "Pesa ora la bobina vuota\nsulla bilancia: %.0f g" },  // STR_TARE_CHOICE_WEIGH
   { "Wert eingeben\nbekannt oder vom Hersteller", "Type in a value\nknown or from the maker",
-    "Saisir une valeur\nconnue ou du fabricant" },  // STR_TARE_CHOICE_TYPE
+    "Saisir une valeur\nconnue ou du fabricant",
+    "Inserisci un valore\nnoto o del produttore" },  // STR_TARE_CHOICE_TYPE
   { "Leergewicht eingeben", "Enter empty spool weight",
-    "Saisir le poids à vide" },  // STR_TARE_ENTER_TITLE
+    "Saisir le poids à vide",
+    "Peso bobina vuota" },  // STR_TARE_ENTER_TITLE
   { "Waage %.0f g\n- Spule %.0f g\n= Rest %.0f g", "Scale %.0f g\n- spool %.0f g\n= %.0f g left",
-    "Balance %.0f g\n- bobine %.0f g\n= reste %.0f g" },  // STR_TARE_ENTER_REST
+    "Balance %.0f g\n- bobine %.0f g\n= reste %.0f g",
+    "Bilancia %.0f g\n- bobina %.0f g\n= %.0f g residui" },  // STR_TARE_ENTER_REST
   { "Leergewicht der Spule ohne Filament, %.0f bis %.0f g", "Weight of the spool without filament, %.0f to %.0f g",
-    "Poids de la bobine sans filament, %.0f à %.0f g" },  // STR_TARE_ENTER_RANGE
+    "Poids de la bobine sans filament, %.0f à %.0f g",
+    "Peso della bobina senza filamento, da %.0f a %.0f g" },  // STR_TARE_ENTER_RANGE
   { "Mehr als auf der Waage liegt", "More than is on the scale",
-    "Dépasse le poids pesé" },  // STR_TARE_ENTER_OVER
+    "Dépasse le poids pesé",
+    "Più del peso misurato" },  // STR_TARE_ENTER_OVER
   // What else a Bambu tag says, on the tag card and the tags page
-  { "Trocknen",     "Drying",        "Séchage" },  // STR_W_TAG_DRY
-  { "Bambu-Code",   "Bambu code",    "Code Bambu" },  // STR_W_TAG_CODE
-  { "Zweite Farbe", "Second colour", "2e couleur" },  // STR_W_TAG_COLOR2
+  { "Trocknen", "Drying", "Séchage", "Essiccazione" },  // STR_W_TAG_DRY
+  { "Bambu-Code", "Bambu code", "Code Bambu", "Codice Bambu" },  // STR_W_TAG_CODE
+  { "Zweite Farbe", "Second colour", "2e couleur", "Secondo colore" },  // STR_W_TAG_COLOR2
   // The Bambu catalog's card on the tags page
-  { "Bambu-Katalog", "Bambu catalog",
-    "Catalogue Bambu" },  // STR_W_BCAT_TITLE
-  { "Noch nicht geladen.", "Not loaded yet.",
-    "Pas encore chargé." },  // STR_W_BCAT_NONE
+  { "Bambu-Katalog", "Bambu catalog", "Catalogue Bambu", "Catalogo Bambu" },  // STR_W_BCAT_TITLE
+  { "Noch nicht geladen.", "Not loaded yet.", "Pas encore chargé.", "Non ancora caricato." },  // STR_W_BCAT_NONE
   { "%d Farben, geladen am %s, zuletzt geprüft am %s.", "%d colours, loaded on %s, last checked on %s.",
-    "%d couleurs, chargées le %s, dernière vérification le %s." },  // STR_W_BCAT_STATE
-  { "Wird geladen ...", "Loading ...",
-    "Chargement ..." },  // STR_W_BCAT_BUSY
+    "%d couleurs, chargées le %s, dernière vérification le %s.",
+    "%d colori, caricati il %s, ultimo controllo il %s." },  // STR_W_BCAT_STATE
+  { "Wird geladen ...", "Loading ...", "Chargement ...", "Caricamento ..." },  // STR_W_BCAT_BUSY
   { "Laden fehlgeschlagen: %s.", "Loading failed: %s.",
-    "Échec du chargement : %s." },  // STR_W_BCAT_FAIL
-  { "Laden", "Load",
-    "Charger" },  // STR_W_BCAT_LOAD
-  { "Aktualisieren", "Update",
-    "Mettre à jour" },  // STR_W_BCAT_UPDATE
+    "Échec du chargement : %s.",
+    "Caricamento fallito: %s." },  // STR_W_BCAT_FAIL
+  { "Laden", "Load", "Charger", "Carica" },  // STR_W_BCAT_LOAD
+  { "Aktualisieren", "Update", "Mettre à jour", "Aggiorna" },  // STR_W_BCAT_UPDATE
   { "Die Waage holt die Farbtabelle aus BambuStudio (GitHub, rund 230 KB) und speichert eine kompakte Kopie. Danach zeigt sie bei jedem Bambu-Tag den Farbnamen und die Artikelnummer, auch ohne Internet. Bambu ergänzt die Tabelle, wenn neue Farben erscheinen: Die Waage sieht einmal am Tag nach und lädt nur, wenn sich etwas geändert hat. Das folgt dem Schalter für den automatischen Update-Check.",
     "The scale fetches the colour table from BambuStudio (GitHub, about 230 KB) and keeps a compact copy. From then on it shows the colour name and article number of every Bambu tag, offline as well. Bambu extends the table when new colours come out: the scale looks once a day and only downloads when something changed. This follows the switch for the automatic update check.",
-    "La balance récupère la table des couleurs de BambuStudio (GitHub, environ 230 ko) et en garde une copie compacte. Elle affiche ensuite le nom de la couleur et la référence article de chaque tag Bambu, même hors ligne. Bambu complète la table à la sortie de nouvelles couleurs : la balance vérifie une fois par jour et ne télécharge que si quelque chose a changé. Cela dépend de l'option de recherche automatique des mises à jour." },  // STR_W_BCAT_NOTE
+    "La balance récupère la table des couleurs de BambuStudio (GitHub, environ 230 ko) et en garde une copie compacte. Elle affiche ensuite le nom de la couleur et la référence article de chaque tag Bambu, même hors ligne. Bambu complète la table à la sortie de nouvelles couleurs : la balance vérifie une fois par jour et ne télécharge que si quelque chose a changé. Cela dépend de l'option de recherche automatique des mises à jour.",
+    "La bilancia scarica la tabella dei colori da BambuStudio (GitHub, circa 230 KB) e ne tiene una copia compatta. Da lì mostra il nome del colore e il codice articolo di ogni tag Bambu, anche offline. Bambu amplia la tabella quando escono nuovi colori: la bilancia controlla una volta al giorno e scarica solo se qualcosa è cambiato. Segue l'interruttore del controllo automatico degli aggiornamenti." },  // STR_W_BCAT_NOTE
   { "Unverändert, nichts neu geladen.", "Unchanged, nothing downloaded.",
-    "Inchangé, rien téléchargé." },  // STR_W_BCAT_UNCHANGED
+    "Inchangé, rien téléchargé.",
+    "Invariato, niente scaricato." },  // STR_W_BCAT_UNCHANGED
   // https to the backend
   { "Zertifikat nicht prüfen (nur bei https)", "Do not check the certificate (https only)",
-    "Ne pas vérifier le certificat (https uniquement)" },  // STR_W_TLS_INSECURE
+    "Ne pas vérifier le certificat (https uniquement)",
+    "Non verificare il certificato (solo https)" },  // STR_W_TLS_INSECURE
   { "Eine Adresse mit https:// wird verschlüsselt angesprochen. Öffentliche Zertifikate wie Let's Encrypt prüft die Waage selbst. Zeigt der Browser bei deinem Server eine Warnung, weil das Zertifikat selbst signiert ist, schalte das hier ein: Die Verbindung bleibt verschlüsselt, die Waage prüft aber nicht, wer antwortet.",
     "An address with https:// is reached encrypted. Public certificates such as Let's Encrypt are checked by the scale itself. If your browser warns about your server because its certificate is self-signed, switch this on: the connection stays encrypted, but the scale does not check who answers.",
-    "Une adresse en https:// est contactée de façon chiffrée. La balance vérifie elle-même les certificats publics comme Let's Encrypt. Si votre navigateur affiche un avertissement pour votre serveur parce que son certificat est auto-signé, activez ceci : la connexion reste chiffrée, mais la balance ne vérifie pas qui répond." },  // STR_W_TLS_INSECURE_HINT
+    "Une adresse en https:// est contactée de façon chiffrée. La balance vérifie elle-même les certificats publics comme Let's Encrypt. Si votre navigateur affiche un avertissement pour votre serveur parce que son certificat est auto-signé, activez ceci : la connexion reste chiffrée, mais la balance ne vérifie pas qui répond.",
+    "Un indirizzo con https:// viene raggiunto in modo cifrato. I certificati pubblici come Let's Encrypt li verifica la bilancia stessa. Se il browser avvisa sul tuo server perché il certificato è autofirmato, attiva questa opzione: la connessione resta cifrata, ma la bilancia non verifica chi risponde." },  // STR_W_TLS_INSECURE_HINT
   { "Verbindung offen halten (nur bei https)", "Keep the connection open (https only)",
-    "Garder la connexion ouverte (https uniquement)" },  // STR_W_TLS_KEEP
+    "Garder la connexion ouverte (https uniquement)",
+    "Tieni aperta la connessione (solo https)" },  // STR_W_TLS_KEEP
   { "Der Aufbau einer https-Verbindung dauert auf der Waage etwa 0,6 s, eine offene Verbindung antwortet in rund 30 ms. Die Waage öffnet sie schon, wenn eine Spule aufgelegt wird, und schließt sie nach der gewählten Zeit ohne Anfrage. 30 Minuten lohnen sich nur, wenn dein Server die Verbindung so lange offen lässt.",
     "Opening an https connection takes the scale about 0.6 s, an open connection answers in about 30 ms. The scale opens it as soon as a spool is put on, and closes it after the chosen time without a request. 30 minutes only pay off if your server keeps the connection open that long.",
-    "Ouvrir une connexion https prend environ 0,6 s à la balance, une connexion ouverte répond en 30 ms environ. La balance l'ouvre dès qu'une bobine est posée et la ferme si aucune requête n'arrive pendant le délai choisi. 30 minutes ne servent que si votre serveur garde la connexion ouverte aussi longtemps." },  // STR_W_TLS_KEEP_HINT
+    "Ouvrir une connexion https prend environ 0,6 s à la balance, une connexion ouverte répond en 30 ms environ. La balance l'ouvre dès qu'une bobine est posée et la ferme si aucune requête n'arrive pendant le délai choisi. 30 minutes ne servent que si votre serveur garde la connexion ouverte aussi longtemps.",
+    "Aprire una connessione https richiede alla bilancia circa 0,6 s, una connessione aperta risponde in circa 30 ms. La bilancia la apre appena si appoggia una bobina e la chiude dopo il tempo scelto senza richieste. 30 minuti servono solo se il tuo server tiene aperta la connessione così a lungo." },  // STR_W_TLS_KEEP_HINT
   // The address screen on the device
-  { "https: im Browser", "https: in the browser", "https : navigateur" },  // STR_SP_HTTPS_HINT
-  { "https-Adresse",     "https address",         "Adresse https" },  // STR_SP_HTTPS_TITLE
+  { "https: im Browser", "https: in the browser", "https : navigateur", "https: nel browser" },  // STR_SP_HTTPS_HINT
+  { "https-Adresse", "https address", "Adresse https", "Indirizzo https" },  // STR_SP_HTTPS_TITLE
   // The printer page's print position card, and the calibration page
-  { "Druckposition",          "Print position",         "Position d'impression" },  // STR_W_P_CAL_TITLE
-  { "Lage der Rolle",         "Roll position",          "Position du rouleau" },  // STR_W_P_CAL_ROLL
-  { "Links",                  "Left",                   "Gauche" },  // STR_W_P_CAL_LEFT
-  { "Mitte",                  "Centre",                 "Centre" },  // STR_W_P_CAL_CENTER
-  { "Rechts",                 "Right",                  "Droite" },  // STR_W_P_CAL_RIGHT
-  { "Versatz",                "Offset",                 "Décalage" },  // STR_W_P_CAL_OFFSET
-  { "Kalibrierseite drucken", "Print calibration page", "Imprimer la page de calibrage" },  // STR_W_P_CAL_PRINT
+  { "Druckposition", "Print position", "Position d'impression", "Posizione di stampa" },  // STR_W_P_CAL_TITLE
+  { "Lage der Rolle", "Roll position", "Position du rouleau", "Posizione del rotolo" },  // STR_W_P_CAL_ROLL
+  { "Links", "Left", "Gauche", "Sinistra" },  // STR_W_P_CAL_LEFT
+  { "Mitte", "Centre", "Centre", "Centro" },  // STR_W_P_CAL_CENTER
+  { "Rechts", "Right", "Droite", "Destra" },  // STR_W_P_CAL_RIGHT
+  { "Versatz", "Offset", "Décalage", "Scostamento" },  // STR_W_P_CAL_OFFSET
+  { "Kalibrierseite drucken", "Print calibration page",
+    "Imprimer la page de calibrage",
+    "Stampa pagina di calibrazione" },  // STR_W_P_CAL_PRINT
   { "Trag die erste Zahl ein, die links auf dem Etikett steht. Sitzt der Rahmen danach nicht mittig, stell mit − und + nach.",
     "Enter the first number on the left of the label. If the frame is not centred afterwards, adjust with − and +.",
-    "Saisissez le premier nombre à gauche de l'étiquette. Si le cadre n'est pas centré ensuite, ajustez avec − et +." },  // STR_W_P_CAL_HINT
-  { "Erste Zahl links = Versatz", "Leftmost number = offset", "Nombre à gauche = décalage" },  // STR_LBL_CAL_EDGE
+    "Saisissez le premier nombre à gauche de l'étiquette. Si le cadre n'est pas centré ensuite, ajustez avec − et +.",
+    "Inserisci il primo numero a sinistra dell'etichetta. Se poi la cornice non è centrata, correggi con − e +." },  // STR_W_P_CAL_HINT
+  { "Erste Zahl links = Versatz", "Leftmost number = offset",
+    "Nombre à gauche = décalage",
+    "Numero a sinistra = scostam." },  // STR_LBL_CAL_EDGE
   { "Mehr als 1 mm Rand links und rechts vom Rahmen: Etikettgröße prüfen.",
     "More than 1 mm margin left and right of the frame: check the label size.",
-    "Plus de 1 mm de marge à gauche et à droite du cadre : vérifiez la taille de l'étiquette." },  // STR_W_P_CAL_HINT2
+    "Plus de 1 mm de marge à gauche et à droite du cadre : vérifiez la taille de l'étiquette.",
+    "Più di 1 mm di margine a sinistra e a destra della cornice: controlla il formato dell'etichetta." },  // STR_W_P_CAL_HINT2
   // The print position screen on the device
   { "Kalibrierseite drucken, dann die erste Zahl links auf dem Etikett einstellen.",
     "Print the calibration page, then set the first number on the left of the label.",
-    "Imprimez la page de calibrage, puis reportez ici le 1er nombre à gauche." },  // STR_PRN_OFFSET_HINT
+    "Imprimez la page de calibrage, puis reportez ici le 1er nombre à gauche.",
+    "Stampa la pagina di calibrazione, poi imposta il 1° numero a sinistra." },  // STR_PRN_OFFSET_HINT
   { "Wo die Rolle unter dem Druckkopf läuft, hängt davon ab, wie sie im Halter sitzt. Die Kalibrierseite druckt ein Lineal über den ganzen Kopf: Die erste Zahl links auf dem Etikett ist der Versatz. Sitzt der Rahmen danach mit gleichem Rand links und rechts, passt es. Gedrückt halten zählt schnell.",
     "Where the roll runs under the head depends on how it sits in the holder. The calibration page prints a ruler across the whole head: the first number on the left of the label is the offset. Once the frame has the same margin left and right, it is right. Hold a button to count fast.",
-    "Le passage du rouleau sous la tête dépend de sa place dans le support. La page de calibrage imprime une règle sur toute la tête : le premier nombre à gauche de l'étiquette est le décalage. Quand le cadre a la même marge des deux côtés, c'est bon. Maintenez un bouton pour aller vite." },  // STR_PRN_OFFSET_HELP
+    "Le passage du rouleau sous la tête dépend de sa place dans le support. La page de calibrage imprime une règle sur toute la tête : le premier nombre à gauche de l'étiquette est le décalage. Quand le cadre a la même marge des deux côtés, c'est bon. Maintenez un bouton pour aller vite.",
+    "Dove passa il rotolo sotto la testina dipende da come sta nel supporto. La pagina di calibrazione stampa un righello su tutta la testina: il primo numero a sinistra dell'etichetta è lo scostamento. Quando la cornice ha lo stesso margine ai due lati, è giusto. Tieni premuto un pulsante per contare veloce." },  // STR_PRN_OFFSET_HELP
   // Thermal labels and the dryer
   { "Beim Trocknen mit hoher Temperatur wird das Etikett auf der Spule schwarz.",
     "Drying at a high temperature turns the label on the spool black.",
-    "Un séchage à haute température noircit l'étiquette sur la bobine." },  // STR_PRN_HEAT_SHORT
+    "Un séchage à haute température noircit l'étiquette sur la bobine.",
+    "Essiccare ad alta temperatura annerisce l'etichetta sulla bobina." },  // STR_PRN_HEAT_SHORT
   { "Die Etiketten sind Thermopapier: Der Drucker färbt sie ohne Tinte, allein mit Wärme. Dieselbe Reaktion löst auch das Trocknen aus. Auf einer Spule, die mit hoher Temperatur getrocknet wird, färbt sich das ganze Etikett schwarz, im AMS HT bei 85 °C meist schon beim ersten Mal. Bei niedrigeren Temperaturen geschieht das langsamer und kann sich über mehrere Trocknungen aufbauen. Schrift und QR-Code sind danach nicht mehr lesbar.",
     "The labels are thermal paper: the printer colours them without ink, by heat alone. Drying sets off the same reaction. On a spool dried at a high temperature the whole label turns black, in the AMS HT at 85 °C mostly the very first time. At lower temperatures it happens more slowly and can build up over several drying runs. Text and QR code can no longer be read afterwards.",
-    "Les étiquettes sont en papier thermique : l'imprimante les colore sans encre, par la chaleur. Le séchage déclenche la même réaction. Sur une bobine séchée à haute température, toute l'étiquette noircit, dans l'AMS HT à 85 °C souvent dès la première fois. Plus bas, cela va plus lentement et peut s'accumuler sur plusieurs séchages. Texte et code QR deviennent illisibles." },  // STR_PRN_HEAT_HELP
+    "Les étiquettes sont en papier thermique : l'imprimante les colore sans encre, par la chaleur. Le séchage déclenche la même réaction. Sur une bobine séchée à haute température, toute l'étiquette noircit, dans l'AMS HT à 85 °C souvent dès la première fois. Plus bas, cela va plus lentement et peut s'accumuler sur plusieurs séchages. Texte et code QR deviennent illisibles.",
+    "Le etichette sono carta termica: la stampante le colora senza inchiostro, solo col calore. L'essiccazione innesca la stessa reazione. Su una bobina essiccata ad alta temperatura tutta l'etichetta diventa nera, nell'AMS HT a 85 °C quasi sempre già la prima volta. A temperature più basse succede più lentamente e può accumularsi in più cicli. Testo e codice QR poi non si leggono più." },  // STR_PRN_HEAT_HELP
   // A Bambu tag that does not describe the spool it is linked to
-  { "Passt nicht zum Tag",       "Does not match the tag",       "Diffère du tag" },  // STR_LINK_MISMATCH_TITLE
-  { "Trotzdem verknüpfen",       "Link anyway",                  "Lier quand même" },  // STR_BTN_LINK_ANYWAY
+  { "Passt nicht zum Tag", "Does not match the tag",
+    "Diffère du tag",
+    "Non coincide col tag" },  // STR_LINK_MISMATCH_TITLE
+  { "Trotzdem verknüpfen", "Link anyway", "Lier quand même", "Collega comunque" },  // STR_BTN_LINK_ANYWAY
   { "Tag passt nicht zur Spule", "Tag does not match the spool",
-    "Le tag ne correspond pas" },  // STR_TAG_MISMATCH_STATUS
+    "Le tag ne correspond pas",
+    "Il tag non coincide" },  // STR_TAG_MISMATCH_STATUS
   { "Der Tag passt nicht zu Spule #%d.\nTag: %s\nSpule: %s\nTrotzdem verknüpfen?",
     "The tag does not match spool #%d.\nTag: %s\nSpool: %s\nLink anyway?",
-    "Le tag ne correspond pas à la bobine #%d.\nTag : %s\nBobine : %s\nLier quand même ?" },  // STR_W_TL_MISMATCH
-  { "Anzeige: Spule #%d", "Showing spool #%d", "Vue : bobine #%d" },  // STR_TAG_VIEW_SPOOL
+    "Le tag ne correspond pas à la bobine #%d.\nTag : %s\nBobine : %s\nLier quand même ?",
+    "Il tag non coincide con la bobina #%d.\nTag: %s\nBobina: %s\nCollegare comunque?" },  // STR_W_TL_MISMATCH
+  { "Anzeige: Spule #%d", "Showing spool #%d", "Vue : bobine #%d", "Bobina #%d" },  // STR_TAG_VIEW_SPOOL
   // Web: theme
-  { "Theme", "Theme", "Thème" },  // STR_W_NAV_THEME
-  { "Theme", "Theme", "Thème" },  // STR_W_C_THEME
+  { "Theme", "Theme", "Thème", "Tema" },  // STR_W_NAV_THEME
+  { "Theme", "Theme", "Thème", "Tema" },  // STR_W_C_THEME
   { "Gilt für die Waage und diese Weboberfläche. Die Waage startet dafür neu, alle Einstellungen bleiben erhalten.",
     "Applies to the scale and to this web interface. The scale restarts for it; every setting is kept.",
-    "S'applique à la balance et à cette interface web. La balance redémarre pour cela, tous les réglages sont conservés." },  // STR_W_THEME_HINT
-  { "Dunkel", "Dark",
-    "Sombre" },  // STR_W_THEME_DARK
-  { "Hell", "Light",
-    "Clair" },  // STR_W_THEME_LIGHT
-  { "Aktiv", "Active",
-    "Actif" },  // STR_W_THEME_ACTIVE
+    "S'applique à la balance et à cette interface web. La balance redémarre pour cela, tous les réglages sont conservés.",
+    "Vale per la bilancia e per questa interfaccia web. La bilancia si riavvia per applicarlo; tutte le impostazioni restano." },  // STR_W_THEME_HINT
+  { "Dunkel", "Dark", "Sombre", "Scuro" },  // STR_W_THEME_DARK
+  { "Hell", "Light", "Clair", "Chiaro" },  // STR_W_THEME_LIGHT
+  { "Aktiv", "Active", "Actif", "Attivo" },  // STR_W_THEME_ACTIVE
   { "Übernehmen und neu starten", "Apply and restart",
-    "Appliquer et redémarrer" },  // STR_W_THEME_APPLY
+    "Appliquer et redémarrer",
+    "Applica e riavvia" },  // STR_W_THEME_APPLY
   { "Gespeichert. Gilt ab dem nächsten Neustart der Waage.", "Saved. Takes effect when the scale next restarts.",
-    "Enregistré. Actif au prochain redémarrage de la balance." },  // STR_W_THEME_LATER
+    "Enregistré. Actif au prochain redémarrage de la balance.",
+    "Salvato. Ha effetto al prossimo riavvio della bilancia." },  // STR_W_THEME_LATER
   { "Die Waage startet neu, die Seite lädt gleich von selbst.", "The scale is restarting, this page reloads by itself.",
-    "La balance redémarre, la page se recharge d'elle-même." },  // STR_W_THEME_RESTARTING
-  { "Spoolman dunkel", "Spoolman dark",
-    "Spoolman sombre" },  // STR_W_THEME_SPOOLMAN_DARK
-  { "Spoolman hell", "Spoolman light",
-    "Spoolman clair" },  // STR_W_THEME_SPOOLMAN_LIGHT
-  { "FilaMan dunkel", "FilaMan dark",
-    "FilaMan sombre" },  // STR_W_THEME_FILAMAN_DARK
-  { "FilaMan hell", "FilaMan light",
-    "FilaMan clair" },  // STR_W_THEME_FILAMAN_LIGHT
-  { "Farben vom Backend", "Backend colours",
-    "Couleurs du backend" },  // STR_W_THEME_FOLLOW_H
+    "La balance redémarre, la page se recharge d'elle-même.",
+    "La bilancia si sta riavviando, questa pagina si ricarica da sola." },  // STR_W_THEME_RESTARTING
+  { "Spoolman dunkel", "Spoolman dark", "Spoolman sombre", "Spoolman scuro" },  // STR_W_THEME_SPOOLMAN_DARK
+  { "Spoolman hell", "Spoolman light", "Spoolman clair", "Spoolman chiaro" },  // STR_W_THEME_SPOOLMAN_LIGHT
+  { "FilaMan dunkel", "FilaMan dark", "FilaMan sombre", "FilaMan scuro" },  // STR_W_THEME_FILAMAN_DARK
+  { "FilaMan hell", "FilaMan light", "FilaMan clair", "FilaMan chiaro" },  // STR_W_THEME_FILAMAN_LIGHT
+  { "Farben vom Backend", "Backend colours", "Couleurs du backend", "Colori del backend" },  // STR_W_THEME_FOLLOW_H
   { "Farben folgen dem Backend", "Colours follow the backend",
-    "Les couleurs suivent le backend" },  // STR_W_THEME_FOLLOW
+    "Les couleurs suivent le backend",
+    "I colori seguono il backend" },  // STR_W_THEME_FOLLOW
   { "Spoolman, FilaMan und BamBuddy bringen je eigene Farben mit. Hell oder dunkel kommt aus deiner Wahl oben.", "Spoolman, FilaMan and BamBuddy each bring their own colours. Light or dark comes from your choice above.",
-    "Spoolman, FilaMan et BamBuddy apportent chacun leurs propres couleurs. Clair ou sombre suit votre choix ci-dessus." },  // STR_W_THEME_FOLLOW_HINT
+    "Spoolman, FilaMan et BamBuddy apportent chacun leurs propres couleurs. Clair ou sombre suit votre choix ci-dessus.",
+    "Spoolman, FilaMan e BamBuddy hanno ciascuno i propri colori. Chiaro o scuro dipende dalla tua scelta sopra." },  // STR_W_THEME_FOLLOW_HINT
   { "Theme nach dem Neustart", "Theme after restart",
-    "Thème après redémarrage" },  // STR_W_THEME_AFTER
-  { "Eigene Farben", "Your own colours",
-    "Vos couleurs" },  // STR_W_THEME_OWN_H
+    "Thème après redémarrage",
+    "Tema dopo il riavvio" },  // STR_W_THEME_AFTER
+  { "Eigene Farben", "Your own colours", "Vos couleurs", "Colori personali" },  // STR_W_THEME_OWN_H
   { "Auf dem gewählten Theme. Jede Farbe behält ihre Helligkeit, Text bleibt so gut lesbar wie vorher.", "On top of the theme. Every colour keeps its brightness, so text stays as readable as before.",
-    "Par-dessus le thème. Chaque couleur garde sa luminosité, le texte reste aussi lisible qu'avant." },  // STR_W_THEME_OWN_HINT
-  { "Akzent", "Accent",
-    "Accent" },  // STR_W_THEME_ACCENT
+    "Par-dessus le thème. Chaque couleur garde sa luminosité, le texte reste aussi lisible qu'avant.",
+    "Sopra il tema. Ogni colore mantiene la sua luminosità, quindi il testo resta leggibile come prima." },  // STR_W_THEME_OWN_HINT
+  { "Akzent", "Accent", "Accent", "Accento" },  // STR_W_THEME_ACCENT
   { "Titel, aktive Auswahl, Schieberegler, Links.", "Titles, the active choice, sliders, links.",
-    "Titres, choix actif, curseurs, liens." },  // STR_W_THEME_ACCENT_HINT
-  { "Grundton", "Ground tone",
-    "Teinte de fond" },  // STR_W_THEME_TONE
+    "Titres, choix actif, curseurs, liens.",
+    "Titoli, scelta attiva, cursori, link." },  // STR_W_THEME_ACCENT_HINT
+  { "Grundton", "Ground tone", "Teinte de fond", "Tono di fondo" },  // STR_W_THEME_TONE
   { "Hintergrund, Flächen, Linien und die graue Schrift.", "Background, surfaces, lines and the grey text.",
-    "Fond, surfaces, lignes et texte gris." },  // STR_W_THEME_TONE_HINT
-  { "Vom Theme", "Theme's own",
-    "Celle du thème" },  // STR_W_THEME_SCHEME_OWN
-  { "Eigene Farbe", "Own colour",
-    "Couleur libre" },  // STR_W_THEME_OWN_COLOUR
-  { "Farbton", "Hue",
-    "Teinte" },  // STR_W_THEME_HUE
-  { "Stärke", "Strength",
-    "Intensité" },  // STR_W_THEME_STRENGTH
+    "Fond, surfaces, lignes et texte gris.",
+    "Sfondo, superfici, linee e testo grigio." },  // STR_W_THEME_TONE_HINT
+  { "Vom Theme", "Theme's own", "Celle du thème", "Quello del tema" },  // STR_W_THEME_SCHEME_OWN
+  { "Eigene Farbe", "Own colour", "Couleur libre", "Colore libero" },  // STR_W_THEME_OWN_COLOUR
+  { "Farbton", "Hue", "Teinte", "Tonalità" },  // STR_W_THEME_HUE
+  { "Stärke", "Strength", "Intensité", "Intensità" },  // STR_W_THEME_STRENGTH
   { "Links grau, in der Mitte wie das Theme, rechts kräftiger.", "Grey on the left, as the theme in the middle, stronger on the right.",
-    "Gris à gauche, comme le thème au milieu, plus soutenu à droite." },  // STR_W_THEME_STRENGTH_HINT
-  { "Vorschau", "Preview",
-    "Aperçu" },  // STR_W_THEME_PREVIEW
+    "Gris à gauche, comme le thème au milieu, plus soutenu à droite.",
+    "Grigio a sinistra, come il tema al centro, più intenso a destra." },  // STR_W_THEME_STRENGTH_HINT
+  { "Vorschau", "Preview", "Aperçu", "Anteprima" },  // STR_W_THEME_PREVIEW
   { "Zurück zu den Farben des Themes", "Back to the theme's colours",
-    "Revenir aux couleurs du thème" },  // STR_W_THEME_RESET
-  { "auf dem Hintergrund", "on the background",
-    "sur le fond" },  // STR_W_THEME_ON_BG
-  { "+ eigene Farben", "+ own colours",
-    "+ couleurs perso" },  // STR_W_THEME_PLUS_OWN
-  { "Orange", "Orange",
-    "Orange" },  // STR_W_COL_ORANGE
-  { "Pink", "Pink",
-    "Rose" },  // STR_W_COL_PINK
-  { "Blau", "Blue",
-    "Bleu" },  // STR_W_COL_BLUE
-  { "Violett", "Violet",
-    "Violet" },  // STR_W_COL_VIOLET
-  { "Gelb", "Yellow",
-    "Jaune" },  // STR_W_COL_YELLOW
-  { "Petrol", "Petrol",
-    "Pétrole" },  // STR_W_COL_PETROL
-  { "Rot", "Red",
-    "Rouge" },  // STR_W_COL_RED
-  { "Grün", "Green",
-    "Vert" },  // STR_W_COL_GREEN
-  { "Sand", "Sand",
-    "Sable" },  // STR_W_COL_SAND
+    "Revenir aux couleurs du thème",
+    "Torna ai colori del tema" },  // STR_W_THEME_RESET
+  { "auf dem Hintergrund", "on the background", "sur le fond", "sullo sfondo" },  // STR_W_THEME_ON_BG
+  { "+ eigene Farben", "+ own colours", "+ couleurs perso", "+ colori personali" },  // STR_W_THEME_PLUS_OWN
+  { "Orange", "Orange", "Orange", "Arancione" },  // STR_W_COL_ORANGE
+  { "Pink", "Pink", "Rose", "Rosa" },  // STR_W_COL_PINK
+  { "Blau", "Blue", "Bleu", "Blu" },  // STR_W_COL_BLUE
+  { "Violett", "Violet", "Violet", "Viola" },  // STR_W_COL_VIOLET
+  { "Gelb", "Yellow", "Jaune", "Giallo" },  // STR_W_COL_YELLOW
+  { "Petrol", "Petrol", "Pétrole", "Petrolio" },  // STR_W_COL_PETROL
+  { "Rot", "Red", "Rouge", "Rosso" },  // STR_W_COL_RED
+  { "Grün", "Green", "Vert", "Verde" },  // STR_W_COL_GREEN
+  { "Sand", "Sand", "Sable", "Sabbia" },  // STR_W_COL_SAND
   { "Helle Themes: Beim Scrollen und beim Wechsel zwischen Screens zeigt das Display sichtbare Schlieren, weil es jedes Bild in Streifen aufbaut. Dunkle Themes wirken dabei ruhiger.",
     "Light themes: while scrolling and when screens change, the display shows visible smearing, because it builds every frame in strips. Dark themes look calmer there.",
-    "Thèmes clairs : pendant le défilement et lors des changements d'écran, l'affichage laisse des traînées visibles, car il construit chaque image par bandes. Les thèmes sombres paraissent plus calmes." },  // STR_W_THEME_LIGHT_NOTE
+    "Thèmes clairs : pendant le défilement et lors des changements d'écran, l'affichage laisse des traînées visibles, car il construit chaque image par bandes. Les thèmes sombres paraissent plus calmes.",
+    "Temi chiari: durante lo scorrimento e al cambio di schermata il display mostra scie visibili, perché costruisce ogni immagine a strisce. I temi scuri lì appaiono più calmi." },  // STR_W_THEME_LIGHT_NOTE
   { "Tag gehört zu Filament #%d", "Tag belongs to filament #%d",
-    "Tag lié au filament #%d" },  // STR_TAG_ON_FILAMENT
+    "Tag lié au filament #%d",
+    "Tag del filamento #%d" },  // STR_TAG_ON_FILAMENT
   { "Server verlangt einen Zugang", "Server asks for access",
-    "Authentification requise" },  // STR_SM_AUTH_MISSING
-  { "Zugang abgelehnt", "Access rejected",
-    "Accès refusé" },  // STR_SM_AUTH_REJECTED
+    "Authentification requise",
+    "Il server chiede l'accesso" },  // STR_SM_AUTH_MISSING
+  { "Zugang abgelehnt", "Access rejected", "Accès refusé", "Accesso rifiutato" },  // STR_SM_AUTH_REJECTED
   { "Nur ausfüllen, wenn ein Proxy mit Passwort davor steht oder der Server einen Schlüssel verlangt.", "Only fill this in when a proxy with a password sits in front of it or the server asks for a key.",
-    "À remplir seulement si un proxy protégé par mot de passe se trouve devant le serveur, ou si le serveur demande une clé." },  // STR_W_SM_AUTH_HINT
-  { "Zugang", "Access",
-    "Accès" },  // STR_W_SM_AUTH_KIND
-  { "Keiner", "None",
-    "Aucun" },  // STR_W_SM_AUTH_NONE
+    "À remplir seulement si un proxy protégé par mot de passe se trouve devant le serveur, ou si le serveur demande une clé.",
+    "Compila solo se davanti c'è un proxy con password o se il server chiede una chiave." },  // STR_W_SM_AUTH_HINT
+  { "Zugang", "Access", "Accès", "Accesso" },  // STR_W_SM_AUTH_KIND
+  { "Keiner", "None", "Aucun", "Nessuno" },  // STR_W_SM_AUTH_NONE
   { "API-Key (X-API-Key)", "API key (X-API-Key)",
-    "Clé d'API (X-API-Key)" },  // STR_W_SM_AUTH_KEY
-  { "Token (Bearer)", "Token (Bearer)",
-    "Jeton (Bearer)" },  // STR_W_SM_AUTH_BEARER
+    "Clé d'API (X-API-Key)",
+    "Chiave API (X-API-Key)" },  // STR_W_SM_AUTH_KEY
+  { "Token (Bearer)", "Token (Bearer)", "Jeton (Bearer)", "Token (Bearer)" },  // STR_W_SM_AUTH_BEARER
   { "Benutzer und Passwort", "User and password",
-    "Utilisateur et mot de passe" },  // STR_W_SM_AUTH_BASIC
-  { "Benutzer", "User",
-    "Utilisateur" },  // STR_W_SM_USER
-  { "Schlüssel oder Passwort", "Key or password",
-    "Clé ou mot de passe" },  // STR_W_SM_SECRET
+    "Utilisateur et mot de passe",
+    "Utente e password" },  // STR_W_SM_AUTH_BASIC
+  { "Benutzer", "User", "Utilisateur", "Utente" },  // STR_W_SM_USER
+  { "Schlüssel oder Passwort", "Key or password", "Clé ou mot de passe", "Chiave o password" },  // STR_W_SM_SECRET
   { "Die Adresse beginnt mit http://, der Zugang geht also unverschlüsselt durchs Netz. Schützt vor fremden Schreibzugriffen, nicht vor Mitlesen im selben Netz.", "The address starts with http://, so the access crosses the network unencrypted. It keeps others from writing, not from listening on the same network.",
-    "L'adresse commence par http:// : les identifiants circulent donc en clair sur le réseau. Cela empêche les écritures par des tiers, mais pas l'écoute sur le même réseau." },  // STR_W_SM_AUTH_PLAIN
-  { "Webseite", "Web page",
-    "Page web" },  // STR_W_THEME_WEB_H
+    "L'adresse commence par http:// : les identifiants circulent donc en clair sur le réseau. Cela empêche les écritures par des tiers, mais pas l'écoute sur le même réseau.",
+    "L'indirizzo inizia con http://, quindi l'accesso attraversa la rete in chiaro. Impedisce ad altri di scrivere, non di ascoltare sulla stessa rete." },  // STR_W_SM_AUTH_PLAIN
+  { "Webseite", "Web page", "Page web", "Pagina web" },  // STR_W_THEME_WEB_H
   { "Hell oder dunkel wie das System", "Light or dark as the system sets it",
-    "Clair ou sombre selon le système" },  // STR_W_THEME_WEB_OS
+    "Clair ou sombre selon le système",
+    "Chiaro o scuro come imposta il sistema" },  // STR_W_THEME_WEB_OS
   { "Nur diese Webseite: Sie folgt der Einstellung von Gerät oder Browser, in der Farbfamilie der Waage. Die Waage bleibt, wie oben gewählt. Wirkt sofort, ohne Neustart.", "This web page only: it follows the device or browser setting, in the scale's colour family. The scale stays as chosen above. Takes effect at once, without a restart.",
-    "Cette page web uniquement : elle suit le réglage de l'appareil ou du navigateur, dans la famille de couleurs de la balance. La balance garde le thème choisi ci-dessus. Effet immédiat, sans redémarrage." },  // STR_W_THEME_WEB_OS_HINT
+    "Cette page web uniquement : elle suit le réglage de l'appareil ou du navigateur, dans la famille de couleurs de la balance. La balance garde le thème choisi ci-dessus. Effet immédiat, sans redémarrage.",
+    "Solo questa pagina web: segue l'impostazione del dispositivo o del browser, nella famiglia di colori della bilancia. La bilancia resta come scelto sopra. Ha effetto subito, senza riavvio." },  // STR_W_THEME_WEB_OS_HINT
   { "Zu lang: höchstens %u Zeichen. Nichts gespeichert.", "Too long: %u characters at most. Nothing saved.",
-    "Trop long : %u caractères au maximum. Rien n'a été enregistré." },  // STR_W_SM_SECRET_LONG
+    "Trop long : %u caractères au maximum. Rien n'a été enregistré.",
+    "Troppo lunga: al massimo %u caratteri. Niente salvato." },  // STR_W_SM_SECRET_LONG
   { "Der Zugang wurde für %s eingegeben und geht nicht an die neue Adresse. Bitte für diese Adresse neu eingeben.", "This access was entered for %s and is not sent to the new address. Enter it again for this address.",
-    "Ces identifiants ont été saisis pour %s et ne sont pas envoyés à la nouvelle adresse. Saisissez-les à nouveau pour cette adresse." },  // STR_W_SM_AUTH_REBIND
+    "Ces identifiants ont été saisis pour %s et ne sont pas envoyés à la nouvelle adresse. Saisissez-les à nouveau pour cette adresse.",
+    "Questo accesso era stato inserito per %s e non viene inviato al nuovo indirizzo. Inseriscilo di nuovo per questo indirizzo." },  // STR_W_SM_AUTH_REBIND
   { "Für Schrift wird die Helligkeit angepasst, bis sie lesbar ist, auf der Waage wie hier. Flächen behalten die gewählte Farbe.",
     "For text its lightness is adjusted until it reads, on the scale as here. Fills keep the chosen colour.",
-    "Pour le texte, la luminosité est ajustée jusqu'à ce qu'il soit lisible, sur la balance comme ici. Les surfaces gardent la couleur choisie." },  // STR_W_THEME_TEXT_ADJUSTED
+    "Pour le texte, la luminosité est ajustée jusqu'à ce qu'il soit lisible, sur la balance comme ici. Les surfaces gardent la couleur choisie.",
+    "Per il testo la luminosità viene regolata finché si legge, sulla bilancia come qui. Le superfici mantengono il colore scelto." },  // STR_W_THEME_TEXT_ADJUSTED
   { "Die Farben folgen dem Backend und wechseln beim nächsten Neustart der Waage.",
     "The colours follow the backend and change when the scale next restarts.",
-    "Les couleurs suivent le backend et changent au prochain redémarrage de la balance." },  // STR_W_BACKEND_THEME_NOTE
+    "Les couleurs suivent le backend et changent au prochain redémarrage de la balance.",
+    "I colori seguono il backend e cambiano al prossimo riavvio della bilancia." },  // STR_W_BACKEND_THEME_NOTE
   { "Eigene Farben zurücksetzen", "Reset own colours",
-    "Effacer les couleurs perso" },  // STR_THEME_RESET_OWN
+    "Effacer les couleurs perso",
+    "Azzera colori personali" },  // STR_THEME_RESET_OWN
   { "Akzent und Grundton aus dem Web", "Accent and ground tone from the web",
-    "Accent et teinte de fond du web" },  // STR_THEME_RESET_OWN_SUB
+    "Accent et teinte de fond du web",
+    "Accento e tono di fondo dal web" },  // STR_THEME_RESET_OWN_SUB
   { "Noch nicht übernommen", "Not applied yet",
-    "Pas encore appliqué" },  // STR_W_THEME_UNSAVED
-  { "Ins AMS",                         "Into AMS",                            "Dans l'AMS" },  // STR_AMS_MAIN_ASSIGN
+    "Pas encore appliqué",
+    "Non ancora applicato" },  // STR_W_THEME_UNSAVED
+  { "Ins AMS", "Into AMS", "Dans l'AMS", "In AMS" },  // STR_AMS_MAIN_ASSIGN
   { "Display-Screenshot",
     "Display screenshot",
-    "Capture d'écran" },  // STR_W_C_SHOT
+    "Capture d'écran",
+    "Screenshot del display" },  // STR_W_C_SHOT
   { "Bilder der aktuellen Anzeige für Issues und Pull Requests. An der Waage selbst: zwei Finger eine Sekunde aufs Display legen, bis es kurz dunkel wird. Bis zu 6 Bilder bleiben bis zum Neustart hier, das älteste fällt zuerst raus.",
     "Pictures of what the display shows, for issues and pull requests. On the scale itself: rest two fingers on the display for a second until it blinks dark. Up to 6 pictures stay here until the next restart, the oldest goes first.",
-    "Images de l'affichage actuel, pour les issues et les pull requests. Sur la balance elle-même : posez deux doigts sur l'écran pendant une seconde, jusqu'à ce qu'il s'assombrisse brièvement. Jusqu'à 6 images restent ici jusqu'au prochain redémarrage ; la plus ancienne est supprimée en premier." },  // STR_W_SHOT_NOTE
+    "Images de l'affichage actuel, pour les issues et les pull requests. Sur la balance elle-même : posez deux doigts sur l'écran pendant une seconde, jusqu'à ce qu'il s'assombrisse brièvement. Jusqu'à 6 images restent ici jusqu'au prochain redémarrage ; la plus ancienne est supprimée en premier.",
+    "Immagini di ciò che mostra il display, per issue e pull request. Sulla bilancia stessa: appoggia due dita sul display per un secondo finché lampeggia scuro. Fino a 6 immagini restano qui fino al prossimo riavvio, la più vecchia se ne va per prima." },  // STR_W_SHOT_NOTE
   { "Aufnehmen",
     "Capture",
-    "Capturer" },  // STR_W_SHOT_TAKE
+    "Capturer",
+    "Cattura" },  // STR_W_SHOT_TAKE
   { "Nimmt auf...",
     "Capturing...",
-    "Capture en cours..." },  // STR_W_SHOT_BUSY
+    "Capture en cours...",
+    "Cattura in corso..." },  // STR_W_SHOT_BUSY
   { "Alle speichern",
     "Save all",
-    "Tout enregistrer" },  // STR_W_SHOT_SAVE_ALL
+    "Tout enregistrer",
+    "Salva tutte" },  // STR_W_SHOT_SAVE_ALL
   { "Alle löschen",
     "Delete all",
-    "Tout supprimer" },  // STR_W_SHOT_DROP_ALL
+    "Tout supprimer",
+    "Elimina tutte" },  // STR_W_SHOT_DROP_ALL
   { "Aufgenommen um {t}",
     "Captured at {t}",
-    "Capturée à {t}" },  // STR_W_SHOT_AT_WEB
+    "Capturée à {t}",
+    "Catturata alle {t}" },  // STR_W_SHOT_AT_WEB
   { "An der Waage aufgenommen um {t}",
     "Captured on the scale at {t}",
-    "Capturée sur la balance à {t}" },  // STR_W_SHOT_AT_PANEL
+    "Capturée sur la balance à {t}",
+    "Catturata sulla bilancia alle {t}" },  // STR_W_SHOT_AT_PANEL
   { "Screenshot fehlgeschlagen",
     "Screenshot failed",
-    "Échec de la capture" },  // STR_W_SHOT_FAIL
+    "Échec de la capture",
+    "Screenshot fallito" },  // STR_W_SHOT_FAIL
   { "Noch keine Screenshots.",
     "No screenshots yet.",
-    "Aucune capture pour l'instant." },  // STR_W_SHOT_EMPTY
+    "Aucune capture pour l'instant.",
+    "Ancora nessuno screenshot." },  // STR_W_SHOT_EMPTY
   { "Filament wird gesucht ...",
     "Looking for the filament ...",
-    "Recherche du filament ..." },  // STR_TAGNEW_SEARCHING
+    "Recherche du filament ...",
+    "Cerco il filamento ..." },  // STR_TAGNEW_SEARCHING
   { "Filament vorhanden: #%d",
     "Filament exists: #%d",
-    "Filament existant : #%d" },  // STR_TAGNEW_FOUND
+    "Filament existant : #%d",
+    "Filamento esistente: #%d" },  // STR_TAGNEW_FOUND
   { "Neues Filament aus der SpoolmanDB",
     "New filament from SpoolmanDB",
-    "Nouveau filament de SpoolmanDB" },  // STR_TAGNEW_FROM_DB
+    "Nouveau filament de SpoolmanDB",
+    "Nuovo filamento da SpoolmanDB" },  // STR_TAGNEW_FROM_DB
   { "Neues Filament aus dem Tag",
     "New filament from the tag",
-    "Nouveau filament du tag" },  // STR_TAGNEW_FROM_TAG
+    "Nouveau filament du tag",
+    "Nuovo filamento dal tag" },  // STR_TAGNEW_FROM_TAG
   { "BamBuddy legt die Spule direkt an",
     "BamBuddy creates the spool directly",
-    "BamBuddy crée la bobine" },  // STR_TAGNEW_BAMBUDDY
+    "BamBuddy crée la bobine",
+    "BamBuddy crea la bobina" },  // STR_TAGNEW_BAMBUDDY
   { "Bambu-Katalog fehlt (Tags-Seite)",
     "Bambu catalog missing (tags page)",
-    "Catalogue Bambu absent (page Tags)" },  // STR_TAGNEW_NEEDS_CATALOG
+    "Catalogue Bambu absent (page Tags)",
+    "Manca catalogo Bambu (pagina Tag)" },  // STR_TAGNEW_NEEDS_CATALOG
   { "Suche fehlgeschlagen (HTTP %d)",
     "Lookup failed (HTTP %d)",
-    "Recherche échouée (HTTP %d)" },  // STR_TAGNEW_FAILED
+    "Recherche échouée (HTTP %d)",
+    "Ricerca fallita (HTTP %d)" },  // STR_TAGNEW_FAILED
   { "Wird angelegt ...",
     "Creating ...",
-    "Création ..." },  // STR_TAGNEW_CREATING
+    "Création ...",
+    "Creazione ..." },  // STR_TAGNEW_CREATING
   { "Anlegen fehlgeschlagen (HTTP %d)",
     "Could not create (HTTP %d)",
-    "Création impossible (HTTP %d)" },  // STR_TAGNEW_CREATE_FAIL
+    "Création impossible (HTTP %d)",
+    "Creazione fallita (HTTP %d)" },  // STR_TAGNEW_CREATE_FAIL
   { "Filament #%d angelegt, Spule nicht (HTTP %d)",
     "Filament #%d created, spool not (HTTP %d)",
-    "Filament #%d créé, bobine non (HTTP %d)" },  // STR_TAGNEW_FILAMENT_ONLY
+    "Filament #%d créé, bobine non (HTTP %d)",
+    "Filamento #%d creato, bobina no (HTTP %d)" },  // STR_TAGNEW_FILAMENT_ONLY
   { "Filament und Spule angelegt!",
     "Filament and spool created!",
-    "Filament et bobine créés !" },  // STR_TAGNEW_OK_BOTH
+    "Filament et bobine créés !",
+    "Filamento e bobina creati!" },  // STR_TAGNEW_OK_BOTH
   { "Ohne Antwort - erst Inventar prüfen",
     "No answer - check inventory first",
-    "Sans réponse - vérifier l'inventaire" },  // STR_TAGNEW_SPOOL_UNSURE
-  { "Vorlagen", "Presets",
-    "Modèles" },  // STR_W_THEME_PRESETS
+    "Sans réponse - vérifier l'inventaire",
+    "Nessuna risposta - verifica l'inventario" },  // STR_TAGNEW_SPOOL_UNSURE
+  { "Vorlagen", "Presets", "Modèles", "Preimpostazioni" },  // STR_W_THEME_PRESETS
   { "Setzt Akzent, Grundton und Stärke auf einmal. Hell oder dunkel bleibt wie oben gewählt.", "Sets accent, ground tone and strength at once. Light or dark stays as chosen above.",
-    "Règle accent, teinte de fond et intensité d'un coup. Clair ou sombre reste comme choisi plus haut." },  // STR_W_THEME_PRESETS_HINT
-  { "BamBuddy dunkel", "BamBuddy dark",
-    "BamBuddy sombre" },  // STR_W_THEME_BAMBUDDY_DARK
-  { "BamBuddy hell", "BamBuddy light",
-    "BamBuddy clair" },  // STR_W_THEME_BAMBUDDY_LIGHT
+    "Règle accent, teinte de fond et intensité d'un coup. Clair ou sombre reste comme choisi plus haut.",
+    "Imposta accento, tono di fondo e intensità in un colpo. Chiaro o scuro resta come scelto sopra." },  // STR_W_THEME_PRESETS_HINT
+  { "BamBuddy dunkel", "BamBuddy dark", "BamBuddy sombre", "BamBuddy scuro" },  // STR_W_THEME_BAMBUDDY_DARK
+  { "BamBuddy hell", "BamBuddy light", "BamBuddy clair", "BamBuddy chiaro" },  // STR_W_THEME_BAMBUDDY_LIGHT
   { "Preis",
     "Price",
-    "Prix" },  // STR_TAGNEW_PRICE_BTN
+    "Prix",
+    "Prezzo" },  // STR_TAGNEW_PRICE_BTN
   { "Preis der Spule",
     "Price of the spool",
-    "Prix de la bobine" },  // STR_PRICE_PAD_TITLE
+    "Prix de la bobine",
+    "Prezzo della bobina" },  // STR_PRICE_PAD_TITLE
   { "Leer = kein Preis. Währung wie im Server eingestellt.",
     "Empty = no price. Currency as set on the server.",
-    "Vide = sans prix. Devise réglée sur le serveur." },  // STR_PRICE_PAD_INFO
+    "Vide = sans prix. Devise réglée sur le serveur.",
+    "Vuoto = nessun prezzo. Valuta come sul server." },  // STR_PRICE_PAD_INFO
   { "Spule angelegt, Preis nicht gespeichert",
     "Spool created, price not saved",
-    "Bobine créée, prix non enregistré" },  // STR_TAGNEW_PRICE_LOST
+    "Bobine créée, prix non enregistré",
+    "Bobina creata, prezzo non salvato" },  // STR_TAGNEW_PRICE_LOST
   { "Neu aus Datenbank",
     "New from database",
-    "Nouvelle de la base" },  // STR_DBPICK_BTN
+    "Nouvelle de la base",
+    "Nuova dal database" },  // STR_DBPICK_BTN
   { "Filament-Datenbank wird geladen",
     "Loading the filament database",
-    "Lecture de la base de filaments" },  // STR_DBPICK_LOADING
+    "Lecture de la base de filaments",
+    "Lettura database filamenti" },  // STR_DBPICK_LOADING
   { "Hersteller wählen",
     "Choose vendor",
-    "Choisir le fabricant" },  // STR_DBPICK_MAKER_TITLE
+    "Choisir le fabricant",
+    "Scegli produttore" },  // STR_DBPICK_MAKER_TITLE
   { "Schon im Bestand",
     "Already in the inventory",
-    "Déjà dans l'inventaire" },  // STR_DBPICK_OWNED
+    "Déjà dans l'inventaire",
+    "Già nell'inventario" },  // STR_DBPICK_OWNED
   { "Weitere Hersteller A-Z",
     "Other vendors A-Z",
-    "Autres fabricants A-Z" },  // STR_DBPICK_OTHER_MAKERS
+    "Autres fabricants A-Z",
+    "Altri produttori A-Z" },  // STR_DBPICK_OTHER_MAKERS
   { "Nicht dabei? Dann direkt am Server anlegen.",
     "Not listed? Create it on the server instead.",
-    "Absent ? Le créer sur le serveur." },  // STR_DBPICK_NOT_LISTED
+    "Absent ? Le créer sur le serveur.",
+    "Manca? Crealo sul server." },  // STR_DBPICK_NOT_LISTED
   { "Farbe wählen",
     "Choose colour",
-    "Choisir la couleur" },  // STR_DBPICK_COLOR_TITLE
+    "Choisir la couleur",
+    "Scegli colore" },  // STR_DBPICK_COLOR_TITLE
   { "Alle (%d)",
     "All (%d)",
-    "Toutes (%d)" },  // STR_DBPICK_ALL
+    "Toutes (%d)",
+    "Tutti (%d)" },  // STR_DBPICK_ALL
   { "Rot",
     "Red",
-    "Rouge" },  // STR_DBPICK_FAM_RED
+    "Rouge",
+    "Rosso" },  // STR_DBPICK_FAM_RED
   { "Orange",
     "Orange",
-    "Orange" },  // STR_DBPICK_FAM_ORANGE
+    "Orange",
+    "Arancione" },  // STR_DBPICK_FAM_ORANGE
   { "Gelb",
     "Yellow",
-    "Jaune" },  // STR_DBPICK_FAM_YELLOW
+    "Jaune",
+    "Giallo" },  // STR_DBPICK_FAM_YELLOW
   { "Grün",
     "Green",
-    "Vert" },  // STR_DBPICK_FAM_GREEN
+    "Vert",
+    "Verde" },  // STR_DBPICK_FAM_GREEN
   { "Blau",
     "Blue",
-    "Bleu" },  // STR_DBPICK_FAM_BLUE
+    "Bleu",
+    "Blu" },  // STR_DBPICK_FAM_BLUE
   { "Lila",
     "Purple",
-    "Violet" },  // STR_DBPICK_FAM_PURPLE
+    "Violet",
+    "Viola" },  // STR_DBPICK_FAM_PURPLE
   { "Pink",
     "Pink",
-    "Rose" },  // STR_DBPICK_FAM_PINK
+    "Rose",
+    "Rosa" },  // STR_DBPICK_FAM_PINK
   { "Braun",
     "Brown",
-    "Marron" },  // STR_DBPICK_FAM_BROWN
+    "Marron",
+    "Marrone" },  // STR_DBPICK_FAM_BROWN
   { "Schwarz",
     "Black",
-    "Noir" },  // STR_DBPICK_FAM_BLACK
+    "Noir",
+    "Nero" },  // STR_DBPICK_FAM_BLACK
   { "Grau",
     "Grey",
-    "Gris" },  // STR_DBPICK_FAM_GREY
+    "Gris",
+    "Grigio" },  // STR_DBPICK_FAM_GREY
   { "Weiß",
     "White",
-    "Blanc" },  // STR_DBPICK_FAM_WHITE
+    "Blanc",
+    "Bianco" },  // STR_DBPICK_FAM_WHITE
   { "Mehrfarbig",
     "Multicolour",
+    "Multicolore",
     "Multicolore" },  // STR_DBPICK_FAM_MULTI
   { "Klar",
     "Clear",
-    "Transparent" },  // STR_DBPICK_FAM_CLEAR
+    "Transparent",
+    "Trasparente" },  // STR_DBPICK_FAM_CLEAR
   { "Welche Spulengröße?",
     "Which spool size?",
-    "Quelle taille de bobine ?" },  // STR_DBPICK_SIZE_TITLE
+    "Quelle taille de bobine ?",
+    "Quale formato di bobina?" },  // STR_DBPICK_SIZE_TITLE
   { "Die Auswahl aus der Datenbank braucht Spoolman 0.27 oder neuer.",
     "Picking from the database needs Spoolman 0.27 or newer.",
-    "Le choix dans la base demande Spoolman 0.27 ou plus récent." },  // STR_DBPICK_NEEDS_NEWER
+    "Le choix dans la base demande Spoolman 0.27 ou plus récent.",
+    "La scelta dal database richiede Spoolman 0.27 o successivo." },  // STR_DBPICK_NEEDS_NEWER
   { "Filament-Datenbank laden fehlgeschlagen (HTTP %d)",
     "Loading the filament database failed (HTTP %d)",
-    "Échec de lecture de la base de filaments (HTTP %d)" },  // STR_DBPICK_FAILED
+    "Échec de lecture de la base de filaments (HTTP %d)",
+    "Lettura database filamenti fallita (HTTP %d)" },  // STR_DBPICK_FAILED
   { "Keine Filamente mit 1,75 mm gefunden.",
     "No 1.75 mm filaments found.",
-    "Aucun filament de 1,75 mm trouvé." },  // STR_DBPICK_EMPTY
+    "Aucun filament de 1,75 mm trouvé.",
+    "Nessun filamento da 1,75 mm trovato." },  // STR_DBPICK_EMPTY
   { "Produktlinie wählen",
     "Choose product line",
-    "Choisir la gamme" },  // STR_DBPICK_LINE_TITLE
+    "Choisir la gamme",
+    "Scegli la linea" },  // STR_DBPICK_LINE_TITLE
   { "Sonstige",
     "Other",
-    "Autres" },  // STR_DBPICK_LINE_OTHER
+    "Autres",
+    "Altro" },  // STR_DBPICK_LINE_OTHER
   { "Hersteller über die Buchstaben oben wählen.",
     "Pick a vendor by its letter above.",
-    "Choisissez le fabricant par sa lettre ci-dessus." },  // STR_DBPICK_PICK_LETTER
+    "Choisissez le fabricant par sa lettre ci-dessus.",
+    "Scegli un produttore dalla lettera qui sopra." },  // STR_DBPICK_PICK_LETTER
   { "Die Auswahl aus der Datenbank braucht das FilamentDB-Plugin in FilaMan.",
     "Picking from the database needs the FilamentDB plugin in FilaMan.",
-    "Le choix dans la base demande le plugin FilamentDB dans FilaMan." },  // STR_DBPICK_FM_NO_PLUGIN
+    "Le choix dans la base demande le plugin FilamentDB dans FilaMan.",
+    "La scelta dal database richiede il plugin FilamentDB in FilaMan." },  // STR_DBPICK_FM_NO_PLUGIN
   { "Neues Filament aus der FilamentDB",
     "New filament from the FilamentDB",
-    "Nouveau filament de la FilamentDB" },  // STR_TAGNEW_FROM_FDB
+    "Nouveau filament de la FilamentDB",
+    "Nuovo filamento dalla FilamentDB" },  // STR_TAGNEW_FROM_FDB
   { "Tag und Datenbank weichen ab",
     "Tag and database disagree",
-    "Le tag et la base diffèrent" },  // STR_TAGDB_TITLE
+    "Le tag et la base diffèrent",
+    "Tag e database differiscono" },  // STR_TAGDB_TITLE
   { "Tag",
+    "Tag",
     "Tag",
     "Tag" },  // STR_TAGDB_TAG
   { "Datenbank",
     "Database",
-    "Base" },  // STR_TAGDB_DB
+    "Base",
+    "Database" },  // STR_TAGDB_DB
   { "Farbe",
     "Colour",
-    "Couleur" },  // STR_TAGDB_COLOR
+    "Couleur",
+    "Colore" },  // STR_TAGDB_COLOR
   { "Düse min.",
     "Nozzle min",
-    "Buse min." },  // STR_TAGDB_NOZZLE_MIN
+    "Buse min.",
+    "Ugello min" },  // STR_TAGDB_NOZZLE_MIN
   { "Düse max.",
     "Nozzle max",
-    "Buse max." },  // STR_TAGDB_NOZZLE_MAX
+    "Buse max.",
+    "Ugello max" },  // STR_TAGDB_NOZZLE_MAX
   { "Gewicht",
     "Weight",
-    "Poids" },  // STR_TAGDB_WEIGHT
+    "Poids",
+    "Peso" },  // STR_TAGDB_WEIGHT
   { "Tag behalten",
     "Keep the tag",
-    "Garder le tag" },  // STR_TAGDB_KEEP
+    "Garder le tag",
+    "Tieni il tag" },  // STR_TAGDB_KEEP
   { "Datenbank nehmen",
     "Use the database",
-    "Prendre la base" },  // STR_TAGDB_TAKE
+    "Prendre la base",
+    "Usa il database" },  // STR_TAGDB_TAKE
   { "Aus dem Tag, ergänzt aus der Datenbank",
     "From the tag, completed from the database",
-    "Du tag, complété par la base" },  // STR_TAGNEW_TAG_PLUS_DB
+    "Du tag, complété par la base",
+    "Dal tag, completato dal database" },  // STR_TAGNEW_TAG_PLUS_DB
   { "Welche Leerspule?",
     "Which empty spool?",
-    "Quelle bobine vide ?" },  // STR_DBPICK_CORE_TITLE
+    "Quelle bobine vide ?",
+    "Quale bobina vuota?" },  // STR_DBPICK_CORE_TITLE
   { "Keine passt",
     "None of these",
-    "Aucune ne convient" },  // STR_DBPICK_CORE_NONE
+    "Aucune ne convient",
+    "Nessuna di queste" },  // STR_DBPICK_CORE_NONE
   { "BamBuddy-Feld",
     "BamBuddy field",
-    "Champ BamBuddy" },  // STR_BB_DRIED_NATIVE
+    "Champ BamBuddy",
+    "Campo BamBuddy" },  // STR_BB_DRIED_NATIVE
   { "Wird automatisch genutzt",
     "Used automatically",
-    "Utilisé automatiquement" },  // STR_BB_DRIED_NATIVE_SUB
+    "Utilisé automatiquement",
+    "Usato in automatico" },  // STR_BB_DRIED_NATIVE_SUB
   { "Nur für BamBuddy ohne eigenes Feld",
     "Only for a BamBuddy without its own field",
-    "Seulement pour un BamBuddy sans ce champ" },  // STR_BB_DRIED_OLDER_ONLY
+    "Seulement pour un BamBuddy sans ce champ",
+    "Solo per un BamBuddy senza questo campo" },  // STR_BB_DRIED_OLDER_ONLY
   // A NIIMBOT printer and what it reports (services/niimbot.cpp)
   { "Das Gerät ist kein NIIMBOT-Drucker.",
     "The device is not a NIIMBOT printer.",
-    "Pas une imprimante NIIMBOT." },  // STR_PRN_ERR_NOT_NIIMBOT
+    "Pas une imprimante NIIMBOT.",
+    "Non è una stampante NIIMBOT." },  // STR_PRN_ERR_NOT_NIIMBOT
   { "Der Deckel des Druckers ist offen.",
     "The printer's cover is open.",
-    "Capot de l'imprimante ouvert." },  // STR_PRN_ERR_COVER
+    "Capot de l'imprimante ouvert.",
+    "Coperchio aperto." },  // STR_PRN_ERR_COVER
   { "Kein Etikett im Drucker.",
     "No label in the printer.",
-    "Aucune étiquette." },  // STR_PRN_ERR_NO_PAPER
+    "Aucune étiquette.",
+    "Nessuna etichetta." },  // STR_PRN_ERR_NO_PAPER
   { "Kein oder falsches Farbband im Drucker.",
     "No ribbon in the printer, or the wrong one.",
-    "Ruban absent ou inadapté." },  // STR_PRN_ERR_NO_RIBBON
+    "Ruban absent ou inadapté.",
+    "Nastro assente o sbagliato." },  // STR_PRN_ERR_NO_RIBBON
   { "Der Drucker ist beschäftigt. Kurz warten, dann noch einmal.",
     "The printer is busy. Wait a moment, then try again.",
-    "Imprimante occupée. Patientez un instant, puis réessayez." },  // STR_PRN_ERR_BUSY
+    "Imprimante occupée. Patientez un instant, puis réessayez.",
+    "Stampante occupata. Attendi un attimo, poi riprova." },  // STR_PRN_ERR_BUSY
   { "Der Drucker meldet einen Fehler. Der Code steht im Log.",
     "The printer reports an error. The code is in the log.",
-    "L'imprimante signale une erreur, code dans le journal." },  // STR_PRN_ERR_PRINTER
+    "L'imprimante signale une erreur, code dans le journal.",
+    "La stampante segnala un errore, codice nel log." },  // STR_PRN_ERR_PRINTER
   { "Der Drucker ist ein anderes Modell als gewählt. Das Log nennt es.",
     "The printer is another model than the one picked. The log names it.",
-    "Autre modèle que celui choisi. Le journal le nomme." },  // STR_PRN_ERR_MODEL_MISMATCH
+    "Autre modèle que celui choisi. Le journal le nomme.",
+    "Modello diverso da quello scelto. Il log lo indica." },  // STR_PRN_ERR_MODEL_MISMATCH
   { "Dieses NIIMBOT-Modell kennt die Waage noch nicht. Bitte die Kennung aus dem Log melden.",
     "The scale does not know this NIIMBOT model yet. Please report the id from the log.",
-    "Modèle NIIMBOT encore inconnu de la balance. Merci de signaler l'identifiant du journal." },  // STR_PRN_ERR_MODEL_UNKNOWN
+    "Modèle NIIMBOT encore inconnu de la balance. Merci de signaler l'identifiant du journal.",
+    "Modello NIIMBOT non ancora noto. Segnala l'ID riportato nel log." },  // STR_PRN_ERR_MODEL_UNKNOWN
   // Bluetooth switched on in the browser while the stack cannot start
   { "Bluetooth ist eingeschaltet, braucht aber einmal einen Neustart der Waage: Der Funk-Speicher wurde beim Start freigegeben.",
     "Bluetooth is on but needs one restart of the scale: its radio memory was released at boot.",
-    "Bluetooth est activé mais la balance doit redémarrer une fois : la mémoire radio a été libérée au démarrage." },  // STR_W_P_RESTART_HINT
+    "Bluetooth est activé mais la balance doit redémarrer une fois : la mémoire radio a été libérée au démarrage.",
+    "Il Bluetooth è attivo ma la bilancia deve riavviarsi una volta: la memoria della radio è stata liberata all'avvio." },  // STR_W_P_RESTART_HINT
   { "Bluetooth braucht zuerst einen Neustart der Waage.",
     "Bluetooth needs a restart of the scale first.",
-    "Bluetooth exige d'abord un redémarrage." },  // STR_PRN_ERR_BLE_RESTART
+    "Bluetooth exige d'abord un redémarrage.",
+    "Il Bluetooth richiede prima un riavvio." },  // STR_PRN_ERR_BLE_RESTART
   // The printer page: the line under the print position strip when the label
   // fills the whole head
   { "Das Etikett füllt den ganzen Druckkopf, hier gibt es nichts zu verschieben.",
     "The label fills the whole print head, so there is nothing to move here.",
-    "L'étiquette occupe toute la tête d'impression, il n'y a rien à décaler ici." },  // STR_W_P_CAL_FILLS
+    "L'étiquette occupe toute la tête d'impression, il n'y a rien à décaler ici.",
+    "L'etichetta occupa tutta la testina, quindi qui non c'è nulla da spostare." },  // STR_W_P_CAL_FILLS
   // The label editor in the browser: its tab, the template card, the preview card
   { "Etiketten",
     "Labels",
-    "Étiquettes" },  // STR_W_NAV_LABEL
+    "Étiquettes",
+    "Etichette" },  // STR_W_NAV_LABEL
   { "Vorlage",
     "Template",
-    "Modèle" },  // STR_W_L_TEMPLATE
+    "Modèle",
+    "Modello" },  // STR_W_L_TEMPLATE
   { "Anordnung",
     "Arrangement",
-    "Disposition" },  // STR_W_L_ARRANGE
+    "Disposition",
+    "Disposizione" },  // STR_W_L_ARRANGE
   { "Standard",
+    "Standard",
     "Standard",
     "Standard" },  // STR_W_L_P_STANDARD
   { "Kompakt",
     "Compact",
-    "Compact" },  // STR_W_L_P_COMPACT
+    "Compact",
+    "Compatta" },  // STR_W_L_P_COMPACT
   { "QR groß",
     "Large QR",
-    "Grand QR" },  // STR_W_L_P_BIG_QR
+    "Grand QR",
+    "QR grande" },  // STR_W_L_P_BIG_QR
   { "Standard: Hersteller groß oben. Kompakt: Hersteller klein bei den Angaben, der QR-Code wird größer. QR groß: der Code über die ganze Höhe, der Text daneben. Material groß: das Material über ein Viertel der Höhe, der Code klein. Nur Text: kein Code, die Angaben groß, wo Platz ist in zwei Spalten.",
     "Standard: the vendor large on top. Compact: the vendor small among the details, the QR code grows. Large QR: the code across the full height, the text beside it. Large material: the material across a quarter of the height, the code small. Text only: no code, the details large, in two columns where they fit.",
-    "Standard : le fabricant en grand en haut. Compact : le fabricant en petit parmi les infos, le code QR grandit. Grand QR : le code sur toute la hauteur, le texte à côté. Matière en grand : la matière sur un quart de la hauteur, le code en petit. Texte seul : sans code, les infos en grand, sur deux colonnes si elles tiennent." },  // STR_W_L_ARRANGE_HINT
+    "Standard : le fabricant en grand en haut. Compact : le fabricant en petit parmi les infos, le code QR grandit. Grand QR : le code sur toute la hauteur, le texte à côté. Matière en grand : la matière sur un quart de la hauteur, le code en petit. Texte seul : sans code, les infos en grand, sur deux colonnes si elles tiennent.",
+    "Standard: il produttore grande in alto. Compatta: il produttore piccolo tra i dettagli, il QR cresce. QR grande: il codice a tutta altezza, il testo accanto. Materiale grande: il materiale su un quarto dell'altezza, il codice piccolo. Solo testo: niente codice, i dettagli grandi, su due colonne dove ci stanno." },  // STR_W_L_ARRANGE_HINT
   { "Felder",
     "Fields",
-    "Champs" },  // STR_W_L_FIELDS
+    "Champs",
+    "Campi" },  // STR_W_L_FIELDS
   { "Name",
     "Name",
-    "Nom" },  // STR_W_L_F_NAME
+    "Nom",
+    "Nome" },  // STR_W_L_F_NAME
   { "Datum",
     "Date",
-    "Date" },  // STR_W_L_F_DATE
+    "Date",
+    "Data" },  // STR_W_L_F_DATE
   { "QR-Code",
     "QR code",
-    "Code QR" },  // STR_W_L_F_QR
+    "Code QR",
+    "Codice QR" },  // STR_W_L_F_QR
   { "Projektname",
     "Project name",
-    "Nom du projet" },  // STR_W_L_F_BRAND
+    "Nom du projet",
+    "Nome del progetto" },  // STR_W_L_F_BRAND
   { "Optionen",
     "Options",
-    "Options" },  // STR_W_L_OPTIONS
+    "Options",
+    "Opzioni" },  // STR_W_L_OPTIONS
   { "Material ohne schwarzen Balken",
     "Material without the black band",
-    "Matériau sans bandeau noir" },  // STR_W_L_O_PLAIN
+    "Matériau sans bandeau noir",
+    "Materiale senza fascia nera" },  // STR_W_L_O_PLAIN
   { "Immer das Anlagedatum",
     "Always the date added",
-    "Toujours la date d'ajout" },  // STR_W_L_O_ADDED
+    "Toujours la date d'ajout",
+    "Sempre la data di aggiunta" },  // STR_W_L_O_ADDED
   { "Sonst steht als Datum die erste Nutzung, wo der Server sie kennt, und sonst der Tag, an dem die Spule angelegt wurde.",
     "Otherwise the date is the first use where the server records it, else the day the spool was added.",
-    "Sinon, la date est la première utilisation si le serveur la connaît, sinon le jour d'ajout de la bobine." },  // STR_W_L_DATE_HINT
+    "Sinon, la date est la première utilisation si le serveur la connaît, sinon le jour d'ajout de la bobine.",
+    "Altrimenti la data è il primo uso se il server lo registra, se no il giorno in cui la bobina è stata aggiunta." },  // STR_W_L_DATE_HINT
   { "Spule",
     "Spool",
-    "Bobine" },  // STR_W_L_SPOOL
+    "Bobine",
+    "Bobina" },  // STR_W_L_SPOOL
   { "Beispieldaten: Seit dem Start hat die Waage noch keine Spule erkannt. Danach zeigt die Vorschau die zuletzt gescannte.",
     "Sample data: the scale has not recognised a spool since it started. After that the preview shows the last one scanned.",
-    "Données d'exemple : la balance n'a reconnu aucune bobine depuis son démarrage. Ensuite, l'aperçu montre la dernière scannée." },  // STR_W_L_SAMPLE
+    "Données d'exemple : la balance n'a reconnu aucune bobine depuis son démarrage. Ensuite, l'aperçu montre la dernière scannée.",
+    "Dati di esempio: dall'avvio la bilancia non ha riconosciuto alcuna bobina. Dopo, l'anteprima mostra l'ultima letta." },  // STR_W_L_SAMPLE
   { "Noch kein Drucker eingerichtet. Gerät, Modell und Etikett stehen unter",
     "No printer set up yet. Device, model and label stock are under",
-    "Aucune imprimante configurée. Appareil, modèle et étiquette se règlent sous" },  // STR_W_L_NO_PRINTER
+    "Aucune imprimante configurée. Appareil, modèle et étiquette se règlent sous",
+    "Nessuna stampante configurata. Dispositivo, modello ed etichette si impostano in" },  // STR_W_L_NO_PRINTER
   { "Etikett drucken",
     "Print label",
-    "Imprimer l'étiquette" },  // STR_W_L_PRINT
+    "Imprimer l'étiquette",
+    "Stampa etichetta" },  // STR_W_L_PRINT
   { "Druckt die Spule aus der Vorschau mit dieser Vorlage. Das Ergebnis erscheint auch auf der Waage.",
     "Prints the spool in the preview with this template. The result also shows on the scale.",
-    "Imprime la bobine de l'aperçu avec ce modèle. Le résultat s'affiche aussi sur la balance." },  // STR_W_L_PRINT_HINT
+    "Imprime la bobine de l'aperçu avec ce modèle. Le résultat s'affiche aussi sur la balance.",
+    "Stampa la bobina dell'anteprima con questo modello. L'esito compare anche sulla bilancia." },  // STR_W_L_PRINT_HINT
   { "Letzter Etikettendruck",
     "Last label print",
-    "Dernière étiquette imprimée" },  // STR_W_L_LAST_PRINT
+    "Dernière étiquette imprimée",
+    "Ultima etichetta stampata" },  // STR_W_L_LAST_PRINT
   { "Vorschau nicht möglich: Druckermodell und Etikett prüfen.",
     "No preview: check the printer model and label stock.",
-    "Aperçu impossible : vérifiez le modèle d'imprimante et l'étiquette." },  // STR_W_L_PREVIEW_FAIL
+    "Aperçu impossible : vérifiez le modèle d'imprimante et l'étiquette.",
+    "Nessuna anteprima: controlla modello di stampante ed etichette." },  // STR_W_L_PREVIEW_FAIL
   { "(nicht mehr auf der Waage)",
     "(no longer on the scale)",
-    "(plus sur la balance)" },  // STR_W_L_OFF_PAD
+    "(plus sur la balance)",
+    "(non più sulla bilancia)" },  // STR_W_L_OFF_PAD
   { "FilaMan hat das Etikett nicht gezeichnet.",
     "FilaMan did not draw the label.",
-    "FilaMan n'a pas généré l'étiquette." },  // STR_PRN_ERR_SERVER_LABEL
+    "FilaMan n'a pas généré l'étiquette.",
+    "FilaMan non ha generato l'etichetta." },  // STR_PRN_ERR_SERVER_LABEL
   { "Waagen-Layout",
     "Scale layout",
-    "Modèle balance" },  // STR_PRN_OWN_LAYOUT
+    "Modèle balance",
+    "Layout bilancia" },  // STR_PRN_OWN_LAYOUT
   { "Quelle",
     "Source",
-    "Source" },  // STR_W_L_SOURCE
+    "Source",
+    "Fonte" },  // STR_W_L_SOURCE
   { "Waage",
     "Scale",
-    "Balance" },  // STR_W_L_SRC_SCALE
+    "Balance",
+    "Bilancia" },  // STR_W_L_SRC_SCALE
   { "Vorlagen aus dem Etiketten-Designer von FilaMan. Wählbar sind die in der Größe der eingelegten Rolle.",
     "Presets from FilaMan's label designer. The ones the size of the loaded roll can be chosen.",
-    "Modèles du concepteur d'étiquettes de FilaMan. Seuls ceux à la taille du rouleau chargé peuvent être choisis." },  // STR_W_L_SRC_HINT
+    "Modèles du concepteur d'étiquettes de FilaMan. Seuls ceux à la taille du rouleau chargé peuvent être choisis.",
+    "Preimpostazioni dal designer di etichette di FilaMan. Si possono scegliere quelle della misura del rotolo caricato." },  // STR_W_L_SRC_HINT
   { "Vorlagen werden geladen ...",
     "Loading presets ...",
-    "Chargement des modèles ..." },  // STR_W_L_SRC_LOADING
+    "Chargement des modèles ...",
+    "Caricamento preimpostazioni ..." },  // STR_W_L_SRC_LOADING
   { "FilaMan hat die Vorlagen nicht geliefert, gleich ein neuer Versuch.",
     "FilaMan did not send the presets, trying again shortly.",
-    "FilaMan n'a pas envoyé les modèles, nouvel essai sous peu." },  // STR_W_L_SRC_FAILED
+    "FilaMan n'a pas envoyé les modèles, nouvel essai sous peu.",
+    "FilaMan non ha inviato le preimpostazioni, nuovo tentativo tra poco." },  // STR_W_L_SRC_FAILED
   { "Dieses Etikett zeichnet FilaMan. Anordnung und Felder stehen im Etiketten-Designer von FilaMan.",
     "FilaMan draws this label. Arrangement and fields are set in FilaMan's label designer.",
-    "FilaMan génère cette étiquette. Disposition et champs se règlent dans le concepteur d'étiquettes de FilaMan." },  // STR_W_L_SRC_SERVER
+    "FilaMan génère cette étiquette. Disposition et champs se règlent dans le concepteur d'étiquettes de FilaMan.",
+    "Questa etichetta la genera FilaMan. Disposizione e campi si impostano nel designer di etichette di FilaMan." },  // STR_W_L_SRC_SERVER
   { "Etikett wird von FilaMan geladen ...",
     "Loading the label from FilaMan ...",
-    "Chargement de l'étiquette depuis FilaMan ..." },  // STR_W_L_PREVIEW_LOADING
+    "Chargement de l'étiquette depuis FilaMan ...",
+    "Caricamento dell'etichetta da FilaMan ..." },  // STR_W_L_PREVIEW_LOADING
   { "Für die Vorschau eine Spule auf die Waage legen.",
     "Put a spool on the scale for the preview.",
-    "Posez une bobine sur la balance pour l'aperçu." },  // STR_W_L_SRC_NO_SPOOL
+    "Posez une bobine sur la balance pour l'aperçu.",
+    "Appoggia una bobina sulla bilancia per l'anteprima." },  // STR_W_L_SRC_NO_SPOOL
 
   // Auto-tare while the pad is empty
-  { "Auto-Tara (leere Waage)", "Auto-tare (empty pad)", "Auto-tare (plateau vide)" },  // STR_BTN_AUTO_TARE
+  { "Auto-Tara (leere Waage)", "Auto-tare (empty pad)",
+    "Auto-tare (plateau vide)",
+    "Auto-tara (piatto vuoto)" },  // STR_BTN_AUTO_TARE
   { "Korrigiert langsames Wegdriften des Nullpunkts, solange die Waage leer ist.\n\nLiegt das Gewicht 3 Sekunden lang ruhig zwischen 0,5 und 5 g (positiv oder negativ), wird dieser Wert als neuer Nullpunkt gespeichert. Sobald ein Tag erkannt wird oder eine Spule aufliegt, passiert nichts. Mehr als 5 g werden nie ausgeglichen, und zwischen zwei Korrekturen vergeht mindestens eine Minute.\n\nDie TARE-Taste funktioniert weiterhin wie gewohnt.",
     "Corrects slow drift of the zero point while the pad is empty.\n\nIf the weight sits steady between 0.5 and 5 g (positive or negative) for 3 seconds, that value is stored as the new zero. Nothing happens while a tag is detected or a spool is on the pad. More than 5 g is never corrected, and at least a minute passes between two corrections.\n\nThe TARE button still works as before.",
-    "Corrige la dérive lente du zéro tant que le plateau est vide.\n\nSi le poids reste stable entre 0,5 et 5 g (positif ou négatif) pendant 3 secondes, cette valeur devient le nouveau zéro. Rien ne se passe tant qu'un tag est détecté ou qu'une bobine est posée. Plus de 5 g n'est jamais corrigé, et il s'écoule au moins une minute entre deux corrections.\n\nLe bouton TARE fonctionne toujours comme avant." },  // STR_BTN_AUTO_TARE_INFO
+    "Corrige la dérive lente du zéro tant que le plateau est vide.\n\nSi le poids reste stable entre 0,5 et 5 g (positif ou négatif) pendant 3 secondes, cette valeur devient le nouveau zéro. Rien ne se passe tant qu'un tag est détecté ou qu'une bobine est posée. Plus de 5 g n'est jamais corrigé, et il s'écoule au moins une minute entre deux corrections.\n\nLe bouton TARE fonctionne toujours comme avant.",
+    "Corregge la lenta deriva dello zero mentre il piatto è vuoto.\n\nSe il peso resta stabile tra 0,5 e 5 g (positivo o negativo) per 3 secondi, quel valore diventa il nuovo zero. Non succede nulla mentre c'è un tag o una bobina sul piatto. Oltre 5 g non si corregge mai, e tra due correzioni passa almeno un minuto.\n\nIl pulsante TARE funziona come prima." },  // STR_BTN_AUTO_TARE_INFO
   // The mark on the TARE button while auto-tare is on
-  { "A", "A", "A" },  // STR_TARE_AUTO_MARK
+  { "A", "A", "A", "A" },  // STR_TARE_AUTO_MARK
   // The bag weight at 0: the menu row says so, and the weight popup has one
   // button instead of two
-  { "Aus - kein Beutel", "Off - no bag", "Sans sachet" },  // STR_BAG_OFF_SUB
+  { "Aus - kein Beutel", "Off - no bag", "Sans sachet", "Senza sacchetto" },  // STR_BAG_OFF_SUB
   { LV_SYMBOL_OK " Übernehmen\n%.0fg",
     LV_SYMBOL_OK " Apply\n%.0fg",
-    LV_SYMBOL_OK " Valider\n%.0fg" },  // STR_BTN_WEIGHT_VAL
+    LV_SYMBOL_OK " Valider\n%.0fg",
+    LV_SYMBOL_OK " Applica\n%.0fg" },  // STR_BTN_WEIGHT_VAL
   // The empty spool weight the netto subtracts, shown in the live zone
   // without a bag
-  { "Spule", "Spool", "Bobine" },  // STR_LBL_SPOOL_TARE_CAP
+  { "Spule", "Spool", "Bobine", "Bobina" },  // STR_LBL_SPOOL_TARE_CAP
   // Behind the help circle on the bag screen: what the value does to the
   // main screen and the weight popup, and that crossing 0 needs a restart
   { "Für Spulen, die im Vakuumbeutel auf der Waage liegen. Der Wert ist das Gewicht des leeren Beutels samt Silikagelpack und wird von jeder Messung abgezogen.\n\nMit Beutel (Wert über 0 g): Der Hauptschirm zeigt vier Zeilen: Waage minus Spule, Diff, Gesamt und das Gewicht ohne Beutel mit eigener Diff. Beim Übertragen fragt die Waage, ob die Spule mit oder ohne Beutel aufliegt.\n\nOhne Beutel (0 g): Der Hauptschirm zeigt Waage minus Spule, Diff, Gesamt und das Spulengewicht, größer und mit mehr Platz. Übertragen geht mit einem Knopf, ohne Rückfrage.\n\nAb Werk steht hier 0 g. Ein neuer Wert wirkt sofort. Nur der Wechsel zwischen 0 g und einem Wert braucht einen Neustart, weil der Hauptschirm dafür neu aufgebaut wird.",
     "For spools that sit on the scale in a vacuum bag. The value is the weight of the empty bag with its silica gel pack, and it is subtracted from every reading.\n\nWith a bag (value above 0 g): the main screen shows four lines: scale minus spool, diff, total and the weight without the bag with a diff of its own. When sending the weight, the scale asks whether the spool is on the pad with or without its bag.\n\nWithout a bag (0 g): the main screen shows scale minus spool, diff, total and the spool weight, larger and with more room. Sending takes one button, no question asked.\n\nThe factory setting is 0 g. A new value takes effect at once. Only the change between 0 g and a value needs a restart, because the main screen is rebuilt for it.",
-    "Pour les bobines pesées dans un sachet sous vide. La valeur est le poids du sachet vide avec son gel de silice, soustrait de chaque mesure.\n\nAvec sachet (plus de 0 g) : l'écran principal affiche quatre lignes : balance moins bobine, écart, total et le poids sans sachet avec son propre écart. À l'envoi du poids, la balance demande si la bobine est posée avec ou sans sachet.\n\nSans sachet (0 g) : l'écran principal affiche balance moins bobine, écart, total et le poids de la bobine, en plus grand. L'envoi se fait d'un seul bouton, sans question.\n\nRéglage d'usine : 0 g. Une nouvelle valeur agit aussitôt. Seul le passage entre 0 g et une valeur demande un redémarrage, car l'écran principal est reconstruit." },  // STR_BAG_HELP_TEXT
+    "Pour les bobines pesées dans un sachet sous vide. La valeur est le poids du sachet vide avec son gel de silice, soustrait de chaque mesure.\n\nAvec sachet (plus de 0 g) : l'écran principal affiche quatre lignes : balance moins bobine, écart, total et le poids sans sachet avec son propre écart. À l'envoi du poids, la balance demande si la bobine est posée avec ou sans sachet.\n\nSans sachet (0 g) : l'écran principal affiche balance moins bobine, écart, total et le poids de la bobine, en plus grand. L'envoi se fait d'un seul bouton, sans question.\n\nRéglage d'usine : 0 g. Une nouvelle valeur agit aussitôt. Seul le passage entre 0 g et une valeur demande un redémarrage, car l'écran principal est reconstruit.",
+    "Per bobine che stanno sulla bilancia in un sacchetto sottovuoto. Il valore è il peso del sacchetto vuoto con il gel di silice, e viene sottratto da ogni lettura.\n\nCon sacchetto (valore sopra 0 g): la schermata principale mostra quattro righe: bilancia meno bobina, diff, totale e il peso senza sacchetto con la sua diff. All'invio del peso la bilancia chiede se la bobina è sul piatto con o senza sacchetto.\n\nSenza sacchetto (0 g): la schermata principale mostra bilancia meno bobina, diff, totale e il peso bobina, più grande e con più spazio. L'invio è un solo pulsante, senza domande.\n\nIl valore di fabbrica è 0 g. Un nuovo valore vale subito. Solo il passaggio tra 0 g e un valore richiede un riavvio, perché la schermata principale viene ricostruita." },  // STR_BAG_HELP_TEXT
   { "In %s anzeigen",
     "Show in %s",
-    "Afficher dans %s" },  // STR_W_C_EMBED
+    "Afficher dans %s",
+    "Mostra in %s" },  // STR_W_C_EMBED
   { "Mit dem Plugin „SpoolmanScale“ erscheint diese Weboberfläche in der Navigation von FilaMan und folgt dessen Hell- oder Dunkel-Modus.",
     "With the “SpoolmanScale” plugin, this web interface appears in FilaMan's navigation and follows its light or dark mode.",
-    "Avec le plugin « SpoolmanScale », cette interface web apparaît dans la navigation de FilaMan et suit son mode clair ou sombre." },  // STR_W_EMBED_FM_INTRO
+    "Avec le plugin « SpoolmanScale », cette interface web apparaît dans la navigation de FilaMan et suit son mode clair ou sombre.",
+    "Con il plugin “SpoolmanScale” questa interfaccia web compare nella navigazione di FilaMan e ne segue la modalità chiara o scura." },  // STR_W_EMBED_FM_INTRO
   { "Plugin herunterladen",
     "Download the plugin",
-    "Télécharger le plugin" },  // STR_W_EMBED_FM_DOWNLOAD
+    "Télécharger le plugin",
+    "Scarica il plugin" },  // STR_W_EMBED_FM_DOWNLOAD
   { "In FilaMan unter <b>Admin-Bereich › Plugins</b> hochladen",
     "Upload it in FilaMan under <b>Admin Panel › Plugins</b>",
-    "Le téléverser dans FilaMan sous <b>Espace admin › Plugins</b>" },  // STR_W_EMBED_FM_UPLOAD
+    "Le téléverser dans FilaMan sous <b>Espace admin › Plugins</b>",
+    "Caricalo in FilaMan in <b>Admin Panel › Plugins</b>" },  // STR_W_EMBED_FM_UPLOAD
   { "%s im Browser mit genau dieser Adresse öffnen",
     "Open %s in the browser with exactly this address",
-    "Ouvrez %s dans le navigateur avec exactement cette adresse" },  // STR_W_EMBED_OPEN_AS
+    "Ouvrez %s dans le navigateur avec exactement cette adresse",
+    "Apri %s nel browser esattamente con questo indirizzo" },  // STR_W_EMBED_OPEN_AS
   { "BamBuddy zeigt diese Weboberfläche ohne Plugin in seiner Seitenleiste und gibt seinen Hell- oder Dunkel-Modus weiter.",
     "BamBuddy shows this web interface in its sidebar without a plugin and passes on its light or dark mode.",
-    "BamBuddy affiche cette interface web dans sa barre latérale, sans plugin, et lui transmet son mode clair ou sombre." },  // STR_W_EMBED_BB_INTRO
+    "BamBuddy affiche cette interface web dans sa barre latérale, sans plugin, et lui transmet son mode clair ou sombre.",
+    "BamBuddy mostra questa interfaccia web nella sua barra laterale senza plugin e le passa la sua modalità chiara o scura." },  // STR_W_EMBED_BB_INTRO
   { "In BamBuddy unter <b>Einstellungen › Allgemein › Seitenleiste</b> einen Link anlegen",
     "In BamBuddy, add a link under <b>Settings › General › Sidebar</b>",
-    "Dans BamBuddy, ajoutez un lien sous <b>Paramètres › Général › Barre latérale</b>" },  // STR_W_EMBED_BB_STEP1
+    "Dans BamBuddy, ajoutez un lien sous <b>Paramètres › Général › Barre latérale</b>",
+    "In BamBuddy aggiungi un link in <b>Settings › General › Sidebar</b>" },  // STR_W_EMBED_BB_STEP1
   { "Als URL die Adresse der Waage eintragen, „In neuem Tab öffnen“ aus lassen",
     "Enter the scale's address as the URL and leave “Open in new tab” off",
-    "Saisissez l'adresse de la balance comme URL et laissez « Ouvrir dans un nouvel onglet » désactivé" },  // STR_W_EMBED_BB_STEP2
+    "Saisissez l'adresse de la balance comme URL et laissez « Ouvrir dans un nouvel onglet » désactivé",
+    "Inserisci l'indirizzo della bilancia come URL e lascia spento “Open in new tab”" },  // STR_W_EMBED_BB_STEP2
   { "Der Name bleibt gültig, wenn der Router der Waage eine neue IP gibt, manche Android-Geräte lösen ihn aber nicht auf. Die IP geht überall, dann im Router fest vergeben.",
     "The name keeps working when the router gives the scale a new IP, but some Android devices do not resolve it. The IP works everywhere; then give it a fixed lease in the router.",
-    "Le nom reste valable si le routeur attribue une nouvelle IP à la balance, mais certains appareils Android ne le résolvent pas. L'IP fonctionne partout : réservez-la alors dans le routeur." },  // STR_W_EMBED_BB_IP
+    "Le nom reste valable si le routeur attribue une nouvelle IP à la balance, mais certains appareils Android ne le résolvent pas. L'IP fonctionne partout : réservez-la alors dans le routeur.",
+    "Il nome continua a funzionare quando il router dà un nuovo IP alla bilancia, ma alcuni dispositivi Android non lo risolvono. L'IP funziona ovunque; in quel caso riservalo nel router." },  // STR_W_EMBED_BB_IP
   { "Im Router eine feste IP für die Waage vergeben, sonst führt der Link nach einer neuen IP ins Leere.",
     "Give the scale a fixed IP in the router, otherwise the link leads nowhere once it gets a new one.",
-    "Attribuez une IP fixe à la balance dans le routeur, sinon le lien ne mène nulle part après un changement d'IP." },  // STR_W_EMBED_BB_FIXIP
+    "Attribuez une IP fixe à la balance dans le routeur, sinon le lien ne mène nulle part après un changement d'IP.",
+    "Dai alla bilancia un IP fisso nel router, altrimenti il link non porta da nessuna parte quando ne riceve uno nuovo." },  // STR_W_EMBED_BB_FIXIP
   { "Unter einer anderen Adresse (Name statt IP, Proxy) zeigt der Browser die Waage dort nicht an.",
     "Under any other address (a name instead of the IP, a proxy) the browser does not show the scale there.",
-    "Sous une autre adresse (un nom au lieu de l'IP, un proxy), le navigateur n'y affiche pas la balance." },  // STR_W_EMBED_NOTE
+    "Sous une autre adresse (un nom au lieu de l'IP, un proxy), le navigateur n'y affiche pas la balance.",
+    "Con qualsiasi altro indirizzo (un nome invece dell'IP, un proxy) il browser non mostra lì la bilancia." },  // STR_W_EMBED_NOTE
   { "Oben steht eine https-Adresse. Eine https-Seite darf die Waage, die nur http spricht, nicht einbetten. Zum Einbetten das Backend oben mit http eintragen und so öffnen.",
     "The address above is https. An https page may not embed the scale, which only speaks http. To embed it, enter the backend above with http and open it that way.",
-    "L'adresse ci-dessus est en https. Une page https ne peut pas intégrer la balance, qui ne parle que http. Pour l'intégrer, saisissez le backend ci-dessus en http et ouvrez-le ainsi." },  // STR_W_EMBED_HTTPS
+    "L'adresse ci-dessus est en https. Une page https ne peut pas intégrer la balance, qui ne parle que http. Pour l'intégrer, saisissez le backend ci-dessus en http et ouvrez-le ainsi.",
+    "L'indirizzo qui sopra è https. Una pagina https non può incorporare la bilancia, che parla solo http. Per incorporarla, inserisci il backend qui sopra con http e aprilo così." },  // STR_W_EMBED_HTTPS
   { "Öffnen",
     "Open",
-    "Ouvrir" },  // STR_W_OPEN
+    "Ouvrir",
+    "Apri" },  // STR_W_OPEN
   { "Kopieren fehlgeschlagen",
     "Copy failed",
-    "Copie impossible" },  // STR_W_COPY_FAILED
+    "Copie impossible",
+    "Copia fallita" },  // STR_W_COPY_FAILED
   { "Spoolman hinter BamBuddy ist von der Waage aus nicht erreichbar:\n%s",
     "Spoolman behind BamBuddy cannot be reached from the scale:\n%s",
-    "Spoolman derrière BamBuddy est injoignable depuis la balance :\n%s" },  // STR_DBPICK_SM_UNREACHABLE
+    "Spoolman derrière BamBuddy est injoignable depuis la balance :\n%s",
+    "Spoolman dietro BamBuddy non è raggiungibile dalla bilancia:\n%s" },  // STR_DBPICK_SM_UNREACHABLE
   { "DD.MM.YYYY",
+    "DD.MM.YYYY",
     "DD.MM.YYYY",
     "DD.MM.YYYY" },  // STR_DATE_FMT_DMY
   { "YYYY-MM-DD",
     "YYYY-MM-DD",
+    "YYYY-MM-DD",
     "YYYY-MM-DD" },  // STR_DATE_FMT_ISO
   { "MM/DD/YYYY",
     "MM/DD/YYYY",
+    "MM/DD/YYYY",
     "MM/DD/YYYY" },  // STR_DATE_FMT_US
-  { "passt gedreht", "fits rotated", "compatible après rotation" },  // STR_W_L_SRC_ROTATED
+  { "passt gedreht", "fits rotated", "compatible après rotation", "entra ruotata" },  // STR_W_L_SRC_ROTATED
   // Releasing the tags after a spool is archived
   { "Tag freigeben?\nAlle Tags werden von der Spule getrennt.",
     "Release the tag?\nAll tags of this spool are unlinked.",
-    "Libérer le tag ?\nTous les tags sont dissociés." },  // STR_FREE_TAG_ASK
+    "Libérer le tag ?\nTous les tags sont dissociés.",
+    "Liberare il tag?\nTutti i tag della bobina sono scollegati." },  // STR_FREE_TAG_ASK
   { "Der aufliegende Tag wird gelöscht.",
     "The tag on the reader is erased.",
-    "Le tag posé est effacé." },  // STR_FREE_TAG_ERASE_LINE
-  { "Freigeben", "Release", "Libérer" },  // STR_BTN_FREE_TAG
+    "Le tag posé est effacé.",
+    "Il tag sul lettore viene cancellato." },  // STR_FREE_TAG_ERASE_LINE
+  { "Freigeben", "Release", "Libérer", "Libera" },  // STR_BTN_FREE_TAG
   // Label editor: more arrangements, upright labels, a line budget
-  { "Material groß", "Large material",
-    "Matière en grand" },  // STR_W_L_P_MATERIAL_BIG
-  { "Nur Text", "Text only",
-    "Texte seul" },  // STR_W_L_P_TEXT_ONLY
-  { "Ausrichtung", "Orientation",
-    "Orientation" },  // STR_W_L_ORIENT
-  { "Quer", "Landscape",
-    "Paysage" },  // STR_W_L_FLAT
-  { "Hochkant", "Portrait",
-    "Portrait" },  // STR_W_L_UPRIGHT
-  { "Zeilen: %d von %d", "Lines: %d of %d",
-    "Lignes : %d sur %d" },  // STR_W_L_CAP
+  { "Material groß", "Large material", "Matière en grand", "Materiale grande" },  // STR_W_L_P_MATERIAL_BIG
+  { "Nur Text", "Text only", "Texte seul", "Solo testo" },  // STR_W_L_P_TEXT_ONLY
+  { "Ausrichtung", "Orientation", "Orientation", "Orientamento" },  // STR_W_L_ORIENT
+  { "Quer", "Landscape", "Paysage", "Orizzontale" },  // STR_W_L_FLAT
+  { "Hochkant", "Portrait", "Portrait", "Verticale" },  // STR_W_L_UPRIGHT
+  { "Zeilen: %d von %d", "Lines: %d of %d", "Lignes : %d sur %d", "Righe: %d di %d" },  // STR_W_L_CAP
   { "Mehr Zeilen passen auf dieses Etikett nicht.", "No more lines fit on this label.",
-    "Aucune ligne de plus ne tient sur cette étiquette." },  // STR_W_L_CAP_FULL
+    "Aucune ligne de plus ne tient sur cette étiquette.",
+    "Su questa etichetta non entrano altre righe." },  // STR_W_L_CAP_FULL
   { "Die letzten Zeilen passen nicht und fallen weg.", "The last lines do not fit and are left off.",
-    "Les dernières lignes ne tiennent pas et sont omises." },  // STR_W_L_CAP_OVER
+    "Les dernières lignes ne tiennent pas et sont omises.",
+    "Le ultime righe non entrano e vengono omesse." },  // STR_W_L_CAP_OVER
   // Label editor: more fields, an own line
-  { "Leer", "Empty",
-    "Vide" },  // STR_LBL_L_EMPTY
-  { "Netto", "Net",
-    "Net" },  // STR_LBL_L_NET
-  { "Düse", "Nozzle",
-    "Buse" },  // STR_LBL_L_NOZZLE
-  { "Düse/Bett", "Nozzle/bed",
-    "Buse/plat." },  // STR_LBL_L_TEMPS
-  { "Lager", "Stored",
-    "Lieu" },  // STR_LBL_L_STORED
-  { "Getrocknet", "Dried",
-    "Séchée" },  // STR_LBL_L_DRIED
-  { "Leergewicht", "Empty weight",
-    "Poids à vide" },  // STR_W_L_F_SPOOL_W
-  { "Nettogewicht", "Net weight",
-    "Poids net" },  // STR_W_L_F_NET_W
-  { "Temperaturen", "Temperatures",
-    "Températures" },  // STR_W_L_F_TEMPS
-  { "Lagerort", "Location",
-    "Emplacement" },  // STR_W_L_F_LOCATION
-  { "Trocknungsdatum", "Drying date",
-    "Date de séchage" },  // STR_W_L_F_DRIED
-  { "Eigene Zeile", "Own line",
-    "Ligne libre" },  // STR_W_L_F_TEXT
+  { "Leer", "Empty", "Vide", "Vuota" },  // STR_LBL_L_EMPTY
+  { "Netto", "Net", "Net", "Netto" },  // STR_LBL_L_NET
+  { "Düse", "Nozzle", "Buse", "Ugello" },  // STR_LBL_L_NOZZLE
+  { "Düse/Bett", "Nozzle/bed", "Buse/plat.", "Temp." },  // STR_LBL_L_TEMPS
+  { "Lager", "Stored", "Lieu", "Posto" },  // STR_LBL_L_STORED
+  { "Getrocknet", "Dried", "Séchée", "Essiccata" },  // STR_LBL_L_DRIED
+  { "Leergewicht", "Empty weight", "Poids à vide", "Peso a vuoto" },  // STR_W_L_F_SPOOL_W
+  { "Nettogewicht", "Net weight", "Poids net", "Peso netto" },  // STR_W_L_F_NET_W
+  { "Temperaturen", "Temperatures", "Températures", "Temperature" },  // STR_W_L_F_TEMPS
+  { "Lagerort", "Location", "Emplacement", "Posizione" },  // STR_W_L_F_LOCATION
+  { "Trocknungsdatum", "Drying date", "Date de séchage", "Data essiccazione" },  // STR_W_L_F_DRIED
+  { "Eigene Zeile", "Own line", "Ligne libre", "Riga libera" },  // STR_W_L_F_TEXT
   { "Eigene Zeile: höchstens 40 Zeichen.", "Own line: 40 characters at most.",
-    "Ligne libre : 40 caractères au plus." },  // STR_W_L_TEXT_HINT
+    "Ligne libre : 40 caractères au plus.",
+    "Riga libera: al massimo 40 caratteri." },  // STR_W_L_TEXT_HINT
   { "Lagerort und Trocknungsdatum ändern sich, das Etikett nicht. Temperaturen kennt nicht jedes Backend.", "Location and drying date change, the label does not. Not every backend knows temperatures.",
-    "L'emplacement et la date de séchage changent, l'étiquette non. Tous les backends ne connaissent pas les températures." },  // STR_W_L_CHANGE_HINT
+    "L'emplacement et la date de séchage changent, l'étiquette non. Tous les backends ne connaissent pas les températures.",
+    "Posizione e data di essiccazione cambiano, l'etichetta no. Non tutti i backend conoscono le temperature." },  // STR_W_L_CHANGE_HINT
   // Label editor: the filament's label
-  { "Etikett für", "Label for",
-    "Étiquette pour" },  // STR_W_L_KIND
-  { "Spule", "Spool",
-    "Bobine" },  // STR_W_L_KIND_SPOOL
-  { "Filament", "Filament",
-    "Filament" },  // STR_W_L_KIND_FILAMENT
+  { "Etikett für", "Label for", "Étiquette pour", "Etichetta per" },  // STR_W_L_KIND
+  { "Spule", "Spool", "Bobine", "Bobina" },  // STR_W_L_KIND_SPOOL
+  { "Filament", "Filament", "Filament", "Filamento" },  // STR_W_L_KIND_FILAMENT
   { "Am Gerät wählst du die Art im Druckfenster, ohne Druckfenster kommt das der Spule.", "On the scale the print sheet picks the kind; without the sheet the spool's prints.",
-    "Sur la balance, la fenêtre d'impression choisit le type ; sans elle, c'est celle de la bobine." },  // STR_W_L_KIND_HINT
+    "Sur la balance, la fenêtre d'impression choisit le type ; sans elle, c'est celle de la bobine.",
+    "Sulla bilancia il tipo lo sceglie la finestra di stampa; senza la finestra si stampa quella della bobina." },  // STR_W_L_KIND_HINT
   { "Dieses Backend hat keine Filamentseite: das Filament-Etikett kommt ohne Code.", "This backend has no filament page: the filament label prints without a code.",
-    "Ce backend n'a pas de page filament : l'étiquette du filament s'imprime sans code." },  // STR_W_L_FIL_NO_PAGE
+    "Ce backend n'a pas de page filament : l'étiquette du filament s'imprime sans code.",
+    "Questo backend non ha una pagina del filamento: l'etichetta del filamento si stampa senza codice." },  // STR_W_L_FIL_NO_PAGE
   // The print sheet on the scale
-  { "Drucken", "Print",
-    "Imprimer" },  // STR_PS_PRINT
-  { "Vor dem Druck zeigen", "Show before printing",
-    "Aperçu d'abord" },  // STR_PS_ASK
+  { "Drucken", "Print", "Imprimer", "Stampa" },  // STR_PS_PRINT
+  { "Vor dem Druck zeigen", "Show before printing", "Aperçu d'abord", "Anteprima prima" },  // STR_PS_ASK
   { "Vorschau und Einstellungen", "Preview and settings",
-    "Aperçu et réglages" },  // STR_PS_ASK_SUB
-  { "Layout aus FilaMan", "Layout from FilaMan",
-    "Mise en page FilaMan" },  // STR_PS_SERVER
+    "Aperçu et réglages",
+    "Anteprima e impostazioni" },  // STR_PS_ASK_SUB
+  { "Layout aus FilaMan", "Layout from FilaMan", "Mise en page FilaMan", "Layout da FilaMan" },  // STR_PS_SERVER
   { "Im Browser unter Etiketten", "In the browser, under Labels",
-    "Navigateur, Étiquettes" },  // STR_PS_SERVER_SUB
+    "Navigateur, Étiquettes",
+    "Nel browser, in Etichette" },  // STR_PS_SERVER_SUB
   { "Felder, eigene Zeile und FilaMan-Vorlagen stellst du im Browser ein:", "Fields, the own line and FilaMan presets are set in the browser:",
-    "Champs, ligne libre et modèles FilaMan : dans le navigateur" },  // STR_PS_MORE_WEB
+    "Champs, ligne libre et modèles FilaMan : dans le navigateur",
+    "Campi, riga libera e modelli FilaMan: nel browser" },  // STR_PS_MORE_WEB
   // A fact on a printed label, caption and value on one line
-  { "%s: %s", "%s: %s", "%s : %s" },  // STR_LBL_FACT_FMT
+  { "%s: %s", "%s: %s", "%s : %s", "%s: %s" },  // STR_LBL_FACT_FMT
   // Label editor: the drying, and the switches that print nothing
-  { "Trocknen",              "Dry",                  "Séchage" },  // STR_LBL_L_DRYING
-  { "Trocknen (°C, h)",      "Drying (°C, h)",       "Séchage (°C, h)" },  // STR_W_L_F_DRYING
-  { "bei dieser Spule leer", "empty for this spool", "vide pour cette bobine" },  // STR_W_L_GAP_SPOOL
-  { "%s führt es nicht",     "%s does not keep it",  "%s ne le gère pas" },  // STR_W_L_GAP_BACKEND
+  { "Trocknen", "Dry", "Séchage", "Essicc." },  // STR_LBL_L_DRYING
+  { "Trocknen (°C, h)", "Drying (°C, h)", "Séchage (°C, h)", "Essiccazione (°C, h)" },  // STR_W_L_F_DRYING
+  { "bei dieser Spule leer", "empty for this spool",
+    "vide pour cette bobine",
+    "vuoto per questa bobina" },  // STR_W_L_GAP_SPOOL
+  { "%s führt es nicht", "%s does not keep it", "%s ne le gère pas", "%s non lo gestisce" },  // STR_W_L_GAP_BACKEND
   // Printer page: how a model prints, and the recommended printers
   { "Druckt per Thermodirekt, ohne Farbband.", "Prints direct thermal, without a ribbon.",
-    "Impression thermique directe, sans ruban." },  // STR_W_P_METHOD_DIRECT
+    "Impression thermique directe, sans ruban.",
+    "Stampa termica diretta, senza nastro." },  // STR_W_P_METHOD_DIRECT
   { "Druckt per Thermotransfer mit Farbband: Wärme färbt das Etikett nicht.", "Prints by thermal transfer with a ribbon: heat does not colour the label.",
-    "Impression par transfert thermique à ruban : la chaleur ne colore pas l'étiquette." },  // STR_W_P_METHOD_RIBBON
+    "Impression par transfert thermique à ruban : la chaleur ne colore pas l'étiquette.",
+    "Stampa a trasferimento termico con nastro: il calore non colora l'etichetta." },  // STR_W_P_METHOD_RIBBON
   { "Empfohlene Drucker", "Recommended printers",
-    "Imprimantes recommandées" },  // STR_W_P_SHOP_TITLE
+    "Imprimantes recommandées",
+    "Stampanti consigliate" },  // STR_W_P_SHOP_TITLE
   { "Welche Drucker wir selbst testen und welche Etiketten dazu passen.", "The printers we test ourselves and the labels that go with them.",
-    "Les imprimantes que nous testons nous-mêmes et les étiquettes qui leur conviennent." },  // STR_W_P_SHOP_HINT
+    "Les imprimantes que nous testons nous-mêmes et les étiquettes qui leur conviennent.",
+    "Le stampanti che testiamo noi stessi e le etichette adatte." },  // STR_W_P_SHOP_HINT
   // Bluetooth screen: the way to the recommended printers
   { "Noch kein Drucker?", "No printer yet?",
-    "Pas encore d'imprimante ?" },  // STR_BT_REC_NONE
+    "Pas encore d'imprimante ?",
+    "Ancora senza stampante?" },  // STR_BT_REC_NONE
   { "Welche passen: QR-Code zum Handbuch", "Which ones fit: QR code to the manual",
-    "Lesquelles conviennent : QR code du manuel" },  // STR_BT_REC_NONE_SUB
+    "Lesquelles conviennent : QR code du manuel",
+    "Quali vanno bene: QR al manuale" },  // STR_BT_REC_NONE_SUB
   { "Empfohlene Drucker", "Recommended printers",
-    "Imprimantes recommandées" },  // STR_BT_REC_OTHER
+    "Imprimantes recommandées",
+    "Stampanti consigliate" },  // STR_BT_REC_OTHER
   { "Von uns getestet: QR-Code zum Handbuch", "Tested by us: QR code to the manual",
-    "Testées par nous : QR code du manuel" },  // STR_BT_REC_OTHER_SUB
+    "Testées par nous : QR code du manuel",
+    "Testate da noi: QR al manuale" },  // STR_BT_REC_OTHER_SUB
   { "Etiketten nachkaufen", "Buy more labels",
-    "Racheter des étiquettes" },  // STR_BT_REC_LABELS
+    "Racheter des étiquettes",
+    "Compra altre etichette" },  // STR_BT_REC_LABELS
   { "Etiketten und Farbband", "Labels and ribbon",
-    "Étiquettes et ruban" },  // STR_BT_REC_RIBBON
+    "Étiquettes et ruban",
+    "Etichette e nastro" },  // STR_BT_REC_RIBBON
   { "Passende Rollen: QR-Code zum Handbuch", "Rolls that fit: QR code to the manual",
-    "Rouleaux adaptés : QR code du manuel" },  // STR_BT_REC_SUPPLY_SUB
+    "Rouleaux adaptés : QR code du manuel",
+    "Rotoli adatti: QR al manuale" },  // STR_BT_REC_SUPPLY_SUB
   // Printer page: the box worded for the printer at hand
   { "Zwei Drucker testen wir selbst mit jeder Version: Phomemo M220 und NIIMBOT M2. Welcher zu dir passt, zeigt der Vergleich im Handbuch.", "We test two printers ourselves with every release: the Phomemo M220 and the NIIMBOT M2. The comparison in the manual shows which one suits you.",
-    "Nous testons nous-mêmes deux imprimantes à chaque version : la Phomemo M220 et la NIIMBOT M2. La comparaison dans le manuel montre laquelle vous convient." },  // STR_W_P_REC_NONE_TEXT
+    "Nous testons nous-mêmes deux imprimantes à chaque version : la Phomemo M220 et la NIIMBOT M2. La comparaison dans le manuel montre laquelle vous convient.",
+    "Testiamo noi stessi due stampanti a ogni versione: la Phomemo M220 e la NIIMBOT M2. Il confronto nel manuale mostra quale fa per te." },  // STR_W_P_REC_NONE_TEXT
   { "Drucker vergleichen", "Compare printers",
-    "Comparer les imprimantes" },  // STR_W_P_REC_NONE_BTN
+    "Comparer les imprimantes",
+    "Confronta le stampanti" },  // STR_W_P_REC_NONE_BTN
   { "Neue Etikettenfunktionen bauen und testen wir zuerst auf M220 und M2. Was sie unterscheidet, steht im Handbuch.", "We build and test new label features on the M220 and the M2 first. What sets them apart is in the manual.",
-    "Nous développons et testons les nouvelles fonctions d'étiquette d'abord sur la M220 et la M2. Ce qui les distingue est dans le manuel." },  // STR_W_P_REC_OTHER_TEXT
-  { "Zum Vergleich", "See the comparison",
-    "Voir la comparaison" },  // STR_W_P_REC_OTHER_BTN
+    "Nous développons et testons les nouvelles fonctions d'étiquette d'abord sur la M220 et la M2. Ce qui les distingue est dans le manuel.",
+    "Le nuove funzioni per le etichette le sviluppiamo e testiamo prima su M220 e M2. Cosa le distingue è nel manuale." },  // STR_W_P_REC_OTHER_TEXT
+  { "Zum Vergleich", "See the comparison", "Voir la comparaison", "Vedi il confronto" },  // STR_W_P_REC_OTHER_BTN
   { "Passende Rollen für deinen M220, in 40 x 30 und 50 x 30 mm.", "Rolls that fit your M220, in 40 x 30 and 50 x 30 mm.",
-    "Rouleaux adaptés à votre M220, en 40 x 30 et 50 x 30 mm." },  // STR_W_P_REC_M220_TEXT
-  { "Zu den Etiketten", "To the labels",
-    "Voir les étiquettes" },  // STR_W_P_REC_LABELS_BTN
+    "Rouleaux adaptés à votre M220, en 40 x 30 et 50 x 30 mm.",
+    "Rotoli adatti alla tua M220, in 40 x 30 e 50 x 30 mm." },  // STR_W_P_REC_M220_TEXT
+  { "Zu den Etiketten", "To the labels", "Voir les étiquettes", "Alle etichette" },  // STR_W_P_REC_LABELS_BTN
   { "Passende Rollen und Farbband für deinen M2.", "Rolls and ribbon that fit your M2.",
-    "Rouleaux et ruban adaptés à votre M2." },  // STR_W_P_REC_M2_TEXT
+    "Rouleaux et ruban adaptés à votre M2.",
+    "Rotoli e nastro adatti alla tua M2." },  // STR_W_P_REC_M2_TEXT
   { "Zu Etiketten und Farbband", "To labels and ribbon",
-    "Voir étiquettes et ruban" },  // STR_W_P_REC_RIBBON_BTN
+    "Voir étiquettes et ruban",
+    "A etichette e nastro" },  // STR_W_P_REC_RIBBON_BTN
   { "Anderer Tag auf dem Leser - nicht gelöscht", "A different tag is on the reader - not erased",
-    "Autre tag sur le lecteur - rien effacé" },  // STR_TW_ERR_OTHER_TAG
-  { "Empfohlen", "Recommended",
-    "Recommandée" },  // STR_PRN_TAG_RECOMMENDED
-  { "experimentell", "experimental",
-    "expérimentale" },  // STR_PRN_TAG_EXPERIMENTAL
-  { "noch keine Vorlage", "no layout yet",
-    "pas encore de modèle" },  // STR_PRN_MEDIA_NO_LAYOUT
-  { "Auch in Extra-Feld", "Also in extra field",
-    "Aussi dans un champ" },  // STR_TAG_COMP
+    "Autre tag sur le lecteur - rien effacé",
+    "Altro tag sul lettore - non cancellato" },  // STR_TW_ERR_OTHER_TAG
+  { "Empfohlen", "Recommended", "Recommandée", "Consigliata" },  // STR_PRN_TAG_RECOMMENDED
+  { "experimentell", "experimental", "expérimentale", "sperimentale" },  // STR_PRN_TAG_EXPERIMENTAL
+  { "noch keine Vorlage", "no layout yet", "pas encore de modèle", "senza layout" },  // STR_PRN_MEDIA_NO_LAYOUT
+  { "Auch in Extra-Feld", "Also in extra field", "Aussi dans un champ", "Anche in campo extra" },  // STR_TAG_COMP
   { "Nicht jedes Tool kennt die nativen Tags von Spoolman. Hier schreibt die Waage beim Verknüpfen zusätzlich in ein Extra-Feld und legt es an, falls es fehlt.\n\nextra.tag: die UUID einer Bambu-Spule, für OpenSpoolman. Andere Tags betrifft das nicht.\nextra.nfc_id: die UUID einer Bambu-Spule, bei anderen Tags die Chip-UID.\n\nBeim Auflegen füllt die Waage nur ein leeres Feld. Geleert wird es erst, wenn alle Tags der Spule gelöst werden oder der Tag, dessen UID darin steht.",
     "Not every tool knows Spoolman's native tags. With this, the scale also writes into an extra field when linking, and creates the field if it is missing.\n\nextra.tag: the UUID of a Bambu spool, for OpenSpoolman. Other tags are not affected.\nextra.nfc_id: the UUID of a Bambu spool, the chip UID for other tags.\n\nWhen a spool is placed, the scale only fills an empty field. It is cleared only when all of the spool's tags are unlinked, or the tag whose UID it holds.",
-    "Certains outils ignorent les tags natifs de Spoolman. La balance écrit alors aussi dans un champ supplémentaire lors d'une liaison et le crée s'il manque.\n\nextra.tag : l'UUID d'une bobine Bambu, pour OpenSpoolman. Rien pour les autres tags.\nextra.nfc_id : l'UUID d'une bobine Bambu, sinon l'UID de la puce.\n\nUne bobine posée ne remplit qu'un champ vide. Il n'est vidé que si tous ses tags sont dissociés, ou le tag dont il contient l'UID." },  // STR_TAG_COMP_INFO
-  { "Aus",                          "Off",                          "Désactivé" },  // STR_TAG_COMP_OFF
+    "Certains outils ignorent les tags natifs de Spoolman. La balance écrit alors aussi dans un champ supplémentaire lors d'une liaison et le crée s'il manque.\n\nextra.tag : l'UUID d'une bobine Bambu, pour OpenSpoolman. Rien pour les autres tags.\nextra.nfc_id : l'UUID d'une bobine Bambu, sinon l'UID de la puce.\n\nUne bobine posée ne remplit qu'un champ vide. Il n'est vidé que si tous ses tags sont dissociés, ou le tag dont il contient l'UID.",
+    "Non tutti i programmi conoscono i tag nativi di Spoolman. Con questa opzione la bilancia scrive anche in un campo extra quando collega, e crea il campo se manca.\n\nextra.tag: l'UUID di una bobina Bambu, per OpenSpoolman. Gli altri tag no.\nextra.nfc_id: l'UUID di una bobina Bambu, l'UID del chip per gli altri tag.\n\nQuando si appoggia una bobina, la bilancia riempie solo un campo vuoto. Viene svuotato solo quando tutti i tag della bobina sono scollegati, o il tag di cui contiene l'UID." },  // STR_TAG_COMP_INFO
+  { "Aus", "Off", "Désactivé", "Spento" },  // STR_TAG_COMP_OFF
   { "Nur die nativen Tags", "Native tags only",
-    "Tags natifs uniquement" },  // STR_TAG_COMP_OFF_SUB
-  { "extra.tag",                    "extra.tag",                    "extra.tag" },  // STR_TAG_COMP_TAG
+    "Tags natifs uniquement",
+    "Solo tag nativi" },  // STR_TAG_COMP_OFF_SUB
+  { "extra.tag", "extra.tag", "extra.tag", "extra.tag" },  // STR_TAG_COMP_TAG
   { "Bambu-UUID, für OpenSpoolman", "Bambu UUID, for OpenSpoolman",
-    "UUID Bambu, pour OpenSpoolman" },  // STR_TAG_COMP_TAG_SUB
-  { "extra.nfc_id",                 "extra.nfc_id",                 "extra.nfc_id" },  // STR_TAG_COMP_NFCID
+    "UUID Bambu, pour OpenSpoolman",
+    "UUID Bambu, per OpenSpoolman" },  // STR_TAG_COMP_TAG_SUB
+  { "extra.nfc_id", "extra.nfc_id", "extra.nfc_id", "extra.nfc_id" },  // STR_TAG_COMP_NFCID
   { "Bambu-UUID oder Chip-UID", "Bambu UUID or chip UID",
-    "UUID Bambu ou UID de puce" },  // STR_TAG_COMP_NFCID_SUB
+    "UUID Bambu ou UID de puce",
+    "UUID Bambu o UID chip" },  // STR_TAG_COMP_NFCID_SUB
   // Printer page: only BLE printers, and the way to what a printer needs
   { "Die Waage spricht nur Bluetooth Low Energy. Drucker mit klassischem Bluetooth, etwa Brother P-touch, kann sie nicht erreichen.",
     "The scale speaks Bluetooth Low Energy only. Printers on Classic Bluetooth, such as Brother P-touch, are out of its reach.",
-    "La balance ne parle que le Bluetooth Low Energy. Les imprimantes en Bluetooth classique, comme les Brother P-touch, lui restent inaccessibles." },  // STR_W_P_BLE_ONLY
+    "La balance ne parle que le Bluetooth Low Energy. Les imprimantes en Bluetooth classique, comme les Brother P-touch, lui restent inaccessibles.",
+    "La bilancia parla solo Bluetooth Low Energy. Le stampanti in Bluetooth classico, come le Brother P-touch, sono fuori portata." },  // STR_W_P_BLE_ONLY
   { "Was ein Drucker können muss", "What a printer needs",
-    "Ce qu'une imprimante doit savoir faire" },  // STR_W_P_NEEDS_LINK
-  { "Neustart nötig", "Restart needed",
-    "Redémarrage requis" },  // STR_W_P_RESTART_NEEDED
+    "Ce qu'une imprimante doit savoir faire",
+    "Cosa serve a una stampante" },  // STR_W_P_NEEDS_LINK
+  { "Neustart nötig", "Restart needed", "Redémarrage requis", "Riavvio necessario" },  // STR_W_P_RESTART_NEEDED
   { "Drucker einschalten, dann suchen.", "Switch the printer on, then scan.",
-    "Allumez l'imprimante, puis lancez la recherche." },  // STR_W_P_EMPTY_HINT
+    "Allumez l'imprimante, puis lancez la recherche.",
+    "Accendi la stampante, poi avvia la ricerca." },  // STR_W_P_EMPTY_HINT
   { "Wähle deinen Drucker aus der Liste unten.", "Pick yours from the list below.",
-    "Choisissez la vôtre dans la liste ci-dessous." },  // STR_W_P_PICK_HINT
-  { "Drucker wechseln", "Change printer",
-    "Changer d'imprimante" },  // STR_W_P_CHANGE
-  { "Farbband", "ribbon",
-    "ruban" },  // STR_W_P_SPEC_RIBBON
+    "Choisissez la vôtre dans la liste ci-dessous.",
+    "Scegli la tua dall'elenco qui sotto." },  // STR_W_P_PICK_HINT
+  { "Drucker wechseln", "Change printer", "Changer d'imprimante", "Cambia stampante" },  // STR_W_P_CHANGE
+  { "Farbband", "ribbon", "ruban", "nastro" },  // STR_W_P_SPEC_RIBBON
   // ── The card for a spool the inventory does not know ──
   { "Bei unbekannter Spule fragen",
     "Ask about unknown spools",
-    "Demander si bobine inconnue" },  // STR_UNK_ASK
+    "Demander si bobine inconnue",
+    "Chiedi per bobine ignote" },  // STR_UNK_ASK
   { "Beim Auflegen",
     "When one is put down",
-    "À la pose" },  // STR_UNK_ASK_SUB
+    "À la pose",
+    "Quando la appoggi" },  // STR_UNK_ASK_SUB
   { "An: Legst du eine Spule auf, die das Inventar noch nicht kennt, schlägt die Waage den nächsten Schritt vor - eine passende Spule ohne Tag verknüpfen oder eine neue aus dem Tag anlegen. \"Nur wiegen\" schließt die Frage, bis die Spule wieder heruntergenommen wird.\n\nAus: Es wechseln nur die beiden Knöpfe auf dem Hauptscreen, wie bisher.",
     "On: when you put down a spool the inventory does not know yet, the scale suggests the next step - link a matching spool without a tag, or create a new one from the tag. \"Just weigh\" closes the question until the spool is taken off again.\n\nOff: only the two buttons on the main screen change, as before.",
-    "Activé : quand vous posez une bobine que l'inventaire ne connaît pas encore, la balance propose l'étape suivante - lier une bobine correspondante sans tag, ou en créer une nouvelle depuis le tag. « Juste peser » ferme la question jusqu'à ce que la bobine soit retirée.\n\nDésactivé : seuls les deux boutons de l'écran principal changent." },  // STR_UNK_ASK_INFO
+    "Activé : quand vous posez une bobine que l'inventaire ne connaît pas encore, la balance propose l'étape suivante - lier une bobine correspondante sans tag, ou en créer une nouvelle depuis le tag. « Juste peser » ferme la question jusqu'à ce que la bobine soit retirée.\n\nDésactivé : seuls les deux boutons de l'écran principal changent.",
+    "Attivo: quando appoggi una bobina che l'inventario non conosce ancora, la bilancia propone il passo successivo - collegare una bobina adatta senza tag, o crearne una nuova dal tag. \"Solo peso\" chiude la domanda finché la bobina non viene tolta.\n\nSpento: cambiano solo i due pulsanti della schermata principale." },  // STR_UNK_ASK_INFO
   { "Vorschlag: diese Spule ohne Tag",
     "Suggestion: this spool without a tag",
-    "Suggestion : cette bobine sans tag" },  // STR_UNK_SUGGEST_ONE
+    "Suggestion : cette bobine sans tag",
+    "Suggerimento: questa bobina senza tag" },  // STR_UNK_SUGGEST_ONE
   { "Vorschlag: %d Spulen ohne Tag passen",
     "Suggestion: %d spools without a tag match",
-    "Suggestion : %d bobines sans tag conviennent" },  // STR_UNK_SUGGEST_MANY
+    "Suggestion : %d bobines sans tag conviennent",
+    "Suggerimento: %d bobine senza tag adatte" },  // STR_UNK_SUGGEST_MANY
   { "Vorschlag: neu aus dem Tag",
     "Suggestion: new from the tag",
-    "Suggestion : nouvelle depuis le tag" },  // STR_UNK_SUGGEST_NEW
+    "Suggestion : nouvelle depuis le tag",
+    "Suggerimento: nuova dal tag" },  // STR_UNK_SUGGEST_NEW
   { "%s im Bestand, passt zur Waage",
     "%s on file, matches the scale",
-    "%s en stock, comme la balance" },  // STR_UNK_STORED_HIT
+    "%s en stock, comme la balance",
+    "%s in archivio, come la bilancia" },  // STR_UNK_STORED_HIT
   { "%s im Bestand",
     "%s on file",
-    "%s en stock" },  // STR_UNK_STORED
+    "%s en stock",
+    "%s in archivio" },  // STR_UNK_STORED
   { "Noch keine Spule davon im Bestand",
     "No spool of it in the inventory yet",
-    "Pas encore dans l'inventaire" },  // STR_UNK_NONE_LINE
+    "Pas encore dans l'inventaire",
+    "Ancora nessuna bobina nell'inventario" },  // STR_UNK_NONE_LINE
   { "Neue Spule aus den Daten des Tags",
     "A new spool from the tag's data",
-    "Nouvelle bobine selon le tag" },  // STR_UNK_NONE_SUB
+    "Nouvelle bobine selon le tag",
+    "Nuova bobina dai dati del tag" },  // STR_UNK_NONE_SUB
   { "+%d weitere",
     "+%d more",
-    "+%d autres" },  // STR_UNK_MORE
+    "+%d autres",
+    "+%d altre" },  // STR_UNK_MORE
   { "Alle zeigen",
     "Show all",
-    "Tout voir" },  // STR_UNK_BTN_ALL
+    "Tout voir",
+    "Mostra tutte" },  // STR_UNK_BTN_ALL
   { "Andere Wege",
     "Other ways",
-    "Autres choix" },  // STR_UNK_BTN_OTHER
+    "Autres choix",
+    "Altre vie" },  // STR_UNK_BTN_OTHER
   { "Nur wiegen",
     "Just weigh",
-    "Juste peser" },  // STR_UNK_BTN_WEIGH
+    "Juste peser",
+    "Solo peso" },  // STR_UNK_BTN_WEIGH
   { "Kopie",
     "Copy",
-    "Copie" },  // STR_UNK_TILE_COPY
+    "Copie",
+    "Copia" },  // STR_UNK_TILE_COPY
   { "%.0f g netto",
     "%.0f g net",
-    "%.0f g net" },  // STR_UNK_NET
+    "%.0f g net",
+    "%.0f g netti" },  // STR_UNK_NET
   { "%.0f g auf der Waage",
     "%.0f g on the scale",
-    "%.0f g sur la balance" },  // STR_UNK_GROSS
+    "%.0f g sur la balance",
+    "%.0f g sulla bilancia" },  // STR_UNK_GROSS
   { "UID %s",
+    "UID %s",
     "UID %s",
     "UID %s" },  // STR_UNK_UID
   { "?",
+    "?",
     "?",
     "?" },  // STR_UNK_NO_COLOR
   // ── What a spool created off the pad starts with ──
   { "%.0f von %d g",
     "%.0f of %d g",
-    "%.0f sur %d g" },  // STR_TAGNEW_W_OF
+    "%.0f sur %d g",
+    "%.0f di %d g" },  // STR_TAGNEW_W_OF
   { "voll: %.0f g",
     "full: %.0f g",
-    "pleine : %.0f g" },  // STR_TAGNEW_W_FULL
+    "pleine : %.0f g",
+    "piena: %.0f g" },  // STR_TAGNEW_W_FULL
   { "nicht gewogen, voll: %d g",
     "not weighed, full: %d g",
-    "non pesée, pleine : %d g" },  // STR_TAGNEW_W_NOT
+    "non pesée, pleine : %d g",
+    "non pesata, piena: %d g" },  // STR_TAGNEW_W_NOT
   { "Leerspule unbekannt, voll: %d g",
     "empty spool unknown, full: %d g",
-    "bobine vide inconnue, pleine : %d g" },  // STR_TAGNEW_W_NO_TARE
+    "bobine vide inconnue, pleine : %d g",
+    "bobina vuota ignota, piena: %d g" },  // STR_TAGNEW_W_NO_TARE
   { "zu schwer: %.0f g, voll: %d g",
     "too heavy: %.0f g, full: %d g",
-    "trop lourde : %.0f g, pleine : %d g" },  // STR_TAGNEW_W_OVER
+    "trop lourde : %.0f g, pleine : %d g",
+    "troppo pesante: %.0f g, piena: %d g" },  // STR_TAGNEW_W_OVER
   { "zu schwer: %.0f g, Leerspule %d g prüfen",
     "too heavy: %.0f g, check empty spool %d g",
-    "trop lourde : %.0f g, vérifier vide %d g" },  // STR_TAGNEW_W_OVER_TARE
+    "trop lourde : %.0f g, vérifier vide %d g",
+    "troppo pesante: %.0f g, verifica vuota %d g" },  // STR_TAGNEW_W_OVER_TARE
   { "%s | leer %.0f g",
     "%s | empty %.0f g",
-    "%s | vide %.0f g" },  // STR_COPY_CARD_TARE
+    "%s | vide %.0f g",
+    "%s | vuota %.0f g" },  // STR_COPY_CARD_TARE
   // Printing on the PC through FilaMan
   { "Am PC drucken",
     "Print on the PC",
-    "Imprimer sur le PC" },  // STR_PCP_TITLE
+    "Imprimer sur le PC",
+    "Stampa sul PC" },  // STR_PCP_TITLE
   { "Über FilaMan. Dazu muss FilaMan am PC im Browser offen sein.",
     "Through FilaMan. FilaMan has to be open in a browser on the PC.",
-    "Via FilaMan, qui doit être ouvert dans un navigateur sur le PC." },  // STR_PCP_SUB
+    "Via FilaMan, qui doit être ouvert dans un navigateur sur le PC.",
+    "Tramite FilaMan, aperto in un browser sul PC." },  // STR_PCP_SUB
   { "Spulen-Etikett",
     "Spool label",
-    "Étiquette bobine" },  // STR_PCP_SPOOL
+    "Étiquette bobine",
+    "Etichetta bobina" },  // STR_PCP_SPOOL
   { "Filament-Etikett",
     "Filament label",
-    "Étiquette filament" },  // STR_PCP_FILAMENT
+    "Étiquette filament",
+    "Etichetta filamento" },  // STR_PCP_FILAMENT
   { "Wird an FilaMan gesendet ...",
     "Sending to FilaMan ...",
-    "Envoi à FilaMan ..." },  // STR_PCP_SENDING
+    "Envoi à FilaMan ...",
+    "Invio a FilaMan ..." },  // STR_PCP_SENDING
   { "An FilaMan gesendet",
     "Sent to FilaMan",
-    "Envoyé à FilaMan" },  // STR_PCP_SENT_TITLE
+    "Envoyé à FilaMan",
+    "Inviato a FilaMan" },  // STR_PCP_SENT_TITLE
   { "Das Etikett erscheint im offenen FilaMan-Tab. Dort drucken.",
     "The label shows up in the open FilaMan tab. Print it from there.",
-    "L'étiquette s'affiche dans l'onglet FilaMan ouvert. Imprimez-la." },  // STR_PCP_SENT_TEXT
+    "L'étiquette s'affiche dans l'onglet FilaMan ouvert. Imprimez-la.",
+    "L'etichetta compare nella scheda FilaMan aperta." },  // STR_PCP_SENT_TEXT
   { "Nicht gesendet",
     "Not sent",
-    "Non envoyé" },  // STR_PCP_FAIL_TITLE
+    "Non envoyé",
+    "Non inviato" },  // STR_PCP_FAIL_TITLE
   { "Dieses FilaMan nimmt noch keine Druckanfragen an. Nötig ist FilaMan 1.4.3 oder neuer.",
     "This FilaMan does not take print requests yet. It needs FilaMan 1.4.3 or newer.",
-    "Ce FilaMan ne gère pas encore l'impression sur PC. Il faut FilaMan 1.4.3 ou plus récent." },  // STR_PCP_NO_ROUTE
+    "Ce FilaMan ne gère pas encore l'impression sur PC. Il faut FilaMan 1.4.3 ou plus récent.",
+    "Questo FilaMan non accetta ancora richieste di stampa. Serve FilaMan 1.4.3 o successivo." },  // STR_PCP_NO_ROUTE
   { "Spule per ID",
     "Spool by ID",
-    "Bobine par ID" },  // STR_BTN_SPOOL_BY_ID
+    "Bobine par ID",
+    "Bobina per ID" },  // STR_BTN_SPOOL_BY_ID
   { "Die ID steht in Spoolman und auf dem Etikett. Ohne Tag wird das Gewicht nur gespeichert, wenn du \"Gewicht updaten\" tippst.",
     "The ID is shown in Spoolman and on the label. Without a tag the weight is saved only when you tap \"Update Weight\".",
-    "L'ID figure dans Spoolman et sur l'étiquette. Sans tag, le poids n'est enregistré que si vous touchez \"Envoyer le poids\"." },  // STR_IDPAD_INFO
+    "L'ID figure dans Spoolman et sur l'étiquette. Sans tag, le poids n'est enregistré que si vous touchez \"Envoyer le poids\".",
+    "L'ID è indicato in Spoolman e sull'etichetta. Senza tag il peso si salva solo quando tocchi \"Invia peso\"." },  // STR_IDPAD_INFO
   { "Suchen",
     "Search",
-    "Chercher" },  // STR_IDPAD_SEARCH
+    "Chercher",
+    "Cerca" },  // STR_IDPAD_SEARCH
   { "Suche ...",
     "Searching ...",
-    "Recherche ..." },  // STR_IDPAD_SEARCHING
+    "Recherche ...",
+    "Ricerca ..." },  // STR_IDPAD_SEARCHING
   { "Diese Spule",
     "This spool",
-    "Cette bobine" },  // STR_IDPAD_THIS_SPOOL
+    "Cette bobine",
+    "Questa bobina" },  // STR_IDPAD_THIS_SPOOL
   { "Keine Spule mit ID %d",
     "No spool with ID %d",
-    "Aucune bobine ID %d" },  // STR_IDPAD_NOT_FOUND
+    "Aucune bobine ID %d",
+    "Nessun ID %d" },  // STR_IDPAD_NOT_FOUND
   { "Ziffern prüfen und erneut suchen.",
     "Check the digits and search again.",
-    "Vérifiez les chiffres et recherchez." },  // STR_IDPAD_NOT_FOUND_HINT
+    "Vérifiez les chiffres et recherchez.",
+    "Controlla le cifre e cerca di nuovo." },  // STR_IDPAD_NOT_FOUND_HINT
   { "Per ID geladen - kein Tag",
     "Loaded by ID - no tag",
-    "Chargée par ID - sans tag" },  // STR_ID_SPOOL_STATUS
+    "Chargée par ID - sans tag",
+    "Caricata per ID - senza tag" },  // STR_ID_SPOOL_STATUS
   { "Netzwerkdrucker (Brother QL)",
     "Network printer (Brother QL)",
-    "Imprimante réseau (Brother QL)" },  // STR_W_P_NET_TITLE
+    "Imprimante réseau (Brother QL)",
+    "Stampante di rete (Brother QL)" },  // STR_W_P_NET_TITLE
   { "IPv4-Adresse des Druckers oder des Rechners, an dem sein USB-Kabel steckt (Port 9100).",
     "IPv4 address of the printer, or of the computer its USB cable is plugged into (port 9100).",
-    "Adresse IPv4 de l'imprimante, ou de l'ordinateur où son câble USB est branché (port 9100)." },  // STR_W_P_NET_HINT
+    "Adresse IPv4 de l'imprimante, ou de l'ordinateur où son câble USB est branché (port 9100).",
+    "Indirizzo IPv4 della stampante, o del computer a cui è collegato il suo cavo USB (porta 9100)." },  // STR_W_P_NET_HINT
   { "Als Drucker verwenden",
     "Use as printer",
-    "Utiliser comme imprimante" },  // STR_W_P_NET_USE
+    "Utiliser comme imprimante",
+    "Usa come stampante" },  // STR_W_P_NET_USE
   { "Keine gültige IPv4-Adresse.",
     "Not a valid IPv4 address.",
-    "Adresse IPv4 invalide." },  // STR_W_P_NET_BAD
+    "Adresse IPv4 invalide.",
+    "Indirizzo IPv4 non valido." },  // STR_W_P_NET_BAD
 };
 
 StringID tagWriteResultString(uint8_t code) {
