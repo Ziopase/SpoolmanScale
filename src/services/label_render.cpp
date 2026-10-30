@@ -22,6 +22,7 @@ using namespace labeldraw;
 // fonts at that resolution. A finer head prints the same millimetres: every
 // length goes through dots() and every font through sized() (label_draw.h).
 #define LR_MARGIN_PX       8    // 1 mm: the stock is never cut exactly
+#define LR_MARGIN_SMALL_PX 4    // a die-cut QL label has its own white edge
 #define LR_GAP_PX          4    // between the blocks
 #define LR_COLUMN_GAP_PX  12    // between two columns of facts
 // The blocks grow with the roll. 40 x 30 is the base; from LR_TALL_PX in
@@ -90,6 +91,7 @@ struct LabelArea {
   bool columns;                  // the facts may stand in two columns
   // A name one line would cut goes on two in this font; null: it is cut.
   const lv_font_t* wrap_font;
+  bool small;                    // a roll under 30 x 30: the code needs every dot
 };
 
 // One of two columns side by side.
@@ -144,11 +146,20 @@ static lv_coord_t drawHeader(lv_obj_t* canvas, const LabelArea& a, bool tall,
     y += lineHeight(f) + dots(LR_GAP_PX);
   }
   if (d.material[0] && labelLayoutHas(layout, LF_MATERIAL)) {
-    const lv_coord_t band_h = dots(tall ? LR_BAND_H_TALL_PX : LR_BAND_H_PX);
+    // As large as the material fits: "TEST PRINT" in the base size ran off a
+    // 23 mm label. A small label takes the band a size down and only as high
+    // as its line, so a spool URL's code still fits under it.
+    static const lv_font_t* const band_fonts[] = { LR_BAND_FONT, &lv_font_montserrat_ext_20, &lv_font_montserrat_ext_16 };
+    const lv_coord_t text_w = a.w - 2 * dots(LR_GAP_PX);
+    const lv_font_t* f = tall ? &lv_font_montserrat_ext_28
+                       : a.small ? fitFont(d.material, text_w, band_fonts + 1, 2)
+                                 : fitFont(d.material, text_w, band_fonts, 3);
+    const lv_coord_t band_h = tall ? dots(LR_BAND_H_TALL_PX)
+                            : a.small ? (lv_coord_t)(lineHeight(f) + dots(LR_GAP_PX))
+                                      : dots(LR_BAND_H_PX);
     // Plain: the same line in black on white, for a roll that smears a band.
     const bool plain = labelLayoutOption(layout, LO_MATERIAL_PLAIN);
     if (!plain) fillRect(canvas, a.x, y, a.w, band_h, black);
-    const lv_font_t* f = tall ? &lv_font_montserrat_ext_28 : LR_BAND_FONT;
     const lv_coord_t ty = y + (band_h - lineHeight(f)) / 2;
     // White on black is drawn heavier still: the black around it bleeds into
     // the strokes on a thermal head, and the base size's 22 px came out thin.
@@ -548,13 +559,14 @@ static bool renderLabel(const LabelPrinterConfig& printer, const LabelLayout& la
   lv_canvas_set_buffer(canvas, buf, cw, ch, LV_IMG_CF_TRUE_COLOR);
   lv_canvas_fill_bg(canvas, lv_color_white(), LV_OPA_COVER);
 
-  const lv_coord_t M = dots(LR_MARGIN_PX);
+  const bool small = labelMediaSmall(printer.media_width_mm, printer.media_length_mm);
+  const lv_coord_t M = dots(small ? LR_MARGIN_SMALL_PX : LR_MARGIN_PX);
   const uint8_t preset = layout.preset;
   const bool standard = preset == LABEL_PRESET_STANDARD;
   const lv_coord_t qr_max = labelPrinterDotsForMm(printer.model,
       preset == LABEL_PRESET_MATERIAL_BIG ? LR_QR_SMALL_MM : LR_QR_MAX_MM);
   LabelArea area{ M, M, (lv_coord_t)(cw - 2 * M), (lv_coord_t)(ch - M), qr_max, !standard,
-                  nullptr, !c.qr || !c.qr[0], nullptr };
+                  nullptr, !c.qr || !c.qr[0], nullptr, small };
   LabelContent body = c;
   lv_coord_t side_qr = 0;
   if (preset == LABEL_PRESET_BIG_QR) {
@@ -633,9 +645,9 @@ bool labelRenderCalibration(const LabelPrinterConfig& printer, LabelRaster* out)
   lv_canvas_fill_bg(canvas, lv_color_white(), LV_OPA_COVER);
   const lv_color_t black = lv_color_black();
 
-  int16_t lo;
-  labelPrinterOffsetRange(printer, &lo, nullptr);
-  const lv_coord_t centre = -lo;          // the label's first dot at offset 0
+  // The label's first dot at offset 0: the middle of the slack on a Phomemo,
+  // where brother_ql puts it on a QL.
+  const lv_coord_t centre = (lv_coord_t)labelPrinterContentX(printer) - labelPrinterOffset(printer);
   const lv_coord_t x = labelPrinterContentX(printer);
   const int16_t offset = labelPrinterOffset(printer);
 

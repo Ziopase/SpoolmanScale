@@ -294,6 +294,8 @@ uint16_t labelPrinterRasterWidth(LabelPrinterModel model, uint16_t media_width_m
   return width > p.max_raster_width ? p.max_raster_width : width;
 }
 
+#define LP_QL_OFFSET_MM 5   // how far a QL label may be moved either way
+
 // Every Phomemo head is at least as wide as its widest stock, so there this
 // is the plain conversion; a 50 mm roll on a 48 mm head prints 48 mm of it.
 uint16_t labelPrinterContentWidth(LabelPrinterModel model, uint16_t media_width_mm) {
@@ -314,8 +316,24 @@ uint16_t labelPrinterContentWidth(LabelPrinterModel model, uint16_t media_width_
 // the fixed wall of the roll holder (30.09.2026). Where the roll runs is how
 // it sits in the holder, not the model, so it is a setting of its own.
 void labelPrinterOffsetRange(const LabelPrinterConfig& c, int16_t* min, int16_t* max) {
-  // Nothing to move on a QL: the roll sits against its guide.
-  if (labelPrinterIsNetwork(c.model)) { if (min) *min = 0; if (max) *max = 0; return; }
+  // A QL roll sits against its guide, and brother_ql's table says where its
+  // labels fall in the row. The table is not the last word on every printer:
+  // DK-11221 came out 3 to 4 mm right of the label on a QL-700 (Ziopase,
+  // 30.10.2026). So a few millimetres either way, as far as the row goes.
+  if (labelPrinterIsNetwork(c.model)) {
+    const BrotherQlMedia* m = brotherQlMedia((uint8_t)c.media_width_mm, (uint8_t)c.media_length_mm);
+    int16_t lo = 0, hi = 0;
+    if (m) {
+      const int16_t base = (int16_t)brotherQlContentX(*m);
+      const int16_t right = (int16_t)(BQL_ROW_DOTS - m->printable_w - base);
+      const int16_t room = (int16_t)labelPrinterDotsForMm(c.model, LP_QL_OFFSET_MM);
+      lo = -(base < room ? base : room);
+      hi = right < room ? right : room;
+    }
+    if (min) *min = lo;
+    if (max) *max = hi;
+    return;
+  }
   const uint16_t row = labelPrinterRasterWidth(c.model, c.media_width_mm);
   const uint16_t content = labelPrinterContentWidth(c.model, c.media_width_mm);
   const int16_t slack = content < row ? int16_t(row - content) : 0;
@@ -333,7 +351,7 @@ int16_t labelPrinterOffset(const LabelPrinterConfig& c) {
 uint16_t labelPrinterContentX(const LabelPrinterConfig& c) {
   if (labelPrinterIsNetwork(c.model)) {
     const BrotherQlMedia* m = brotherQlMedia((uint8_t)c.media_width_mm, (uint8_t)c.media_length_mm);
-    return m ? brotherQlContentX(*m) : 0;
+    return m ? uint16_t(brotherQlContentX(*m) + labelPrinterOffset(c)) : 0;
   }
   int16_t lo;
   labelPrinterOffsetRange(c, &lo, nullptr);
