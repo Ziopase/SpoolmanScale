@@ -610,7 +610,9 @@ bool labelRenderTest(const LabelPrinterConfig& printer, LabelRaster* out) {
   // the template. Narrowed to the roll like every label; a small one keeps
   // only the band and the code.
   const bool small = labelMediaSmall(printer.media_width_mm, printer.media_length_mm);
-  const LabelContent c{ &d, lines, small ? 0 : 1, true, "https://" DONATION_URL, "test" };
+  // No paragraph on a small one: a wrapped one is sized for four rows even
+  // when it is empty, and those took the code's room (qr=0 on 23 x 23).
+  const LabelContent c{ &d, lines, small ? 0 : 1, !small, "https://" DONATION_URL, "test" };
   return renderLabel(printer,
                      labelLayoutForMedia(labelLayoutDefault(), printer.media_width_mm,
                                          printer.media_length_mm), c, out);
