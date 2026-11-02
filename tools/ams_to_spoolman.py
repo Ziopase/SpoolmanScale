@@ -103,6 +103,11 @@ def trays_from_ha(ha, token):
         a = s.get("attributes") or {}
         if "tray_uuid" not in a or not s["entity_id"].startswith("sensor."):
             continue
+        # The "active tray" sensor mirrors whichever tray is printing: the
+        # same spool a second time, under an entity SpoolmanSync assigns nothing to.
+        label = (a.get("friendly_name") or "").lower()
+        if "active_tray" in s["entity_id"] or "active tray" in label or "piatto attivo" in label:
+            continue
         out.append({
             "entity_id": s["entity_id"],
             "label": a.get("friendly_name") or s["entity_id"],
