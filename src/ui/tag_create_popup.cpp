@@ -10,6 +10,7 @@
 // backend_api.h brings ArduinoJson, whose templates have a parameter T:
 // before lang.h, which defines T().
 #include "services/backend_api.h"
+#include "services/backend.h"
 #include "ui/spoolman_lookup.h"
 #include "app/app_state.h"
 #include "app/backend_switch.h"
@@ -469,6 +470,16 @@ static void runCreate() {
   char buf[96];
   if ((code == 200 || code == 201) && r.spool_id > 0) {
     spoolCacheForget("spool created from a tag");
+    // Not weighed: the box was still sealed, so the spool goes to stock.
+    // The spool exists already; a location that does not stick is only
+    // logged, the create itself has worked.
+    if (SEALED_SPOOL_LOCATION[0] &&
+        (start.verdict == START_NOT_WEIGHED || start.verdict == START_OVER)) {
+      const int lc = backendPatchSpoolLocation(backendBaseUrl(), r.spool_id,
+                                               SEALED_SPOOL_LOCATION, 8000);
+      logSDf("TagCreate: sealed spool %d -> location '%s', HTTP %d",
+             r.spool_id, SEALED_SPOOL_LOCATION, lc);
+    }
     char link_id[sizeof(s_in.link_id)];
     memcpy(link_id, s_in.link_id, sizeof(link_id));
     const bool with_filament = r.filament_id > 0;

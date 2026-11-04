@@ -151,6 +151,10 @@
 #define START_FULL_TOL_MIN_G       15.0f
 #define START_TARE_DEFAULT_SLACK_G 10.0f
 #define START_MIN_NET_G            20.0f
+// A spool created from its tag without being weighed - a sealed box on the
+// pad, or nothing at all - is new stock: it gets this location in the
+// backend, so it stands apart from the open ones. "" turns it off.
+#define SEALED_SPOOL_LOCATION      "Scorta"
 
 // Creating a spool straight from a Bambu tag. The tag carries material,
 // brand, colour and temperatures, but no weights at all - a Bambu Lab core
