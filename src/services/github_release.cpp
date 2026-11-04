@@ -13,7 +13,10 @@
 #include "hardware/sd_logger.h"
 #include "services/ota_state.h"
 
-#define GH_REPO "Niko11111/SpoolmanScale"
+// This fork checks its own releases, not the original project's: an update
+// from there would replace the Italian text and the QL roll support with the
+// upstream build. The fork publishes no releases, so the check finds none.
+#define GH_REPO "Ziopase/SpoolmanScale"
 // The release asset the device flashes, see githubFlashTag().
 #define GH_IMAGE_ASSET "SpoolmanScale.bin"
 
