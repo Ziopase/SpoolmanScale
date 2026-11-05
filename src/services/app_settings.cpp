@@ -71,6 +71,13 @@ void loadPrefs() {
   displaySetUiGain((uint16_t)prefsGetUInt("ui_gain", 100));
   int dim_min = prefsGetUInt("dim_min", DIM_TIMEOUT_DEFAULT / 60000);
   int off_min = prefsGetUInt("off_min", OFF_TIMEOUT_DEFAULT / 60000);
+  // Once per device: a standby chosen under the old 20 min default is set to
+  // never, so the scale stays on the network. A choice made after this
+  // stands; the marker keeps it from being undone on the next boot.
+  if (prefsGetUInt("sleep_mig", 0) == 0) {
+    prefsPutUInt("sleep_min", SLEEP_TIMEOUT_DEFAULT / 60000);
+    prefsPutUInt("sleep_mig", 1);
+  }
   int sleep_min = prefsGetUInt("sleep_min", SLEEP_TIMEOUT_DEFAULT / 60000);
   dim_timeout_ms = dim_min * 60000;
   off_timeout_ms = off_min * 60000;

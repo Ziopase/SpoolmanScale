@@ -14,7 +14,9 @@
 #define BRIGHT_MAX               255
 #define BRIGHT_NORMAL_DEFAULT    255
 #define DIM_TIMEOUT_DEFAULT   300000
-#define SLEEP_TIMEOUT_DEFAULT 1200000
+// 0: never sleep. The fork runs on mains power and must stay reachable over
+// Wi-Fi; deep sleep can only be left by touching the screen.
+#define SLEEP_TIMEOUT_DEFAULT 0
 #define OFF_TIMEOUT_DEFAULT        0   // 0 = stage skipped
 
 // Main screen zone 4: the fill of the remaining-filament bar is written from
