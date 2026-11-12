@@ -13,6 +13,7 @@
 #include "services/dried_migrate.h"
 #include "services/drying_sync.h"
 #include "services/backend_http.h"
+#include "services/spoolman_discover.h"
 #include "app/app_boot.h"
 #include "app/app_state.h"
 #include "app/backend_switch.h"
@@ -472,6 +473,43 @@ static void amsMainAssignRun() {
   if (!amsCommitWithWindow()) {
     showInfoPopup(STR_AMSV_TITLE, STR_AMSV_ASSIGN_FAIL, INFO_WARN);
   }
+}
+
+
+// ---------------------------------------------------------------------------
+// Spoolman lost: the server got a new address (DHCP). After two failed health
+// checks the /24 is scanned for Spoolman on the same port, in a task of its
+// own; exactly one answer is taken as the new address. Spoolman mode only, an
+// address typed as a name or https is left alone. Once every 10 minutes.
+// ---------------------------------------------------------------------------
+static volatile bool s_disc_running = false;
+static volatile int s_disc_n = -1;
+static char s_disc_host[24];
+static uint16_t s_disc_port = 7912;
+
+static void discoverTask(void*) {
+  SmFound f[SM_DISCOVER_MAX];
+  const int n = spoolmanDiscover(s_disc_port, f, SM_DISCOVER_MAX);
+  if (n == 1) snprintf(s_disc_host, sizeof(s_disc_host), "%s", f[0].host);
+  s_disc_n = n;
+  s_disc_running = false;
+  vTaskDelete(nullptr);
+}
+
+static bool discoverStart() {
+  const char* h = backendHost();
+  if (backendMode() != BACKEND_SPOOLMAN || !h[0] || h[0] < '0' || h[0] > '9') return false;
+  const char* c = strchr(h, ':');
+  s_disc_port = c ? (uint16_t)atoi(c + 1) : 7912;
+  if (!s_disc_port) s_disc_port = 7912;
+  s_disc_n = -1;
+  s_disc_running = true;
+  if (xTaskCreatePinnedToCore(discoverTask, "smfind", 6144, nullptr, 1, nullptr, 0) != pdPASS) {
+    s_disc_running = false;
+    return false;
+  }
+  logSDf("Spoolman: not reachable at %s, searching the network (port %u)", h, s_disc_port);
+  return true;
 }
 
 void appLoop() {
@@ -1662,11 +1700,30 @@ void appLoop() {
   perfSection("netsvc");
   if (wifi_ok) {
     static unsigned long last_sm_check_ms = 0;
+    static int sm_fails = 0;
+    static unsigned long last_disc_ms = 0;
+    static bool disc_done_once = false;
+    if (s_disc_n >= 0) {                    // the search has finished
+      const int n = s_disc_n;
+      s_disc_n = -1;
+      if (n == 1 && strcmp(s_disc_host, backendHost()) != 0) {
+        logSDf("Spoolman: found at %s, address updated (was %s)", s_disc_host, backendHost());
+        backendSetHost(s_disc_host);
+        sm_fails = 0;
+        last_sm_check_ms = 0;               // check the new address right away
+      } else {
+        logSDf("Spoolman: search found %d server(s)%s", n, n > 1 ? ", choose one in the settings" : "");
+      }
+    }
     if (millis() - last_sm_check_ms >= 30000 && !isSpoolFlowIdInputOpen()) {
       last_sm_check_ms = millis();
       int code = backendGetHealthCode(backendBaseUrl(), 3000);
       bool was_reachable = sm_reachable;
       sm_reachable = (code == 200);
+      sm_fails = sm_reachable ? 0 : sm_fails + 1;
+      if (sm_fails >= 2 && !s_disc_running && (!disc_done_once || millis() - last_disc_ms >= 600000UL)) {
+        if (discoverStart()) { last_disc_ms = millis(); disc_done_once = true; }
+      }
       if (sm_reachable != was_reachable) updateHeaderStatus();
       if (sm_reachable && !was_reachable) serverReachRestored();
       // Someone can switch BamBuddy's filament manager while the scale is
