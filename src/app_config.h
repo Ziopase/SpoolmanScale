@@ -156,7 +156,7 @@
 // A spool created from its tag without being weighed - a sealed box on the
 // pad, or nothing at all - is new stock: it gets this location in the
 // backend, so it stands apart from the open ones. "" turns it off.
-#define SEALED_SPOOL_LOCATION      "Scorta"
+#define SEALED_SPOOL_LOCATION      "Magazzino"
 
 // Creating a spool straight from a Bambu tag. The tag carries material,
 // brand, colour and temperatures, but no weights at all - a Bambu Lab core
